@@ -307,7 +307,7 @@ git branch -d feature/new-login
 - **브랜치를 자주 push**해서 백업하세요
 
 ### 실습: Branch 사용해보기
-지금 우리는 `feature/git-tutorial` 브랜치에 있어요!
-이 브랜치에서만 존재하는 변경사항을 만들어볼게요.
+지금 우리는 `feature/add-more-examples` 브랜치에 있어요!
+이 브랜치에서 새로운 브랜치 관리 예제를 추가해볼게요.
 
 ## GitHub 관련 추가 명령어
