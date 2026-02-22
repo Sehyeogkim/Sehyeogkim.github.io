@@ -222,6 +222,11 @@ git pull origin main    # 최신 코드 가져오기
 git checkout -b feature/my-new-feature
 ```
 
+### ✨ 실전 예시: 방금 만든 브랜치에서 작업하기
+
+지금 우리는 `feature/add-more-examples` 브랜치에 있어요!
+이 브랜치에서 새로운 예제를 추가해볼게요.
+
 ### 실전 예시: 로그인 기능 개발
 
 ```bash
