@@ -95,11 +95,97 @@ git reset HEAD 파일명   # staging 취소
 - `git add .` 전에 `git status`로 어떤 파일들이 변경되었는지 확인하세요
 - push 전에 pull로 최신 상태인지 확인하세요
 
-## GitHub 관련 추가 명령어
+## Git Branch 개념 이해하기
 
-### 브랜치 작업
-```bash
-git branch          # 브랜치 목록
-git checkout -b 새브랜치  # 새 브랜치 생성
-git merge 브랜치명      # 브랜치 병합
+### Branch란 무엇인가?
+
+**Branch = 독립적인 개발 라인**
+
+💡 **중요**: Branch는 파일 시스템의 폴더/디렉토리와 **완전히 다릅니다**!
+
+#### Branch의 특징:
+- 같은 프로젝트에서 **여러 버전**을 동시에 개발할 수 있음
+- 각 branch는 독립적으로 커밋할 수 있음
+- 나중에 branch들을 합칠 수 있음 (merge)
+
+#### Branch 예시:
 ```
+프로젝트: 쇼핑몰 웹사이트
+
+main 브랜치 (메인 개발)
+├── 기능 A 개발 완료
+├── 기능 B 개발 중
+└── 버그 수정
+
+feature/login 브랜치 (로그인 기능 개발용)
+├── 로그인 폼 UI
+├── 로그인 API 연동
+└── 회원가입 기능
+
+hotfix/payment 브랜치 (결제 버그 긴급 수정용)
+└── 결제 오류 수정
+```
+
+### Branch 사용 이유:
+1. **안전한 개발**: 메인 코드를 망가뜨리지 않고 새 기능 개발
+2. **협업**: 여러 사람이 동시에 다른 기능 작업
+3. **실험**: 새로운 아이디어 테스트
+4. **버전 관리**: 버그 수정과 신규 개발 분리
+
+### Branch 명령어들:
+
+#### 기본 명령어
+```bash
+git branch              # 모든 브랜치 목록 보기
+git branch 브랜치이름    # 새 브랜치 생성
+git checkout 브랜치이름  # 브랜치로 이동
+git checkout -b 새브랜치 # 새 브랜치 생성 + 이동
+```
+
+#### 브랜치 관리
+```bash
+git merge 브랜치명      # 다른 브랜치를 현재 브랜치로 합치기
+git branch -d 브랜치명   # 브랜치 삭제
+git branch -m 새이름     # 브랜치 이름 변경
+```
+
+#### 실무에서 자주 쓰는 패턴:
+```bash
+# 1. 새 기능 개발용 브랜치 만들기
+git checkout -b feature/new-login
+
+# 2. 기능 개발 (여러 번 커밋)
+git add .
+git commit -m "Add login form"
+git commit -m "Add validation"
+
+# 3. 메인 브랜치로 돌아가기
+git checkout main
+
+# 4. 최신 코드 가져오기
+git pull origin main
+
+# 5. 기능 브랜치 합치기
+git merge feature/new-login
+
+# 6. 합친 브랜치 삭제
+git branch -d feature/new-login
+```
+
+### Branch 이름 짓기 관례:
+- `main` 또는 `master`: 메인 브랜치
+- `feature/기능이름`: 새 기능 개발
+- `bugfix/버그이름`: 버그 수정
+- `hotfix/긴급수정`: 긴급 수정
+- `release/v1.2`: 버전 릴리즈
+
+### 주의사항:
+- **항상 main 브랜치를 깨끗하게 유지**하세요
+- **작은 단위로 커밋**하세요
+- **브랜치를 자주 push**해서 백업하세요
+
+### 실습: Branch 사용해보기
+지금 우리는 `feature/git-tutorial` 브랜치에 있어요!
+이 브랜치에서만 존재하는 변경사항을 만들어볼게요.
+
+## GitHub 관련 추가 명령어
