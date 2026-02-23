@@ -22,3 +22,5 @@ Larget two topic: Theory and Applications.
         - chatgpt, claude, gemini, etc.
     2d. Integrated Development Environment(IDE)
         - Cursor, VS code, anti-gravity, etc.
+        
+3. Google ADK (build my own agentic AI)

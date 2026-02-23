@@ -1,27 +1,90 @@
-# Repository Guidelines
+# AGENTS: Project Operating Guide
 
-## Project Structure & Module Organization
-- Root-level Markdown (`README.md`, `blog-test.md`, `git-*.md`) holds personal notes and guidance; treat them as reference artifacts, not generated output.
-- The `blog/` directory is the active content area for any site-related writing; keep posts or pages inside as plain Markdown and honor the folder naming for any future static-site tooling.
-- Keep ad-hoc documents (e.g., `git-branch.md`, `git-commands.md`) focused on their stated topic so contributors know where to look for workflow reminders.
+## Mission
+- Primary goal: build a structured blog series about Agentic AI and commit progress to GitHub continuously.
+- The blog must capture both process and knowledge, not just final conclusions.
+- Every major post should include practical artifacts: command snippets, code blocks, and images (PNG or screenshots).
 
-## Build, Test, and Development Commands
-- No automated build or test system exists yet—content changes are tracked directly in Markdown.
-- Use `git status`, `git add <file>`, and `git commit` to stage updates, then `git push` to share with collaborators.
-- For quick previews, open the Markdown in your editor or run `npx serve blog` (or another simple static server) and navigate to `http://localhost:5000` after installing `serve` globally.
+## Content Roadmap (from `plan.txt`)
+- Large Topic 1: `Theory`
+- Large Topic 2: `Applications`
 
-## Coding Style & Naming Conventions
-- Markdown files should stay lightweight: use `##`, `###` for nested sections, short paragraphs, and bullet lists where clarity demands it.
-- Prefer descriptive filenames that mirror the subject (e.g., `git-commands.md` for Git tips); avoid spaces and rely on kebab-case for future consistency.
-- Maintain single-space indentation in fenced code blocks and consistent heading capitalization for readability.
+### Theory
+- `1a`: Definition of Agentic AI, with explicit comparison against Generative AI and LLMs.
+- `1b`: Structure of Agentic AI:
+  - LLM
+  - Memory
+  - Tools
+  - Skills
+  - MCP
+  - Subagents
 
-## Testing Guidelines
-- There are no automated tests; manual review is sufficient. Re-read any updated document for typos and structural consistency before committing.
-- If future tooling arrives, document the entry point and expected assertions here before adding scripts.
+### Applications
+- `2a` Command Line Interface (CLI):
+  - Codex
+  - Claude Code
+  - Gemini
+- `2b` Desktop:
+  - Codex
+  - Claude Code (+ Cowork)
+- `2c` Web Application:
+  - ChatGPT
+  - Claude
+  - Gemini
+- `2d` Integrated Development Environment (IDE):
+  - Cursor
+  - VS Code
+  - Anti-gravity
 
-## Commit & Pull Request Guidelines
-- Commit messages should follow `<area>: <short summary>` (e.g., `docs: clarify blog organization`).
-- PRs should include a brief description of changes, linked issues or goals if relevant, and mention what was verified manually.
+## Repository Structure
+- Root-level Markdown (`README.md`, `git-*.md`, `plan.txt`) is reference and planning material.
+- `blog/` is the publishing directory for all blog posts.
+- Suggested media location: `blog/images/` for screenshots and PNG diagrams used by posts.
 
-## Security & Configuration Tips
-- Avoid checking secrets into Markdown; if configuration becomes necessary, add a template (e.g., `config.example.md`) and ignore the real file via `.gitignore`.
+## Post Template Requirements
+- Use `##` and `###` headings for clear sectioning.
+- Keep paragraphs short and practical.
+- Include these sections when relevant:
+  - Goal/Problem
+  - Definition or Concept
+  - Comparison table
+  - Architecture or process diagram (image)
+  - Commands used
+  - Code snippets
+  - Key takeaway
+- Include at least one concrete example per post.
+
+## File Naming Rules
+- Use kebab-case file names.
+- Keep names descriptive and topic-aligned.
+- Preferred style:
+  - `theory-definition-agentic-ai.md`
+  - `theory-structure-agentic-ai.md`
+  - `applications-cli-agentic-tools.md`
+
+## Build, Preview, and Review
+- There is no automated build/test yet.
+- Manual review is required before commit:
+  - spelling and grammar
+  - heading consistency
+  - code block formatting
+  - image links resolve correctly
+- Optional local preview:
+  - `npx serve blog`
+  - open `http://localhost:5000`
+
+## Git Workflow
+- Use small, incremental commits after each meaningful content unit.
+- Standard flow:
+  - `git status`
+  - `git add <file>`
+  - `git commit -m "docs: <short summary>"`
+  - `git push`
+- Commit message format:
+  - `<area>: <short summary>`
+  - Example: `docs: add theory definition of agentic ai`
+
+## Security and Hygiene
+- Do not include secrets or tokens in Markdown.
+- If config examples are needed, use template files and keep real values out of git.
+- Keep planning docs (`plan.txt`) updated as roadmap changes.
