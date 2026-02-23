@@ -1,7 +1,9 @@
 ---
+layout: post
 title: "Agentic AI 구조 part1"
 date: 2026-02-23
-tags: [AgenticAI, AI-Agent, Architecture, GoogleCloud, Planning, Tools]
+author: Jeff
+categories: [theory, agentic-ai]
 ---
 
 # Agentic AI 구조 part
