@@ -33,7 +33,7 @@ Google Cloud 문서에서 정의한, 에이전트 시스템 요소들.
 
 여기서 오늘의 주제는 이 중에서도 framework에 대해서 이야기 해보자.
 
-![Agentic AI 아키텍처](images2/agentic_ai_architecture.png)
+![Agentic AI 아키텍처](images2/agentic_ai_structure.png)
 
 
 ## 1) Frontend framework: 사용자가 에이전트를 ‘쓸 수 있게 만드는 층’
