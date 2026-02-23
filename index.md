@@ -4,9 +4,22 @@ title: Home
 ---
 
 ## Agentic AI Blog
+jeff's personal brain database.
 
-This site documents theory and practical workflows for agentic AI.
 
 ### Current Track
-- Theory
-- Applications
+- AI
+    - Agentic AI
+    - Physical AI
+
+- Mechanical Engineering
+    - Robotics
+    - Control Systems
+    - Mechatronics
+    - Sensors
+    - Actuators
+    - Machine Learning
+    - Deep Learning
+    - Computer Vision
+    - Natural Language Processing
+    - Robotics

@@ -1,4 +1,4 @@
-# AGENTS: Project Operating Guide
+# AGENTS: Project Operating Guide CODEX.
 
 ## Mission
 - Primary goal: build a structured blog series about Agentic AI and commit progress to GitHub continuously.
