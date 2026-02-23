@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "이론 1A: Agentic AI의 정의"
+title: "Agentic AI의 정의"
 date: 2026-02-23
 author: Jeff
 categories: [theory, agentic-ai]
