@@ -1,5 +1,5 @@
 data 20260223 jeff
-
+(plan only for the Agentic AI.)
 so currently my goal is to write down the blogs and commit to the github repository.
 (note the picuture should be appended inside the blog appropriately, it could be screeshor or png file.
 also there are bunch of commands and codes to append)

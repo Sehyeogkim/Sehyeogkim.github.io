@@ -1,24 +1,14 @@
 ---
 layout: post
-title: "Agentic AI 구조 part1"
+title: "Agentic AI 구조 part2 - framework"
 date: 2026-02-23
 author: Jeff
 categories: [theory, agentic-ai]
 ---
 
-# Agentic AI 구조 part
 
 Agentic AI를 한 문장으로 정리하면, **사용자 의도를 이해하고 → 여러 단계 계획을 세우고 → 도구를 호출해 실행까지 끝내는** 자율 시스템이다.
 단순히 “답변을 생성하는 모델”이 아니라, **계획(Planning)** 과 **도구(Tools)** 를 통해 실제 업무를 완료하도록 설계된 아키텍처인 것.
-
-이번 포스터에서는 Google Cloud의 가이드 문서를 기반으로, Agentic AI 시스템을 구성할 때 어떤 컴포넌트가 필요한지, 
-총 2가지 part 중, 첫번째 part에 대해서 알아보자.(너무 많은 요소들이 있어서 나누어서 설명하고 자함.)
-출처: Google Cloud “Choose your agentic AI architecture components”.  
-
-
-
-
-
 
 ---
 
@@ -28,14 +18,14 @@ Google Cloud 문서에서 정의한, 에이전트 시스템 요소들.
 
 - **Frontend framework**: 사용자가 대화/작업을 요청하는 UI
 - **Agent development framework**: 에이전트 로직(루프, 상태, 도구 연결)을 만드는 프레임워크
-- **Agent tools**: 검색, DB, 사내 API 등 “행동”을 수행하는 도구 묶음
-- **Agent memory**: 대화/세션 상태와 장기 기억 저장
-- **Agent design patterns**: 싱글 에이전트 vs 멀티 에이전트 등 구조 패턴
-- **Agent runtime**: 에이전트 애플리케이션이 실제로 돌아가는 실행 환경
-- **AI models**: 추론/의사결정 엔진(LLM 등)
-- **Model runtime**: 모델을 서빙하는 인프라(관리형 API/컨테이너/GKE 등)
+- Agent tools: 검색, DB, 사내 API 등 “행동”을 수행하는 도구 묶음
+- Agent memory: 대화/세션 상태와 장기 기억 저장
+- Agent design patterns: 싱글 에이전트 vs 멀티 에이전트 등 구조 패턴
+- Agent runtime: 에이전트 애플리케이션이 실제로 돌아가는 실행 환경
+- AI models: 추론/의사결정 엔진(LLM 등)
+- Model runtime: 모델을 서빙하는 인프라(관리형 API/컨테이너/GKE 등)
 
-여기서 오늘의 주제는 이 중에서도 framework에 대해서 이야기 해보자.
+여기서 오늘의 주제는 이 중에서도 frameworks에 대해서 이야기 해보자.
 
 ![Agentic AI 아키텍처](images2/agentic_ai_structure.svg)
 
@@ -99,4 +89,9 @@ AG-UI를 쉽게 풀면, 이런 기능을 위한 “약속(프로토콜)”이다
 
 Langchain은 에이전트 개발을 위한 오픈소스 프레임워크로, 다양한 도구와 라이브러리를 통합해서 에이전트 개발을 용이하게 해준다.
 
-## 4) Agent tools: 실제 일을 수행하는 도구들
+Langchain은 LLM, 메모리, 도구를 연결하는 **체인(chains)**과 복잡한 작업을 자동화하는 **에이전트(agent)** 추상화를 제공하며,
+특정 목적에 맞춰 프롬프트 템플릿과 도구를 조합하는 워크플로우를 빠르게 구축할 수 있다.
+또한 벡터 검색, 데이터베이스, 브라우저, 코드 실행기 등 외부 서비스를 연결할 수 있는 **커넥터**와,
+대화 세션을 관리하는 **메모리 저장소**(예: `ConversationChain`, `ConversationBufferMemory`)를 쉽게 추가할 수 있어,
+에이전트에게 과거 대화를 기억시키거나 사용자별 상태를 유지시키는 것도 간단하다.
+(이후에 langchain 을 따로 post할 예정.)
