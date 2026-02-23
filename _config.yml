@@ -1,0 +1,9 @@
+title: Sehyeog Kim Blog
+description: Notes on agentic AI theory and applications
+url: "https://sehyeogkim.github.io"
+baseurl: ""
+markdown: kramdown
+theme: minima
+plugins:
+  - jekyll-feed
+permalink: /posts/:year/:month/:day/:title/
