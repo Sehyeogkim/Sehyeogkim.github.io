@@ -19,13 +19,13 @@ AI 라는 단어를 하루에 몇번을 듣는 건지, 새로운 기술들은 �
 ## What is LLM
 가장 빨리 발전하여 모든 인간에게 충격을 주었던, LLM(Large language model)은 아주 빠르게 발전을 하고 있고, 아래 사진의 여러 회사들이 경쟁중에 있다. 여기서 핵심은 response가 바로 자연어라는 점이다. 즉, 어떠한 ‘행동’을 하지 못하는 그냥 뇌와 같은 존재.
 
-![LLM 경쟁 현황](images/figure1.png)
+![LLM 경쟁 현황](/blog/images/figure1.png)
 
 이 ‘뇌’가 실제로 일을 하도록, 검색을 하고, 파일을 읽고, 코드를 실행하고, 일정과 이메일을 다루고, 필요한 도구를 호출해 환경과 상호작용하게 만드는 시스템—바로 Agentic AI(에이전틱 AI) 이다.
 
 ## CES 2025 key note (feat 젠슨황)
 젠슨 황이 제시한 큰 흐름은 “AI가 점점 더 **세상을 이해하고**, **콘텐츠를 만들고**, **일을 스스로 수행하고**, 마지막엔 **현실 세계에서 행동**하는 방향으로 진화한다”는 이야기입니다.
-![젠슨 황 CES 2025 키노트](images/figure2.png)
+![젠슨 황 CES 2025 키노트](/blog/images/figure2.png)
 
 - **Perception AI**: 세상을 “읽는” 단계
 - **Generative AI**: 읽은 정보를 바탕으로 “만드는” 단계
@@ -83,7 +83,7 @@ Generative AI는 우리가 가장 익숙한 형태의 AI이다. 바로 우리가
 ## Physical AI: “현실에서 움직이는 AI”
 
 그 다음 단계인, Physical AI는 로봇, 자율주행, 드론처럼 **물리 세계에서 실제로 행동**하는 AI. Agentic AI가 디지털 도구(API, 브라우저, 파일)를 다룬다면, Physical AI는 **모터/로봇 팔/차량 제어**로 현실에 영향을 준다. 아직 이 단계를 완벽히 구현하지 못하는 이유는, 물리 세계에서의 행동은 난이도가 훨씬 높습니다.
-![Physical AI 개념도](images/figure3.png)
+![Physical AI 개념도](/blog/images/figure3.png)
 
 1. **실패 비용이 큼**: 사람 안전, 물건 파손, 사고 위험
 2. **변수가 많음**: 마찰/무게/가림/센서 노이즈 등 현실은 예측이 어려움
@@ -99,7 +99,7 @@ Generative AI는 우리가 가장 익숙한 형태의 AI이다. 바로 우리가
 - **Physical AI**는 현실에서 “움직여서 바꾼다”.
 
 ## AGI
-![AGI 개념도](images/figure4.png)
+![AGI 개념도](/blog/images/figure4.png)
 - **Artificial General Intelligence**: 사람처럼 **다양한 영역에서 새로운 문제를 스스로 학습하고 해결**할 수 있는 “범용 지능”을 뜻합니다. 즉, 지금까지는 문제 자체를 user가 정의해서 넘겨주었다면, 이제 문제를 발견 하고 해결하는 모든 과정을 aI가 주도적으로 하는 단계이다.
 - 핵심은 단순 생성이 아니라:
     - 폭넓은 일반화(새로운 도메인 적응)
@@ -108,12 +108,12 @@ Generative AI는 우리가 가장 익숙한 형태의 AI이다. 바로 우리가
     - 스스로 능력을 확장하는 문제 해결
   
 ## Structure of AGI
-![Agentic AI 구조도](images/figure5.svg)
+![Agentic AI 구조도](/blog/images/figure5.svg)
 구글에서 제공하는 agentic ai의 설계구조도면은 위와 같다. user아 agent에게 어떠한 요청을 하게 되면, agent는 자신이 가지고 있는 Tools, memory를 바탕으로 그 문제를 해결하고, 해결하는 사고 과정으로 (AI model, LLM)을 사용한다.
 
 ## example of linked in.
 마지막으로 한가지 예시를 들면서 전체적으로 agentic ai가 어떠한 흐름으로 흐르는 지를 살펴보자.
-![LinkedIn Hiring Assistant 예시](images/figure6.png)
+![LinkedIn Hiring Assistant 예시](/blog/images/figure6.png)
 
 LinkedIn의 **Hiring Assistant**는 채용 담당자(recruiter)의 업무를 자동화하고 보조하기 위해 설계된 **에이전트형 AI(Agentic AI)** 입니다. 단순히 질문에 답하는 챗봇이 아니라, 채용 프로세스에서 반복적으로 발생하는 작업들을 실제로 “처리”해주는 쪽에 가깝습니다.
 

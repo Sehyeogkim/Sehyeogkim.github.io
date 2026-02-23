@@ -7,3 +7,8 @@ theme: minima
 plugins:
   - jekyll-feed
 permalink: /posts/:year/:month/:day/:title/
+
+exclude:
+  - bin/
+  - AGENTS.md
+  - README.md

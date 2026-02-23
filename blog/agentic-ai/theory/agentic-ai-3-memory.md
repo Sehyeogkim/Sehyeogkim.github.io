@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Agentic AI 구조 part2 - memory"
+title: "Agentic AI - memory"
 date: 2026-02-23
 author: Jeff
 categories: [theory, agentic-ai]
@@ -28,7 +28,7 @@ Google Cloud 문서에서 정의한, 에이전트 시스템 요소들.
 
 여기서 오늘의 주제는 이 중에서도 tools와 memory에 대해서 이야기 해보자.
 
-![Agentic AI 아키텍처](images2/agentic_ai_structure.svg)
+![Agentic AI 아키텍처](/blog/images2/agentic_ai_structure.svg)
 
 
 

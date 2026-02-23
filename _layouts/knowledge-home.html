@@ -1,0 +1,107 @@
+---
+layout: default
+---
+
+<style>
+  .knowledge-shell {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .knowledge-sidebar {
+    position: sticky;
+    top: 1rem;
+    border: 1px solid #d5d7dc;
+    border-radius: 10px;
+    padding: 1rem;
+    background: #fafbfd;
+  }
+
+  .knowledge-sidebar h3 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+  }
+
+  .knowledge-sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+  }
+
+  .knowledge-sidebar li {
+    margin: 0.3rem 0;
+  }
+
+  .knowledge-group {
+    font-weight: 700;
+    margin-top: 0.8rem;
+  }
+
+  .knowledge-subgroup {
+    font-weight: 600;
+    margin-top: 0.45rem;
+    margin-left: 0.9rem;
+  }
+
+  .knowledge-post {
+    font-weight: 400;
+    margin-left: 1.6rem;
+  }
+
+  .knowledge-post a {
+    text-decoration: none;
+  }
+
+  .knowledge-post a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 900px) {
+    .knowledge-shell {
+      grid-template-columns: 1fr;
+    }
+
+    .knowledge-sidebar {
+      position: static;
+    }
+  }
+</style>
+
+{% assign agentic_theory_pages = site.pages | where_exp: "p", "p.path contains 'blog/agentic-ai/theory/' and p.name != 'index.md'" | sort: "title" %}
+{% assign agentic_app_pages = site.pages | where_exp: "p", "p.path contains 'blog/agentic-ai/applications/' and p.name != 'index.md'" | sort: "title" %}
+{% assign mech_fluid_pages = site.pages | where_exp: "p", "p.path contains 'blog/mechanics/fluid-mechanics/' and p.name != 'index.md'" | sort: "title" %}
+{% assign mech_solid_pages = site.pages | where_exp: "p", "p.path contains 'blog/mechanics/solid-mechanics/' and p.name != 'index.md'" | sort: "title" %}
+
+<div class="knowledge-shell">
+  <aside class="knowledge-sidebar">
+    <h3>Knowledge Map</h3>
+    <ul>
+      <li class="knowledge-group">Agentic AI</li>
+      <li class="knowledge-subgroup">Theory</li>
+      {% for p in agentic_theory_pages %}
+        <li class="knowledge-post"><a href="{{ p.url | relative_url }}">{{ p.title | default: p.name }}</a></li>
+      {% endfor %}
+      <li class="knowledge-subgroup">Applications</li>
+      {% for p in agentic_app_pages %}
+        <li class="knowledge-post"><a href="{{ p.url | relative_url }}">{{ p.title | default: p.name }}</a></li>
+      {% endfor %}
+
+      <li class="knowledge-group">Mechanics</li>
+      <li class="knowledge-subgroup">Fluid Mechanics</li>
+      {% for p in mech_fluid_pages %}
+        <li class="knowledge-post"><a href="{{ p.url | relative_url }}">{{ p.title | default: p.name }}</a></li>
+      {% endfor %}
+      <li class="knowledge-subgroup">Solid Mechanics</li>
+      {% for p in mech_solid_pages %}
+        <li class="knowledge-post"><a href="{{ p.url | relative_url }}">{{ p.title | default: p.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </aside>
+
+  <main>
+    {{ content }}
+  </main>
+</div>

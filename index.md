@@ -1,25 +1,15 @@
 ---
-layout: home
+layout: knowledge-home
 title: Home
 ---
 
-## Agentic AI Blog
-jeff's personal brain database.
+## Knowledge Base
+This page is the entry point for my learning roadmap.
 
+### Main Domains
+- Agentic AI
+- Mechanics
 
-### Current Track
-- AI
-    - Agentic AI
-    - Physical AI
-
-- Mechanical Engineering
-    - Robotics
-    - Control Systems
-    - Mechatronics
-    - Sensors
-    - Actuators
-    - Machine Learning
-    - Deep Learning
-    - Computer Vision
-    - Natural Language Processing
-    - Robotics
+### Notes
+- The left sidebar is the structured map.
+- I will keep adding posts by section and track.

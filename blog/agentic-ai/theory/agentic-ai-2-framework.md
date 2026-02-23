@@ -27,7 +27,7 @@ Google Cloud 문서에서 정의한, 에이전트 시스템 요소들은 다음�
 
 여기서 오늘의 주제는 이 중에서도 frameworks에 대해서 이야기 해보자.
 
-![Agentic AI 아키텍처](images2/agentic_ai_structure.svg)
+![Agentic AI 아키텍처](/blog/images2/agentic_ai_structure.svg)
 
 
 ## 1) Frontend framework: 사용자가 에이전트를 ‘쓸 수 있게 만드는 층’
@@ -41,13 +41,13 @@ Google Cloud 문서에서 정의한 **Frontend framework**는 “에이전트 �
 ---
 그렇다면, 사용되는 UI tool은 무엇인가.?
 
-![Gradio](images2/gradio.png)
+![Gradio](/blog/images2/gradio.png)
 agent와의 대화와 실행되는 action의 결과를 사용자가 실시간으로 빠르게 확인할 수 있어야 한다.
 따라서, 프로토타입/내부 데모용 UI는 보통 **Gradio, Mesop**처럼 “빨리 만들고 빨리 실험”하는 프레임워크를 쓴다. 
 구현 속도가 빠르고, 백엔드도 단순하게 붙일 수 있어서 request–response 구조만으로도 충분한 경우가 많다. 
 PoC, 연구 데모, 툴 연동 테스트에 특히 잘 맞는다.
 
-![Streamlit](images2/stream.png)
+![Streamlit](/blog/images2/stream.png)
 반대로 외부 사용자에게 제공하는 **프로덕션 UI**는 **Streamlit, React, Flutter AI Toolkit**처럼 제품 수준의 프레임워크가 더 적합하다. 
 이 경우 UI는 단순 입력/출력 창을 넘어서, **스트리밍 응답(토큰 단위 출력)**, 진행 상태 표시, 커스텀 컴포넌트, stateless API 설계, 세션/메모리의 외부화 같은 요구사항이 자연스럽게 따라온다. 
 즉, “UI 선택”이 곧 “백엔드 아키텍처 요구사항”을 결정한다.
@@ -62,7 +62,7 @@ AG-UI를 쉽게 풀면, 이런 기능을 위한 “약속(프로토콜)”이다
 - 앱의 **상태(state)를 언제 업데이트할지**
 - 필요한 경우 **클라이언트 측 액션을 언제 트리거할지**
 를 약속하는 것이다.
-![AG-UI](images2/AG_UI.png)
+![AG-UI](/blog/images2/AG_UI.png)
 
 ## 3) Agent development framework: 에이전트 로직을 만드는 ‘뼈대’
 
@@ -79,7 +79,7 @@ AG-UI를 쉽게 풀면, 이런 기능을 위한 “약속(프로토콜)”이다
 [Google ADK GitHub](https://google.github.io/adk-docs/)
 (위 링크에 접속하시면 더 자세하게 제작 방법을 확인 할 수 있습니다.)
 
-![googe_adk_yotube](images2/adk_youtube.png)
+![googe_adk_yotube](/blog/images2/adk_youtube.png)
 [Google Multi agent youtube](https://www.youtube.com/watch?v=pX0_iIfRilU)
 위와 같이 google cloud 공식 youtube채널을 통해서, 기본적인 개념과 사용방식을 알 수 도 있다.
 
@@ -87,7 +87,7 @@ AG-UI를 쉽게 풀면, 이런 기능을 위한 “약속(프로토콜)”이다
 
 또 다른 선택지로는 **Langchain**이 있다.
 
-![langchain_adk](images2/langchain.png)
+![langchain_adk](/blog/images2/langchain.png)
 
 Langchain은 LLM, 메모리, 도구를 연결하는 **체인(chains)**과 복잡한 작업을 자동화하는 **에이전트(agent)** 추상화를 제공하며,
 특정 목적에 맞춰 프롬프트 템플릿과 도구를 조합하는 워크플로우를 빠르게 구축할 수 있다.
