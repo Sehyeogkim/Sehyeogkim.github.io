@@ -14,7 +14,11 @@ Agentic AI를 한 문장으로 정리하면, **사용자 의도를 이해하고 
 이번 포스터에서는 Google Cloud의 가이드 문서를 기반으로, Agentic AI 시스템을 구성할 때 어떤 컴포넌트가 필요한지, 
 총 2가지 part 중, 첫번째 part에 대해서 알아보자.(너무 많은 요소들이 있어서 나누어서 설명하고 자함.)
 출처: Google Cloud “Choose your agentic AI architecture components”.  
-https://docs.cloud.google.com/architecture/choose-agentic-ai-architecture-components
+
+
+
+
+
 
 ---
 
