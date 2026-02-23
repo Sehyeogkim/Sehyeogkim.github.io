@@ -1,0 +1,24 @@
+data 20260223 jeff
+
+so currently my goal is to write down the blogs and commit to the github repository.
+(note the picuture should be appended inside the blog appropriately, it could be screeshor or png file.
+also there are bunch of commands and codes to append)
+
+anyway my goal is to write down the whole process and knowledges about agentic AI.
+so the framework and diagram that in my head is as follows:
+
+Larget two topic: Theory and Applications.
+
+1. Theory
+    1a. Defintion of Agentic AI (compare to the generateive ai and the LLM)
+    1b. Structure of Agentic AI
+        - LLM, Memory, Tool, skills, MCP, subagents, etc.
+2. Applications
+    2a. Command Line Interface(CLI)
+        - codex, claude code, gemini
+    2b. Desktop
+        - codex, claude code (& cowork)
+    2c. Web Application
+        - chatgpt, claude, gemini, etc.
+    2d. Integrated Development Environment(IDE)
+        - Cursor, VS code, anti-gravity, etc.
