@@ -1,6 +1,9 @@
 ---
 title: "CH5 Elasticity - part3 (BVP intro)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/202"
 source_id: "202"
 date: "2025-06-11T17:59:06+09:00"

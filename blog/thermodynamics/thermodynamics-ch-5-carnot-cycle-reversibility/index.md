@@ -1,6 +1,9 @@
 ---
 title: "[Thermodynamics] Ch 5. Carnot cycle - reversibility"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/66"
 source_id: "66"
 date: "2024-04-18T22:24:14+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "Ch3 Vorticity dynamics_part4_Non inertial rotating frame"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/116"
 source_id: "116"
 date: "2024-10-10T14:45:49+09:00"

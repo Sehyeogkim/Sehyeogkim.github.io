@@ -1,6 +1,9 @@
 ---
 title: "[Heat and Mass transfer] Ch 5. Transient Conduction - part 2"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/59"
 source_id: "59"
 date: "2024-04-13T15:23:12+09:00"

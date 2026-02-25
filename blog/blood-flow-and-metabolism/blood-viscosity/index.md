@@ -1,6 +1,9 @@
 ---
 title: "Blood Viscosity"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/85"
 source_id: "85"
 date: "2024-09-21T01:27:53+09:00"

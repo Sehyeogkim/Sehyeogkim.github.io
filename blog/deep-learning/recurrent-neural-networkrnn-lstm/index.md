@@ -1,6 +1,9 @@
 ---
 title: "Recurrent Neural Network(RNN) & LSTM"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/144"
 source_id: "144"
 date: "2024-12-11T17:32:44+09:00"

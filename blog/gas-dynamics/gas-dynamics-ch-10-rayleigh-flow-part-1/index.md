@@ -1,6 +1,9 @@
 ---
 title: "[Gas Dynamics] Ch 10 Rayleigh Flow - part 1"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/24"
 source_id: "24"
 date: "2024-03-27T21:42:15+09:00"

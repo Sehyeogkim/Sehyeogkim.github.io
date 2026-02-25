@@ -1,6 +1,9 @@
 ---
 title: "Ch4 Heat conduction - part4 (Implicit, Explicit)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/192"
 source_id: "192"
 date: "2025-05-03T08:46:26+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "Ch3 Vorticity dynamics_part3_Vorticity Equation(1)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/113"
 source_id: "113"
 date: "2024-10-09T10:05:26+09:00"

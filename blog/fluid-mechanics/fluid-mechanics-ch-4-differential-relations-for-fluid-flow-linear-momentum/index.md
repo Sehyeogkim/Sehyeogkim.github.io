@@ -1,6 +1,9 @@
 ---
 title: "[Fluid Mechanics] Ch 4. Differential Relations for fluid flow - Linear momentum"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/34"
 source_id: "34"
 date: "2024-03-30T15:49:43+09:00"

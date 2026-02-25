@@ -1,6 +1,9 @@
 ---
 title: "[Thermodynamics] Ch 1. Introduction"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/62"
 source_id: "62"
 date: "2024-04-18T11:49:22+09:00"

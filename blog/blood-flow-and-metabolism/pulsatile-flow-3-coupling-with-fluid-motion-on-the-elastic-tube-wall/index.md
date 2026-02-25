@@ -1,6 +1,9 @@
 ---
 title: "[Pulsatile flow] 3. Coupling with Fluid motion on the elastic tube wall"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/125"
 source_id: "125"
 date: "2024-11-17T17:02:30+09:00"

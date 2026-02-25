@@ -1,6 +1,9 @@
 ---
 title: "Ch3_2. Classification_Logistic Regression"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/98"
 source_id: "98"
 date: "2024-09-25T12:04:34+09:00"

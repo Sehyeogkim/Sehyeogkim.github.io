@@ -1,6 +1,9 @@
 ---
 title: "Ch3 Discretization method - part2 ( WRM, FVM)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/181"
 source_id: "181"
 date: "2025-04-14T23:55:25+09:00"

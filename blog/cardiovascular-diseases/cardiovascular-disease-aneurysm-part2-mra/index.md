@@ -1,6 +1,9 @@
 ---
 title: "[Cardiovascular disease] Aneurysm _ part2_MRA"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/94"
 source_id: "94"
 date: "2024-09-24T00:30:50+09:00"

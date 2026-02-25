@@ -1,6 +1,9 @@
 ---
 title: "[Cardiovascular disease] Aneurysm _ part3"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/90"
 source_id: "90"
 date: "2024-09-23T16:55:56+09:00"

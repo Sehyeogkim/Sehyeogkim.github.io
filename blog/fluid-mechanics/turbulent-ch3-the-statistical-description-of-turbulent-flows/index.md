@@ -1,6 +1,9 @@
 ---
 title: "[Turbulent] ch3 - The statistical description of turbulent flows"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/200"
 source_id: "200"
 date: "2025-05-07T12:54:31+09:00"

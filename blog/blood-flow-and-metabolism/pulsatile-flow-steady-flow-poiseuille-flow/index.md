@@ -1,6 +1,9 @@
 ---
 title: "[Pulsatile flow] Steady flow _Poiseuille flow"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/104"
 source_id: "104"
 date: "2024-09-29T16:47:02+09:00"

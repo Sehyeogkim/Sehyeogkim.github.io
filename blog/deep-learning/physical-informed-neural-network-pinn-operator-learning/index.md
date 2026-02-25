@@ -1,6 +1,9 @@
 ---
 title: "Physical Informed Neural Network (PINN) & Operator Learning"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/145"
 source_id: "145"
 date: "2024-12-11T18:56:24+09:00"

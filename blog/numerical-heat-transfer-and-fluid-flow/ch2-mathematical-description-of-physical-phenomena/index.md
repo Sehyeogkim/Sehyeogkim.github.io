@@ -1,6 +1,9 @@
 ---
 title: "Ch2 Mathematical description of Physical Phenomena"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/179"
 source_id: "179"
 date: "2025-04-14T21:58:43+09:00"

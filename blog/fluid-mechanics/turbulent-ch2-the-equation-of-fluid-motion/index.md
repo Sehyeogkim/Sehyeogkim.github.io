@@ -1,6 +1,9 @@
 ---
 title: "[Turbulent] ch2 - The Equation of Fluid motion"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/199"
 source_id: "199"
 date: "2025-05-07T11:46:15+09:00"

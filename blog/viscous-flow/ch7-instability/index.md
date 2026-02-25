@@ -1,6 +1,9 @@
 ---
 title: "Ch7 Instability"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/135"
 source_id: "135"
 date: "2024-12-10T20:38:09+09:00"

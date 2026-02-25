@@ -1,6 +1,9 @@
 ---
 title: "[Thermodynamics] Ch 7. Entropy Analysis for a C.V"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/70"
 source_id: "70"
 date: "2024-04-23T00:15:58+09:00"

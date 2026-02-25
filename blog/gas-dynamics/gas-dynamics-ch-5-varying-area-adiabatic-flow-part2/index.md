@@ -1,6 +1,9 @@
 ---
 title: "[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part2"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/11"
 source_id: "11"
 date: "2024-03-25T10:46:24+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/163"
 source_id: "163"
 date: "2025-02-02T19:12:46+09:00"

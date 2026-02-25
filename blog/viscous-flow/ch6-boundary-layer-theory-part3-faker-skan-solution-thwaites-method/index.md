@@ -1,6 +1,9 @@
 ---
 title: "Ch6 Boundary layer theory part3 - Faker Skan solution, Thwaites' Method"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/149"
 source_id: "149"
 date: "2024-12-12T16:27:06+09:00"

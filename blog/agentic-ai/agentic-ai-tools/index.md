@@ -1,6 +1,9 @@
 ---
 title: "🎐 Agentic AI - tools"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://www.notion.so/3112a46dc68c8039bf21ed03f0b6f62d"
 source_id: "3112a46d-c68c-8039-bf21-ed03f0b6f62d"
 date: "2026-02-24T10:15:07.075Z"

@@ -1,6 +1,9 @@
 ---
 title: "Ch6 Boundary Layer theory part1 - thickness"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/147"
 source_id: "147"
 date: "2024-12-12T13:45:15+09:00"

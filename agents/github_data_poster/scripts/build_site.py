@@ -11,6 +11,7 @@ SOURCE_ROOT = REPO_ROOT / "blog_data"
 TARGET_ROOT = REPO_ROOT / "blog"
 DATA_ROOT = REPO_ROOT / "_data"
 MAP_FILE = DATA_ROOT / "knowledge_map.yml"
+NAV_FILE = DATA_ROOT / "navigation.yml"
 INDEX_FILE = REPO_ROOT / "index.md"
 
 HEADER_KEYS = {"Title", "URL", "PageID", "PostID", "Date", "Category"}
@@ -23,6 +24,17 @@ def slugify(text: str) -> str:
     s = re.sub(r"[^a-z0-9]+", "-", s)
     s = re.sub(r"-+", "-", s).strip("-")
     return s or "untitled"
+
+
+def unique_slug(text: str, used: set[str]) -> str:
+    base = slugify(text)
+    slug = base
+    idx = 2
+    while slug in used:
+        slug = f"{base}-{idx}"
+        idx += 1
+    used.add(slug)
+    return slug
 
 
 def parse_content(path: Path) -> tuple[dict[str, str], list[str]]:
@@ -75,9 +87,11 @@ def copy_images(src_images: Path, dst_images: Path) -> int:
     return count
 
 
-def front_matter(title: str, extra: dict[str, str]) -> str:
+def front_matter(title: str, extra: dict[str, str], use_sidebar: bool = True) -> str:
     safe_title = title.replace("\"", "\\\"")
-    lines = ["---", f'title: "{safe_title}"', "layout: knowledge-home"]
+    lines = ["---", f'title: "{safe_title}"', "layout: single", "author_profile: false"]
+    if use_sidebar:
+        lines.extend(["sidebar:", '  nav: "docs"'])
     for key, value in extra.items():
         safe = value.replace('"', '\\"')
         lines.append(f'{key}: "{safe}"')
@@ -89,8 +103,17 @@ def front_matter(title: str, extra: dict[str, str]) -> str:
 def write_home(categories: list[dict[str, str]]) -> None:
     lines = [
         "---",
-        "layout: knowledge-home",
-        "title: Home",
+        'title: "Home"',
+        "layout: single",
+        "author_profile: false",
+        "header:",
+        '  overlay_image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1800&q=80"',
+        "  overlay_filter: 0.5",
+        '  caption: "Knowledge Base on AI and Computational Engineering"',
+        "excerpt: >-",
+        "  Category-first technical notes generated from local blog data.",
+        "sidebar:",
+        '  nav: "docs"',
         "---",
         "",
         "## Knowledge Base",
@@ -128,6 +151,15 @@ def write_knowledge_map(categories: list[dict[str, str]]) -> None:
     MAP_FILE.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def write_navigation(categories: list[dict[str, str]]) -> None:
+    lines = ["main:", "  - title: \"Home\"", "    url: /", "docs:"]
+    for c in categories:
+        title = c["name"].replace('"', '\\"')
+        lines.append(f'  - title: "{title}"')
+        lines.append(f'    url: "{c["url"]}"')
+    NAV_FILE.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
 def main() -> int:
     if not SOURCE_ROOT.exists():
         print(f"ERROR: source root not found: {SOURCE_ROOT}")
@@ -142,14 +174,16 @@ def main() -> int:
     processed_posts = 0
     failed_posts: list[str] = []
 
+    used_category_slugs: set[str] = set()
     for category_dir in sorted([p for p in SOURCE_ROOT.iterdir() if p.is_dir()]):
         category_name = category_dir.name
-        category_slug = slugify(category_name)
+        category_slug = unique_slug(category_name, used_category_slugs)
         out_category_dir = TARGET_ROOT / category_slug
         out_category_dir.mkdir(parents=True, exist_ok=True)
 
         post_items = []
         post_dirs = sorted([p for p in category_dir.iterdir() if p.is_dir()])
+        used_post_slugs: set[str] = set()
 
         for post_dir in post_dirs:
             content_file = post_dir / "content.txt"
@@ -160,7 +194,7 @@ def main() -> int:
             try:
                 meta, body_lines = parse_content(content_file)
                 post_title = meta.get("Title") or post_dir.name
-                post_slug = slugify(post_dir.name)
+                post_slug = unique_slug(post_dir.name, used_post_slugs)
                 post_out_dir = out_category_dir / post_slug
                 post_out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -224,6 +258,7 @@ def main() -> int:
     categories.sort(key=lambda c: c["name"].lower())
     write_home(categories)
     write_knowledge_map(categories)
+    write_navigation(categories)
 
     print(f"categories processed: {len(categories)}")
     print(f"posts processed: {processed_posts}")

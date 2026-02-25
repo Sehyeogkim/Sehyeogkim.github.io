@@ -1,6 +1,9 @@
 ---
 title: "Ch3 Discretization method - part1 ( FDM, Ritz method)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/180"
 source_id: "180"
 date: "2025-04-14T22:48:28+09:00"

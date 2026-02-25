@@ -1,6 +1,9 @@
 ---
 title: "🎐 Agentic AI - design patterns"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://www.notion.so/3112a46dc68c80b9847cf8972f707112"
 source_id: "3112a46d-c68c-80b9-847c-f8972f707112"
 date: "2026-02-24T14:37:18.187Z"

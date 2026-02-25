@@ -1,6 +1,9 @@
 ---
 title: "[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/126"
 source_id: "126"
 date: "2024-11-17T17:51:43+09:00"

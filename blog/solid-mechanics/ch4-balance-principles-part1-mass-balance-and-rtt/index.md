@@ -1,6 +1,9 @@
 ---
 title: "Ch4 Balance principles - part1 (mass balance and RTT)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/176"
 source_id: "176"
 date: "2025-04-13T13:21:15+09:00"

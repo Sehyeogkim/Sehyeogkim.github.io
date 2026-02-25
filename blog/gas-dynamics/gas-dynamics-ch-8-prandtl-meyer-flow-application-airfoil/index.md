@@ -1,6 +1,9 @@
 ---
 title: "[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Application - Airfoil"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/21"
 source_id: "21"
 date: "2024-03-27T00:20:24+09:00"

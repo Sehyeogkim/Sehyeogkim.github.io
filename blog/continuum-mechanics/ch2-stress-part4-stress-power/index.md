@@ -1,6 +1,9 @@
 ---
 title: "ch2 Stress - part4 (Stress power)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/164"
 source_id: "164"
 date: "2025-02-02T20:24:02+09:00"

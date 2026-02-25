@@ -1,6 +1,9 @@
 ---
 title: "[Engineering Mathematics] Ch 2. 2st-order ODE - part 1"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/46"
 source_id: "46"
 date: "2024-04-09T11:34:41+09:00"

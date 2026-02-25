@@ -1,6 +1,9 @@
 ---
 title: "Ch6 Boundary layer theory part5 - Wake"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/151"
 source_id: "151"
 date: "2024-12-12T17:44:04+09:00"

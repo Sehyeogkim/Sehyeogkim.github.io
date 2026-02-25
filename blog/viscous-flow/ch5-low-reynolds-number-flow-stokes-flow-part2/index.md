@@ -1,6 +1,9 @@
 ---
 title: "Ch5 Low Reynolds number flow - Stokes Flow part2"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/133"
 source_id: "133"
 date: "2024-11-26T22:20:18+09:00"

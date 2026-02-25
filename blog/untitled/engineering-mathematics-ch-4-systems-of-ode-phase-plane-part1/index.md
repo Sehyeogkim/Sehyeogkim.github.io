@@ -1,6 +1,9 @@
 ---
 title: "[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/50"
 source_id: "50"
 date: "2024-04-10T13:35:48+09:00"

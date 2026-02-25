@@ -1,6 +1,9 @@
 ---
 title: "[Thermodynamics] Ch 10. Otto - Diesel cycle"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/74"
 source_id: "74"
 date: "2024-04-23T00:18:45+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "Ch3 Vorticity dynamics_part2_Kelvin's circulation Theorem"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/112"
 source_id: "112"
 date: "2024-10-09T09:19:51+09:00"

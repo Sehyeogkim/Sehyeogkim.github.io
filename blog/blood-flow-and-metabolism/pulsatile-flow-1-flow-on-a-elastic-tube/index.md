@@ -1,6 +1,9 @@
 ---
 title: "[Pulsatile flow] 1. Flow on a elastic tube"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/123"
 source_id: "123"
 date: "2024-11-03T12:10:59+09:00"

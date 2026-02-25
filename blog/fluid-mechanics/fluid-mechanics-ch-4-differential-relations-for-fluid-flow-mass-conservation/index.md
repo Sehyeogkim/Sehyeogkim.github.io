@@ -1,6 +1,9 @@
 ---
 title: "[Fluid Mechanics] Ch 4. Differential Relations for fluid flow - mass conservation"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/33"
 source_id: "33"
 date: "2024-03-30T15:18:29+09:00"

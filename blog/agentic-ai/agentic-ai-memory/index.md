@@ -1,6 +1,9 @@
 ---
 title: "🎐 Agentic AI - Memory"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://www.notion.so/3102a46dc68c8018a4cfc41d9819372f"
 source_id: "3102a46d-c68c-8018-a4cf-c41d9819372f"
 date: "2026-02-24T07:55:46.047Z"

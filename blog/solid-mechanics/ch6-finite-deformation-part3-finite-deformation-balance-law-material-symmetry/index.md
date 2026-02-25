@@ -1,6 +1,9 @@
 ---
 title: "Ch6 Finite Deformation - part3- Finite deformation - balance law & Material symmetry"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/214"
 source_id: "214"
 date: "2025-06-13T08:38:02+09:00"

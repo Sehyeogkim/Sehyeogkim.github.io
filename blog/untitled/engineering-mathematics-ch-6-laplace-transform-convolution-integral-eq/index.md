@@ -1,6 +1,9 @@
 ---
 title: "[Engineering Mathematics] Ch 6. Laplace Transform - Convolution. Integral Eq."
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/56"
 source_id: "56"
 date: "2024-04-10T18:31:09+09:00"

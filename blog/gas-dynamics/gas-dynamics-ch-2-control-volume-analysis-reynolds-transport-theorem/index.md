@@ -1,6 +1,9 @@
 ---
 title: "[Gas Dynamics] Ch 2 Control Volume Analysis - Reynolds Transport theorem"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/3"
 source_id: "3"
 date: "2024-03-24T13:39:24+09:00"

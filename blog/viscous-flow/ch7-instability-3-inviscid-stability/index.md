@@ -1,6 +1,9 @@
 ---
 title: "Ch7 Instability 3 - Inviscid stability"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/137"
 source_id: "137"
 date: "2024-12-10T22:17:39+09:00"

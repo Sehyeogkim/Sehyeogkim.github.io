@@ -1,6 +1,9 @@
 ---
 title: "Ch2 Conservation Laws_ part5 Bernoulli equation(3types)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/110"
 source_id: "110"
 date: "2024-10-03T13:03:33+09:00"

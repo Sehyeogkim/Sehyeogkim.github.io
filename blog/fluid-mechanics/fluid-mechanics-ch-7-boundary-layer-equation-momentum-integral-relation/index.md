@@ -1,6 +1,9 @@
 ---
 title: "[Fluid Mechanics] Ch 7. Boundary layer Equation- Momentum Integral Relation"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/77"
 source_id: "77"
 date: "2024-05-11T21:20:28+09:00"

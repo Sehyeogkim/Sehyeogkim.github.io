@@ -1,6 +1,9 @@
 ---
 title: "[Engineering Mathematics] Ch 6. Laplace Transform - Concepts"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/54"
 source_id: "54"
 date: "2024-04-10T16:42:09+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "[Heat and Mass transfer] Ch 3 1-Dimensional, Steady-State Conduction-Thermal Resistance"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/26"
 source_id: "26"
 date: "2024-03-28T10:53:18+09:00"

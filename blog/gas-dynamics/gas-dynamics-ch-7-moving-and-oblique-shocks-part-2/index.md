@@ -1,6 +1,9 @@
 ---
 title: "[Gas Dynamics] Ch 7 Moving and Oblique Shocks - part 2"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/17"
 source_id: "17"
 date: "2024-03-26T01:37:32+09:00"

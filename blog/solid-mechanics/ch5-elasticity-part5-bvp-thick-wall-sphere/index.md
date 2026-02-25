@@ -1,6 +1,9 @@
 ---
 title: "CH5 Elasticity - part5 (BVP - thick wall sphere)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/204"
 source_id: "204"
 date: "2025-06-11T18:54:48+09:00"

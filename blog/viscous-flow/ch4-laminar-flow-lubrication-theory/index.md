@@ -1,6 +1,9 @@
 ---
 title: "Ch4 Laminar flow - lubrication Theory"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/130"
 source_id: "130"
 date: "2024-11-24T23:36:14+09:00"

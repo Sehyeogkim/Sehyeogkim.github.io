@@ -1,6 +1,9 @@
 ---
 title: "CH5 Elasticity - part6 (BVP - thick wall cylinder)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/205"
 source_id: "205"
 date: "2025-06-11T19:21:57+09:00"

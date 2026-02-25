@@ -1,6 +1,9 @@
 ---
 title: "[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Application - Nozzle"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/20"
 source_id: "20"
 date: "2024-03-26T23:33:50+09:00"

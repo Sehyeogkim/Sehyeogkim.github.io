@@ -1,6 +1,9 @@
 ---
 title: "[Fluid mechanics] Stress tensor_Lame's Parameters"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/78"
 source_id: "78"
 date: "2024-05-13T11:27:15+09:00"

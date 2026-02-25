@@ -1,6 +1,9 @@
 ---
 title: "[Fluid Mechanics] Ch 7. Boundary layer Equation- Laminar, Blasius Equation."
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/76"
 source_id: "76"
 date: "2024-05-11T20:56:32+09:00"

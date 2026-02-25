@@ -1,6 +1,9 @@
 ---
 title: "Ch4 Laminar Flow"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/127"
 source_id: "127"
 date: "2024-11-24T21:09:45+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "Ch4 Heat conduction - part2 (Source term Linearization)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/189"
 source_id: "189"
 date: "2025-04-19T10:21:10+09:00"

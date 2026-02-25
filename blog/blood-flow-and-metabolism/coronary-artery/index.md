@@ -1,6 +1,9 @@
 ---
 title: "Coronary Artery"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/121"
 source_id: "121"
 date: "2024-11-02T17:51:08+09:00"

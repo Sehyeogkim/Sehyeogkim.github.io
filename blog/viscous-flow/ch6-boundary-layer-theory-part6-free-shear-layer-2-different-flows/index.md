@@ -1,6 +1,9 @@
 ---
 title: "Ch6 Boundary layer theory part6 - Free shear layer 2 different flows."
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/152"
 source_id: "152"
 date: "2024-12-12T18:22:18+09:00"

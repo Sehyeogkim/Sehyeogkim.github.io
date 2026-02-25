@@ -1,6 +1,9 @@
 ---
 title: "[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Uniform E generation"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/28"
 source_id: "28"
 date: "2024-03-28T16:25:57+09:00"

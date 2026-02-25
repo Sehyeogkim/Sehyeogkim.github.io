@@ -1,6 +1,9 @@
 ---
 title: "[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part4- Converging-diverging nozzle"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/13"
 source_id: "13"
 date: "2024-03-25T13:08:22+09:00"

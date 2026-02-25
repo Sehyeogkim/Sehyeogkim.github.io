@@ -1,6 +1,9 @@
 ---
 title: "Ch1 Kinematics part4 - (B,e), Volume and Area deformation"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/160"
 source_id: "160"
 date: "2025-02-02T17:31:10+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "CH6 Plasticity- part1 - about plastic direction"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/209"
 source_id: "209"
 date: "2025-06-11T22:17:28+09:00"

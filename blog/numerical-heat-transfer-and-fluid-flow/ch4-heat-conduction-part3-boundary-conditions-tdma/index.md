@@ -1,6 +1,9 @@
 ---
 title: "Ch4 Heat conduction - part3 (Boundary Conditions, TDMA)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/190"
 source_id: "190"
 date: "2025-04-19T11:07:46+09:00"

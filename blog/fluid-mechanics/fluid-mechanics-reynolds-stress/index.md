@@ -1,6 +1,9 @@
 ---
 title: "[Fluid mechanics] Reynolds Stress"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/81"
 source_id: "81"
 date: "2024-05-13T17:09:14+09:00"

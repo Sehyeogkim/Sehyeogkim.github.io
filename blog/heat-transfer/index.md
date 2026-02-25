@@ -1,6 +1,9 @@
 ---
 title: "Heat-transfer"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 category: "Heat-transfer"
 ---
 

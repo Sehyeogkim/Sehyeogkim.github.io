@@ -1,6 +1,9 @@
 ---
 title: "Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/129"
 source_id: "129"
 date: "2024-11-24T22:15:38+09:00"

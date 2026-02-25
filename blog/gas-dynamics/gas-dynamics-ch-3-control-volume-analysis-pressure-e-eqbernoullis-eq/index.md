@@ -1,6 +1,9 @@
 ---
 title: "[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli's Eq."
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/5"
 source_id: "5"
 date: "2024-03-24T16:27:00+09:00"

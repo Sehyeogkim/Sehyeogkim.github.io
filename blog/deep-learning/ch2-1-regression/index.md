@@ -1,6 +1,9 @@
 ---
 title: "Ch2_1. Regression"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/96"
 source_id: "96"
 date: "2024-09-24T15:47:12+09:00"

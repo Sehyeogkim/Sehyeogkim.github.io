@@ -1,6 +1,9 @@
 ---
 title: "CH5 Elasticity - part8 (Plain Strain)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/207"
 source_id: "207"
 date: "2025-06-11T20:33:54+09:00"

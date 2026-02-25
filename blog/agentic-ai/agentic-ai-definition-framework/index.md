@@ -1,6 +1,9 @@
 ---
 title: "🎐 Agentic AI - Definition & Framework"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://www.notion.so/3102a46dc68c8040b73cd27c851ca3e9"
 source_id: "3102a46d-c68c-8040-b73c-d27c851ca3e9"
 date: "2026-02-25T11:54:23.047Z"

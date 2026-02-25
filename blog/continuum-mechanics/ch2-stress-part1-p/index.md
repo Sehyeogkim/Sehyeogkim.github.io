@@ -1,6 +1,9 @@
 ---
 title: "Ch2 Stress - part1 (σ, P)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/158"
 source_id: "158"
 date: "2025-02-02T13:13:23+09:00"

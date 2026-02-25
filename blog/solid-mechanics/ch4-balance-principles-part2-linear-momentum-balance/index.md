@@ -1,6 +1,9 @@
 ---
 title: "Ch4 Balance principles - part2 (Linear momentum balance)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/177"
 source_id: "177"
 date: "2025-04-13T14:07:49+09:00"

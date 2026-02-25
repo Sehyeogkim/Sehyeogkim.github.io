@@ -1,6 +1,9 @@
 ---
 title: "Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/197"
 source_id: "197"
 date: "2025-05-03T11:27:45+09:00"

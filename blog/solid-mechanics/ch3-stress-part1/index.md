@@ -1,6 +1,9 @@
 ---
 title: "Ch3 Stress - part1"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/174"
 source_id: "174"
 date: "2025-04-12T22:43:39+09:00"

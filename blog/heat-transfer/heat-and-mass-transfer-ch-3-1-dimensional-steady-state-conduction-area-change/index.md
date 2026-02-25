@@ -1,6 +1,9 @@
 ---
 title: "[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Area change"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/27"
 source_id: "27"
 date: "2024-03-28T14:54:40+09:00"

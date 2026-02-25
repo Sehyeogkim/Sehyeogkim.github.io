@@ -1,6 +1,9 @@
 ---
 title: "[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part3- Converging-only nozzle"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/12"
 source_id: "12"
 date: "2024-03-25T11:48:40+09:00"

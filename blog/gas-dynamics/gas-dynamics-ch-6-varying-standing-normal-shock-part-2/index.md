@@ -1,6 +1,9 @@
 ---
 title: "[Gas Dynamics] Ch 6 Varying - Standing Normal shock - part 2 문제풀이"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/15"
 source_id: "15"
 date: "2024-03-25T18:44:06+09:00"

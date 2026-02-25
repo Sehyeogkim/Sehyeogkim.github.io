@@ -1,6 +1,9 @@
 ---
 title: "[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Compression flow"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/18"
 source_id: "18"
 date: "2024-03-26T11:47:31+09:00"

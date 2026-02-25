@@ -1,6 +1,9 @@
 ---
 title: "Deep-learning"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 category: "Deep-learning"
 ---
 

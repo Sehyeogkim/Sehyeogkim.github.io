@@ -1,6 +1,9 @@
 ---
 title: "Ch3 Discretization method - summary"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/183"
 source_id: "183"
 date: "2025-04-15T10:27:45+09:00"

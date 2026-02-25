@@ -1,6 +1,9 @@
 ---
 title: "Pre-trained Model & Transfer Learning"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/138"
 source_id: "138"
 date: "2024-12-11T12:36:22+09:00"

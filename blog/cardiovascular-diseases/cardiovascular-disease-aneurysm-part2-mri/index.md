@@ -1,6 +1,9 @@
 ---
 title: "[Cardiovascular disease] Aneurysm _ part2_MRI"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/93"
 source_id: "93"
 date: "2024-09-23T22:05:15+09:00"

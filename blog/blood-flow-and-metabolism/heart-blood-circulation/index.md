@@ -1,6 +1,9 @@
 ---
 title: "Heart blood circulation"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/120"
 source_id: "120"
 date: "2024-11-02T17:35:08+09:00"

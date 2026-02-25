@@ -1,6 +1,9 @@
 ---
 title: "Anomaly Detection"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/142"
 source_id: "142"
 date: "2024-12-11T15:45:20+09:00"

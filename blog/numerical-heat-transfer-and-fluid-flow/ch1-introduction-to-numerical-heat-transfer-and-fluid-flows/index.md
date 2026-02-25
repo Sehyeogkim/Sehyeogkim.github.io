@@ -1,6 +1,9 @@
 ---
 title: "Ch1 Introduction to Numerical heat transfer and fluid flows"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/178"
 source_id: "178"
 date: "2025-04-14T21:07:30+09:00"

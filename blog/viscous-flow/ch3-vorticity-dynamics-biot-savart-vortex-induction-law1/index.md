@@ -1,6 +1,9 @@
 ---
 title: "Ch3 Vorticity dynamics_ Biot-Savart Vortex induction law(1)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/118"
 source_id: "118"
 date: "2024-10-18T18:42:04+09:00"

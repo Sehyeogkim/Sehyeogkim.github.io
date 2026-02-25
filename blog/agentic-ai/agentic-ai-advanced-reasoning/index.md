@@ -1,6 +1,9 @@
 ---
 title: "🎐 Agentic AI - advanced reasoning"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://www.notion.so/3122a46dc68c801aad81ceb4e7064805"
 source_id: "3122a46d-c68c-801a-ad81-ceb4e7064805"
 date: "2026-02-25T11:40:53.783Z"

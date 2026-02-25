@@ -1,6 +1,9 @@
 ---
 title: "[Thermodynamics] Ch 4. Energy Analysis for a C.V"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/68"
 source_id: "68"
 date: "2024-04-22T22:21:29+09:00"

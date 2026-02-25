@@ -1,6 +1,9 @@
 ---
 title: "Diffusion Model"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/146"
 source_id: "146"
 date: "2024-12-11T19:43:35+09:00"

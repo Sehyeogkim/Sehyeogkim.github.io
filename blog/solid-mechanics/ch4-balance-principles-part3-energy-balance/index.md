@@ -1,6 +1,9 @@
 ---
 title: "Ch4 Balance principles - part3 (Energy balance)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/184"
 source_id: "184"
 date: "2025-04-15T12:02:09+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "[Thermodynamics] Ch 2. Properties of a Pure substance"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/63"
 source_id: "63"
 date: "2024-04-18T15:16:37+09:00"

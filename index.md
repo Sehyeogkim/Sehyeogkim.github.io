@@ -1,6 +1,15 @@
 ---
-layout: knowledge-home
-title: Home
+title: "Home"
+layout: single
+author_profile: false
+header:
+  overlay_image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1800&q=80"
+  overlay_filter: 0.5
+  caption: "Knowledge Base on AI and Computational Engineering"
+excerpt: >-
+  Category-first technical notes generated from local blog data.
+sidebar:
+  nav: "docs"
 ---
 
 ## Knowledge Base
@@ -10,10 +19,12 @@ This site is generated from local `blog_data` sources.
 - [Agentic_AI](/blog/agentic-ai/) (8 posts)
 - [Blood-Flow-and-Metabolism](/blog/blood-flow-and-metabolism/) (12 posts)
 - [CardioVascular-Diseases](/blog/cardiovascular-diseases/) (8 posts)
+- [Computational-Linear-Algebra](/blog/computational-linear-algebra/) (15 posts)
 - [Continuum-Mechanics](/blog/continuum-mechanics/) (9 posts)
 - [Deep-learning](/blog/deep-learning/) (14 posts)
+- [Finite-Element-Method](/blog/finite-element-method/) (1 posts)
 - [Fluid-Mechanics](/blog/fluid-mechanics/) (18 posts)
-- [Fluid_mechanics](/blog/fluid-mechanics/) (0 posts)
+- [Fluid_mechanics](/blog/fluid-mechanics-2/) (0 posts)
 - [Gas-Dynamics](/blog/gas-dynamics/) (24 posts)
 - [Heat-transfer](/blog/heat-transfer/) (8 posts)
 - [math](/blog/math/) (0 posts)
@@ -21,5 +32,5 @@ This site is generated from local `blog_data` sources.
 - [Solid-Mechanics](/blog/solid-mechanics/) (25 posts)
 - [Thermodynamics](/blog/thermodynamics/) (14 posts)
 - [Viscous-Flow](/blog/viscous-flow/) (28 posts)
-- [과학](/blog/untitled/) (16 posts)
-- [취미](/blog/untitled/) (2 posts)
+- [과학](/blog/untitled/) (26 posts)
+- [취미](/blog/untitled-2/) (2 posts)

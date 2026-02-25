@@ -1,6 +1,9 @@
 ---
 title: "Physiology of Blood Flow and Metabolism"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/83"
 source_id: "83"
 date: "2024-09-20T23:16:21+09:00"

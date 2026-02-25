@@ -1,6 +1,9 @@
 ---
 title: "[Fluid Mechanics] Ch 3. Integral Relations for a Control Volume"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/32"
 source_id: "32"
 date: "2024-03-30T14:31:32+09:00"

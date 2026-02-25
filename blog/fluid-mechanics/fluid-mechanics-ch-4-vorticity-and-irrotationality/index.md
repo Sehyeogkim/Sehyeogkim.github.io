@@ -1,6 +1,9 @@
 ---
 title: "[Fluid mechanics] Ch 4. Vorticity and Irrotationality"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/38"
 source_id: "38"
 date: "2024-03-31T20:42:36+09:00"

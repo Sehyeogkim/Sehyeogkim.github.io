@@ -1,6 +1,9 @@
 ---
 title: "Ch1. Kinematics"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/105"
 source_id: "105"
 date: "2024-09-29T21:50:41+09:00"

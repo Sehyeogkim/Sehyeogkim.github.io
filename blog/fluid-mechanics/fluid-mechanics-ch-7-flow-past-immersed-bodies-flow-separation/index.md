@@ -1,6 +1,9 @@
 ---
 title: "[Fluid mechanics] Ch 7. Flow past immersed bodies - flow separation"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/43"
 source_id: "43"
 date: "2024-04-02T22:08:05+09:00"

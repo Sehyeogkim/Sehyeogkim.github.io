@@ -1,6 +1,9 @@
 ---
 title: "Continuum-Mechanics"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 category: "Continuum-Mechanics"
 ---
 

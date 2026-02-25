@@ -1,6 +1,9 @@
 ---
 title: "Ch3 Discretization method - part3 (4 Basic rules)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/182"
 source_id: "182"
 date: "2025-04-14T23:55:54+09:00"

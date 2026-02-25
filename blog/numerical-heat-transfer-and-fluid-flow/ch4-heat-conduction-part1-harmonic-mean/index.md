@@ -1,6 +1,9 @@
 ---
 title: "Ch4 Heat conduction - part1 (Harmonic Mean)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/188"
 source_id: "188"
 date: "2025-04-19T09:51:49+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "Ch0 Bf/ start writing the blog."
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/167"
 source_id: "167"
 date: "2025-04-11T15:09:20+09:00"

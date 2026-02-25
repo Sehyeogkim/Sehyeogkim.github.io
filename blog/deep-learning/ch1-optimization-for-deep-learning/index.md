@@ -1,6 +1,9 @@
 ---
 title: "Ch1. Optimization for Deep Learning"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/95"
 source_id: "95"
 date: "2024-09-24T14:41:47+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "[Thermodynamics] ch 6. Entropy generation."
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/75"
 source_id: "75"
 date: "2024-04-28T18:17:37+09:00"

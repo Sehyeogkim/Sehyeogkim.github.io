@@ -1,6 +1,9 @@
 ---
 title: "[Gas Dynamics] Ch 10 Rayleigh Flow - part 2 - shock and Heat chocking"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/25"
 source_id: "25"
 date: "2024-03-27T22:21:25+09:00"

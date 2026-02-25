@@ -1,6 +1,9 @@
 ---
 title: "Ch2 Conservation Laws_ part3"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/108"
 source_id: "108"
 date: "2024-09-30T12:54:18+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "Ch1 Kinematics part5 - Time rate of change of a material element."
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/155"
 source_id: "155"
 date: "2025-01-31T15:58:52+09:00"

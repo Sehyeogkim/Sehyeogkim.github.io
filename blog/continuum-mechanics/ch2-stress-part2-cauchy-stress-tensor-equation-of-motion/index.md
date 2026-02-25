@@ -1,6 +1,9 @@
 ---
 title: "ch2 Stress - part2 (σ, Cauchy stress tensor) , Equation of Motion"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/162"
 source_id: "162"
 date: "2025-02-02T18:39:15+09:00"

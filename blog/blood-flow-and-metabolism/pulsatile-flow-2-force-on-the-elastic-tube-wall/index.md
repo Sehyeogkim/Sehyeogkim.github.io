@@ -1,6 +1,9 @@
 ---
 title: "[Pulsatile flow] 2. Force on the elastic tube wall"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/124"
 source_id: "124"
 date: "2024-11-17T16:01:42+09:00"

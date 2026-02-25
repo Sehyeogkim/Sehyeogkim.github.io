@@ -1,6 +1,9 @@
 ---
 title: "[Thermodynamics] Ch 5. Kelvin plank, Clausius Statement."
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/65"
 source_id: "65"
 date: "2024-04-18T21:34:23+09:00"

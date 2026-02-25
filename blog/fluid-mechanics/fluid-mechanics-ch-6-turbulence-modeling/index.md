@@ -1,6 +1,9 @@
 ---
 title: "[Fluid mechanics] Ch 6. Turbulence modeling"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/40"
 source_id: "40"
 date: "2024-03-31T21:59:36+09:00"

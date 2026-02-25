@@ -1,6 +1,9 @@
 ---
 title: "Ch6 Finite Deformation - part1 - Referential frame Momentum Balance Eq."
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/212"
 source_id: "212"
 date: "2025-06-13T08:14:40+09:00"

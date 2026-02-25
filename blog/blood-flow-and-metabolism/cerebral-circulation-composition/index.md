@@ -1,6 +1,9 @@
 ---
 title: "Cerebral Circulation & composition"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/84"
 source_id: "84"
 date: "2024-09-21T01:15:51+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "Ch6 Boundary layer theory part2 - Blasius solution"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/148"
 source_id: "148"
 date: "2024-12-12T15:05:27+09:00"

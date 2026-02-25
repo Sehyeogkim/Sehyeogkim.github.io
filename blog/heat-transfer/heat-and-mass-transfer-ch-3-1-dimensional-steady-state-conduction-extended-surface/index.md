@@ -1,6 +1,9 @@
 ---
 title: "[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Extended surface"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/30"
 source_id: "30"
 date: "2024-03-28T18:41:01+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "[Engineering Mathematics] Ch 1. 1st-order ODE."
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/44"
 source_id: "44"
 date: "2024-04-08T19:17:03+09:00"

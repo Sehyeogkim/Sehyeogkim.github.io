@@ -1,6 +1,9 @@
 ---
 title: "[Thermodynamics] Ch 3. Energy equation and 1st law of T.D"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/64"
 source_id: "64"
 date: "2024-04-18T15:50:02+09:00"

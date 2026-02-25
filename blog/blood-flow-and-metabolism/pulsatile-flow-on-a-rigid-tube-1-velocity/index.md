@@ -1,6 +1,9 @@
 ---
 title: "[Pulsatile flow] on a rigid tube _ 1. Velocity"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/103"
 source_id: "103"
 date: "2024-09-29T14:08:46+09:00"

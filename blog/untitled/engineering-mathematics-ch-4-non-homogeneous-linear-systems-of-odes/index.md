@@ -1,6 +1,9 @@
 ---
 title: "[Engineering Mathematics] Ch 4. Non-homogeneous linear systems of ODEs"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/52"
 source_id: "52"
 date: "2024-04-10T14:45:31+09:00"

@@ -3,11 +3,12 @@ description: Notes on agentic AI theory and applications
 url: "https://sehyeogkim.github.io"
 baseurl: ""
 markdown: kramdown
-theme: minima
-header_pages:
-  - index.md
+remote_theme: "mmistakes/minimal-mistakes@4.27.3"
+minimal_mistakes_skin: "default"
+locale: "en-US"
 plugins:
   - jekyll-feed
+  - jekyll-include-cache
 permalink: /posts/:year/:month/:day/:title/
 
 exclude:

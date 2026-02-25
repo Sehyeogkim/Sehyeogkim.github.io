@@ -1,6 +1,9 @@
 ---
 title: "Ch7 Instability 2 - Orr Sommerfeld Eq."
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/136"
 source_id: "136"
 date: "2024-12-10T21:39:28+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "[Fluid mechanics] Ch 6. Viscous Flow in Ducts - Moody chart"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/41"
 source_id: "41"
 date: "2024-04-01T16:20:51+09:00"

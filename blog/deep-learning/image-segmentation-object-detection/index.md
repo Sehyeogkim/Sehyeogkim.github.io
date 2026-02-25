@@ -1,6 +1,9 @@
 ---
 title: "Image Segmentation, Object detection."
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/140"
 source_id: "140"
 date: "2024-12-11T13:11:07+09:00"

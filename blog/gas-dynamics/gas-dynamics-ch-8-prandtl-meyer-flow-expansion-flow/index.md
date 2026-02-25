@@ -1,6 +1,9 @@
 ---
 title: "[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/19"
 source_id: "19"
 date: "2024-03-26T21:44:38+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "[Fluid mechanics] Ch 6. Law of the wall."
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/39"
 source_id: "39"
 date: "2024-03-31T21:44:48+09:00"

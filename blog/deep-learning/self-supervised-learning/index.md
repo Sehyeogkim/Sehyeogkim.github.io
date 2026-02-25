@@ -1,6 +1,9 @@
 ---
 title: "Self-Supervised Learning"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/143"
 source_id: "143"
 date: "2024-12-11T16:30:04+09:00"

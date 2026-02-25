@@ -1,6 +1,9 @@
 ---
 title: "Numerical-Heat-transfer-and-Fluid-flow"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 category: "Numerical-Heat-transfer-and-Fluid-flow"
 ---
 

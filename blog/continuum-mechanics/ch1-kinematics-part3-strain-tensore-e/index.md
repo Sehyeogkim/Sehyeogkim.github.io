@@ -1,6 +1,9 @@
 ---
 title: "Ch1 Kinematics-part3 - Strain tensor(E*, E)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/157"
 source_id: "157"
 date: "2025-01-31T18:00:52+09:00"

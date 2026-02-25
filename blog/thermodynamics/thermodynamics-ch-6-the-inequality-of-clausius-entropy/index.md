@@ -1,6 +1,9 @@
 ---
 title: "[Thermodynamics] Ch 6. The Inequality of Clausius & Entropy"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/67"
 source_id: "67"
 date: "2024-04-18T23:16:21+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "Ch5 Convection and Diffusion - part4 (general scheme form)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/198"
 source_id: "198"
 date: "2025-05-03T16:14:49+09:00"

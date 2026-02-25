@@ -1,6 +1,9 @@
 ---
 title: "Ch1 Introduction to Vectors and Tensors - part2"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/170"
 source_id: "170"
 date: "2025-04-11T20:14:23+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "Ch2 Conservation Laws_ part4 Boundary Condition"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/109"
 source_id: "109"
 date: "2024-10-02T18:21:45+09:00"

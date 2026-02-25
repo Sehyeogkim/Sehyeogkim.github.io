@@ -1,6 +1,9 @@
 ---
 title: "🎐 Agentic AI - Plug-in, subagents"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://www.notion.so/3122a46dc68c802ab3dcf401b46edd60"
 source_id: "3122a46d-c68c-802a-b3dc-f401b46edd60"
 date: "2026-02-25T09:03:45.863Z"

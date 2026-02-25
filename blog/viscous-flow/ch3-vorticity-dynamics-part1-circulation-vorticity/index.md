@@ -1,6 +1,9 @@
 ---
 title: "ch3 Vorticity dynamics_part1_circulation & vorticity"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/111"
 source_id: "111"
 date: "2024-10-03T17:44:52+09:00"

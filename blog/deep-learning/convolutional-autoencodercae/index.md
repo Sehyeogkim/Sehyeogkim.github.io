@@ -1,6 +1,9 @@
 ---
 title: "Convolutional AutoEncoder(CAE)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/139"
 source_id: "139"
 date: "2024-12-11T12:57:42+09:00"

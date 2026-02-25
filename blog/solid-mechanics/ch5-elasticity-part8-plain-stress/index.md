@@ -1,6 +1,9 @@
 ---
 title: "CH5 Elasticity - part8 (Plain Stress)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/208"
 source_id: "208"
 date: "2025-06-11T20:36:11+09:00"

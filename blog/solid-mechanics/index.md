@@ -1,6 +1,9 @@
 ---
 title: "Solid-Mechanics"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 category: "Solid-Mechanics"
 ---
 

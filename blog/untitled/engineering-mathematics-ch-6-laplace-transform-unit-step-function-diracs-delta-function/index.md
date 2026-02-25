@@ -1,6 +1,9 @@
 ---
 title: "[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/55"
 source_id: "55"
 date: "2024-04-10T17:39:51+09:00"

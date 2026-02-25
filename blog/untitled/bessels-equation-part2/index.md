@@ -1,6 +1,9 @@
 ---
 title: "Bessel's Equation_Part2"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/102"
 source_id: "102"
 date: "2024-09-29T11:43:08+09:00"

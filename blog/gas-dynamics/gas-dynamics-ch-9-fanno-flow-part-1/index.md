@@ -1,6 +1,9 @@
 ---
 title: "[Gas Dynamics] Ch 9 Fanno Flow - part 1"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/22"
 source_id: "22"
 date: "2024-03-27T14:52:42+09:00"

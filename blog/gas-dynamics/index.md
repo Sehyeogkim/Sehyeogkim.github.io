@@ -1,6 +1,9 @@
 ---
 title: "Gas-Dynamics"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 category: "Gas-Dynamics"
 ---
 

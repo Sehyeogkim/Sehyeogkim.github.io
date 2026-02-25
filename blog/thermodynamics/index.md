@@ -1,6 +1,9 @@
 ---
 title: "Thermodynamics"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 category: "Thermodynamics"
 ---
 

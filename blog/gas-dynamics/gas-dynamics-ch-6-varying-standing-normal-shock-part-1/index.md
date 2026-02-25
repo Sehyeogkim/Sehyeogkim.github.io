@@ -1,6 +1,9 @@
 ---
 title: "[Gas Dynamics] Ch 6 Varying - Standing Normal shock - part 1"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/14"
 source_id: "14"
 date: "2024-03-25T17:39:08+09:00"

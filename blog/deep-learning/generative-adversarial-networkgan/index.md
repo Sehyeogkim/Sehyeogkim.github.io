@@ -1,6 +1,9 @@
 ---
 title: "Generative Adversarial Network(GAN)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/141"
 source_id: "141"
 date: "2024-12-11T14:58:32+09:00"

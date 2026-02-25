@@ -1,6 +1,9 @@
 ---
 title: "🎐 Agentic AI - skills"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://www.notion.so/3102a46dc68c80e3bf8bccc034d9804f"
 source_id: "3102a46d-c68c-80e3-bf8b-ccc034d9804f"
 date: "2026-02-25T06:29:20.883Z"

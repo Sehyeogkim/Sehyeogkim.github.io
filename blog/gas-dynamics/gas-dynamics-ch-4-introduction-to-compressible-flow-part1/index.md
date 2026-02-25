@@ -1,6 +1,9 @@
 ---
 title: "[Gas Dynamics] Ch 4 Introduction to Compressible Flow - part1"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/8"
 source_id: "8"
 date: "2024-03-24T22:53:09+09:00"

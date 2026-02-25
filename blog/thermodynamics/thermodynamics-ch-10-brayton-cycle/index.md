@@ -1,6 +1,9 @@
 ---
 title: "[Thermodynamics] Ch 10. Brayton cycle"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/73"
 source_id: "73"
 date: "2024-04-23T00:18:00+09:00"

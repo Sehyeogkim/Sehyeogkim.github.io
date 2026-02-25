@@ -1,6 +1,9 @@
 ---
 title: "CH5 Elasticity - part7 (Thermal Elasticity1)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/206"
 source_id: "206"
 date: "2025-06-11T20:15:10+09:00"

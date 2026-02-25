@@ -1,6 +1,9 @@
 ---
 title: "Ch4 Laminar flow - Hele Shaw flow"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/131"
 source_id: "131"
 date: "2024-11-25T00:07:29+09:00"

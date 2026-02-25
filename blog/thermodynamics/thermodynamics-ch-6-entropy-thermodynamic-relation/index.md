@@ -1,6 +1,9 @@
 ---
 title: "[Thermodynamics] Ch 6. Entropy - Thermodynamic relation"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/69"
 source_id: "69"
 date: "2024-04-23T00:15:25+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "[Gas Dynamics] Ch 1 Basic properties"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/2"
 source_id: "2"
 date: "2024-03-24T00:09:22+09:00"

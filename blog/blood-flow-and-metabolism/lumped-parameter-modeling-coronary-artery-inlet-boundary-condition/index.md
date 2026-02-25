@@ -1,6 +1,9 @@
 ---
 title: "Lumped Parameter modeling_ coronary artery inlet boundary condition"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/122"
 source_id: "122"
 date: "2024-11-02T18:11:36+09:00"

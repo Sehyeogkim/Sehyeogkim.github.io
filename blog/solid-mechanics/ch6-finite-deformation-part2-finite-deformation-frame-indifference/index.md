@@ -1,6 +1,9 @@
 ---
 title: "Ch6 Finite Deformation - part2 - Finite deformation - Frame indifference"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/213"
 source_id: "213"
 date: "2025-06-13T08:36:59+09:00"

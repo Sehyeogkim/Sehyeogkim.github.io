@@ -1,6 +1,9 @@
 ---
 title: "CH6 Plasticity- part3 - Plastic Think wall BVP"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/211"
 source_id: "211"
 date: "2025-06-11T23:53:49+09:00"

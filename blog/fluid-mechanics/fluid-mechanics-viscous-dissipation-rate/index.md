@@ -1,6 +1,9 @@
 ---
 title: "[Fluid mechanics] #Viscous dissipation rate"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/36"
 source_id: "36"
 date: "2024-03-30T23:02:28+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Overall surface efficiency"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/31"
 source_id: "31"
 date: "2024-03-28T20:35:17+09:00"

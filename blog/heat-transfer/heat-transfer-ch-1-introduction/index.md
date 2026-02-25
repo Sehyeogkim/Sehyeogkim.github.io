@@ -1,6 +1,9 @@
 ---
 title: "[Heat transfer] Ch 1. Introduction"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/61"
 source_id: "61"
 date: "2024-04-17T22:05:35+09:00"

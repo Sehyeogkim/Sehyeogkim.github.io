@@ -1,6 +1,9 @@
 ---
 title: "Agentic_AI"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 category: "Agentic_AI"
 ---
 

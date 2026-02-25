@@ -1,6 +1,9 @@
 ---
 title: "Calcification on Coronary Artery - Plaque composition 1"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/165"
 source_id: "165"
 date: "2025-03-19T22:19:17+09:00"

@@ -1,4 +1,4 @@
-generated_at: '2026-02-25T12:55:19.829404+00:00'
+generated_at: '2026-02-25T13:14:59.905800+00:00'
 categories:
   - name: 'Agentic_AI'
     slug: 'agentic-ai'
@@ -12,6 +12,10 @@ categories:
     slug: 'cardiovascular-diseases'
     url: '/blog/cardiovascular-diseases/'
     post_count: 8
+  - name: 'Computational-Linear-Algebra'
+    slug: 'computational-linear-algebra'
+    url: '/blog/computational-linear-algebra/'
+    post_count: 15
   - name: 'Continuum-Mechanics'
     slug: 'continuum-mechanics'
     url: '/blog/continuum-mechanics/'
@@ -20,13 +24,17 @@ categories:
     slug: 'deep-learning'
     url: '/blog/deep-learning/'
     post_count: 14
+  - name: 'Finite-Element-Method'
+    slug: 'finite-element-method'
+    url: '/blog/finite-element-method/'
+    post_count: 1
   - name: 'Fluid-Mechanics'
     slug: 'fluid-mechanics'
     url: '/blog/fluid-mechanics/'
     post_count: 18
   - name: 'Fluid_mechanics'
-    slug: 'fluid-mechanics'
-    url: '/blog/fluid-mechanics/'
+    slug: 'fluid-mechanics-2'
+    url: '/blog/fluid-mechanics-2/'
     post_count: 0
   - name: 'Gas-Dynamics'
     slug: 'gas-dynamics'
@@ -59,8 +67,8 @@ categories:
   - name: '과학'
     slug: 'untitled'
     url: '/blog/untitled/'
-    post_count: 16
+    post_count: 26
   - name: '취미'
-    slug: 'untitled'
-    url: '/blog/untitled/'
+    slug: 'untitled-2'
+    url: '/blog/untitled-2/'
     post_count: 2

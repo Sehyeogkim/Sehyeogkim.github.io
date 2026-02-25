@@ -1,6 +1,9 @@
 ---
 title: "[Thermodynamics] Ch 9. Rankine cycle"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/71"
 source_id: "71"
 date: "2024-04-23T00:16:55+09:00"

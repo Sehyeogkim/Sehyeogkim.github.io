@@ -1,6 +1,9 @@
 ---
 title: "CH6 Plasticity- part2 - Flow strength"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/210"
 source_id: "210"
 date: "2025-06-11T23:01:31+09:00"

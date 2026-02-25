@@ -1,6 +1,9 @@
 ---
 title: "Ch3_1. Classification_Perceptron"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/97"
 source_id: "97"
 date: "2024-09-24T18:41:02+09:00"

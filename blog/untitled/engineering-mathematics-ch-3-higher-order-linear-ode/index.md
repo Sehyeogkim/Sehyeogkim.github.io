@@ -1,6 +1,9 @@
 ---
 title: "[Engineering Mathematics] Ch 3. Higher-order Linear ODE"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/49"
 source_id: "49"
 date: "2024-04-09T20:58:44+09:00"

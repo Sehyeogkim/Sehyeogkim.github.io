@@ -1,6 +1,9 @@
 ---
 title: "[Thermodynamics] Ch 9. Refrigeration cycle"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/72"
 source_id: "72"
 date: "2024-04-23T00:17:09+09:00"

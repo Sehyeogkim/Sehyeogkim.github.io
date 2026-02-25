@@ -1,6 +1,9 @@
 ---
 title: "Ch4. Gradient decent algorithm"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/99"
 source_id: "99"
 date: "2024-09-25T12:22:50+09:00"

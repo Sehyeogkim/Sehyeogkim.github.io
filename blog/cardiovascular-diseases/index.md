@@ -1,6 +1,9 @@
 ---
 title: "CardioVascular-Diseases"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 category: "CardioVascular-Diseases"
 ---
 

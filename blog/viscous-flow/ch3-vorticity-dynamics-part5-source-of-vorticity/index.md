@@ -1,6 +1,9 @@
 ---
 title: "Ch3 Vorticity dynamics_part5_ source of vorticity"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/117"
 source_id: "117"
 date: "2024-10-15T14:16:39+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "Viscous-Flow"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 category: "Viscous-Flow"
 ---
 

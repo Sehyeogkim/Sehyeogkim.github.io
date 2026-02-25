@@ -1,6 +1,9 @@
 ---
 title: "CH5 Elasticity - part2"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/187"
 source_id: "187"
 date: "2025-04-16T15:17:39+09:00"

@@ -1,6 +1,9 @@
 ---
 title: "[Fluid mechanics] Ch 4. The stream function"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/37"
 source_id: "37"
 date: "2024-03-31T20:03:11+09:00"

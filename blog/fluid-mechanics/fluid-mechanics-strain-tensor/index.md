@@ -1,6 +1,9 @@
 ---
 title: "[Fluid mechanics] Strain tensor"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/79"
 source_id: "79"
 date: "2024-05-13T11:36:23+09:00"

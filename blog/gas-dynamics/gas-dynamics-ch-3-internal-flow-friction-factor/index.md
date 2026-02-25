@@ -1,6 +1,9 @@
 ---
 title: "[Gas Dynamics] Ch 3 Internal flow friction factor"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/7"
 source_id: "7"
 date: "2024-03-24T19:52:40+09:00"

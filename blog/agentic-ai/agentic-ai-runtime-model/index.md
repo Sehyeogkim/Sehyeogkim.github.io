@@ -1,6 +1,9 @@
 ---
 title: "🎐 Agentic AI - runtime, model"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://www.notion.so/3112a46dc68c804e9049e57b459c088b"
 source_id: "3112a46d-c68c-804e-9049-e57b459c088b"
 date: "2026-02-25T00:44:42.584Z"

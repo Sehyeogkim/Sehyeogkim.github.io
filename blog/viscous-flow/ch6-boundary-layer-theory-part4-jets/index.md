@@ -1,6 +1,9 @@
 ---
 title: "Ch6 Boundary layer theory part4 - Jets"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/150"
 source_id: "150"
 date: "2024-12-12T16:32:10+09:00"

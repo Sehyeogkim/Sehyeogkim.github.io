@@ -1,6 +1,9 @@
 ---
 title: "Ch5 Convection and Diffusion - part1 (Upwind Scheme)"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/195"
 source_id: "195"
 date: "2025-05-03T09:56:21+09:00"

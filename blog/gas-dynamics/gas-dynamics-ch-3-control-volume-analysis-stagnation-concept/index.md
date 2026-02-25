@@ -1,6 +1,9 @@
 ---
 title: "[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept"
-layout: knowledge-home
+layout: single
+author_profile: false
+sidebar:
+  nav: "docs"
 source_url: "https://jeffdissel.tistory.com/m/6"
 source_id: "6"
 date: "2024-03-24T17:46:47+09:00"
