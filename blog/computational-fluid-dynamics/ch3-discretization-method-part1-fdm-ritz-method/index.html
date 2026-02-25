@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch3 Discretization method - part1 ( FDM, Ritz method) | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <script>
+    (function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t)})();
+  </script>
+</head>
+<body>
+  <!-- Theme toggle -->
+  <button class="theme-toggle" aria-label="Toggle theme">
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/computational-fluid-dynamics/" class="nav-item active">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/computational-fluid-dynamics/">Computational_Fluid_Dynamics</a><span class="sep">/</span>  <span>Ch3 Discretization method - part1 ( FDM, Ritz method)</span></div>
+<a href="/blog/computational-fluid-dynamics/" class="back-link">&larr; Back to Computational_Fluid_Dynamics</a>
+<div class="page-header"><h1>Ch3 Discretization method - part1 ( FDM, Ritz method)</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-04-14</span><span class="meta-item"><span class="meta-label">Category:</span> Computational_Fluid_Dynamics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/180" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>지난시간에 우리가 풀어야할 물리법칙들을<br />
+수학식으로 표현하였고, 해의 전파 방향성에 따라서<br />
+종류를 구분지었다.<br />
+수학식 즉 편미분 방정식을 우리가 직접 손으로 풀수 없는 경우가<br />
+태반이기 때문에, 우리는 컴퓨터를 이용해야한다.<br />
+컴퓨터가 풀기 위해서는 미분 방정식이 아닌<br />
+Algebra eq으로 전환시켜 주어야 한다.<br />
+(그 이유는 전환한 후, 차근차근 알 수 있다)<br />
+전환하기 위해서 우리가 첫번째로 해야하는 것은,<br />
+해가 존재하는 공간을 discretize해야한다.<br />
+<img alt="Ch3 Discretization method - part1 ( FDM, Ritz method)" src="./images/img-001.png" /><br />
+위 그림처럼, 해가 존재하는 공간을 나눈후,<br />
+저 사각형 하나하나를<br />
+grid<br />
+라고 부르며,<br />
+grid끼리 만나는 점을<br />
+node<br />
+라고 칭한다.<br />
+저렇게 구역을 나누는 이유는 결국 우리는 node에서의<br />
+해 값만 찾을 것이고, 미분방정식에서 미분향을,<br />
+노드에서의 값으로 나타내고자 한다.<br />
+이해를 돕기 위해서 1D 로 축소시켜보자.<br />
+우리가 최종적으로 구하고 싶은 것은 지금<br />
+저 그래프 즉, x1 .... xn까지 해의 공간에서<br />
+모든영역에대해서 함수 값을 얻고 싶은 것이다<br />
+(Continous solution)<br />
+<img alt="Ch3 Discretization method - part1 ( FDM, Ritz method)" src="./images/img-002.png" /><br />
+하지만, 모든 값을 다 계산하는 것은 analytically 해를 구하는 방법밖에 없으므로,<br />
+우리는 n개의 구역으로 쪼개고(쪼개는 과정을 discreitze라고 부른다)<br />
+<img alt="Ch3 Discretization method - part1 ( FDM, Ritz method)" src="./images/img-003.png" /><br />
+n개의 구역의 양옆 점,<br />
+n+1개의 점에서의 함수값을<br />
+구하는 문제로 바꾸어 생각할 것이다.<br />
+여기서, 독자는 질문이 들것이다.<br />
+우리가 저 구역을 쪼개고, 저 점에서의 함수값을 구했다고 치자.<br />
+그래도 우리는 저 점들 사이의 해는 구할 수 없는거잖아??<br />
+만약에 저점들 사이의 해를 구하고 싶으면 어떡하지?<br />
+여기서 우리는 사이사이의 해의 profile을 적절한 가정을 통해서 도출할 예정이다.<br />
+(물론 exact solution이 아닐 가능성이 당연히 크다)<br />
+<img alt="Ch3 Discretization method - part1 ( FDM, Ritz method)" src="./images/img-004.png" /><br />
+자 이렇게 이산화 과정을 통해서, 영역을 구분한 후에<br />
+도대체 어떻게 PDE를 '변형' 시킬까????<br />
+바로 4가지 방법이 존재한다<br />
+<img alt="Ch3 Discretization method - part1 ( FDM, Ritz method)" src="./images/img-005.png" /><br />
+4가지 방법 보면서 차차알겠지만,<br />
+결국 이산화 한 후에 미분 term을 어떻게 변환하는지가 다른 4가지 방법인 것.<br />
+1. Taylor series formulation<br />
+<img alt="Ch3 Discretization method - part1 ( FDM, Ritz method)" src="./images/img-006.png" /><br />
+<img alt="Ch3 Discretization method - part1 ( FDM, Ritz method)" src="./images/img-007.png" /><br />
+<img alt="Ch3 Discretization method - part1 ( FDM, Ritz method)" src="./images/img-006.png" /><br />
+<img alt="Ch3 Discretization method - part1 ( FDM, Ritz method)" src="./images/img-007.png" /><br />
+taylor series expansion을 이용하면, 위와 같이 우리가<br />
+일차 이차 미분항을 구할 수가 있다.<br />
+(Called Finite Difference Method)<br />
+가장 단순한 방식이다.<br />
+(그렇기에 복잡한 geometry 에 대해서는 오차가 커진다)<br />
+2. Variational principal<br />
+'variational prinicpal을 책에서는 다음과 같이 설명한다'<br />
+<img alt="Ch3 Discretization method - part1 ( FDM, Ritz method)" src="./images/img-008.png" /><br />
+갑자기 이상한 functional이란 단어가 등장해<br />
+당황스러울 것이다.<br />
+(제가 그랬습니다)<br />
+우리가 구하고 싶은 해 phi(x,y,z,t)라고 하자.<br />
+이때, 이 함수를 다시 input으로 하고 ouput을 진행하는 함수를 인자로 받는<br />
+또다른 함수를<br />
+Functional<br />
+이라고 부른다.<br />
+따라서, 우리가 구하고자 하는 해를 가지고 다른 어떠한 함수식에 대입하는 것이다.<br />
+그리고 그 함수식은 보통, Energy minimizing이다.<br />
+<img alt="Ch3 Discretization method - part1 ( FDM, Ritz method)" src="./images/img-009.png" /><br />
+아직 개념이 와닿지 않을 수 있다.<br />
+(이해하는데 굉장히 오래걸림)<br />
+e.g.) The Ritz Method<br />
+<img alt="Ch3 Discretization method - part1 ( FDM, Ritz method)" src="./images/img-010.png" /><br />
+위 편미분 방정식과 해 함수를 가지고 밑의 functional을 제작하자.<br />
+<img alt="Ch3 Discretization method - part1 ( FDM, Ritz method)" src="./images/img-011.png" /><br />
+functional 함수의 의미는 물리적으로 에너지가 최소화도록 phi가 값이 존재하는 것이다.<br />
+(보통 에너지 최소화 개념으로 functional식이 세워진다)<br />
+여기서, 우리는 해를 approximation solution으로 구상한다.<br />
+(이 부분도 처음에는 물음표가 머리에 pop up할 것이다.)<br />
+(쉽게 생각해서 어떠한 미리 알고 있는 함수들의 결합으로 최종적으로 전체 domain에 걸친<br />
+함수를 만든다고 생각할 수 있다)<br />
+<img alt="Ch3 Discretization method - part1 ( FDM, Ritz method)" src="./images/img-012.png" /><br />
+즉 알고 있는 기저 함수들의 조합으로 새로운 함수를 만드는 것이다.<br />
+여기서 핵심은 '<br />
+알고 있는 함수<br />
+'이다.<br />
+즉 우리는 알고있는 함수를<br />
+얼마만큼 곱해서 더하는지 그 계수들을 바꿔가면서<br />
+최종함수를 결정할 수 있다.<br />
+자 여기서, approximation solution을<br />
+<img alt="Ch3 Discretization method - part1 ( FDM, Ritz method)" src="./images/img-013.png" /><br />
+functional 함수에 대입한다.<br />
+<img alt="Ch3 Discretization method - part1 ( FDM, Ritz method)" src="./images/img-011.png" /><br />
+(현재 미지수는 approximation solution을 구성하는<br />
+a1 ... an , n개의 계수이다)<br />
+따라서, 어떤 계수값일때 functoinal이 최소인지를 우리는 알고 싶기 때문에,<br />
+각 계수로 K를 미분해주어 n개의 식을 유도할 수 있다.<br />
+<img alt="Ch3 Discretization method - part1 ( FDM, Ritz method)" src="./images/img-014.png" /><br />
+n개의 색 + n개의 미지수 -&gt; 연립방정식 -&gt; 해 도출가능.<br />
+결론적으로, 모든 계수를 구했으면, 다시말하지만 기저함수는 미리 알고 있었기 때문에<br />
+우리가 최종 함수를 알 수 있다.<br />
+<img alt="Ch3 Discretization method - part1 ( FDM, Ritz method)" src="./images/img-013.png" /><br />
+지금까지가 Ritz method에 대해서 설명하였고,<br />
+다음 포스터에서 이어서<br />
+남은 2가지 방법에 대해서 알아보자.<br />
+3. method of weighted Residual<br />
+4. control volume formulation</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

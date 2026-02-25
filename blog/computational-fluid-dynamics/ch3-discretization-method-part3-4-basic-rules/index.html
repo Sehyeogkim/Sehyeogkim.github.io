@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch3 Discretization method - part3 (4 Basic rules) | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <script>
+    (function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t)})();
+  </script>
+</head>
+<body>
+  <!-- Theme toggle -->
+  <button class="theme-toggle" aria-label="Toggle theme">
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/computational-fluid-dynamics/" class="nav-item active">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/computational-fluid-dynamics/">Computational_Fluid_Dynamics</a><span class="sep">/</span>  <span>Ch3 Discretization method - part3 (4 Basic rules)</span></div>
+<a href="/blog/computational-fluid-dynamics/" class="back-link">&larr; Back to Computational_Fluid_Dynamics</a>
+<div class="page-header"><h1>Ch3 Discretization method - part3 (4 Basic rules)</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-04-14</span><span class="meta-item"><span class="meta-label">Category:</span> Computational_Fluid_Dynamics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/182" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>우리가 무엇을 하고 있는지 점검해보면,<br />
+differnetial equations -&gt; algebraic eq으로 전환시켜주고,<br />
+컴퓨터가 연산하는 방식으로 진행한다.<br />
+문제는 전환을 어떻게 시키냐 이다.<br />
+(전환예시)<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-001.png" /><br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-002.png" /><br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-003.png" /><br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-001.png" /><br />
+Transient 1D Heat Diffusion equation<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-002.png" /><br />
+diffusion term -&gt; discretization equation<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-003.png" /><br />
+Transient term -&gt; discretization equation<br />
+최종 변환된 algebraic Eq.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-004.png" /><br />
+편미분항을<br />
+결국 바꾸는게 전환의 핵심이다.<br />
+전환시키는 수학적 method로<br />
+1. Taylor Expansion(Finite Difference Method)<br />
+2. Varaitional Principle(The Ritz method, FEM)<br />
+3. Method of Weight Residual (WMR, FVM)<br />
+을 다루었고, 그중에서<br />
+FVM,<br />
+Method of Weight Residual을<br />
+자세하게 살펴보았다.<br />
+지난시간에 WMR에 대해서 자세하게 다루었고,<br />
+그중에서 Weight가 구간별로 1인 step function인<br />
+subdomain method를 가지고 문제를 풀어보자.<br />
+(예제로 풀 문제, 1D Steady heat diffusion w/ source term)<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-005.png" /><br />
+다음의 boundary condition과 값들을 가지고,<br />
+x에 따른 T(온도)를 구하는게 목표이다.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-006.jpg" /><br />
+Step1. Discretize the domain<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-007.png" /><br />
+가장 먼저 구간을 이산화 시켜준다.<br />
+그리고 각 영역을 control volume이라고 정의한다.<br />
+(control volume안에는 한개의 노드가 존재)<br />
+(실제로는 수많은 control volume으로 쪼개기 때문에)<br />
+임의로 P라는 노드를 기준으로 하는 Control volume과 양옆의 W,E 노드<br />
+그리고 control volume surface x = lowercase(w, e)가 존재하는 상황 가정하자.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-008.png" /><br />
+Step2. Integral the Diffrential Eq<br />
+이제 WMR을 사용하여, differnetial eq을 전환시켜주자.<br />
+(여기서부터는, 지난포스터를 꼭 보고와야 이해가 된다)<br />
+https://jeffdissel.tistory.com/181<br />
+Ch3 Discretization method - part2 ( WRM, FVM)<br />
+전체적인 흐름을 다시 정리해보자. 우리는 물리법칙을 수학식으로 표현하였고,그 수학식은 손으로는 풀수 없는 편미분 방정식이다. 따라서, 근사해라도 구하기 + 컴퓨터 이용하기를 달성하려고<br />
+jeffdissel.tistory.com<br />
+자 우리가 지금 분석하는 control volume은 x = w -&gt; x = e라는 것을 기억하자.<br />
+그리고 weight function을 아래와 같이<br />
+x = (w,e)에서 1<br />
+otherwise , 0<br />
+가 되도록 정의한다.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-009.jpg" /><br />
+Control volume of Node P 의 Weight function<br />
+(weight function은 각 contol volume마다,<br />
+달라도 되며, 유저마음대로 정의할 수 있는 함수이다)<br />
+(n개의 cv -&gt; n개의 weight function)<br />
+자 이제 WMR을 적용해보자.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-010.png" /><br />
+Method of Weight Residual<br />
+여기서 적분구간에 x = (w,e)로 축소된다 왜????<br />
+weight function이 저구간 밖은 0 이기 때문에다.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-011.jpg" /><br />
+따라서, 위 식을 이제 적분을 제거해주면 2번 식이 도출된다.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-012.png" /><br />
+2번식을 보면 diffsuion term은 이중 미분이므로, 적분을 진행하여도, 결국 미분항이 존재한다.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-013.png" /><br />
+우리의 목표는 differential eq -&gt; algebraic eq이기 때문에,<br />
+결국 저 미분항을 제거해야한다.<br />
+제거하기 위해서는<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-014.png" /><br />
+(이게 무슨 말인지 바로 밑의 그림을 보면서 이해해보자)<br />
+우리는<br />
+dT/dx | x=e, dT/dx | x=w<br />
+두 값을 결국 Tp, TE, TW 로 나타내는게 목표이다(그게 algebraic eq)<br />
+즉 아래 그래프를 보면 TP, TE 값을 가지고, 그 사이의 profile을 가정해야.<br />
+x = e 에서 미분값을 TP, TE로 표현가능하다.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-015.jpg" /><br />
+Profile of x = xp - xe 구간.<br />
+이러한 profile을 각 control volume별로 가정을 해야하고,<br />
+꼭 모든 CV이 같을 필요는 없다.<br />
+(중요한것은 실제 연산은 굉장히 작은 CV으로 진행을 한다,<br />
+Computer가 이 문제를 푸는 이유이다, 굉장히 많은 CV<br />
+-&gt; 굉장히 많은 Eq(cv1개당 1개의 방정식이므로)<br />
+-&gt; computer can handle this)<br />
+What I wanna say is that<br />
+it isn't necessary to build a precise profile<br />
+rather simplest functions are sufficient.<br />
+굉장히 작은 함수들이 여러개 합쳐지기 때문에,<br />
+간단한 함수로 구성해도 된다는 아이디어 이다.<br />
+때문에, 가장 간단한 stepwise profile부터 시작해보자.</p>
+<h1>step wise profile</h1>
+<p><img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-016.png" /><br />
+아쉽게도 x = e, w에서 미분값을 정의할 수 없다.<br />
+따라서 패스<br />
+그다음 심플한.</p>
+<h1>Linear profile</h1>
+<p><img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-017.png" /><br />
+아주 좋다. 미분가능하다. x = e, w에서<br />
+따라서 이 방식으로 미분값을 계산한후, 우리가 풀고자한 2번 방정식에 대입한다.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-012.png" /><br />
+WMR적용한 우리가 풀고자한 Eq.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-018.png" /><br />
+드디어 Finally, eventually<br />
+이렇게 Tp, Te, TW, b 로 이루어진 algebraic Eq으로 전환하였다.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-019.png" /><br />
+위 식은 잘생각해보면<br />
+node P를 기준으로하는 Control volume1개에 관한 1개의 식이다.<br />
+따라서, 다시 원점으로 우리가 풀고자한 문제로 돌아가보자.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-006.jpg" /><br />
+맨처음에 이산화하였던 모든 CV에 대해서 이제 위 식을 적용시켜보자.<br />
+ex) P -&gt; 4, E -&gt; 5, W -&gt; 3.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-007.png" /><br />
+6개의 CV에 대해서 각각 식을 세우면, 우리가 다음의 6개 algebraic eq을 유도할 수 있다.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-020.png" /><br />
+8개의 미지수로 보이지만,<br />
+자세히 보면 TA, TB를 알고 있기 때문에,<br />
+6개의 방정식, 6개의 미지수 -&gt; 연립방정식으로<br />
+각 온도를 모두 구할 수 있다.<br />
+(실제로는 몇만개의 cv -&gt; 몇만개의 방정식)<br />
+따라서 컴퓨터가 연산을 진행한다.<br />
+여기서 한가지 짚고 넘어가야 할것은,<br />
+위 우리가 가정하였던 Profile은 사용자 마음대로 설정한다고 했는데,<br />
+어떤 profile이든 상관이 없는가?<br />
+즉, T profile의 조건의 대해서 알아보자.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-021.png" /><br />
+Necessary condition for the solution function profile<br />
+piecewise라는게 말그대로, 조각이 나있는 profile이다.<br />
+밑의 예시를 보면 1을 기준으로 두 함수로 전체함수가 조각이 나있다.<br />
+(편의상 x&lt;1을 1번 조각 나머지를 2번조각이라하자)<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-022.png" /><br />
+piecewise profile이라는 말은<br />
+1번조각, 2번조각 각각 내부영역에서 미분가능, 연속이어야 하지만,<br />
+x = 1즉, 두 조각이 만다는 지점에서는 굳이 연속이거나 미분가능이지 않아도<br />
+된다는 말이다.<br />
+하지만 (위의 예시처럼) d T/dx가 필요한 상황이라면,<br />
+우리는 두조각이 만나는 지점에서 연속, 미분가능한 profile을 선택해야한다!<br />
+(즉, 상황에 따라서 profile을 적절히 선택해야한다는 것)<br />
+또다른 강조할 것은, 서로 다른 profile이 사용되어도 상관이 없다.(서로 다른 CV구간마다)<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-023.png" /><br />
+요약:<br />
+1. 가장 간단한 profile부터 시작하자.<br />
+2. 방정식을 보았을때, 이 profile로 값을 도출할 수 있는지 확인<br />
+3. 불가능하면, 다른 profile선택</p>
+<hr />
+<p>자 여기까지 우리는 1번의 풀어야 할 pde식을<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-005.png" /><br />
+Method of Weight Residual(subdomain method),<br />
++ Piece wise Linear profile<br />
+임의의 유저가 만든 설정을 통해서<br />
+다음의 algebraic eq을 유도하였다.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-019.png" /><br />
+여기서 끝난게 아니다.<br />
+우리가 임의로 설정, 가정을 하였기 때문에,<br />
+위식이 realistic한지 현실적, 물리적으로 말이 되는지를<br />
+점검해야할 필요가 있다.<br />
+따라서, Patankar(author of the book)<br />
+은<br />
+4가지 법칙<br />
+을 제시하였다.<br />
+for the Algebriac Eq we derived so far.<br />
+[4 basic rules]<br />
+1. Consistency at control volume faces<br />
+자 profile이 cv마다 달라도 되지만, k가 만약에 동일한 domain에 대해서,<br />
+저렇게 dT/dx가 다르게 된다면, -&gt; heat flux가 같은 점을 기준으로 왼쪽 오른쪽이<br />
+다르다는 것이다. -&gt; unrealistic<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-024.png" /><br />
+만약에 k가 P,E사이에서 달라진다고 가정하자.<br />
+그렇다면 ke는 어떻게 계산해야하는지? 는 다음 쳅터에서 다룬다.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-025.png" /><br />
+즉 온도 문제에서는 heat flux는 무슨일이 있어도,<br />
+한 점에 대해서 왼쪽 오른쪽이 같아야<br />
+-&gt; realistic<br />
+2. positive coefficients.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-026.png" /><br />
+자 W,P,E의 해를 구한 상황에서<br />
+E의 온도만 올리고 다시 해를 구하려고 한다.<br />
+만약에 aE &lt; 0 이라면 (위 algebraic 식에서)<br />
+그렇다면 Tp는 이전해보다 감소할 것이다.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-027.png" /><br />
+이는 physically impossible이다.<br />
+점E에서 온도를 올리면 올릴수록 P에서의 온도가 떨어지는게<br />
+현실적으로 불가능하다.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-028.png" /><br />
+algebraic eq we derived from the differential eq we wanna solve<br />
+따라서, aP, aE, aW는 전부 양수이어야 물리적으로 타당하다.<br />
+3. negative slope-linearization of source term.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-029.png" /><br />
+Linearized source term<br />
+다음 쳅터에서 바로 다루겠지만,<br />
+실제로 source term = S(T) 시간에 따른 함수이다.<br />
+(보통 quadrtic, polynomail eq)<br />
+이를 우리는 algebraic eq으로 바꿔주기 위해서,<br />
+source term linearizeation을 진행하여 위의 form으로 fix해준다.<br />
+여기서 책의 저자는 SP가 무조건 0보다 작거나 같아야 한다고 말하고 있다.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-030.png" /><br />
+3rd rule from the 4 basic rule for the realistic algebraic eq.<br />
+먼저 만약에 SP가 음수라면, linearized source term을 대입한 algebraic eq에서<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-031.jpg" /><br />
+2번째 규칙을 위반할 수 있다. 왜?<br />
+TP의 계수가 음수일 여지가 존재하기 때문이다.<br />
+4. sum of the neighbor coefficients.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-032.png" /><br />
+a_nb - neighbor coefficients<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-031.jpg" /><br />
+우리의 문제로 치면 a_p = a_E + a_W 이어야 한다.<br />
+이는 사실 간단하게 증명할 수 있다.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-033.png" /><br />
+먼저 source term이 존재하지 않는 상황에서, 미분방정식의 특성상 상수를 해에 더해도<br />
+미분을 하면 사라지게 된다.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-034.jpg" /><br />
+따라서, 이 성질을 Algebraic Eq에서도 볼 수 있어야,<br />
+미분방정식을 well 전환시켰다고 할 수 있다.<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-035.jpg" /><br />
+더하여, 만약 source term 이 없는 상황에서 주변의 온도가 모두 동일하면<br />
+당연히 그 해당점도 주변온도와 같아야 realistic한 솔루션이므로,<br />
+<img alt="Ch3 Discretization method - part3 (4 Basic rules)" src="./images/img-036.jpg" /><br />
+아주 근 길을 읽으시느라 수고하셨습니다..<br />
+굉장히 많고 중요한 내용이 많은 관계로 summary 글을 따로 작성하였습니다~<br />
+큰틀을 다시한번 remind한다는 생각으로 고고</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

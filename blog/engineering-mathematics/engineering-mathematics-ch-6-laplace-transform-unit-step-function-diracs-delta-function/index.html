@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac&#x27;s delta function | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <script>
+    (function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t)})();
+  </script>
+</head>
+<body>
+  <!-- Theme toggle -->
+  <button class="theme-toggle" aria-label="Toggle theme">
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/engineering-mathematics/" class="nav-item active">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/engineering-mathematics/">Engineering_Mathematics</a><span class="sep">/</span>  <span>[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac&#x27;s delta function</span></div>
+<a href="/blog/engineering-mathematics/" class="back-link">&larr; Back to Engineering_Mathematics</a>
+<div class="page-header"><h1>[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac&#x27;s delta function</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-04-10</span><span class="meta-item"><span class="meta-label">Category:</span> Engineering_Mathematics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/55" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function<br />
+우리는 새로운 개념, Laplace Transform 에 대해서,<br />
+그리고 성질에 대해서 배워 보았다.<br />
+최종목표는 어려운 ODE를 푸는 것이다.<br />
+그러기 위해서 재료들을 배우는 과정<br />
+근데 문제는 재료가 더있다. 바로<br />
+Unit Step function<br />
+사실 이해하면 정말 쉬운 함수이다.<br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function" src="./images/img-001.png" /><br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function" src="./images/img-002.png" /><br />
+그래프를 보면, 바로 이해가 갈 것이다. 그니까 u(t-a)에서 a보다 클때는 1 작을때는 0 이란 말.<br />
+u(t-a)의 라플라스는 정의대로 다음과 같다.<br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function" src="./images/img-003.png" /><br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function" src="./images/img-004.png" /><br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function" src="./images/img-003.png" /><br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function" src="./images/img-004.png" /><br />
+그리고 이 정의를 이용해서, Laplace에 shifting Theorem 을 정의할 수 있다.<br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function" src="./images/img-005.png" /><br />
+실제 (t-a)u(t-a)를 정의대로 Laplace transform해주면, 해답이 나옴을 확인 할 수 있다. 간단한 적분.<br />
+한가지 더 살펴보자.<br />
+Short Impulses: Dirac's Detla function<br />
+시작은 Impulse 에서<br />
+시작한다.<br />
+충격량은 운동량의 변화량, 야구방망이로 공을 칠때,<br />
+짧은 시간동안 공과 방망이가 접촉하고, 힘과 그 짧은 시간의 곱을 충격량이라 정의한다(Impulse)<br />
+그리고 이 충격량은 야구공의 운동량의 변화량과같다.<br />
+고등 물리시간에 다들 배웠던 기억이 있을 것이다.<br />
+이제 이 충격량은 시간에 따른 함수로 표현해주자.<br />
+밑의 함수를 Dirac's delta function이라고 정의한다<br />
+. (x축은 시간, y축은 힘)<br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function" src="./images/img-006.png" /><br />
+그리고 충격량은 면적이기 때문에, 다음과 같이 정의할 수 있다. (충격량 = 1 인 경우)<br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function" src="./images/img-007.png" /><br />
+만약에, 시간에 정말 정말 작다면????<br />
+면적은 일정하므로 높이는 무한에 가까워 질 것이다.<br />
+이때 높이를, Dirac Delta function이라고 정의힌다.<br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function" src="./images/img-008.png" /><br />
+그리고 위에서 정의한 대로, 수식으로 쓰면 다음과 같이 표현 할 수 있다.<br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function" src="./images/img-009.png" /><br />
+어딘가 쓸려고 이렇게 정의했겠죠???어디에 쓸까<br />
+한번 t에 대해서 연속적인 함수 g(t)가 있다고 가정해보자.<br />
+g(t)에 위에서 정의한 a에서만 면적이 1인 함수를 곱해주면???<br />
+적분 값은 g(a)일 것이다.<br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function" src="./images/img-010.png" /><br />
+지금까지 배운 δ 의 Laplace transform을 구해보자.<br />
+먼저,<br />
+δ의 정의에 필요한, fk(t-a) Laplace를 구하고, k를 0으로 보내주자.<br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function" src="./images/img-008.png" /><br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function" src="./images/img-011.png" /><br />
+이제, k를 0으로 보내주면 좌항은<br />
+δ의 Laplace transform 임을 알 수 있다.<br />
+우항의 오른쪽 k에 관한 식은 로비탈의 정리에 의해서<br />
+(분모,분자 미분후 k = 0대입)<br />
+k -&gt;0 일때 1로 수렴함을 알 수 있다.<br />
+따라서,<br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function" src="./images/img-012.png" /><br />
+문제 풀이로 감을 잡아보자.<br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function" src="./images/img-013.png" /><br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function" src="./images/img-014.jpg" /><br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function" src="./images/img-013.png" /><br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Unit step function, Dirac's delta function" src="./images/img-014.jpg" /></p>
+<hr /></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Computational_Fluid_Dynamics | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script>
+    (function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t)})();
+  </script>
+</head>
+<body>
+  <!-- Theme toggle -->
+  <button class="theme-toggle" aria-label="Toggle theme">
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/computational-fluid-dynamics/" class="nav-item active">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">
+  <a href="/">Home</a><span class="sep">/</span>
+  <span>Computational_Fluid_Dynamics</span>
+</div>
+<div class="page-header">
+  <h1>Computational_Fluid_Dynamics</h1>
+  <p class="page-desc">14 posts</p>
+</div>
+<ul class="post-list">
+<li class="post-item"><a href="/blog/computational-fluid-dynamics/ch5-convection-and-diffusion-part4-general-scheme-form/"><div class="post-title">Ch5 Convection and Diffusion - part4 (general scheme form)</div><div class="post-date">2025-05-03</div></a></li>
+<li class="post-item"><a href="/blog/computational-fluid-dynamics/ch5-convection-and-diffusion-part3-expotential-hybrid-scheme/"><div class="post-title">Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)</div><div class="post-date">2025-05-03</div></a></li>
+<li class="post-item"><a href="/blog/computational-fluid-dynamics/ch5-convection-and-diffusion-part2-exact-solution-vs-upwind-scheme/"><div class="post-title">Ch5 Convection and Diffusion - part2 (exact solution vs upwind scheme)</div><div class="post-date">2025-05-03</div></a></li>
+<li class="post-item"><a href="/blog/computational-fluid-dynamics/ch5-convection-and-diffusion-part1-upwind-scheme/"><div class="post-title">Ch5 Convection and Diffusion - part1 (Upwind Scheme)</div><div class="post-date">2025-05-03</div></a></li>
+<li class="post-item"><a href="/blog/computational-fluid-dynamics/ch4-heat-conduction-part4-implicit-explicit/"><div class="post-title">Ch4 Heat conduction - part4 (Implicit, Explicit)</div><div class="post-date">2025-05-03</div></a></li>
+<li class="post-item"><a href="/blog/computational-fluid-dynamics/ch4-heat-conduction-part3-boundary-conditions-tdma/"><div class="post-title">Ch4 Heat conduction - part3 (Boundary Conditions, TDMA)</div><div class="post-date">2025-04-19</div></a></li>
+<li class="post-item"><a href="/blog/computational-fluid-dynamics/ch4-heat-conduction-part2-source-term-linearization/"><div class="post-title">Ch4 Heat conduction - part2 (Source term Linearization)</div><div class="post-date">2025-04-19</div></a></li>
+<li class="post-item"><a href="/blog/computational-fluid-dynamics/ch4-heat-conduction-part1-harmonic-mean/"><div class="post-title">Ch4 Heat conduction - part1 (Harmonic Mean)</div><div class="post-date">2025-04-19</div></a></li>
+<li class="post-item"><a href="/blog/computational-fluid-dynamics/ch3-discretization-method-summary/"><div class="post-title">Ch3 Discretization method - summary</div><div class="post-date">2025-04-15</div></a></li>
+<li class="post-item"><a href="/blog/computational-fluid-dynamics/ch3-discretization-method-part3-4-basic-rules/"><div class="post-title">Ch3 Discretization method - part3 (4 Basic rules)</div><div class="post-date">2025-04-14</div></a></li>
+<li class="post-item"><a href="/blog/computational-fluid-dynamics/ch3-discretization-method-part2-wrm-fvm/"><div class="post-title">Ch3 Discretization method - part2 ( WRM, FVM)</div><div class="post-date">2025-04-14</div></a></li>
+<li class="post-item"><a href="/blog/computational-fluid-dynamics/ch3-discretization-method-part1-fdm-ritz-method/"><div class="post-title">Ch3 Discretization method - part1 ( FDM, Ritz method)</div><div class="post-date">2025-04-14</div></a></li>
+<li class="post-item"><a href="/blog/computational-fluid-dynamics/ch2-mathematical-description-of-physical-phenomena/"><div class="post-title">Ch2 Mathematical description of Physical Phenomena</div><div class="post-date">2025-04-14</div></a></li>
+<li class="post-item"><a href="/blog/computational-fluid-dynamics/ch1-introduction-to-numerical-heat-transfer-and-fluid-flows/"><div class="post-title">Ch1 Introduction to Numerical heat transfer and fluid flows</div><div class="post-date">2025-04-14</div></a></li>
+</ul>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../assets/js/main.js"></script>
+</body>
+</html>

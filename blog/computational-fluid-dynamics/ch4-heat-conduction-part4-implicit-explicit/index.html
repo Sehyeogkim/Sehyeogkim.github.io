@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch4 Heat conduction - part4 (Implicit, Explicit) | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+  <script>
+    (function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t)})();
+  </script>
+</head>
+<body>
+  <!-- Theme toggle -->
+  <button class="theme-toggle" aria-label="Toggle theme">
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/computational-fluid-dynamics/" class="nav-item active">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/computational-fluid-dynamics/">Computational_Fluid_Dynamics</a><span class="sep">/</span>  <span>Ch4 Heat conduction - part4 (Implicit, Explicit)</span></div>
+<a href="/blog/computational-fluid-dynamics/" class="back-link">&larr; Back to Computational_Fluid_Dynamics</a>
+<div class="page-header"><h1>Ch4 Heat conduction - part4 (Implicit, Explicit)</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-05-03</span><span class="meta-item"><span class="meta-label">Category:</span> Computational_Fluid_Dynamics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/192" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>처음으로 돌아가서,<br />
+우리는 지금<br />
+differential<br />
+eq을<br />
+algebriac<br />
+eq으로 변환하는 방법에 대해서 다루고 있다.<br />
+General Differential Eq<br />
+은<br />
+<img alt="Ch4 Heat conduction - part4 (Implicit, Explicit)" src="./images/img-001.png" /><br />
+e,g) Energy Equation(unsteady + convection = diffusion + source )<br />
+Unsteady, convection, diffusion, Source<br />
+이렇게 4가지 term이 존재함을 ch2에서 살펴 보았다.<br />
+그 중에서 우리는 2가지 항,<br />
+diffusion term<br />
+을 어떻게<br />
+미분항을 제거할지에 대해서 살펴보았고,<br />
+https://jeffdissel.tistory.com/182<br />
+Ch3 Discretization method - part3 (4 Basic rules)<br />
+우리가 무엇을 하고 있는지 점검해보면, differnetial equations -&gt; algebraic eq으로 전환시켜주고,컴퓨터가 연산하는 방식으로 진행한다. 문제는 전환을 어떻게 시키냐 이다.(전환예시) 최종 변환된 algebr<br />
+jeffdissel.tistory.com<br />
++ Source term<br />
+을 linearize하는 방법도 다루었다.<br />
+https://jeffdissel.tistory.com/189<br />
+Ch4 Heat conduction - part2 (Source term Linearization)<br />
+다시 우리가 무엇을 하고 있냐면,밑의 PDE를 이제 discretized(Algebraic) Eq으로 전환시켜,컴퓨터가 풀수 있도록 전환하는 것이다. #Poped up Question in my mind.여기서 그렇다면 뒤에 항상 따라 다니던 Source t<br />
+jeffdissel.tistory.com<br />
+자 이제 남은 두가지 항들을 차례대로 어떻게 algebriac form으로<br />
+다시말해, 미분연산자를 제거할지를 다루어 보자.<br />
+이번시간에는 그 중에서<br />
+unsteady term<br />
+이 key topic<br />
+우리의 목적(unsteady term다루는법)을 달성하기 위해,<br />
+convection, source term을 제거한 Energy eq을 다음과 같이 살펴보자.<br />
+<img alt="Ch4 Heat conduction - part4 (Implicit, Explicit)" src="./images/img-002.png" /><br />
+No convection and source term based (1D Unsteady diffusion heat equation)<br />
+1. Discretize the domain.<br />
+1D 상황이고 우리가 분석할 Tp가 중심노드인 Control volume(CV)<br />
+그리고 양 옆에 E,W가 중심노드인 CV로 설정하자.<br />
+<img alt="Ch4 Heat conduction - part4 (Implicit, Explicit)" src="./images/img-003.png" /><br />
+(그 사이에 존재하는 interface x = w, x = e)<br />
+2. Intergal the differential Eq.<br />
+<img alt="Ch4 Heat conduction - part4 (Implicit, Explicit)" src="./images/img-004.png" /><br />
+ch3에서 우리는 control volume method가 어떤식으로,<br />
+integral form을 구성하는지 명확하게 다루었다.<br />
+(ch3 blog 꼭 읽고 오셔야 됩니다!)<br />
+즉, 우리는 Control volume 각각에대해서 integral eq을 만들고, 연립을 진행한다.<br />
+따라서 먼저 P가 중심노드인 CV에 대해서 적분식을 위처럼 세워보자.<br />
+For simplicity,<br />
+여기서 우리는 미래온도와 현재 온도를 1,0으로 표기하자.<br />
+<img alt="Ch4 Heat conduction - part4 (Implicit, Explicit)" src="./images/img-005.png" /><br />
+먼저 1번의 시간 적분을 우리는 다음과 같이 전환가능하다.<br />
+<img alt="Ch4 Heat conduction - part4 (Implicit, Explicit)" src="./images/img-006.png" /><br />
+2번 항 같은 경우는 우리가 x를 ch3에서 배웠던, Linear profile 가정을 통해서<br />
+diffusion term을 algebraic form으로 다음과 같이 전환가능하다.<br />
+<img alt="Ch4 Heat conduction - part4 (Implicit, Explicit)" src="./images/img-007.png" /><br />
+여기서 우리는 위 적분을 진해하기 위해서는,<br />
+각 노드점에서 T가 시간에 따라 어떤 profile인지를 정의해야한다.<br />
+(그래야 적분을 진행할수 있음 on the (t, t+ Δt) interval)<br />
+여기서 ch3에서 우리가 diffustion term을 linear profile로 설정할때,<br />
+profile설정 방식이 존재하였다.<br />
+'바로, 최대한 simple profile should be selected'<br />
+&amp;<br />
+'Should be Physically realistic'<br />
+가장 간단한 profile은 step wise function, 상수함수이다.<br />
+<img alt="Ch4 Heat conduction - part4 (Implicit, Explicit)" src="./images/img-008.png" /><br />
+Step wise Profile of the temperature on each control volume.<br />
+(diffusion term같은 경우는 위 stepwise로 하면 안되었던 이유를 복습해보면,<br />
+적분을 취해도 미분항이 남기는데, x = w,e에서는 위의 경우 정의가 되지 않기 때문이다)<br />
+하지만, 지금의 time profile같은 경우는 우리가 stepwise도 가능하다<br />
+(그저 상수이기 때문에)<br />
+따라서, 우리는 다음과 같이 3가지 profile에 대해서 분석해볼 수 있다.<br />
+- Two Step wise profile(orange, green)<br />
+- A linear profile(red)<br />
+<img alt="Ch4 Heat conduction - part4 (Implicit, Explicit)" src="./images/img-009.png" /><br />
+왜 2개의 step wise profile인가? 라는 질문을 한다면<br />
+T = T1 즉 미래 시간으로 일정 한 green profile<br />
+T = T0 현재 시간으로 일정한 Orange proifle<br />
+이렇게 2가지가 존재할 수 있다.<br />
+(짚고 넘어가야 할것은, 우리가 T-x에 대해서 profile은 diffustion term으로 Linear profile을<br />
+선택하였다. 하지만 여기서는 T-t profile이기 때문에 우리가 다른 Profile을 선택하여도 상관이 없다)<br />
+여기서 우리는<br />
+Fully Implicit(T1 step wise profile)<br />
+Explicit(T0 step wise profile)<br />
+Crankc - Nicolson(linear profile)<br />
+이렇게 3가지 로 칭한다.<br />
+일단 간단한 profile3가지를 살펴보았고, 이제 profile선정 기준 에 의해<br />
+physically realistic 한가? 라는 질문을 우리는 해봐야 한다.<br />
+(let us recall what we've learned on Ch3)<br />
+ch3에서 언급한 Patankar(author of the book, 'Numerical Heat Transfer and Fluid Flow')<br />
+는 physically realastic조건을<br />
+4가지 규칙<br />
+로 정의했었다.<br />
+https://jeffdissel.tistory.com/182<br />
+Ch3 Discretization method - part3 (4 Basic rules)<br />
+우리가 무엇을 하고 있는지 점검해보면, differnetial equations -&gt; algebraic eq으로 전환시켜주고,컴퓨터가 연산하는 방식으로 진행한다. 문제는 전환을 어떻게 시키냐 이다.(전환예시) 최종 변환된 algebr<br />
+jeffdissel.tistory.com<br />
+3가지 profile을 하나하나 대입하여, 4가지 규칙을 만족하는지 살펴보자.<br />
+그전에 우리는 3가지 profile을 3번의 식으로 나타내면,<br />
+f = 1 -&gt; Fully implicit, f = 0 -&gt; explicit, f = 1/2 -&gt; Crank - Nicolson<br />
+<img alt="Ch4 Heat conduction - part4 (Implicit, Explicit)" src="./images/img-010.png" /><br />
+3번 식을 2번 항에 대입해주면,<br />
+<img alt="Ch4 Heat conduction - part4 (Implicit, Explicit)" src="./images/img-011.png" /><br />
+T1 -&gt; T로 표기하였습니다(t +Δt 에서의 온도) , T0 - t에서의 온도.<br />
+<img alt="Ch4 Heat conduction - part4 (Implicit, Explicit)" src="./images/img-012.png" /><br />
+이제 1 = 2식에 대입해주면,<br />
+<img alt="Ch4 Heat conduction - part4 (Implicit, Explicit)" src="./images/img-013.png" /><br />
+우리가 원하는 discretized form으로 도출된다.<br />
+<img alt="Ch4 Heat conduction - part4 (Implicit, Explicit)" src="./images/img-014.png" /></p>
+<h1>Explicit Method( f = 0, T0 - step wise profile)</h1>
+<p><img alt="Ch4 Heat conduction - part4 (Implicit, Explicit)" src="./images/img-015.png" /><br />
+다시말해, 우리는<br />
+점 P에서의 미래 시간 온도<br />
+를 예측하고자 하는데,<br />
+필요한 값은<br />
+이전시간<br />
+의 현재 노드(P)와 주변 노드(E,W) 온도 값이다.<br />
+현재의 온도데이터들의 조합으로 미래 온도를 예측하기 때문에,<br />
+모든 재료들을 가지고있는 명백한 연산이므로 Explicit 라고 부른다.<br />
+자 여기서 우리는 4basic rule중에서 rule num 2 를 obey할 수 있음을 알 수 있다.<br />
+<img alt="Ch4 Heat conduction - part4 (Implicit, Explicit)" src="./images/img-016.png" /><br />
+따라서, 우리는 time step이 아래와 같이 criteria보다 작아야 물리적으로<br />
+만족하다고 정의할 수가 있다.<br />
+<img alt="Ch4 Heat conduction - part4 (Implicit, Explicit)" src="./images/img-017.png" /><br />
+positive coefficient가 4basic rule에서 어떤 물리적 제약인지를 살펴보면,<br />
+<img alt="Ch4 Heat conduction - part4 (Implicit, Explicit)" src="./images/img-018.png" /><br />
+현재 온도를 증가시킬수록 미래 온도가 감소하는 Unrealistic 한 결과가 나옴을 알 수 있다.</p>
+<h1>Fully Implicit Method( f = 1, T1 - step wise profile)</h1>
+<p>똑같이, f = 1을 4번 식에 대입해주면, fully implicity algebriac Eq을 도출할 수 있다.<br />
+<img alt="Ch4 Heat conduction - part4 (Implicit, Explicit)" src="./images/img-019.png" /><br />
+아주 신기하게도, 모든 coeff가 양수이므로, Explicit와 다르게 rule2는 만족한다.<br />
+결론적으로 fully implicity가 explicit보다 물리적으로 더 타당함을 우리는 알수 있다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>
