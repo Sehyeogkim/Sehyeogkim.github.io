@@ -1,0 +1,170 @@
+Title: [Cardiovascular disease] Aneurysm _ part3
+URL: https://jeffdissel.tistory.com/90
+PostID: 90
+Date: 2024-09-23T16:55:56+09:00
+Category: CardioVascular Diseases
+
+이전 포스터에서
+뇌동맥류가 무엇인지
+왜 발생하는지,
++촬영 방법에 대해서
+알아 보았다.
+이번 포스터에서는
+대동맥류의
+[Rupture 확률]
+에 대해서
+Hemoydnamics 관점
+에서
+알아보자.
+이전 포스터에서 언급 했다 싶이,
+인체의 모든 동맥류는
+1. 분기점(혈액이 갈라지는 지점)
+2. 꺽이는 부분
+이 두 곳에서 자주 발생한다.
+밑 그림을 보면, 혈관이 90도 꺽인 상횡에서
+혈액이 흐르고 있다 (왼쪽 -> 오른쪽으로 흐름)
+[IMAGE: images/img-001.png]
+실제 aneurysm 환자의 동맥류 발생 이전의 혈관 모델링 모습.
+왼쪽에서 부터, 검정색 선을 따라서
+distance가 증가한다고 분석해본 결과
+꺽이는 부분에서, 급격하게
+wall shear stress(WSS) 감소
+Wall shear stress Gradient(WSSG) 증가
+(Acceleration zone -> Deceleration Zone)
+함을 확인할 수 있다.
+Plus,
+Bifurcation flow
+분기점에서도
+[IMAGE: images/img-002.png]
+(가장 왼쪽사진)
+WSS가 감소
++ WSSG가 증가
+지점에서
+Aneurysm이 발생한 모습을 알 수 있다.
+따라서, 유체역학적으로 분석 후,
+WSS,WSSG를 기반으로,
+aneurysm 혈관벽에 가해지는 힘 분석도 가능하므로,
+총
+2가지 분석이 가능해 진다.
+(Cerebral Aneurysm 이 발생한 환자 기준으로)
+1. Cerebral Aneurysm rupture possibility 측정
+(Cerebral Aneurysm 이 발생하기 이전 환자 기준으로)
+2. Cerebral Aneurysm occurance probability
+----------------------
+그렇다면, 어떻게 두가지를 분석하는지
+구체적인 과정을 살펴보자.
+먼저, 지난 포스터에서 언급한
+의료촬영을 가지고,
+실제 환자의 혈관을 모델링한다.
+(segmentation)
+거기서 필요없는 부분제거하고,
+Region of InterestI (ROI)
+추 출
+[IMAGE: images/img-003.png]
+이후에, 관심 부분의 Mesh를 형성한후
+Navier-Stokes Equation based
+solver로 계산을 해주면
+(solver가 어떤 종류가 있는지는
+추후에 다른 포스터로 설명하겠습니다.)
+꼭할께요..
+유체의 흐름에 관한 정보를 알 수 있다.
+[IMAGE: images/img-004.png]
+그렇다면, 일단 유체역학적으로
+터질 위험도를 측정하기 전에
+-------------------
+실제 의사들은
+Aneurysm이 있는 환자의
+터질 위험도를 어떻게 판단하는 지를 알아보자.
+1. 크기에 따른 파열 확률
+< 5mm
+: 파열 확률이
+매우 낮음
+(연간 파열 확률: 0.1~0.5%).
+5~7mm
+: 연간 파열 확률 약
+1% 미만
+.
+7~10mm
+: 연간 파열 확률 약
+1~2%
+.
+10~25mm
+: 연간 파열 확률이
+3~5%
+로 상승.
+> 25mm
+: 연간 파열 확률이
+10% 이상
+으로 매우 위험.
+2. 형태에 따른 파열 확률
+[IMAGE: images/img-005.jpg]
+주머니 모양의 동맥류가 터질 확률이 높으며,
+low-neck (혈관과 동맥류 연결 면적이 작을 경우)
+터질 위험도가 커진다.
+3. 기타 파열 위험 요인
+이전 포스터에서 언급 했던 동맥류 발생 요소들이
+그대로, 파열 위험 요인으로 속합니다.
+고혈압, 흡연, 가족력(유전), 수면부족
+-------------------------------------------
+다시 혈류역학으로 돌아오면
+[IMAGE: images/img-006.png]
+혈액의 이동은, 심장의 박동에 의하며,
+심장의 박동은 주기가 있는
+Pulsatile Flow 이다.
+따라서, 한 싸이클 - 심장 1박동을 의미하며,
+그때, 속도, Wall shear stress, pressure 등
+모든 측정값들이 다르지만,
+주기를 가진다는 것.
+이제 진짜, 파손위험도를
+[IMAGE: images/img-007.png]
+(100% 정확한 인과관계는 아니지만,
+인과관계가 어느정도 있다고 알려진
+연구결과들)
+[파손위험도 관련 인자]
+1. High Oscillatory Shear Index(OSI)
+-> High rupture possiblity
+OSI = 한 싸이클동안, WSS의 표준편차
+즉, 얼마나 변동이 심한지 나타내는 지표.
+2. High Wall Shear Stress Gradient(WSSG)
+-> High rupture possbility
+혈관의 흐름을 x축이라고 하였을 때,
+WSS의 그 축에 따른 변화량 = WSSG
+3. Low WSS + High OSI
+-> tirrger inflammatory - cell - mediated destructive
+4. High WSS + positive WSSG
+-> tirrger inflammatory - cell - mediated destructive
+5. High Relative Residence Time(RRT)
+-> High rupture possbility
+동맥류에 혈액이 머무는 시간이 길수록,
+= (recirculation or stagnation zone)
+= 정체되있는 혈류일 수록, 동맥류에 머무는
+혈류의 체류시간이 길다.
+6. Low Shear Area Ratio(LSAR) 높을수록
+, 터질 확률 증가.
+한 펄스 싸이클에서,
+하위 10% WSS 면적 (평균 wss대비) / 전체 동맥류 면적
+[IMAGE: images/img-007.png]
+[Aneurysm formation 관련 인자]
+1. Low WSS + High OSI
+-> tirrger inflammatory - cell - mediated destructive
+2. High WSS + positive WSSG
+-> tirrger inflammatory - cell - mediated destructive
+3. High Aneurysm Formation Index(AFI)
+한 싸이클동안,
+AFI = [WSS 의 크기,방향] 의 변화
+WSS avg 백터와 WSS가 방향이 다를수록
+(사이 각도 theta - 90도에 가까울수록 - cos ~1에 가까울수록 )
+즉, 혈류의 property가 급격하게 변화하는 지점
++ Turbulence flow
+= 혈관 벽에서 혈류가 오래 머무르는 곳.
+4.HIGH Gradient Oscillatory Number(GON)
+[IMAGE: images/img-008.png]
+전단응력의 방향과 크기가 얼마나,
+불안정한지를 나타내는 지표이므로
+클수록, Aneurysm formation 확률이 높아진다.
+------------------------
+결론적으로, 혈관 벽에 가해지는 shear stress가 불규칙적(자주변함) 이거나, 너무 낮으면
+-> 혈관 내피세포가 불안정한 혈류에 적응하지 못하여, 중막의 Elastin, Smooth Muscle cell 손상
++ 여러 다른 요인들(흡연, 수면부족, 잘못된 식습관, 유전) 들로 인한 염증작용
+-> 으로 최종적으로 혈관벽이 탄성을 잃고, 그대로 늘어나는 현상이
+동맥류 Aneurysm 인 것이다.

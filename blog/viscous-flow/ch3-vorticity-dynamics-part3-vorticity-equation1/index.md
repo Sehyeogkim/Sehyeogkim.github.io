@@ -1,0 +1,138 @@
+---
+title: "Ch3 Vorticity dynamics_part3_Vorticity Equation(1)"
+layout: knowledge-home
+source_url: "https://jeffdissel.tistory.com/113"
+source_id: "113"
+date: "2024-10-09T10:05:26+09:00"
+category: "Viscous-Flow"
+---
+
+Source: [https://jeffdissel.tistory.com/113](https://jeffdissel.tistory.com/113)
+
+이번 시간에는,
+Vorticity Equation
+을 유도해보자.
+incompressible flow가정으로 Navier's Stokes Equation부터 시작하자.
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-001.png)
+1번식에 vector 분해와, 중력가속도를 백터로 바꿔준후, 1식에 대입해주자.
+이후, 바로 gradient와 1번식을 외적해주자.(vorticity를 만들기 위해서)
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-002.png)
+가장 기본적으로
+Gradient(scalar)를 다시 gradient와 외적해주면 zero가 나온다.(직접 전개하면 0)
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-003.png)
+압력, 밀도항을 전개해주고, lapace항도 위처럼 바꾸어 주면 밑의 3번식이 도출된다.
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-004.png)
+여기서, 마지막으로 백터 identity를 통해서 분해해주면,
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-005.png)
+Incompressible or Barotropic Flow(밀도와 압력 gradient 평행)
+의 경우,
+밀도, 압력 그레디언트 외적 = 0
+따라서,
+최종적으로
+Vorticity Eq
+은 다음과 같다.
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-006.png)
+여기서 좌항 = Dw/Dt
+[total time derivative of vorticty]
+위 방정식의 physical meaning을 해석해보자.
+시간에 따른 Vorticty의 변화량 =
+(우) 1항 + 2항
+1항: Rate of Change of vorticity
+by stretching + tiliting of Vortex line
+2항: Diffusion of vorticty
+____________________________
+[1항]
+먼저 1항의 의미를 이해하기 위해서
+Inviscid 가정
+을 통해서 2항을 소거해주자.
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-007.png)
+핵심은 'vortrex line'
+의 Stretching + Tilting이다.
+이해를 위해 vorticity Eq을 방향별로 전개해주자.
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-007.png)
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-008.png)
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-007.png)
+inviscid Vorticity Eq.
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-008.png)
+여기서,
+먼저
+Stretching
+에 대해서 살펴보자.
+vorticity 가 z방향만 존재하는 상황에서
+z방향의 식은 다음과 같을 것이다.
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-009.png)
+위식이 의미하는 것은.
+Z방향의 속도 gradient가 존재하다면,
+시간에따라서, z방향의 vorticity가 변한다는 것
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-010.png)
+위는 fluid element의 예시이고,
+Vortex tube로 확인해보면 바로 이해가 갈 것이다.
+위 예시처럼
+z방향으로 속도 gradient가 존재
+한다면,
+z방향으로 element들이 모두 늘어나는 것은 자명하다,
+따라서 tube도 늘어나게 된다.
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-011.png)
+여기서 핵심은,
+Tube 단면의
+Circulation은 시간에 따라서 변하지 않는다.
+(inviscid, conservative Body force, Barotropic Flow 가정)
+(Kelvin's Theorem)
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-012.png)
+(혹시 저게 뭐지? 라는 의문이 드시면 아래 링크에 자세하게 설명되어 있습니다~)
+https://jeffdissel.tistory.com/112
+Ch3 Vorticity dynamics_part2_Kelvin's circulation Theorem
+지난 시간에circulation, vorticity의 개념에 대해서 배웠다. Closed loop 곡선 C에서 x에서 속도를 u라하자,x+dx 에서 속도는 u+du 일 것이다. 위 상황에서,1. Inviscid flow2. Barotrpoic flow3. Conservative Body force
+jeffdissel.tistory.com
+시간에따라 Circulation은 일정,
+속도의 gradient -> Vorticity(w) 증가
+인 상황이라면
+Circulation의 정의에 의해서,
+면적이 감소
+해야함을 알 수 있다.
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-013.png)
+Definiton of Circulation.
+따라서,
+Strecthing
+이라는 표현은 정확히
+속도gradient >0 인 상황에서 fluid element 가 쭉 늘어남과 동시에,
+Vortex tube 의 단면이 줄어들어서
+아래 가래떡을 늘인 것같은 Stretching 효과가 나타난다.
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-011.png)
+만약에 속도 Gradient<0 이라면,
+반대로 길이가 줄어들 것이고, 면적은 늘어나겠죠??
+결론적으로,
+Z방향의 속도 Gradient
+-> z방향 Vorticity를 변화
+-> 면적의 감소
+-> Vortex Line(tube) Stretching
+이제, Tilting 의 의미를 이해해보자.
+전개한 Vorticity Equation에서
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-008.png)
+위와 정확히 동일한 예시(wz만 존재, wx=wy=0)에서
+이제 x,y 방향 component를 살펴보자.
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-014.png)
+For simplicity,
+위 두 식 중 첫번째,
+x방향
+식만 살펴보자.
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-015.png)
+밑의 그림처럼 du_x/dz >0, wz>0 , wx = 0 인 vortex tube가 존재한다면,
+속도차이로 인해서 tube는 (오른쪽으로) 기울어지게 될 것이고,
+그로 인해서 w_x >0 으로 바뀌게 된다.
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-016.png)
+결론적으로,
+u_x 의 z방향으로의 gradient.
+-> vortex line(tube)를 기울어지게 함
+-> wx의 변화
+정리해보면,
+Vorticity Equation에서
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-007.png)
+inviscid Vorticity Eq.
+(w.
+∇)u 가 의미하는 것은 전개를 했을 때
+![Ch3 Vorticity dynamics_part3_Vorticity Equation(1)](./images/img-008.png)
+velocity gradient 로 인해서
+fluid element 길이변화 or 기울어짐
+-> Vortex tube(line) 길이변화 or 기울어짐
+-> 최종적으로 Vorticity의 변화로 이어진다.

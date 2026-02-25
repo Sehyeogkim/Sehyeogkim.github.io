@@ -1,0 +1,58 @@
+---
+title: "Ch0 Bf/ start writing the blog."
+layout: knowledge-home
+source_url: "https://jeffdissel.tistory.com/167"
+source_id: "167"
+date: "2025-04-11T15:09:20+09:00"
+category: "Solid-Mechanics"
+---
+
+Source: [https://jeffdissel.tistory.com/167](https://jeffdissel.tistory.com/167)
+
+[이번 카테고리 고체역학에서 다룰책]
+![Ch0 Bf/ start writing the blog.](./images/img-001.jpg)
+학부때 미루어왔던 고체역학 심화내용들을
+결국에는 대학원에서 다루게 되었다 ㅋㅋ
+(학부때 들은 과목:
+고체역학, 기계재료 끝 ㅋㅋㅋㅋㅋㅋ)
+배우면서 계속해서 느낀 점은 바로 고체역학이
+유체와 굉장히 비슷하다는 점이다.
+결국 연속체 역학에서 둘다 근본적으로 시작하여,
+분리된 학문이라는 것.
+지난 방학에 연속체 역학의 내용에 대해서
+자세하게 다루었다.
+(혼자 책을 보고 공부함. 수업x)
+하지만 확실히 대단하신 교수님들의 강의를 직접듣는 것이
+단순히 이해가 더 잘되는게 아니라,
+같은 개념, 같은 문장이라도
+바라보는 시각이 다르다는 것을 매번 느낀다.
+그렇게 죽어라 햇갈리던 eigen value, vector
+Jacobian, strain density Energy의
+모호했던 개념들이
+이번 시간에 깔끔하게 정리되었다.
+그러기에 수업으로 들은 고체역학 내용을
+다시 책을 읽으면서 나의 사고, 나의 언어로
+블로그에 표현해보고자 이번 고체역학 블로그
+카테고리를 만들었다.
+당연히 틀린 부분이 존재할수 있기때문에,
+혹시 발견하시면 댓글로 꼭 남겨주세요!
+[Contents]
+위 책에서는 고체역학에 깊게 들어가기전에
+가장 기본적인
+Ch1 Introduction to Vectors and Tensors
+Ch2 Kinetmatics
+2가지를 먼저 다룬다.
+위 내용은 사실 연속체역학에서 이미 다루었던 내용들이지만,
+조금더 자세하게 이번 카테고리에서 다룰 예정이다.
+(가장 중요하고 기본적인 수학기호들)
+이후에, 이제 위에 배운 수학적 기호들을 가지고,
+직접 식을 통해서 표현하는 과정을 거친다.
+Ch3 Concept of Stress
+Ch4 Balance Principles
+(위의 기호들을 이용해서 고체에 적용할수있는
+모든 equations들을 유도한다)
+Ch5 책에서는 다른 내용을 다루지만,
+여기서 나는 5번 쳅터에서는 수업에서 다룬
+linear elastic에 대해서 다룰 예정이다.
+일단 여기까지 쫙 간다음에
+이후 어떤 내용들을 다룰지 다시 이야기해보자.

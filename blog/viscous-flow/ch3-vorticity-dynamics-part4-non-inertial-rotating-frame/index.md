@@ -1,0 +1,96 @@
+---
+title: "Ch3 Vorticity dynamics_part4_Non inertial rotating frame"
+layout: knowledge-home
+source_url: "https://jeffdissel.tistory.com/m/116"
+source_id: "116"
+date: "2024-10-10T14:45:49+09:00"
+category: "Viscous-Flow"
+---
+
+Source: [https://jeffdissel.tistory.com/m/116](https://jeffdissel.tistory.com/m/116)
+
+Ch3 Vorticity dynamics_part4_Non inertial rotating frame
+바로 이전 포스터에서,
+우리는 비관성 좌표계에서 Navier's Stokes Eq을 유도하였다.
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-001.png)
+햇갈리기 때문에, parameter들의 정의를 다시 한번 살피고 가자.
+u': 물체의 속도 (비관성좌표계에서 관찰한)
+U: 비관성좌표계 자체의 속도 (관성좌표계에서 관찰한)
+Ω: 비관성좌표계의 각속도 (관성좌표계에서 관찰한)
+x': 물체의 위치벡터 (비관성좌표계에서 관찰한)
+여기서, 우리는 일정한 속도로 회전하고 고정된 non inertial reference frame을 살펴볼 것이다.
+따라서, 정리하면 식2가 도출된다.
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-002.png)
+복잡한 계산을 편하게 해주는 것이 바로 Tensor notation
+(익숙해지면, 정말편하지만 어려워서 아직 익숙하지 않다..)
+(아예 모르시다면, 밑의 포스터를 무조건 보고 오셔야 됩니다)
+https://jeffdissel.tistory.com/105
+Ch1. Kinematics
+시작에 앞서서,Cartesian Tensor에 대해서익숙해지고 들어가자. 유체의 움직임에 관한 식을유도하는 과정에서가장 중요한 도구인Cartesian Tensor. 기본적으로,i,j,k 인덱스를 사용한다.규칙: 인덱스
+jeffdissel.tistory.com
+다시 본론으로,
+비관성좌표계에서 나비아스 스톡스 방정식을 Tensor notation으로 표현해주면
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-003.png)
+Tensor notation
+Levi-Cevita Tensor
+를 사용하여, (eijk)
+각 항들을 다음과 같이 분해하자.
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-004.png)
+그대로 대입해주고, 정리해주면 식4가 도출된다.
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-005.png)
+여기서, 각항들을 새로운 Levi-Cevita Tensor
+index (nqi) 이후 d/dx_q를 취해주면, 좌변 두번째 항 = 0 이된다.
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-006.png)
+두번째항은 Scalar의 Divergence이었고, A로 표현하면 다음과 같다.
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-007.png)
+0인지 확인을 위해 직접 전개를 해보니,
+Levi-Cevita Tensor의 특징으로 0이 도출된다.
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-008.png)
+가만히 보니까 어디서 많이 본 듯한 비주얼이다.
+우리가 계산한 것이 바로. curl(divergence of A)
+였던 것이다.
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-009.png)
+발산항의 curl은 항상 0 인 것은 자명하기 때문에
+0이었던 것이다.
+다시 본론으로 돌아와서,
+2nd 항이 0 이었던 것을 확인했고
+나머지 항들을 다시 써보자
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-010.png)
+먼저 1번 항을 전개해보자.
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-011.png)
+nqi ,ijk를 몇개 전개해보니 규칙이 발견되었다.
+위 규칙을 Kronecker Delta 로 다음과 같이 표현이 가능하다.
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-012.png)
+따라서, 1번을 정리하면
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-013.png)
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-014.png)
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-013.png)
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-014.png)
+두번째항은 전개하면 똑같이, Curl(divergence of scala P) = 0이므로
+다음과 같이 정리가 된다.
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-015.png)
+3번째 항도 1번째 항에서 사용한 규칙으로
+Kronecker Delta를 활용하여 전개하면
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-016.png)
+마지막으로 4번 항은 아주 심플하게 curl u 즉, vorticity이다.
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-017.png)
+방금 유도한 1,2,3,4 항들을 전부 대입해주면
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-018.png)
+우변 두번째 항을 좌변으로 넘겨주어 total time derivative of Vorticity (W)
+로 표현해주면 다음과 같이 식이 나온다.
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-019.png)
+결론적으로 우리가 유도한 식은
+Vorticity Equation인데, 회전하고있는 비관성 좌표계에서 바라본 Vorticity Eq이다.
+우리가 이전에 구한 관성좌표계에서 유도한 Vorticity 방정식과 비교해보면
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-020.png)
+w -> (w+2 Ω) 임을 알 수 있고,
+따라서, (w+2
+Ω): Absolute vorticity in an inerital frame.
+이라고 부른다.
+우리가 구한 비관성좌표계의 vorticity식에서
+inviscid, barotropic flow 가정으로 우변의 두항을 날려주고
+각속도는 z방향만 있다고 했을때 식을 전개하면 다음과 같다.
+![Ch3 Vorticity dynamics_part4_Non inertial rotating frame](./images/img-021.png)
+위 식이 의미하는 것은, vorticity = 0 즉, irrotational flow이어도
+비관성좌표계 자체가 회전하면, vorticity 가 변해서 rotational로
+변한다는 것이다.

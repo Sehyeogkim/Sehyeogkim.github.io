@@ -1,0 +1,45 @@
+---
+title: "[Fluid mechanics] Reynolds Stress"
+layout: knowledge-home
+source_url: "https://jeffdissel.tistory.com/81"
+source_id: "81"
+date: "2024-05-13T17:09:14+09:00"
+category: "Fluid-Mechanics"
+---
+
+Source: [https://jeffdissel.tistory.com/81](https://jeffdissel.tistory.com/81)
+
+난류를 유체역학, 수학자들은 어떻게 표현했을까??
+https://jeffdissel.tistory.com/39
+[Fluid mechanics] Ch 6. Law of the wall.
+난류 Turbulence는 Randomness그 자체이다. 시간에 따라서 진폭이 일정하지 않는 그냥 랜덤한 파동의 형태를 띈다. 이를 분석하기 위해서, 과학자들은 시간평균의 개념을 가져온다. 그리고 Time mean veloc
+jeffdissel.tistory.com
+Law of the wall 포스터에서 속도를 평균 + fluctation 으로 나눈후
+평균을 구하고 나비아스 스톡스 방정식에 대입해주었다.
+u = Average(u) + u'
+그리고, 넣어준 결과 Reynolds stress( Turbulence stress) 가 식에 생성된다는 것 까지
+위 포스터에서 다루었다.
+그리고 과학자들은 이 term을 수학적으로 유체의 점성항과 비슷하다고 가정한후,
+다음과 같이 표현 하였다.
+![[Fluid mechanics] Reynolds Stress](./images/img-001.png)
+자, 위 표현은 평판에서 u의 속도(x방향)만 있는 경우의 Reynolds stres이다.
+이제 3D로 표현한 reynolds stress 를 작성해보자.
+![[Fluid mechanics] Reynolds Stress](./images/img-002.jpg)
+u'v' = v'u' 임을 통해서, reynolds stress를 두개의 합으로 먼저 표현해주자
+(Symmetric 이고, 우리가 이전에 구한 Strain tensor로 표현 할 수 있기 때문에)
+그리고, Tensor 로 표현해주면 다음과 같다.
+![[Fluid mechanics] Reynolds Stress](./images/img-003.jpg)
+하지만, 문제점이 발생한다.
+normal Reynolds stress를 이용하여
+Kinematic Turbulence energy (k)를 구해보면
+![[Fluid mechanics] Reynolds Stress](./images/img-004.jpg)
+다음과 같이, incompressible flow일때, k=0이라는 아주 이상한 답이 나온다;;
+따라서, k=0 이 되지 않고,
+k 의 정의 (u'u'+v'v'+z'z')/2 가 되도록 Reynolds stress tensor를 변형시켜주면
+![[Fluid mechanics] Reynolds Stress](./images/img-005.jpg)
+normal stress tensor는 다음과 같이 표현 할 수 있다.
+직접, 각 x,y,z reynolds Stress를 구한후 합하여 확인해보면
+![[Fluid mechanics] Reynolds Stress](./images/img-006.jpg)
+k 가 정의대로 derived 됨을 알 수 있다.
+따라서, 최종적으로 Strain tensor를 이용하여 Reynolds stress를 표현하면 다음과 같다.
+![[Fluid mechanics] Reynolds Stress](./images/img-007.jpg)
