@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke&#x27;s 2nd Theorem | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item active">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/viscous-flow/">Viscous_Flow</a><span class="sep">/</span><span>Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke&#x27;s 2nd Theorem</span></div>
+<a href="/blog/mechanical-engineering/viscous-flow/" class="back-link">&larr; Back to Viscous_Flow</a>
+<div class="page-header"><h1>Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke&#x27;s 2nd Theorem</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-11-24</span><span class="meta-item"><span class="meta-label">Category:</span> Viscous_Flow</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/129" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem<br />
+지난 시간에<br />
+PDE-&gt;ODE로<br />
+무차원수를 이용하여 만든 후<br />
+Similarity solution을<br />
+유도하였다.<br />
+이번 시간에도 같은 방식으로<br />
+Irrotational Vortex의 속도장 해를 구해보자.<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-001.png" /><br />
+Painting w/ a Irrotational vortex<br />
+[Aussumptions]<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-002.png" /><br />
+먼저 연속방정식으로 u_r = 0<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-003.png" /><br />
+그 다음, 모멘텀 보존 방정식에 가정을 적용해주면,<br />
+다음 두 식이 유도된다.<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-004.png" /><br />
+여기에 Initial conditon과<br />
+boundary condition을 적용해주자.<br />
+(무한히 멀리서의 속도는 점성효과가 없다는 것)<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-005.png" /><br />
+똑같이 이전의 similarity solution을 구하는 방식대로,<br />
+무차원수 3개로 식 구성 가능.<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-006.png" /><br />
+같은 방식으로 함수안의 두개의 무차원수는<br />
+독립적이지 않으므로, 한개. 제거 가능<br />
+그중에서 점성항을 포함한 무차원수를 남겨주자.<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-007.png" /><br />
+이후, η를 이용하여 무차원수를 치환해주자.<br />
+이제 무차원수로 변환한 속도장을<br />
+다음의 모멘텀 방정식에 대입해주자.<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-008.png" /><br />
+대입전에, 무차원수와<br />
+미분항을 정리두자. (이후 계산을 위해서)<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-009.png" /><br />
+먼저 du/dt 좌항은 다음과 같이 정리된다<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-010.png" /><br />
+그리고 우항에 대입후 정리하면 다음과 같다.<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-011.png" /><br />
+좌항 = 우항<br />
+으로 식을 정리하면 귀신같이<br />
+ODE가 나온다.<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-012.png" /><br />
+ODE는 다음과 같이 쉽게 적분으로 해결된다.<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-013.png" /><br />
+이후, Initial conditon<br />
+Boundary condition<br />
+적용을 통해서,<br />
+계수들을 쉽게 유도가능하다.<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-014.png" /><br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-015.png" /><br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-014.png" /><br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-015.png" /><br />
+따라서, 최종적으로 속도장은<br />
+다음과 같다.<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-016.png" /></p>
+<hr />
+<p>이번에는 스톡스의 두번째 이론을 풀어보자.<br />
+첫번째에서는 plate가 일정한 속도 U로<br />
+x방향으로 움직이는 상황이었고,<br />
+이번에는 진동하는 상황을 가정해보자.<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-017.png" /><br />
+- Unsteady 2D flow<br />
+- incompressible<br />
+모멘텀 보존식으로 다음과 같이 정리 가능하다.<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-018.png" /><br />
+plate가 움직이는 주기 그대로,<br />
+속도장도 같은 주기로 움직일 것이기 때문에,<br />
+다음과 같이 속도항을 가정하고,<br />
+위 식에 대입해보자.<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-019.png" /><br />
+간단한 mass-spring 2nd order ODE가 나오게 되므로 쉽게<br />
+k를 구할 수 있다.<br />
+위 ODE의 일반해는 다음과 같다는 것은<br />
+공학수학 ODE시간에 가장먼저 배웠었다.<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-020.png" /><br />
+Boundary conditon으로<br />
+계수들을 다음과 같이 구할 수 있다.<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-021.png" /><br />
+따라서, f(y)는 최종적으로<br />
+계수를 대입하면 구할 수 있고<br />
+실수부분만 추출하여 최종 속도장을 구할 수 있다.<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-022.png" /><br />
+wt는 주기적으로 변하고,<br />
+wt가 각각 0, pi/2, 3pi/2 ...<br />
+일때마다, 무차원수와 속도무차원수의 관계를<br />
+나타낸 그래프는 다음과 같다.<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-023.png" /><br />
+여기서 핵심적인 point 는<br />
+umax/U이다.<br />
+이 점이 의미하는 바는<br />
+plate의 움직임이 판위의 공간어디까지 영향을 주는가<br />
+그 마지노선이다.<br />
+결론적으로 y = 4root(v/w)까지만<br />
+진동하는 판이 점성효과로 속도를 증가시켜,<br />
+u_max까지 도달하게 만들고<br />
+<img alt="Ch4 Laminar flow - Oseen-Lamb Vortex, Stoke's 2nd Theorem" src="./images/img-024.png" /><br />
+그 특정한 y를 넘어가는 순간부터는 속도가 다시 줄어들어<br />
+판의 영향을 더이상 받지 않게 된다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

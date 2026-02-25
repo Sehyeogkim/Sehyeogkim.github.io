@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>1. Intro - Numerical Linear Algebra | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item active">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/computational-linear-algebra/">Computational-Linear-Algebra</a><span class="sep">/</span><span>1. Intro - Numerical Linear Algebra</span></div>
+<a href="/blog/mechanical-engineering/computational-linear-algebra/" class="back-link">&larr; Back to Computational-Linear-Algebra</a>
+<div class="page-header"><h1>1. Intro - Numerical Linear Algebra</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-09-04</span><span class="meta-item"><span class="meta-label">Category:</span> Computational-Linear-Algebra</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/219" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><ol>
+<li>Intro - Numerical Linear Algebra<br />
+Numerical Linear Algebra에서<br />
+우리가 하고자 하는 것은.<br />
+물리법칙으로 세운 다음과 같은 지배 방정식의 해 x를 구하는 것.<br />
+<img alt="1. Intro - Numerical Linear Algebra" src="./images/img-001.png" /><br />
+굉장히 간단해 보이지만,<br />
+상황에 따라서 푸는 방식이 달라야 하며,<br />
+유일한 해가 존재한는지 수많은 해가 존재하는지도 확인해야한다.<br />
+간단한 용어들부터 정리하고 넘어가자.<br />
+A is a m x n matrix.<br />
+m = n 인 경우 -&gt; square system<br />
+m &gt; n -&gt; Overdetermined system<br />
+m &lt; n -&gt; underdetermined system<br />
+이라고 부른다.<br />
+rank of A<br />
+-&gt; determine uniquness of the solution.<br />
+지금부터 우리는 위 matrix equation을 어떻게<br />
+컴퓨터를 이용하여 해를 구할지 여러 방법론에 대해서 다룰 예정이다.<br />
+깊게 들어가기 앞서서<br />
+학부시간에 배웠던 Linear algebra에서 필요한 개념들을 다시한번 훑고 넘어가자.<br />
+========================================================<br />
+기본적인 addition, multiplcation of scalar and matrix는 다음과 같다.<br />
+<img alt="1. Intro - Numerical Linear Algebra" src="./images/img-002.png" /><br />
+대학원 수업을 들어야 이해가 됬던 부분은 바로 이 부분이다.<br />
+vector = 2nd order tensor * vector<br />
+<img alt="1. Intro - Numerical Linear Algebra" src="./images/img-003.png" /><br />
+'텐서는 어떠한 벡터를 다른 벡터로 mapping하는 도구<br />
+'라고 생각하면,<br />
+모든게 쉬워진다.<br />
+즉 위의 식에서 Matrix A는 벡터 x를 b로 mapping하는 연산자이다.<br />
+여기서, 또다른 중요한 개념은<br />
+range of Matrix<br />
+<img alt="1. Intro - Numerical Linear Algebra" src="./images/img-004.png" /><br />
+즉 A 행렬의 column vector들의 선형결합으로 만들 수 있는 모든 모든 벡터들의 집합이 바로<br />
+range(A)<br />
+위 개념을 이용해서 우리가 풀고자하는 Ax = b Matrix equation을 다른 각도로 접근해보면,<br />
+A의 column vector (a1 ... an )의 선형결합을 적절히 해서 b를 찾는게<br />
+Ax = b에서 해를 구하는 과정이라고 할 수 있다.<br />
+<img alt="1. Intro - Numerical Linear Algebra" src="./images/img-005.png" /><br />
+즉 A의 열벡터를 어떻게 선형결합을 하면 b를 얻을 수 있을까??<br />
+의 답을 하는 과정이 x를 구하는 과정이라는 것.<br />
+반대로 null(A)는 열벡터의<br />
+선형조합으로 0 벡터<br />
+를 만드는 모든 x의 집합을 null(A)라고 한다.<br />
+<img alt="1. Intro - Numerical Linear Algebra" src="./images/img-006.png" /><br />
+더하여, A (m x n Matrix) 에서 A가 full rank라면 n개의 독립적인 column 이 있어야 한다.<br />
+<img alt="1. Intro - Numerical Linear Algebra" src="./images/img-007.png" /><br />
+자 위에서 배운 개념들을 토대로, 이제 우리가 풀고자하는 Ax = b<br />
+Matrix Equation을 살펴보자.<br />
+A의 역행렬이 존재하면<br />
+Non singular<br />
+, otherwise<br />
+singular<br />
+<img alt="1. Intro - Numerical Linear Algebra" src="./images/img-008.png" /><br />
+우리는 A와 b를 가지고 uniquness of solution을 결정할 수 있다<br />
+그리고 아주아주 중요하게<br />
+n x n Square Matrix A 가 Full rank라는 말은 다음과 동치이다.<br />
+(frequently 등장)</li>
+<li>A is nonsingular (has inverse Matrix)</li>
+<li>rank(A) = n</li>
+<li>null(A) = 0</li>
+<li>range(A) = Cn</li>
+<li>det(A) is not zero</li>
+<li>0 is not an eigenvalue of A<br />
+이후에 굉장히 굉장히 많이 등장하는 Norm of Vector<br />
+<img alt="1. Intro - Numerical Linear Algebra" src="./images/img-009.png" /></li>
+<li>Norm of Matrix<br />
+(여러 정의들이 존재한다. 그 중에서 자주 쓰이는 두가지 정의를 마지막으로 살펴보자)<br />
+<img alt="1. Intro - Numerical Linear Algebra" src="./images/img-010.png" /><br />
+<img alt="1. Intro - Numerical Linear Algebra" src="./images/img-011.png" /><br />
+<img alt="1. Intro - Numerical Linear Algebra" src="./images/img-010.png" /><br />
+<img alt="1. Intro - Numerical Linear Algebra" src="./images/img-011.png" /></li>
+</ol></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1 | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item active">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/engineering-mathematics/">Engineering_Mathematics</a><span class="sep">/</span><span>[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1</span></div>
+<a href="/blog/mechanical-engineering/engineering-mathematics/" class="back-link">&larr; Back to Engineering_Mathematics</a>
+<div class="page-header"><h1>[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-04-10</span><span class="meta-item"><span class="meta-label">Category:</span> Engineering_Mathematics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/50" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1<br />
+항상 지금 어디서 무엇을 하고있는거지? 감을 잡고 시작해보자.<br />
+지금까지, nth order ODE까지 푸는 방법을 살펴보았다.<br />
+그런데, 우리는 Nth order ODE 전부다 풀지는 못하고,<br />
+[Ch 3]<br />
+1. Homogeneous Linear ODE<br />
+with constant coefficient<br />
+2. Non-Homogeneous Linear ODE<br />
+with constant coefficient<br />
+- Method of Undetermined Coefficients<br />
+-Method of Variation of Parameters<br />
+즉, 특정 한 nth order ODE 만 풀수 있었다.<br />
+이번 단원에서는 새롭게 행렬 Matrix를 도입하여 Genearl Nth order ODE를 풀어보자<br />
+기본적인 원리는 Nth order ODE -&gt; N개의 1st order ODE<br />
+사실 이게 4단원의 핵심이다. N개로 나누고 행렬로 표현하여 해를 구한는것.<br />
+LET's get started<br />
+행렬의 기본적인 연산법과 개념들은 넘어가도록 하고,<br />
+한가지만 짚고 가보자.<br />
+Eigenvalues, Eigenvectors<br />
+(다음과 같이, A는 행렬이고 , lambda 는 상수를 만족하는 lambda 는 eigen value라고 정의한다)<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-001.png" /><br />
+[사고정리]<br />
+생각해보면 이렇다, 그니까, A라는 행렬이 존재한다고 해보자.<br />
+이 A행렬에 어떤 특정한 백터(x)를 곱했을때, 결과 백터가 (x) 와 같은 방향이라면????<br />
+완전 특이한 경우이다. 일단 특이한건 사실이다. 그럼어디 쓰일까?는 조금있따 알아보자.<br />
+일단 그런 특정한 백터를 (Eigen vector), 곱했을때,<br />
+결과백터 = lambda x 라고 했을때, 그 계수 lambda 를 (Eigenvalue) 라 정의<br />
+식(12) 의 우항을 좌항으로 넘기면,<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-002.png" /><br />
+이 식이 성립하기 위해서는 A-<br />
+λI = 0 이어야 한다.<br />
+선형대수학에서 배웠듯이, 이말이 즉, Determinant of (A- λI) = 0<br />
+A = 2x2인 경우를 살펴보자.<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-003.png" /><br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-004.png" /><br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-005.jpg" /><br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-004.png" /><br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-005.jpg" /></p>
+<hr />
+<p>지금 까지 사실 개념이었고,<br />
+이제 Nth order ode -&gt; N 개의 1st order ODE의 행렬로 바꿔보자.<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-006.png" /><br />
+사실 원리는 그냥 하나씩 전부 치환하는 것이다. 2차 미분이상이 생기지 않도록 하려고.<br />
+이번에도 Linear system을 살펴보자.<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-007.png" /><br />
+이제 이 방정식들을 행렬로 전환하면, 다음과 같이 표현할 수 있다.<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-008.png" /><br />
+마찬가지로, g = 0 이라면, y'=Ay 즉 Homogeneous Linear system이라고 부른다.<br />
+우리가 지금 까지 배웠던 것처럼, Linearity, supoerposition principle모두 그대로 적용된다.<br />
+여기서부터, 헷갈리지 않게 잘 따라와야 된다.<br />
+Nth order Homogeneous Linear ODE의 경우,<br />
+해의 갯수는 n개이고, superposition원리로<br />
+General Solution, y = c1y1+c2y2+ c3y3 + ...cnyn 이었다.<br />
+똑같이 행렬식에 적용해보자.<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-009.png" /><br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-010.png" /><br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-009.png" /><br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-010.png" /><br />
+여기서, 해라는 것은 y column matrix 1개를 말한다. 즉, y1,y2,...yn 세트가 한개의 해라는 것이다.<br />
+이 해가 총 N개 존재한다는 것이다.<br />
+따라서, 다음과 같이 General Solution을 정의할 수 있다. 헷갈리지 말아야할 부분은,<br />
+y(1) -&gt; 하나의 column matrix(세트)라는 것.<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-011.png" /><br />
+여기서, 마찬가지로, Linearly independent인지 아닌지 확인하기 위해,<br />
+Wronskian을 사용하는데, 행렬의 형태로 사용한다.<br />
+먼저 위 해들을 모두 합친 nxn행렬을 정의하고 (Y)<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-012.png" /><br />
+이 행렬의 Determinant 를 Wronskian 이라 정의한다.<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-013.png" /><br />
+즉 위 행렬의 Determinant 가 0 이 아니라면, 모든 column 이 linearly indepnedent하다는 의미,(선형대수학)<br />
+핵심만 말하자면, nxn행렬로 모든 해들을 합쳐서 만들고,<br />
+그 행렬의 Determinant가 0 이라면, 결국, linearly dependent한 해가 있다는 사실<br />
+만약에 0 이 아니라면, Linearly independent하므로 모든 해가 basis of genearl solution이라는 뜻.</p>
+<hr />
+<p>Constant- coefficient system인 경우 상당히 문제가 쉬워진다.<br />
+[y = y(t) t에 관한 함수]<br />
+밑에서 모든 a(t) = a (t independent), 모든 g(t) = 0<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-007.png" /><br />
+따라서, 행렬로 표현하면<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-014.png" /><br />
+이제 이 행렬의 해를 구하느 것은 어김 없이 e^T 로 표현하고 시작.<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-015.png" /><br />
+아까 우리가 배운, Engien value, vector문제로 바뀌게 된다.<br />
+따라서, 여기서 Eigen value가 해를 결정하고, eigenvector은 그 해들이 서로 linearly independent하게 만들어준다.<br />
+결국, Genearl soltuion은 각해들이 linearly independent하므로,<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-016.png" /></p>
+<hr />
+<p>이제 수학자들은 이렇게 도출된 해 를 그래프에 표현하고 싶어한다.( 시각화하려고)<br />
+다음과 같이 해가 두개의 row로 구성이라 하자.<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-017.png" /><br />
+여기서 y1,y2 모두 결국 시간에 따른 함수이다.<br />
+시간에 따라서, y1,y2가 바뀌고, 결국 백터 y 의 방향이 바뀌게 될 것이다.<br />
+y1 -&gt; x축, y2-&gt; y축으로 하는 평면을 : Phase plane<br />
+그 평면 안에서 시간에 따른 y의 백터 방향을 추적 한 선이 : Trajectory<br />
+Phase plane에서 Trajectory를 합쳐서 그리면: Phase portrait 라고 한다.<br />
+사실 이렇게 책을 읽었을때 감이 전혀 안왔다. 예제문제를 살펴보면서 이해해보자.<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-018.png" /><br />
+위의 방법대로, Eigen vector, value를 통해 genearl solution을 구하면,<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-019.png" /><br />
+[y1,y2] 백터의 크기는 시간이 지남에 따라 0 에 가까워지고,<br />
+방향은 [1,-1]이 더빨리 감소함을 알 수 있다.<br />
+따라서, [1,1]이 시간에 지남에 따라 방향이 우세함을 알 수 있다.<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-020.png" /><br />
+여기서 (0,0)에 주목할 필요가 있다. 이 점에서 두 Basis(y(1)t, y(2)t)는 유일하게 만나고,<br />
+모든 백터가 시간이 지남에 따라 모이는 점이다.<br />
+이렇게 모이는 점의 특징은,<br />
+그 점에서 dy2/dy1즉, 위 평면의 기울기가 한개가 아니라는 말이다(Not Unique)<br />
+이렇게,<br />
+기울기가 unique하지 않은 점을 Critical Point라 정의한다.<br />
+(책에서는 기울기가 Undetermined 라고 언급)<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-021.png" /><br />
+Critical point에는 사실 종류가 5가지 있다. (그래프의 모양에 따라)<br />
+1. Improper nodes, 2. Proper nodes, 3. Saddle Points, 4. Centers, 5. Spiral points<br />
+Example로 하나씩 살펴보자.<br />
+1. Improper nodes<br />
+(Basis 제외) 모든 백터들의 direction이 critical point에서 같은 경우.<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-020.png" /><br />
+위 경우에, y(2)(t) 를 제외하고는 기울기가 1, 백터로 표시하면 [1,1] 임을 알 수 있다.<br />
+물론, Basis 중 하나, y(1) (t) 도 같은 방향이지만, 정의에 따르면, basis 빼고 다른 백터가 모두<br />
+같은지 다른지만 확인하면 Improper Node<br />
+2. Proper nodes<br />
+정의는, Improper과 반대로, Critical point에서 백터들의 기울기의 종류가 2개 이상인 경우.<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-022.png" /><br />
+그래프를 보면 한순간에 이해가 되실 것이다.<br />
+3. Saddle point<br />
+Basis 빼고는 전부 critical point를 우회하는 경우.<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-023.png" /><br />
+4. Center<br />
+모든 Trajectory가 critical point를 둘러싼 경우.<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-024.png" /><br />
+5. Spiral<br />
+시간이 지남에 따라 모든 trajectory가 critical point로 gather하는 경우.<br />
+<img alt="[Engineering Mathematics] Ch 4. Systems of ODE, Phase plane - part1" src="./images/img-025.png" /></p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

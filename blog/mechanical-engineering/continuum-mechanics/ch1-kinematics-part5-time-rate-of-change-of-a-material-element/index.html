@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch1 Kinematics part5 - Time rate of change of a material element. | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item active">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/continuum-mechanics/">Continuum-Mechanics</a><span class="sep">/</span><span>Ch1 Kinematics part5 - Time rate of change of a material element.</span></div>
+<a href="/blog/mechanical-engineering/continuum-mechanics/" class="back-link">&larr; Back to Continuum-Mechanics</a>
+<div class="page-header"><h1>Ch1 Kinematics part5 - Time rate of change of a material element.</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-01-31</span><span class="meta-item"><span class="meta-label">Category:</span> Continuum-Mechanics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/155" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>part1,2,3 에서는 변형전과 후를 비교하기 위해서,<br />
+material coordinate(before deformation)<br />
+spatial coordiante(after deformation)<br />
+을 정의하였다.<br />
+지금까지는 공간변화에 대해서 tensor들을 정의하였고,<br />
+이번에는 시간의 변화에 따른<br />
+deformation을<br />
+위 개념들을 가지고 정의해보자.<br />
+먼저 변형 전후, 아주 작은 길이 dX,dx를 밑 그림과 같이. 정의하자.<br />
+<img alt="Ch1 Kinematics part5 - Time rate of change of a material element." src="./images/img-001.jpg" /><br />
+그랬을때 우리는 두개의 속도 벡터를 각각의 coordinate에서<br />
+정의할 수 있다.<br />
+즉 둘다 같은 물체의 속도를 의미하지만, 분석하는 coordinate가<br />
+다른 경우이다.<br />
+1번 식에 위 두가지 정의한 속도벡터를 대입해주자.<br />
+이중에서 우리는 지금부터 Spatial Coordinate 속도 벡터를 사용 할 것이다.<br />
+(우리가 측정한 속도값은 대부분 spatial coordinate이기 때문)<br />
+<img alt="Ch1 Kinematics part5 - Time rate of change of a material element." src="./images/img-002.jpg" /><br />
+이 속도 gradient의 물리적 의미를 자세하게 분석하기 위해서,<br />
+Symmetric Antisymmetric part로 쪼개 주자.<br />
+(Antisymmetric matrix : WT = -W)<br />
+<img alt="Ch1 Kinematics part5 - Time rate of change of a material element." src="./images/img-003.jpg" /><br />
+<img alt="Ch1 Kinematics part5 - Time rate of change of a material element." src="./images/img-004.png" /><br />
+Configuration of 3*3 tensor, D and W.<br />
+속도라는 개념은 시간당 변위이다.<br />
+따라서 변위의 값을 얻기 위해 dx를<br />
+단위벡터와 그 벡터의 크기 ds로 정의해주자.<br />
+그리고 ds에 관한 식을 얻기위해 dx를 내적해준다.<br />
+이후 밑의 식에서 D/Dt(material derivative)를 통해서<br />
+미분을 진행해주면,<br />
+<img alt="Ch1 Kinematics part5 - Time rate of change of a material element." src="./images/img-005.jpg" /><br />
+위의 식을 보면 Antisymmetric property로 인해서,<br />
+D항만 남음을 알 수 있다.<br />
+다시 dx = ds n 을 대입하여 주면,<br />
+<img alt="Ch1 Kinematics part5 - Time rate of change of a material element." src="./images/img-006.jpg" /><br />
+D의 물리적 의미는,<br />
+초기 미소 길이에 대하여 rate of elongation을<br />
+의미함 을알 수 있다.<br />
+우리는 이것을<br />
+Stretching<br />
+이라고 칭한다.<br />
+그리고 D matrix의 diagonal term의 합을 통해서<br />
+div (v) 즉 Velocity gradient tensor도 유도가능하다.<br />
+L = div v, Velocity Gradient Tensor<br />
+로 정의한 후, 우리가 part2에서 정의한<br />
+Deformation Gradient Tensor(F)로<br />
+밑의 과정을 따라 정의해보자.<br />
+<img alt="Ch1 Kinematics part5 - Time rate of change of a material element." src="./images/img-007.png" /><br />
+생각보다 간단하다.<br />
+<img alt="Ch1 Kinematics part5 - Time rate of change of a material element." src="./images/img-008.png" /><br />
+이 Relationship은 추후에 쓰이므로,<br />
+이런게 있구나 로만 기억해두자.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

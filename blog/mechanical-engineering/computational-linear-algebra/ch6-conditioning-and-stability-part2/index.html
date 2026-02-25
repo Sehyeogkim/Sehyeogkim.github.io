@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch6. Conditioning and Stability - part2 | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item active">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/computational-linear-algebra/">Computational-Linear-Algebra</a><span class="sep">/</span><span>Ch6. Conditioning and Stability - part2</span></div>
+<a href="/blog/mechanical-engineering/computational-linear-algebra/" class="back-link">&larr; Back to Computational-Linear-Algebra</a>
+<div class="page-header"><h1>Ch6. Conditioning and Stability - part2</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-09-13</span><span class="meta-item"><span class="meta-label">Category:</span> Computational-Linear-Algebra</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/236" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Ch6. Conditioning and Stability - part2<br />
+지난시간에 Condition Number의 formula에 대해서 자세하게 다루었다.<br />
+핵심을 요약하자면,<br />
+Non singular Matrix A<br />
+에 대해서<br />
+다음과 같이 정의하였다.<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-001.png" /><br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-002.png" /><br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-001.png" /><br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-002.png" /><br />
+지난시간에 다루지는 않았지만, p norm을 활용하여, condition Number를 정의할 수 도 있다.<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-003.png" /><br />
+Definition of p_norm<br />
+(Eculidean norm 은 p = 2인 경우)<br />
+p norm을 활용하여, 우리가 column vectors들의 p norm의 차이로 condition Number를 다음과 같이 정의할 수 있다.<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-004.png" /><br />
+즉, 쉽게 생각해서<br />
+column vector들의 norm의 차이가 크다면 -&gt; k(A) 증가 -&gt; ill conditioned<br />
+여기서 한가지 재미있는 사실을 예제를 통해 살펴보자.<br />
+다음의 A가 있고 아래 Ax = b를 푼다고 가정하자.<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-005.png" /><br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-006.png" /><br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-005.png" /><br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-006.png" /><br />
+Ax = b to be solved.<br />
+singular Value of A = 1, e이므로, condition Number는 다음과 같다.<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-007.png" /><br />
+즉, e -&gt; 0 으로 갈수록 ill conditioned 된다는 것이다.<br />
+여기서, A와 b 앞에 D를 곱해주자<br />
+D = diag ( 1 , 1/ ε)<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-008.png" /><br />
+저렇게 문제를 scaling한다면, k(A) = 1로<br />
+well conditioned problem으로 전환되는 것을 알 수 있다.<br />
+즉, 적절한 Matrix D를 곱해주면,<br />
+Condition Number 조절이 가능하다는 것.<br />
+그렇다면 적절한 D는 무엇일까?<br />
+-&gt; 이후 블로그 내용으로 살펴보자.<br />
+================================================================<br />
+지금부터는, 컴퓨터에 정보 저장관점에서<br />
+에러가 얼마나 생기고 왜 생기는 지를 살펴보자.<br />
+컴퓨터는 비트(0,1)로 데이터를 저장하기 때문에, data type에 따라서 저장 max, min값이 한정적이다.<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-009.png" /><br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-010.png" /><br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-009.png" /><br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-010.png" /><br />
+따라서, 저장할 수 있는 소숫점의 자리수(유효숫자,s)는 한정적이므로 반올림을 밑의 규칙으로 진행해준다.<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-011.png" /><br />
+5일때는 알고리즘에 따라 올림할 수 도 있고, 유지할 수도 있다.<br />
+더 자세하게 표현할 수 있는 모든 숫자는 아래의 form으로 구성된다.<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-012.png" /><br />
+general form( s: is a precision, 유효숫자)<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-013.png" /><br />
+x에 대해서, 유일한 (m,s,e,beta)를 만들기 위해서,<br />
+m의 범위를 다음과 같이 규칙을 세워주어야 한다.<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-014.png" /><br />
+복잡해 보이지만,( beta진수) 로. 표현한 것이다.<br />
+(조금더 친근한 form으로 전환하면 다음과 같다.)<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-015.png" /><br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-016.png" /><br />
+beat = 16진수 일때, 예시<br />
+example) 12.625를 나타낸다고 했을때, s =8, beta = 2, e = 4 로 다음과 같이 표현된다.<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-017.png" /><br />
+우리가 흔히 말하는 32비트라는 것은, 여기서<br />
+부호: 1bits<br />
+지수항: 8bits (e_max = 128, e_min = -125)<br />
+소수항: 23bits (s_max = 24)<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-018.png" /><br />
+64bits는 다음과 같이 더많은 숫자를 저장할 수 있게 된다.<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-019.png" /><br />
+자 지금까지 컴퓨터에서 숫자를 어떻게 저장하는 지를 알아보았고,<br />
+이제 우리의 진짜 관심사인<br />
+Error<br />
+에 집중해보자.<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-020.png" /><br />
+general form of number<br />
+우리는 연속적인 모든 숫자를 저장할 수 없다.<br />
+discrete number들만 저장할 수 있고,<br />
+여기서,<br />
+최소한의 숫자사이의 간격 : delx<br />
+를<br />
+우리는 다음과 같이 표현할 수 있다.<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-021.png" /><br />
+위 표현을 가지고 우리는<br />
+machine의 error<br />
+를 다음과 같이 정의하자.<br />
+error = (1과 바로 다음으로 큰 숫자사이의 거리)/2<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-022.png" /><br />
+ε machine = 2 − 24 ≈ 5 . 96 × 10 − 8 for IEEE single precision<br />
+ε machine = 2 − 53 ≈ 1 . 11 × 10 − 16 for IEEE double precision.<br />
+2진법을 사용하기 때문에, 1다음으로 큰 숫자는 1+2<br />
+ε_machine 임을 알 수 있다.<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-023.png" /><br />
+다시말해,<br />
+컴퓨터의 저장공간상 ,<br />
+x = 1 다음 저장가능 숫자는<br />
+x = 1+2ε_machine<br />
+따라서, 그 사이의 숫자는 반올림되어야 한다.<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-024.png" /><br />
+Therefore, 다음의 반올림규칙으로 컴퓨터에 저장한다.<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-025.png" /><br />
+fl(x)는 저장된 숫자.<br />
+뿐만아니라, Arthimetic연산을 할때도 다음과 같은 규칙으로 에러가 생성된다. (원인, 불연속적인 저장방식)<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-026.png" /><br />
+예를들어서, 곱셈과 덧셈을 할때 똑같이 컴퓨터에 (1+e)를 곱한 크기로 저장이 된다.<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-027.png" /><br />
+(재밌는 사실은, 여기서 마지막 덧셈에서 x = -y 에 굉장히 가깝다면,<br />
+에러가 굉장히 크게 나올 수 있다는 점!, aka catastrophic cancellation)<br />
+자 이번 chapter에서 배운 내용들을 마지막으로 정리해보자.<br />
+방금 전에 배운 내용은, 컴퓨터의 저장방식으로 인해서<br />
+저장하는 값의 오차가 발생함을 다루었다.<br />
+1. Accuracy (how accurate the function value is)<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-028.png" /><br />
+함수의 오차가 e_machine과 같은 order인가? -&gt; 정확도<br />
+즉, 우리가 구하고 싶은 함수값의 오차가 e_machine과 같은 magnitude order인지를 확인해야한다.<br />
+(다시말해 Accuracy를 확인해야함)<br />
+지난 블로그에서 다룬 내용은 Ax = b에서 작은 perturbation에 우리가 구하고자하는,<br />
+식이 얼마나 바뀌는지를 알아보았다.<br />
+2. Stability (how algorithm handle the perturbed x)<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-029.png" /><br />
+오차가 섞인 x~ (perturbed x)의 함수값의 오차 -&gt; stability<br />
+즉, perturbed x -&gt; x~ 가 얼마나 바뀌는 지를 Stability라고 위와같이 정의한다.<br />
+뿐만아니라 perturbed x로 인해 함수값이 얼마나 바뀌는 지도 확인하자.<br />
+3. Backward Stability<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-030.png" /><br />
+여기서, stability를 역으로 구하는 방법도 존재한다.<br />
+1. 함수오차와 같은 오차를 만드는<br />
+perturbed x<br />
+를 찾는다.<br />
+2. 그리고 그 perturbed x의 peturbation이 order of e_machine인지 확인한다.<br />
+실제로 대부분 가장 안정적인 Backward Stability를 사용한다.<br />
+그리고 Definition of Condition Number를 활용하여, 다음과 같이 Order연산가능.<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-031.png" /><br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-032.png" /><br />
+Definition of Condition Number<br />
+예시로 살펴보자. 다음 함수를 정의하자.<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-033.png" /><br />
+Floating Error로 인해서 실제 저장된 값은 다음과 같으므로,<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-034.png" /><br />
+floating error of the function is as follows:<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-035.png" /><br />
+따라서,<br />
+Accuracy<br />
+of the function is as follows:<br />
+<img alt="Ch6. Conditioning and Stability - part2" src="./images/img-036.png" /></p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

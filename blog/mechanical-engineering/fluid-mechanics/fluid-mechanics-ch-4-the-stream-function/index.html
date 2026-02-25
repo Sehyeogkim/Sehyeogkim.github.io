@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Fluid mechanics] Ch 4. The stream function | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item active">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/fluid-mechanics/">Fluid_Mechanics</a><span class="sep">/</span><span>[Fluid mechanics] Ch 4. The stream function</span></div>
+<a href="/blog/mechanical-engineering/fluid-mechanics/" class="back-link">&larr; Back to Fluid_Mechanics</a>
+<div class="page-header"><h1>[Fluid mechanics] Ch 4. The stream function</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-03-31</span><span class="meta-item"><span class="meta-label">Category:</span> Fluid_Mechanics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/37" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>[Fluid mechanics] Ch 4. The stream function<br />
+오늘 알아볼 것은<br />
+Stream funciton이 무엇일까??<br />
+자 계속해서 언급하지만,<br />
+과학자들이 정의한 대에는 다 이유가 있습니다.<br />
+대부분의 이유는 편할려고 쉽게살려고.<br />
+일단 Stream function의 정의부터 살펴보죠!<br />
+일단 x,y 2-Dimensional 좌표평면에서 유체가 V = (u,v) 방향으로 흐른다고 가정하자.<br />
+그렇다면, 다음과 같이 정의된 함수가 바로 Stream function<br />
+<img alt="[Fluid mechanics] Ch 4. The stream function" src="./images/img-001.png" /><br />
+이렇게 정의하면 뭐가 편리할까????<br />
+<img alt="[Fluid mechanics] Ch 4. The stream function" src="./images/img-002.png" /><br />
+즉, Stream function은 그 자체로 연속방정식을 만족하는 함수이다.<br />
+따라서, Stream function으로 변형된 differential form을 다른 식에 대입하면<br />
+그 자체가 연속방정식을 만족한다는 뜻!!!!<br />
+원문에서는 정확히:<br />
+Stream function is a clever device that allows us to satisfy the continuity eq<br />
+and then solve the momentum eq directly for the single variable.<br />
+뿐만아니라,<br />
+Stream line: 유체의 속도 gradient를 이은 직선.<br />
+을 나타낼 수 있다.<br />
+<img alt="[Fluid mechanics] Ch 4. The stream function" src="./images/img-003.png" /><br />
+따라서, Stream line을 따라서는 Stream function 이 일정하다는 것을 알 수 있다.<br />
+한발 더 가면, 밑 Streamline 그림을 봐보자.<br />
+<img alt="[Fluid mechanics] Ch 4. The stream function" src="./images/img-004.png" /><br />
+우리는 Flowrate 변화량을 Stream function으로 나타낼 수 있다.<br />
+<img alt="[Fluid mechanics] Ch 4. The stream function" src="./images/img-005.png" /><br />
+따라서, 우리는 Flow rate의 변화량을 Stream function의 변화량으로 구할 수 있다.<br />
+<img alt="[Fluid mechanics] Ch 4. The stream function" src="./images/img-006.png" /></p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

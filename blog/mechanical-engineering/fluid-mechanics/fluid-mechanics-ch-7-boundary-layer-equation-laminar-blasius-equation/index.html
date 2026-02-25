@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Fluid Mechanics] Ch 7. Boundary layer Equation- Laminar, Blasius Equation. | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item active">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/fluid-mechanics/">Fluid_Mechanics</a><span class="sep">/</span><span>[Fluid Mechanics] Ch 7. Boundary layer Equation- Laminar, Blasius Equation.</span></div>
+<a href="/blog/mechanical-engineering/fluid-mechanics/" class="back-link">&larr; Back to Fluid_Mechanics</a>
+<div class="page-header"><h1>[Fluid Mechanics] Ch 7. Boundary layer Equation- Laminar, Blasius Equation.</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-05-11</span><span class="meta-item"><span class="meta-label">Category:</span> Fluid_Mechanics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/76" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>ch7에서 우리는 유체의 Boundary layer에 대해서 다루어 보았었다.<br />
+boundary layer을 간단하게 설명하자면,<br />
+어떤 유체가 고체면을 흐를때,<br />
+고체면과의 마찰력으로 인해, 고체와 유체가 만나는 면은 속도 = 0 이 된다.<br />
+(No slip condition)<br />
+하지만 유체는 점성을 가지고 있기때문에,<br />
+만나는 면의 속도감소가 그 위의 layer들의 속도감소에도<br />
+영향을 끼친다.<br />
+즉, 고체바닥에서 유체의 속도는 0 이고 위로 올라갈수록 조금씩 커지다가,<br />
+결국 Free sream velocity (U)와 같아지게 될것이다(벽면에 영향을 받지 않은 원래 유체속도).<br />
+그럴때, x방향 속도 u = 0.99U가 되는 벽면으로부터 거리를<br />
+Boundary layer thickness라고 정의한다.<br />
+아래 그림은 Laminar flowd의 Boundary layer을 보여주는 그림이다.<br />
+오른쪽으로 갈수록 점점 boundary layer가 두꺼워지는 것을 알 수있다.<br />
+<img alt="[Fluid Mechanics] Ch 7. Boundary layer Equation- Laminar, Blasius Equation." src="./images/img-001.png" /><br />
+그렇다면, 벽면을 따라 오른쪽을 x축이라고 설정하면,<br />
+x에따라서 정확히 두께가 어떻게 변하는지 식으로 풀 수 있을까??<br />
+이게 바로 유체역학의 꽃이다. 어떠한 자연현상을 수학식으로 표현하고,<br />
+해석하는것.<br />
+이번 포스터에서는 boundary layer thickness와 x와의 관계<br />
+Blasius Equation 을 증명해보고자 한다.<br />
+(주의할점, Laminar flat plate flow인 경우만)<br />
+시작은 Momentum Eq. (Navier's Stokes EQ)<br />
+<img alt="[Fluid Mechanics] Ch 7. Boundary layer Equation- Laminar, Blasius Equation." src="./images/img-002.jpg" /><br />
+Steady state, 2-D, No pressure gradient and gravity<br />
+그리고 shear은 y방향만 있다고 하자.<br />
+최종적으로 도출된 (1)식을 더 간단하게 표현하기 위해서, Stream function을 도입한다.<br />
+그리고, 새로운 변수(<br />
+η<br />
+)와 해당 변수로 구성된 함수( f(<br />
+η<br />
+))<br />
+를 Blasius는 다음과 같이 정의하였다.<br />
+<img alt="[Fluid Mechanics] Ch 7. Boundary layer Equation- Laminar, Blasius Equation." src="./images/img-003.jpg" /><br />
+이제 새롭게 정의한 함수를 그대로, (1)식에 대입 해 줄 것이다.<br />
+따라서, (1)식의 각항을 전부 f함수로 바꿔준다.<br />
+<img alt="[Fluid Mechanics] Ch 7. Boundary layer Equation- Laminar, Blasius Equation." src="./images/img-004.jpg" /><br />
+먼저, u,v를 위와 같이 바꿔주고,<br />
+미분 term들을 이어서 구해준다.<br />
+<img alt="[Fluid Mechanics] Ch 7. Boundary layer Equation- Laminar, Blasius Equation." src="./images/img-005.jpg" /><br />
+구해준 term들을 (1)식에 대입하게 되면, 최종적으로<br />
+Non-linear 3 order ODE가 나온다.<br />
+<img alt="[Fluid Mechanics] Ch 7. Boundary layer Equation- Laminar, Blasius Equation." src="./images/img-006.jpg" /><br />
+이제 이 공학수학문제를, Boundary condition과 함께 풀기위해서는 Numerical integral method가 필요하다.<br />
+자세한 과정은 -&gt;<br />
+https://www.cfm.brown.edu/people/dobrush/am34/Mathematica/ch6/blasius.html<br />
+<img alt="[Fluid Mechanics] Ch 7. Boundary layer Equation- Laminar, Blasius Equation." src="./images/img-007.jpg" /><br />
+함수를 구한 결과를 정의한 변수<br />
+η<br />
+와 f'(<br />
+η<br />
+)= u/U를 Table에 plot하면 다음과 같다.<br />
+<img alt="[Fluid Mechanics] Ch 7. Boundary layer Equation- Laminar, Blasius Equation." src="./images/img-008.png" /><br />
+우리가 구하고 싶은 것은, Boundary layer thickness이다.<br />
+즉, u/U = 0.99 인 순간 두께(y)를 알고 싶은 것이다.<br />
+위 표를 보면, 그 순간<br />
+η=y[U/(vx)]^0.5 = 5.0 임을 알 수있다.<br />
+따라서,<br />
+<img alt="[Fluid Mechanics] Ch 7. Boundary layer Equation- Laminar, Blasius Equation." src="./images/img-009.jpg" /><br />
+Thickness 를 Delta로 표현하게 되면 최종적으로,<br />
+delta와 x의 관계식은 Reynolds수의 root에 반비례함을 알 수 있다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

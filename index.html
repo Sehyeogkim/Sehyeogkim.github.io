@@ -1,22 +1,12 @@
 <!DOCTYPE html>
-<html lang="ko" data-theme="dark">
+<html lang="ko">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Home | Sehyeog Kim</title>
   <link rel="stylesheet" href="/assets/css/style.css">
-  <script>
-    (function(){var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t)})();
-  </script>
 </head>
 <body>
-  <!-- Theme toggle -->
-  <button class="theme-toggle" aria-label="Toggle theme">
-    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-  </button>
-
-  <!-- Mobile header -->
   <header class="mobile-header">
     <span class="site-title">Sehyeog Kim</span>
     <button class="menu-toggle" aria-label="Menu">&#9776;</button>
@@ -24,76 +14,58 @@
   <div class="sidebar-overlay"></div>
 
   <div class="site-wrapper">
-    <!-- Sidebar -->
     <aside class="sidebar">
       <div class="sidebar-bg">
-        <img src="/assets/images/bg.jpg" alt="Background"
-             onerror="this.style.display='none'">
+        <img src="/assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
       </div>
       <div class="sidebar-profile">
-        <img class="profile-photo"
-             src="/assets/images/profile.jpg"
-             alt="Sehyeog Kim"
-             onerror="this.style.background='#21262d'">
+        <img class="profile-photo" src="/assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
         <h1 class="profile-name">Sehyeog Kim</h1>
         <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
         <div class="profile-links">
           <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
-            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
           </a>
         </div>
       </div>
       <nav class="sidebar-nav">
         <a href="/" class="nav-item nav-home active">Home</a>
-        <span class="nav-label">Categories</span>
-        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
-        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
-        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
-        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
-        <a href="/blog/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
-        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
-        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
-        <a href="/blog/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
-        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
-        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
-        <a href="/blog/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
-        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
-        <a href="/blog/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
-        <a href="/blog/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
-        <a href="/blog/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
-        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
-        <a href="/blog/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
       </nav>
     </aside>
 
-    <!-- Main content -->
     <main class="main-content">
       <div class="page-header"><h1>Personal Blog</h1><p class="page-desc">Agentic AI와 Numerical Analysis의 융합을 탐구하는 학습 노트입니다.</p></div>
-<div class="category-grid">
-<a class="category-card" href="/blog/agentic-ai/"><h3>Agentic_AI</h3><div class="card-meta"><span class="post-count-badge">8 posts</span></div></a>
-<a class="category-card" href="/blog/blood-flow-and-metabolism/"><h3>Blood-Flow-and-Metabolism</h3><div class="card-meta"><span class="post-count-badge">12 posts</span></div></a>
-<a class="category-card" href="/blog/cardiovascular-diseases/"><h3>CardioVascular_Diseases</h3><div class="card-meta"><span class="post-count-badge">8 posts</span></div></a>
-<a class="category-card" href="/blog/computational-linear-algebra/"><h3>Computational-Linear-Algebra</h3><div class="card-meta"><span class="post-count-badge">15 posts</span></div></a>
-<a class="category-card" href="/blog/computational-fluid-dynamics/"><h3>Computational_Fluid_Dynamics</h3><div class="card-meta"><span class="post-count-badge">14 posts</span></div></a>
-<a class="category-card" href="/blog/continuum-mechanics/"><h3>Continuum-Mechanics</h3><div class="card-meta"><span class="post-count-badge">9 posts</span></div></a>
-<a class="category-card" href="/blog/deep-learning/"><h3>Deep-learning</h3><div class="card-meta"><span class="post-count-badge">14 posts</span></div></a>
-<a class="category-card" href="/blog/engineering-mathematics/"><h3>Engineering_Mathematics</h3><div class="card-meta"><span class="post-count-badge">14 posts</span></div></a>
-<a class="category-card" href="/blog/finite-element-method/"><h3>Finite-Element-Method</h3><div class="card-meta"><span class="post-count-badge">1 posts</span></div></a>
-<a class="category-card" href="/blog/fluid-mechanics/"><h3>Fluid_Mechanics</h3><div class="card-meta"><span class="post-count-badge">18 posts</span></div></a>
-<a class="category-card" href="/blog/gas-dynamics/"><h3>Gas_Dynamics</h3><div class="card-meta"><span class="post-count-badge">24 posts</span></div></a>
-<a class="category-card" href="/blog/heat-transfer/"><h3>Heat-transfer</h3><div class="card-meta"><span class="post-count-badge">8 posts</span></div></a>
-<a class="category-card" href="/blog/machine-learning/"><h3>Machine_Learning</h3><div class="card-meta"><span class="post-count-badge">11 posts</span></div></a>
-<a class="category-card" href="/blog/sensitivity-analysis/"><h3>Sensitivity_Analysis</h3><div class="card-meta"><span class="post-count-badge">3 posts</span></div></a>
-<a class="category-card" href="/blog/solid-mechanics/"><h3>Solid_Mechanics</h3><div class="card-meta"><span class="post-count-badge">25 posts</span></div></a>
-<a class="category-card" href="/blog/thermodynamics/"><h3>Thermodynamics</h3><div class="card-meta"><span class="post-count-badge">14 posts</span></div></a>
-<a class="category-card" href="/blog/viscous-flow/"><h3>Viscous_Flow</h3><div class="card-meta"><span class="post-count-badge">28 posts</span></div></a>
+<div class="group-grid">
+<a class="group-card" href="/blog/ai/"><h2>AI</h2><p class="card-desc">Agentic AI, Deep Learning, Machine Learning</p><div class="card-meta"><span class="badge">4 categories</span><span>36 posts</span></div></a>
+<a class="group-card" href="/blog/biomechanics/"><h2>BioMechanics</h2><p class="card-desc">Blood Flow, Cardiovascular Diseases</p><div class="card-meta"><span class="badge">2 categories</span><span>20 posts</span></div></a>
+<a class="group-card" href="/blog/mechanical-engineering/"><h2>Mechanical_Engineering</h2><p class="card-desc">Fluid Mechanics, Solid Mechanics, Thermodynamics, and more</p><div class="card-meta"><span class="badge">11 categories</span><span>170 posts</span></div></a>
 </div>
       <footer class="site-footer">
-        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+        <p>&copy; 2026 Sehyeog Kim</p>
       </footer>
     </main>
   </div>
-
   <script src="/assets/js/main.js"></script>
 </body>
 </html>

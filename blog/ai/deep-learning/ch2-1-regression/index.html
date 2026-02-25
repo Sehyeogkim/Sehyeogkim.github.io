@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch2_1. Regression | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item active">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/ai/">AI</a><span class="sep">/</span><a href="/blog/ai/deep-learning/">Deep-learning</a><span class="sep">/</span><span>Ch2_1. Regression</span></div>
+<a href="/blog/ai/deep-learning/" class="back-link">&larr; Back to Deep-learning</a>
+<div class="page-header"><h1>Ch2_1. Regression</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-09-24</span><span class="meta-item"><span class="meta-label">Category:</span> Deep-learning</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/96" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>지난 시간에는,<br />
+딥러닝의 장점<br />
+Optimizaiton<br />
+에 대해서 알아 보았다.<br />
+두번째로, Deep learning의 장점<br />
+Regression<br />
+에 대해서 알아보자.<br />
+regression이란,<br />
+입력 변수와 출력 변수 사이의 관계<br />
+를 모델링하여<br />
+연속적인 값을 예측하는 문제이다.<br />
+쉽게, 예를 들어보자.<br />
+다양한 요소 (주택 면적, 방의 수, 위치, 건축 연도 등)에 의해<br />
+특정 지역의 주택가격을 예측하는 문제의 경우<br />
+지금 현재 모든 집들의<br />
+주택면적, 방수, 위치 건축연도 - 주택가격<br />
+이 데이터들이 밑의 그래프 처럼 존재 할 것이다.<br />
+(x1,y1)...(xm,ym)<br />
+<img alt="Ch2_1. Regression" src="./images/img-001.png" /><br />
+그랬을때,<br />
+(내가 구매하고 싶은) 집의<br />
+주택면적, 방수, 위치, 건축연도 의 정보:input<br />
+를 가지고<br />
+주택가격을 output할<br />
+모델을 만드는 것이<br />
+(위 사진의 빨간선)<br />
+Regression문제이다.<br />
+그렇다면, 어떻게 모델을 만드는 것일까?????<br />
+바로,<br />
+model parameter를 정의하는 것이다.<br />
+<img alt="Ch2_1. Regression" src="./images/img-002.png" /><br />
+결국, 기존의 데이터들과 가장 fit한<br />
+Red line을 (model parameter)<br />
+를 define 하는 것이 관건이다.<br />
+<img alt="Ch2_1. Regression" src="./images/img-001.png" /><br />
+그렇다면, 가장 알맞는 직선을 수학적으로 표현하면,<br />
+우리가 만든 모델 의 예측값 (y^i)<br />
+데이터의 실제 값 (yi)<br />
+의 오차가 가장 작을 때<br />
+-&gt;<br />
+<img alt="Ch2_1. Regression" src="./images/img-003.png" /><br />
+정말 재밌는 것은,<br />
+Deep learing이 regression을 잘하는 이유가,<br />
+결국 Optimizaiton을 수행하는 일이기 때문이다.<br />
+min f(x) 즉, 최솟값을 구하는게 바로<br />
+딥러닝이 잘하는 최적화라고 언급했기 때문에 (이전 포스터)<br />
+연산의 편의를 위해서, model parameter를<br />
+다음가 같이 백터의 형태로 변환해주자.<br />
+<img alt="Ch2_1. Regression" src="./images/img-004.png" /><br />
+'<br />
+그리고, 위에서 feature vector로 연산의 편의상 정의해주면,<br />
+최종적으로, y^ = pi * theta<br />
+이렇게 간단한 백터의 형태로 바꿀 수 있다.<br />
+<img alt="Ch2_1. Regression" src="./images/img-005.png" /><br />
+최적의 직선의 수학적 정의에 대입해주면,<br />
+<img alt="Ch2_1. Regression" src="./images/img-003.png" /><br />
+Linear Algebra 문제로 바뀌게되고,<br />
+이미 나와있는 해를 통해 최종적으로,<br />
+Model parameter를 정의 할 수 있다.<br />
+<img alt="Ch2_1. Regression" src="./images/img-006.png" /><br />
+밑의 행렬 미분 연산을 참고하면,<br />
+간단하게 증명가능하다.<br />
+<img alt="Ch2_1. Regression" src="./images/img-007.png" /><br />
+<img alt="Ch2_1. Regression" src="./images/img-008.jpg" /><br />
+<img alt="Ch2_1. Regression" src="./images/img-007.png" /><br />
+<img alt="Ch2_1. Regression" src="./images/img-008.jpg" /><br />
+사실상, 아주 친절하게<br />
+sklearn library<br />
+를 다운만 받으면,<br />
+위의 자세한 과정 생략하고 우리가 원하는<br />
+Model parameter(theta)<br />
+를 도출 할 수 있다.<br />
+<img alt="Ch2_1. Regression" src="./images/img-009.png" /></p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

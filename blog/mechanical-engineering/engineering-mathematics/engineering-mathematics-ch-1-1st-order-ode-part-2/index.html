@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Engineering Mathematics] Ch 1. 1st-order ODE - part 2 | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item active">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/engineering-mathematics/">Engineering_Mathematics</a><span class="sep">/</span><span>[Engineering Mathematics] Ch 1. 1st-order ODE - part 2</span></div>
+<a href="/blog/mechanical-engineering/engineering-mathematics/" class="back-link">&larr; Back to Engineering_Mathematics</a>
+<div class="page-header"><h1>[Engineering Mathematics] Ch 1. 1st-order ODE - part 2</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-04-09</span><span class="meta-item"><span class="meta-label">Category:</span> Engineering_Mathematics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/45" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>[Engineering Mathematics] Ch 1. 1st-order ODE - part 2<br />
+지금까지 1. Sepearble 1st ODE, 2. Exact 1st ODE의 해를 구하는 방법을 알아봤습니다.<br />
+근데 아닌 경우는 어떻게 구할까..<br />
+바로 강제로, Exact ODE를 만드는 것,<br />
+먼저 P, Q로 이루어진, 1st ODE가 있다고 합시다. 물론 Exact가 아닌경우,.<br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-001.png" /><br />
+여기서 F(x,y)함수를 곱해줍니다.<br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-002.png" /><br />
+이제 이식이 Exact가 되려면, F(x,y)는 어떤 함수여야 될까를 생각해보죠.<br />
+알아낸다면?? 우리는 Exact solution을 구하는 걸 아니까 말입니다.<br />
+[Exact 조건]<br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-003.png" /><br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-004.png" /><br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-003.png" /><br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-004.png" /><br />
+여기서 정말 중요한 가정 하나더, F=F(x)라고 합시다. 가정은 어떻게 하던 상관없습니다<br />
+WhY? F라는 함수는 그냥 임의로 곱한 함수이기 때문에 어떤 함수이던지 상관 nn<br />
+결국, 다음과 같이 위 식을 표현 할 수 있죠.<br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-005.png" /><br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-006.png" /><br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-005.png" /><br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-006.png" /><br />
+그니까 우리는 Exact ODE로 강제로 만들려고 F라는 함수를 곱해줬고, 어떤 F이어야 하는지 봤더니,<br />
+위식을 만족해야 한다는 것입니다.<br />
+근데 잘 보시면, 왼쪽은 x에 관한 함수(F=F(x)이므로) 이므로, 우측 R도 x에 관한 함수이어야 합니다<br />
+결국 결론은<br />
+F=F(x)라 가정 했을때, P,Q의 편미분 식인 R=R(x)라면, 우리는 Exact ODE로 전환 시킬 수 있는 F(x)를 찾았다는 말입니다.<br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-007.png" /><br />
+위에서 만약에 R=R(x)가 아니다?? 아직 한발 남았습니다.<br />
+F=F(y)라고 가정하고 다시 해석하면,<br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-008.png" /><br />
+R<em>이 만약에 y로만 이루어진 함수다?? 그러면 우리는 F(y)를 구할 수 있습니다. 다음과 같이<br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-009.png" /><br />
+-결론-<br />
+우리는 Exact 아닌 ODE -&gt; ODE로 만들려고 F(x,y)를 곱해주려고 한다.<br />
+그런데, F=F(x)라 가정했을때, R = R(x)이라면 -&gt; F(x)를 구할 수 있다.<br />
+결국, Exact ODE로 만들 수 있고, 전 포스터에서의 방법으로 Solution을 구할 수 있다!!!<br />
+만약에 R=R(x)가 아니면 다음 마지막 한발을 시도해보자.<br />
+F=F(y)라 가정했을때, R </em>= R*(y)이라면 -&gt; F(y)를 구할 수 있다.<br />
+만약에 둘중 한가지 방법으로 F함수를 찾았다면???<br />
+F를 우리는 Integrating Factor 라고 부른다</p>
+<hr />
+<p>Linear ODE, Bernoulli Equation<br />
+공학에서 가장 가장 많이 보이는 ODE는 사실 위의 경우가 아니다.<br />
+밑의 형태의 Linear ODE.<br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-010.png" /><br />
+여기서 만약에 r(x) =0 이라면, 아주 쉽게 적분 하나로 solution이 나온다.<br />
+밑의 경우를 우리는<br />
+Homogenous Linear ODE<br />
+라 칭함.<br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-011.png" /><br />
+단순하게 적분하면,<br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-012.png" /><br />
+그렇다면 r(x) 가 0이 아닌 Non-Homogenous Linear ODE의 경우는???<br />
+위의 Integrating factor처럼 똑같이 F(x)를 모두 곱해주자.<br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-013.png" /><br />
+우리는 어떤 F를 곱해야 위의 식을 풀수 있을까? 가 궁금증이다.<br />
+만약에 pFy = F'y 라면 좌변을 (Fy)'으로 바꾸어서 풀 수 있지않을까???<br />
+정리하면, pF = F' -&gt; dF/F = pdx 적분하면<br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-014.png" /><br />
+구한 F를 원래 식에 대입해주면 General Solution도출 가능.<br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-015.png" /><br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-016.png" /><br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-017.png" /><br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-015.png" /><br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-016.png" /><br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-017.png" /></p>
+<hr />
+<p>마지막으로, 신기한 모양의 1st ODE를 linear ode로 바꾸어서 해를 구해보자.<br />
+[Bernoulli Equation]<br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-018.png" /><br />
+해결 방법은 바로, u(x)를 정의해주고 미분해보자. 그리고 y'=gy^a-py 대입.<br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-019.png" /><br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-020.png" /><br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-019.png" /><br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-020.png" /><br />
+정리해주면.<br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-021.png" /><br />
+위 식에서 우항에 u가 있음을 알 수 있다.<br />
+결국, 우리는 Non-linear homogenous ODE로 변환 시킬 수 있다.<br />
+which we know how to solve it.<br />
+<img alt="[Engineering Mathematics] Ch 1. 1st-order ODE - part 2" src="./images/img-022.png" /><br />
+여기까지, 일단원을 마무리하기전에 지금까지 뭘 배웠는지 Remind해보자<br />
+밑의 질문을 통해서 자가진단 gogo<br />
+1. ODE란, PDE와 차이?<br />
+2. Separable ODE solution<br />
+3. Extended method (separable ODE로 만들기)<br />
+4. Exact ODE 의 solution<br />
+5. Integrating Factor(F(x) or F(y)) 을 통해서 Exact ODE 강제로 만들기<br />
+6. Homogenous Linear ODE solution<br />
+7. Non-homogenous Linear ODE solution<br />
+8. Bernoulli Equation -&gt; Linear ODE 로 전환 시키고 Solution 구하기.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

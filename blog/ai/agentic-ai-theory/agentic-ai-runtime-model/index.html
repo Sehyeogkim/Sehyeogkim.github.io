@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🎐 Agentic AI - runtime, model | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item active">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/ai/">AI</a><span class="sep">/</span><a href="/blog/ai/agentic-ai-theory/">Agentic_AI_Theory</a><span class="sep">/</span><span>🎐 Agentic AI - runtime, model</span></div>
+<a href="/blog/ai/agentic-ai-theory/" class="back-link">&larr; Back to Agentic_AI_Theory</a>
+<div class="page-header"><h1>🎐 Agentic AI - runtime, model</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2026-02-25</span><span class="meta-item"><span class="meta-label">Category:</span> Agentic_AI_Theory</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://www.notion.so/3112a46dc68c804e9049e57b459c088b" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><h1>Contents</h1>
+<ul>
+<li>Frontend framework: 사용자가 대화/작업을 요청하는 UI (part1)</li>
+<li>Agent development framework: 에이전트 로직(루프, 상태, 도구 연결)을 만드는 프레임워크  (part1)</li>
+<li>Agent memory: 대화/세션 상태와 장기 기억 저장 (part1)</li>
+<li>Agent tools: 검색, DB, 사내 API 등 “행동”을 수행하는 도구 묶음 (part1)</li>
+<li>Agent design patterns: 싱글 에이전트 vs 멀티 에이전트 등 구조 패턴 (part3)</li>
+<li><span color="red"><strong>Agent runtime: 에이전트 애플리케이션이 실제로 돌아가는 실행 환경 (part3)</strong></span></li>
+<li><span color="red"><strong>AI models: 추론/의사결정 엔진(part 3)</strong></span></li>
+<li><span color="red"><strong>Model runtime: 모델을 서빙하는 인프라(관리형 API/컨테이너/GKE 등) (part 3)</strong></span></li>
+</ul>
+<h1>Introduction</h1>
+<p><img alt="🎐 Agentic AI - runtime, model" src="./images/img-001.png" /><br />
+Agentic AI를 한 문장으로 정리하면, <strong>사용자 의도를 이해하고 → 여러 단계 계획을 세우고 → 도구를 호출해 실행까지 끝내는</strong> 자율 시스템이다. 단순히 “답변을 생성하는 모델”이 아니라, <strong>계획(Planning)</strong> 과 <strong>도구(Tools)</strong> 를 통해 실제 업무를 완료하도록 설계된 아키텍처인 것이다.</p>
+<p>Agent AI structure 마지막 시간이다. 지금까지는 agent의 팔다리에 대해서 이야기를 하였다. 결국 이 모든 것들이 컴퓨팅(메모리, CPU, network …) 시스템에서 작동하는 것을 잊으면 안된다. <br />
+즉, 심장과 이 에이전트(몸체)를 어떻게 연결하는지 그 환경/공간인 runtime을 이해해야한다.</p>
+<p><img alt="🎐 Agentic AI - runtime, model" src="./images/img-002.png" /><br />
+(google cloud에서 보여주는 run time, agent architecture)</p>
+<h1>What is runtime?</h1>
+<hr />
+<blockquote>
+<p>runtime : “코드가 실제로 실행된는 환경/공간”</p>
+</blockquote>
+<p>우리가 작성한 python 코드, agent 루프 로직, 모델 추론 요청, 도구 호출, 외부 메모리 연결 등등 지금까지 배웠던 것들이 컴퓨팅이 필요한 작업이다.<br />
+따라서,<span color="red"><strong> Computing(메모리 + CPU + Network + OS)</strong></span> 위에서 실제로 돌아가는 공간이 바로 runtime. </p>
+<p>runtime이 중요한 이유는 우리가 하는 다음 작업들을 효율적으로 만들어준다.<br />
+- 메모리 실행 환경 관리, 메모리 관리, 네트워크 통신, 스케일링<br />
+- 보안, 로깅, 모티너링</p>
+<blockquote>
+<pre><code>*즉, 설계도는 코드이고,*
+*runtime은 그 설계도가 실제로 작동하는 “현실 세계”다.*
+</code></pre>
+<p><img alt="🎐 Agentic AI - runtime, model" src="./images/img-003.png" /><br />
+(이러한 runtime을 제공하는 platform은 대표적으로, Docker, AWS ECS, Cloud Run … 이 있다)</p>
+</blockquote>
+<h1>Agent runtime</h1>
+<hr />
+<p>agent runtime은 그렇다면 단순히, 우리가 설계해놓은 agent system, framework가 구현되는 환경/공간이다. 아래의 google cloud에서 예시로 가져온 <code>multi agent system</code>을 살펴보면, Cloud run/Agent engine/GKE 플랫폼이 agent 의 작업공간을 제공한다.<br />
+<img alt="🎐 Agentic AI - runtime, model" src="./images/img-004.png" /></p>
+<p>Agent runtime은 에이전트 애플리케이션이 실행되는 인프라 환경이다. Google Cloud에서는 대표적으로 Cloud Run과 GKE가 이를 담당한다.<br />
+- Cloud Run은 서버리스 컨테이너 실행 플랫폼으로, 인프라 관리 없이 Agent를 빠르게 배포할 수 있다. <strong>→ 간편 배포.</strong><br />
+- GKE는 Kubernetes 기반의 클러스터 환경으로, 대규모 트래픽과 복잡한 서비스 구성이 필요한 경우 적합하다 <strong>→ 대규모 정밀 제어.</strong></p>
+<h2>Google Kuernetes Engine</h2>
+<hr />
+<p>조금 더 깊게 들어가보록 하자. 일단 GKE를 더 깊게 이해하기 위해서 container 의 개념을 잠깐 짚고 넘어가자.<br />
+<img alt="🎐 Agentic AI - runtime, model" src="./images/img-005.png" /><br />
+container은 우리가 실행 코드 + 관련 패키지(dependencies)들을 하나로 묶어서 저장하는 공간이다. 즉, 우리는 이렇게 묶어서 image(템플렛)형태로 저장을 하고, docker 를 이용하여 image를 어느 컴퓨터에서나 호출하면 저렇게 container가 생기는 것이다.(굉장히 portable, sharable함) <br />
+<img alt="🎐 Agentic AI - runtime, model" src="./images/img-006.png" /></p>
+<p>앞에서 우리는 다음을 이해했다.<br />
+- Agent는 <code>코드 + 모델 호출 + 도구 실행</code>으로 구성된다.<br />
+- 이 코드는 <span color="red"><strong>container</strong></span>로 묶을 수 있다.<br />
+- <span color="red">Docker</span>를 사용하면 어디서든 동일하게 실행할 수 있다.</p>
+<p>그런데 문제가 생긴다.</p>
+<blockquote>
+<p>컨테이너가 하나가 아니라, 수십 개, 수백 개라면?<br />
+<img alt="🎐 Agentic AI - runtime, model" src="./images/img-007.png" /></p>
+</blockquote>
+<p>예를 들어,<br />
+- Agent A (Planning), Agent B (Tool execution), Agent C (Memory service)<br />
+- Agent D (Model wrapper), Vector DB, Logging service, Monitoring service<br />
+이 모든 것이 각각 컨테이너라면?, 이걸 누가 관리할까?</p>
+<p>→ 죽으면 다시 살려야 하고, 트래픽 많으면 자동으로 늘려야 하고, 서버 여러 대에 나눠서 배치해야 하고, 네트워크 연결도 관리해야 하고</p>
+<h3>Kurbernetes</h3>
+<p>이때 등장하는 것이 <strong>Kubernetes</strong>다.</p>
+<blockquote>
+<p>“컨테이너를 자동으로 배치하고, 관리하고, 확장해주는 시스템”<br />
+- 여러 대의 컴퓨터를 하나의 <strong>Cluster</strong>로 묶고, 그 위에서 컨테이너를 자동으로 배포하고<br />
+- 트래픽에 따라 자동으로 확장하고, 장애가 나면 자동 복구하는 컨테이너 오케스트레이션 플랫폼이다.</p>
+</blockquote>
+<p><strong>“google에서 제공하고 관리해주는 kubernetes 이 단순히 Google Kubernets Engine(GKE)”</strong><br />
+<img alt="🎐 Agentic AI - runtime, model" src="./images/img-008.png" /></p>
+<p>Kubernetes구조에 대해서 자세하게 살펴보자.<br />
+<img alt="🎐 Agentic AI - runtime, model" src="./images/img-009.png" /></p>
+<ul>
+<li><strong>Node</strong> → 실제 컴퓨터</li>
+<li><strong>Pod</strong> → 컨테이너 실행 단위</li>
+<li><strong>Cluster</strong> → 여러 노드의 집합</li>
+<li><strong>Control Plane</strong> → 전체를 관리하는 관리자</li>
+</ul>
+<p>멀티 에이전트 시스템이라면:<br />
+- Coordinator Agent<br />
+- Worker Agent<br />
+- Tool Service<br />
+- Memory DB<br />
+- Model Adapter<br />
+- API Gateway</p>
+<p>이 모든 것이 각각 컨테이너로 구성될 수 있다.<br />
+GKE는 이걸:<br />
+- 서로 다른 노드에 배치하고<br />
+- 트래픽에 따라 자동 확장하고<br />
+- 장애 발생 시 자동 재시작하고<br />
+- 로깅과 모니터링을 통합한다.</p>
+<table header-row="true">
+<tr>
+<td>항목</td>
+<td>Cloud Run</td>
+<td>GKE</td>
+</tr>
+<tr>
+<td>난이도</td>
+<td>매우 쉬움</td>
+<td>비교적 복잡</td>
+</tr>
+<tr>
+<td>서버 관리</td>
+<td>없음 (완전 서버리스)</td>
+<td>클러스터 관리 필요</td>
+</tr>
+<tr>
+<td>스케일링</td>
+<td>자동</td>
+<td>세밀한 제어 가능</td>
+</tr>
+<tr>
+<td>사용 경우</td>
+<td>단일 Agent / 간단한 API</td>
+<td>멀티 에이전트 / 대규모 시스템</td>
+</tr>
+<tr>
+<td>제어권</td>
+<td>낮음</td>
+<td>높음</td>
+</tr>
+</table>
+
+<h1>Model</h1>
+<hr />
+<p><img alt="🎐 Agentic AI - runtime, model" src="./images/img-010.png" /><br />
+수많은 LLM 모델들이 현재 존재하는 상황이다. agent 설계에서 LLM을 사용하는 방법은 단순히 python code로 다음 예시(opanAI)를 호출할 수 있다. 여기서 중요한점은 해당 회사에서 발급을 받은 API key가 있어야 한다.</p>
+<pre><code class="language-python">from openai import OpenAI
+client = OpenAI(api_key=&quot;...&quot;)
+</code></pre>
+<h3>#OpenAI API key 발급 방법.</h3>
+<ol>
+<li><a href="https://openai.com/api/">API Platform</a> 에 접속<br />
+<img alt="🎐 Agentic AI - runtime, model" src="./images/img-011.png" /></li>
+<li>우측 상단의 API platform 클릭</li>
+<li>좌측 Side bar → API keys</li>
+</ol>
+<p><img alt="🎐 Agentic AI - runtime, model" src="./images/img-012.png" /></p>
+<ol>
+<li>
+<p>우측 상단 Create new secret key → Name 작성 , project 선택 → Create secret key.<br />
+<img alt="🎐 Agentic AI - runtime, model" src="./images/img-013.png" /></p>
+</li>
+<li>
+<p>발급된 API key copy → paste to the python code<br />
+<img alt="🎐 Agentic AI - runtime, model" src="./images/img-014.png" /></p>
+</li>
+</ol>
+<pre><code class="language-python">from openai import OpenAI
+client = OpenAI(api_key=&quot;sk-proj-eivw_9cNtm5Gh7flhiQszio8ppdT4UrVcD------&quot;)
+</code></pre>
+<p>이후 agent model이 장착 된 것이고, 사용모델이 openai 회사의 모델들을 사용할 수 있다.<br />
+(아래의 pricing 을 살펴보면 Token당 달러로 가격이 측정된다)<br />
+<a href="https://openai.com/api/pricing/">Pricing</a></p>
+<h1>Model runtime</h1>
+<hr />
+<blockquote>
+<p>Model runtime은 “AI 모델이 실제로 추론(inference)을 수행하는 실행 환경”이다</p>
+</blockquote>
+<p>여기서 모델은 단순한 python code가 아니라, 수십\~수백 GB의 파라미터를 가진 거대한 신경망이다. 따라서, <br />
+- 고성능 GPU 필요<br />
+- 병렬 처리<br />
+- 메모리 관리<br />
+- 모델 로딩 최적화<br />
+- 트래픽 스케일링<br />
+이 모든 것을 처리하는 인프라가 필요하다.</p>
+<p>여기서 모델계발을 메인으로 하는 회사인 openai, antropic 같은 회사들은 모델 서비스를 제공만하고, 자체적으로 model runtime을 자신들만의 server에서 진행한다.</p>
+<table header-row="true">
+<tr>
+<td>항목</td>
+<td>OpenAI</td>
+<td>Anthropic</td>
+<td>Vertex AI</td>
+</tr>
+<tr>
+<td>모델 제공</td>
+<td>O</td>
+<td>O</td>
+<td>O</td>
+</tr>
+<tr>
+<td>자체 모델 배포</td>
+<td>X</td>
+<td>X</td>
+<td>O</td>
+</tr>
+<tr>
+<td>커스텀 서빙</td>
+<td>X</td>
+<td>X</td>
+<td>O</td>
+</tr>
+<tr>
+<td>인프라 제어</td>
+<td>낮음</td>
+<td>낮음</td>
+<td>높음</td>
+</tr>
+<tr>
+<td>기업 통합</td>
+<td>제한적</td>
+<td>제한적</td>
+<td>매우 강함</td>
+</tr>
+</table>
+
+<p>이와 반대로 Vertex AI는 Google Cloud가 제공하는 단순히 모델을 “사용”하는 서비스가 아니라,</p>
+<blockquote>
+<p>모델을 학습하고, 배포하고, 운영하고, 모니터링하는<br />
+    전체 AI lifecycle을 관리하는 플랫폼</p>
+</blockquote>
+<p><img alt="🎐 Agentic AI - runtime, model" src="./images/img-015.png" /></p>
+<p>Model runtime은 다음을 담당한다:<br />
+- 모델 weight 로딩, GPU 메모리 관리, 병렬 추론 처리<br />
+- 요청 큐 관리, 트래픽 스케일링장애 복구</p>
+<p>Vertex AI는 이것을:<br />
+- Managed endpoint 형태로 제공한다.<br />
+- <span color="red"><strong>사용자는 endpoint URL만 호출하면 된다.(url접속하면, model 관리 콘솔창이 뜬다)</strong></span><br />
+- 내부 GPU, TPU, 스케일링은 Google이 관리한다.</p>
+<p>실제 google cloud → vertex AI console에 접속해보면,(url console창)<br />
+<a href="https://console.cloud.google.com/vertex-ai/studio/prompt-gallery/47d889d2-b22d-46ed-b986-ca3bcbeb5a47?hl=en&amp;project=lofty-cabinet-478609-f4">Google Cloud console</a></p>
+<p><img alt="🎐 Agentic AI - runtime, model" src="./images/img-016.png" /><br />
+직접 model setting을 UI를 통해 할 수 있고, input, output도 관리가 가능하다.</p>
+<h1>Conclusion</h1>
+<p>이번 시간에는 agent 시스템이 실제로 동작하기 위한 핵심 요소인 computing 환경 runtime(심장)과 model(뇌)에 대해 살펴보았다. 지금까지 agent의 구조와 팔다리를 이해했다면, 이제 그것이 실제로 작동하는 실행 환경까지 연결된 것이다.<br />
+특히 인상 깊었던 점은, Google이 agent 생태계를 매우 빠르게 인프라 수준까지 정리해두었다는 점이다. 보안과 통합 문제로 인해 각 기업은 자신들만의 agent를 직접 설계할 가능성이 높다. 그리고 그 설계를 가능하게 하는 팔레트와 실행 환경을 Google은 이미 준비해두고 있다.<br />
+앞으로는 기업뿐 아니라 개인 단위에서도 agent를 구축하는 시대가 올 것이다. 그렇다면 핵심 질문은 이것이다:</p>
+<blockquote>
+<p>누가 더 안전하고, 효율적이며, 지능적인 agent 시스템을 설계할 수 있는가?<br />
+Anthropic, OpenAI, Google은 이미 빠르게 agent를 구축하고 있으며, 단순한 코드 작성 단계는 넘어선 상태에서 다양한 산업 분야로 확장되고 있다.</p>
+</blockquote>
+<p>나는 여기서 한 가지 질문을 던지고 싶다.</p>
+<blockquote>
+<p>나의 전문 분야인 Computational Mechanics + agent는 어떻게 연결될 수 있을까?<br />
+단순히Agent를 사용하는 것이 아니라,<br />
+Agent 구조를 이해하고 → 직접 설계하고 → 수치해석 및 시뮬레이션과 결합하는 방향으로 확장해보고자 한다.</p>
+</blockquote>
+<p>이제 Theory 파트는 마무리하고, 실전으로 넘어가자.<br />
+실전은 두 가지 트랙으로 진행된다.<br />
+1. Claude, Codex, Gemini, OpenClaw와 같은 이미 구축된 agent system을 직접 사용해보며 기능을 분석한다.<br />
+2. LangChain과 Google ADK를 활용해 나만의 agent를 직접 설계해본다.<br />
+이제 설계자의 관점으로 넘어갈 시간이다.</p>
+<p>지금까지 Agent theory 부분을 마무리하고, 이제 실전으로 넘어가자. 실전은 두가지 분류로 진행된다.<br />
+1. Claude, Codex, Gemini, Openclaw → 이렇게 미리 만들어진 agent system을 직접 사용해보며 어떤 기능들이 있고, 어떤 작업들이 가능한지를 살펴보자.<br />
+2. Langchain, Google ADK 를 활용하여 나만의 agent를 직접 설계해보자.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

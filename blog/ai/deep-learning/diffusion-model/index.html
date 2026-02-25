@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diffusion Model | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item active">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/ai/">AI</a><span class="sep">/</span><a href="/blog/ai/deep-learning/">Deep-learning</a><span class="sep">/</span><span>Diffusion Model</span></div>
+<a href="/blog/ai/deep-learning/" class="back-link">&larr; Back to Deep-learning</a>
+<div class="page-header"><h1>Diffusion Model</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-12-11</span><span class="meta-item"><span class="meta-label">Category:</span> Deep-learning</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/146" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Diffusion Model<br />
+이번시간에는<br />
+image generation에서<br />
+가장 기술이 좋은 현재 많은<br />
+Image generation AI 회사들이<br />
+사용하는<br />
+Diffusion model에 대해서 알아보자.<br />
+기존의 이미지 생성모델은 VAE, GAN이 있었고,<br />
+이전 포스터들에서 다루었다.<br />
+결론적으로 말하면, diffusion model 이 가장 성능이 좋아서,<br />
+실제 산업군에는 diffusion model을 사용한다.<br />
+<img alt="Diffusion Model" src="./images/img-001.png" /><br />
+VAE vs GAN vs Diffusion Model<br />
+DIffusion model process에 대해서 자세하게 들어가보자.<br />
+(다소 복잡함.)<br />
+<img alt="Diffusion Model" src="./images/img-002.webp" /><br />
+일단 시작은 강아지 사진에서부터 시작한다.<br />
+1.강아진 사진 -&gt; Noise 로 만드는 forward process<br />
+이 과정을 바탕으로 우리의 최종목적인<br />
+2. noise -&gt; 강아지사진. denoising process<br />
+를 달성할 수 있다.<br />
+다시 말하지만, 우리의 최종 목적은<br />
+noise -&gt; 원하는 사진 만들기 이다.<br />
+자 그러면 정확히 어떻게 1번 과정을 바탕으로<br />
+2번 과정(우리의 목적)을 실행할 수 있는지 알아보자.<br />
+1번 과정부터 자세하게 들어가보자.<br />
+일단 큰 틀은 T개의 sequence로 작업을 순차적으로 진행하고,<br />
+각 작업에서 특정한 Noise를 계속해서 더해준다.<br />
+<img alt="Diffusion Model" src="./images/img-003.png" /><br />
+여기서 정확히 말하면, 단계별로.<br />
+'Guassian Noise'<br />
+를 더해준다.<br />
+<img alt="Diffusion Model" src="./images/img-004.png" /><br />
+gaussian noise adding process.<br />
+Guassian Noise(e) 란<br />
+N(0, β_t * I)의 확률분포를 따르는 값 중에서<br />
+하나 random 한 값이다.<br />
+<img alt="Diffusion Model" src="./images/img-005.png" /><br />
+forward process equation.<br />
+위 식을 보면, 이전 그림(x_t-1)을 root(1- β_t) 만큼 scale down하고,<br />
+random 한 Guassian Noise를 더해준 것이<br />
+Forward process 한단계 후의 그림이다.<br />
+여기서 계속 강조하였지만, 랜덤한 노이즈가 더해진다.<br />
+따라서, x_t가 사실상 정해진 값이 아니라 process에 따라서<br />
+다른 값이므로, forward process과정을<br />
+확률로 표현한 것이다.<br />
+random한 노이즈로부터 확률의 개념이 생겼으므로,<br />
+분산 = β_t * I<br />
+평균은 forward process equation<br />
+을 통해 다음과 같음을 알 수 있다.<br />
+<img alt="Diffusion Model" src="./images/img-006.png" /><br />
+이제 이 스탭을 쭉 진행해주자.<br />
+<img alt="Diffusion Model" src="./images/img-007.png" /><br />
+각 확률이 독립시행이므로, x_0(처음사진)에서 최종 노이즈가 될 확률은 다음과 같다.<br />
+<img alt="Diffusion Model" src="./images/img-008.png" /><br />
+<img alt="Diffusion Model" src="./images/img-009.png" /><br />
+여기서 alpha는 다음과 같이 정의됨을 알 수 있다.<br />
+<img alt="Diffusion Model" src="./images/img-010.png" /><br />
+forward process에 대해서 알아보았으니,<br />
+이제 진짜 목적인 denoising(reverse) process에 대해서<br />
+알아보자.<br />
+큰틀은, forward process와 반대로,<br />
+한 step씩, 노이즈를 제거하는 과정을 거친다.<br />
+[최적의 reverse process란?]<br />
+가장 완벽하게 reverse process한 것은<br />
+결국에 forward process에서와<br />
+동일한 사진 변환 확률을 가지는 경우이다.<br />
+(동일한 확률분포의 노이즈)<br />
+<img alt="Diffusion Model" src="./images/img-011.png" /><br />
+(조금 말이 어렵지만 한번 들어가보자)<br />
+x_t 사진에서 어떠한 노이즈를 제거하여, x_t-1을 만들 것이고,<br />
+그 '노이즈' 가 위의 forward proces처럼<br />
+특정 확률분포를 띄어야지만,<br />
+우리가 forward process에서의 변환전 사진 x_t-1과<br />
+최대한 비슷한 사진을 reverse process에서 얻을 수 있다.<br />
+여기서, reverse process의 확률은 학습하는 parameter이고,<br />
+각 step에서의 확률분포가 forward일때와 비슷하도록<br />
+loss function을 다음과 같이 정의한다.<br />
+<img alt="Diffusion Model" src="./images/img-012.png" /><br />
+이를 다르게 표현하면, 결국<br />
+제거하는 노이즈가, 아까 더하였던 노이즈와 최대한 비슷해야한다는 것이다.<br />
+<img alt="Diffusion Model" src="./images/img-013.png" /><br />
+다시 종합해서 말하면,<br />
+forward process에서 더했던 노이즈를<br />
+정확히 찾아내는 과정이 바로, 학습 과정이다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item active">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/gas-dynamics/">Gas_Dynamics</a><span class="sep">/</span><span>[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow</span></div>
+<a href="/blog/mechanical-engineering/gas-dynamics/" class="back-link">&larr; Back to Gas_Dynamics</a>
+<div class="page-header"><h1>[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-03-26</span><span class="meta-item"><span class="meta-label">Category:</span> Gas_Dynamics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/19" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow<br />
+전 포스터에서는 Prandtl-Meyer Compression flow에서<br />
+해석하다가 Isentropic process임을 알고 그 반대 과정인<br />
+Prandtl-Meyer Expansion flow<br />
+가 존재한다는 것을 확인했다.<br />
+이제 Expansion flow을 수학적으로 표현해보자.<br />
+[그림과 같이 dv만큼 기울어진 Sharp convex turn 을 유체가 지난다고 하자]<br />
+<img alt="[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow" src="./images/img-001.png" /><br />
+Compression wave와 마찬가지로 사실 wave는 무한개 이다.<br />
+위 그림은 그 많은 wave중 단 한개의 wave만 관찰 한것.<br />
+그경우 deflection angle과 마찬가지로 dv = 0에 근접 할 것이다.<br />
+그리고 그 수많은 dv가 모여서 총 deflection angle을 이루어<br />
+총 기울어진 convex turn 각도를 이루는 것이다.<br />
+[이해가 되지 않는다면 이전 poster compression wave]<br />
+다시, 본론으로 가서<br />
+속도벡터들을 하나의 점으로 모아 보면<br />
+<img alt="[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow" src="./images/img-002.png" /><br />
+<img alt="[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow" src="./images/img-003.png" /><br />
+<img alt="[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow" src="./images/img-002.png" /><br />
+<img alt="[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow" src="./images/img-003.png" /><br />
+Compression flow의 deflection angle과 같은 역할을 하므로 dv = 0에 근접한다.<br />
+<img alt="[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow" src="./images/img-004.png" /><br />
+cos을 전개후 대입해주면 다음 과 같이 dv를 표현 할 수 있다.<br />
+<img alt="[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow" src="./images/img-005.png" /><br />
+여기서 u는 Mach angle임을 잊지 말아야 한다.<br />
+why?<br />
+지금 Expansion은 Compresion wave 의 reverse과정이므로 정확히 wave가 동일하다.<br />
+이전 포스터에서 Compression wave는 모두 Mach wave<br />
+즉,<br />
+θ = mach angle(u) 임을 확인 하였다.<br />
+따라서, sin(u) = 1/M 이므로<br />
+<img alt="[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow" src="./images/img-006.png" /><br />
+위 식에서 dV/V를 M에 관한 식으로 바꿔주자<br />
+<img alt="[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow" src="./images/img-007.png" /><br />
+위 식에서 dT/T를 M에 관한 식으로 바꿔주자<br />
+[4단원 Stagnation&amp;Static Temperature with M)<br />
+<img alt="[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow" src="./images/img-008.png" /></p>
+<h1>Energy equation by Stagnation Enthalpy</h1>
+<p>ht = h + 1/2 V^2 +<br />
+gz<br />
+에서 neglect potential, Ideal gas case<br />
+CpTt = CpT +1/2 (M^2*a^2)<br />
+a^2 = rRT, Cp=rR/(r-1) 을 대입하면 위 식이 나온다.<br />
+위 식 양변을 미분해주면<br />
+Isentropic proces 이므로 no heat transfer, no shaft work<br />
+-&gt; dTt = 0<br />
+<img alt="[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow" src="./images/img-009.png" /><br />
+<img alt="[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow" src="./images/img-010.png" /><br />
+<img alt="[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow" src="./images/img-009.png" /><br />
+<img alt="[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow" src="./images/img-010.png" /><br />
+이제 dV/V식에 대입 해주고 처음 dv/v식에 대입해주면<br />
+<img alt="[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow" src="./images/img-011.png" /><br />
+위식을 정적분 해주면 (C: Constant)<br />
+<img alt="[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow" src="./images/img-012.png" /><br />
+C를 제거 하기 위해서 기준점 M=1일때 v=0이라고 하자.<br />
+따라서, 최종 v=f(M,r)식<br />
+<img alt="[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow" src="./images/img-013.png" /><br />
+이 각도 v가 정확히 의미 하는 바를 알아야 한다.<br />
+밑 사진처럼 v=0일때는 Inlet과 속도방향이 같다.<br />
+Therefore, as M=1일때 v=0이라고 기준점을 설정하였으므로,<br />
+M=1가 Inlet일때 나중 마하속도가 M, 그때의 기울어진 각도가 v<br />
+<img alt="[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow" src="./images/img-014.jpg" /><br />
+결국 v = f(M,r) 식이므로<br />
+착한 과학자들이 M에 따른 v값을 Isentropic Table에 포함 시켰다^^<br />
+위 식 외우면 바보라는 말.<br />
+[예제 문제 하나를 풀어보고 완벽하게 이해해보자]<br />
+<img alt="[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow" src="./images/img-015.png" /><br />
+기본적인 v와 M의 정의에 따라서 문제를 풀어야 한다.<br />
+M2 부분의 v = 12이니까 Table v=12일때 M 구하면 될까??<br />
+v와 M의 정의에서 inlet M = 1 but v=12인 경우는 M inlet = 2.06이다.<br />
+<img alt="[Gas Dynamics] Ch 8 Prandtl-Meyer Flow - Expansion Flow" src="./images/img-016.jpg" /><br />
+따라서 문제를 위 그림처럼 28도 시계방향으로 돌려서 관찰해보자.<br />
+M = 1 에서 M1을 거쳐 M2로 기울어진 다라고 사고 하는 것이다.<br />
+그럴 경우 Inlet M = 1 로 정의에 부합하고<br />
+v = v1 + v2 = 40도<br />
+임을 알 수 있다.<br />
+따라서 Table로 값을 알 수 있고 v = 40 인경우 M2 = 2.54이다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Fluid mechanics] Ch 4. Vorticity and Irrotationality | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item active">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/fluid-mechanics/">Fluid_Mechanics</a><span class="sep">/</span><span>[Fluid mechanics] Ch 4. Vorticity and Irrotationality</span></div>
+<a href="/blog/mechanical-engineering/fluid-mechanics/" class="back-link">&larr; Back to Fluid_Mechanics</a>
+<div class="page-header"><h1>[Fluid mechanics] Ch 4. Vorticity and Irrotationality</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-03-31</span><span class="meta-item"><span class="meta-label">Category:</span> Fluid_Mechanics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/38" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>[Fluid mechanics] Ch 4. Vorticity and Irrotationality<br />
+보통 회전이 없다고 많이 가정을 하고,<br />
+유체 문제에 접근한다.<br />
+하지만, 정확히 회전력, 회전에 관련된 유체의 움직임을 알 필요는 있다.<br />
+시작은 당연히,<br />
+회전 -&gt; Angular velocity 부터 시작한다.<br />
+밑 그림과 같이 xy평면에서,<br />
+t초후에 A -&gt; A', C-&gt; C'으로 유체의 element가 움직였다고 가정하자.<br />
+<img alt="[Fluid mechanics] Ch 4. Vorticity and Irrotationality" src="./images/img-001.png" /><br />
+<img alt="[Fluid mechanics] Ch 4. Vorticity and Irrotationality" src="./images/img-002.png" /><br />
+그랬을때, 각속도는 z방향이고<br />
+시계반대방향을 양수라고 했을때, 각도 변화량의 평균값으로 나타낼 수 있다.<br />
+여기서 dt -&gt; 0 으로 갈때, 단순한 삼각함수<br />
+d(alpha)와 d(beta)는 속도변화량으로 나타낼 수 있다.<br />
+<img alt="[Fluid mechanics] Ch 4. Vorticity and Irrotationality" src="./images/img-003.png" /><br />
+따라서, 다시 각속도 식에 대입해주면, 다음과 같이 된다.<br />
+<img alt="[Fluid mechanics] Ch 4. Vorticity and Irrotationality" src="./images/img-004.png" /><br />
+흠, 여기서 왜 이렇게 다시 정의한지는 모르겠지만, 아마 1/2가 귀찮아서 일듯 하다.<br />
+Vorticity는 그냥 1/2제거용으로, 다음과 같이 정의한다.<br />
+<img alt="[Fluid mechanics] Ch 4. Vorticity and Irrotationality" src="./images/img-005.png" /><br />
+이제 정의한 Vorticity를 한번 신기하게 써보도록 하자.<br />
+먼저 Differential relations in Linear momentum Equation에서<br />
+<img alt="[Fluid mechanics] Ch 4. Vorticity and Irrotationality" src="./images/img-006.png" /><br />
+여기서 마지막 항을 Vorticity를 이용해서 다음과 같이 바꿀 수 있다.<br />
+<img alt="[Fluid mechanics] Ch 4. Vorticity and Irrotationality" src="./images/img-007.png" /><br />
+여기서 만약에 Irrotational 인 경우 Vorticity = 0 이라는 사실은 다 알것이다.<br />
+비회전유동이라 가정해주면,<br />
+<img alt="[Fluid mechanics] Ch 4. Vorticity and Irrotationality" src="./images/img-008.png" /><br />
+Gradient항을 미분항으로 바꿔주기 위해서 양변에 dr(이동거리)를 내적해주자.<br />
+(g는 -z방향이라고 가정하여, 음수 붙혀줌)<br />
+<img alt="[Fluid mechanics] Ch 4. Vorticity and Irrotationality" src="./images/img-009.png" /><br />
+여기서 이제 Steady flow라는 가정이 붙혀지면?? 우리가 아는 베르누이가 나온다.<br />
+<img alt="[Fluid mechanics] Ch 4. Vorticity and Irrotationality" src="./images/img-010.png" /></p>
+<hr />
+<p>다음 Vorticity를 색다르고 유용하게 사용해보자.<br />
+먼저, Helmholtz decomposition에 대해서 알고 들어가보자.<br />
+<img alt="[Fluid mechanics] Ch 4. Vorticity and Irrotationality" src="./images/img-011.png" /><br />
+(A는 divergence가 0 인 백터필드이고,<br />
+ϕ는 scalar 함수이다)<br />
+즉, 어떤 백터를 발산백터, curl백터 이 두가지로 분해 할 수 있단 말이다.<br />
+따라서, 만약에 Curl(V) = 0이라면, 저 식에서 발산 term만 남게 된다.<br />
+∇ ×<br />
+A =<br />
+0 이라는 말이다.<br />
+따라서, V=∇ϕ<br />
+다시 정리하면<br />
+If ∇ × V = 0 then, V=∇ϕ<br />
+여기서 ϕ= ϕ(x,y,z,t) is called the 'Velocity potential function'<br />
+V=∇ϕ 이므로,<br />
+u =<br />
+∂ x/ ∂ ϕ, v = ∂ y/ ∂ ϕ,<br />
+w = ∂ z/ ∂ ϕ<br />
+그리고 Incompressible continutiy eq에서는<br />
+<img alt="[Fluid mechanics] Ch 4. Vorticity and Irrotationality" src="./images/img-012.png" /><br />
+위와 같이 Laplace eq.이 derive된다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

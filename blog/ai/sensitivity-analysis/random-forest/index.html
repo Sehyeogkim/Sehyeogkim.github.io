@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Random Forest | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item active">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/ai/">AI</a><span class="sep">/</span><a href="/blog/ai/sensitivity-analysis/">Sensitivity_Analysis</a><span class="sep">/</span><span>Random Forest</span></div>
+<a href="/blog/ai/sensitivity-analysis/" class="back-link">&larr; Back to Sensitivity_Analysis</a>
+<div class="page-header"><h1>Random Forest</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-09-04</span><span class="meta-item"><span class="meta-label">Category:</span> Sensitivity_Analysis</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/216" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>랜덤 포레스트<br />
+는 분류, 회귀 작업을 하기 위한 가장 classic 하고 강력한<br />
+방법이다. 바로 설명을 시작해보도록 하겠습니다.<br />
+<img alt="Random Forest" src="./images/img-001.png" /><br />
+<img alt="Random Forest" src="./images/img-002.webp" /><br />
+<img alt="Random Forest" src="./images/img-001.png" /><br />
+just a tree<br />
+<img alt="Random Forest" src="./images/img-002.webp" /><br />
+Decision Tree<br />
+[Wikipedia]<br />
+Decision Trees split data step by step, like asking a series of yes/no questions.<br />
+decision tree는 아주 간단하게, 각 노드마다 질문이 있다고 생각을 하면,<br />
+질문의 yes는 오른쪽, no는 왼쪽 이런식으로<br />
+가지치기로 수많은 데이터들을<br />
+분류 or 회귀<br />
+하는 방식.<br />
+하지만 과적합, large variation 이라는 단점.<br />
+- A single decision tree can overfit the training data.<br />
+- Small changes in the dataset may produce a completely different tree.<br />
+(# training 단계가 우리는 (알고있는 정답과 - 데이터 pair)을 통해서<br />
+각 노드마다 어떤 질문이 들어와야하는 지를 학습하는 단계라는 사실을 인지 해야함.<br />
+그렇기에 학습하는 데이터가 질문을 직접적으로 결정하므로,<br />
+학습하는 데이터에 따라 tree가 천차만별이라는 말임.)<br />
+<img alt="Random Forest" src="./images/img-003.jpg" /><br />
+forest - a lot of trees.<br />
+Random Forest solves these problems by growing<br />
+many different trees<br />
+and then combining their predictions.<br />
+그렇기에 우리는 한개의 tree만 쓰는게 아니라 수많은 tree를 사용하여,<br />
+어떤 결정을 하므로써 과적합 문제를 방지함.<br />
+'예를들어서 어떤 중요한 사항을 여러 정치인들이 결정을 하게 되면,<br />
+다양한 관점에서 최종결정을 할 수 있음.<br />
+하지만, 회의장에 진보 or 보수 정치인들만 있다면,<br />
+당연히 진보 or 보수 성향의 최종결정이 될 것'<br />
+<img alt="Random Forest" src="./images/img-004.webp" /><br />
+Random Forest<br />
+즉 수많은 tree를 제작한다음에 모든 tree각각 학습을 시킨다.(질문을 생성)<br />
+이후에, 새로운 데이터 set이 왔을때, 각각 tree에서 서로다른 결과가 나올 것.<br />
+분류는 -&gt; 과반수로 가장 빈번한 결과를 최종적으로 선택<br />
+회귀 -&gt; 각 결과의 평균값을 선택.<br />
+하여 최종값을 결정하는 방식입니다.<br />
+뭐든지 예시를 들면서 살펴보아야,<br />
+이해가 가장 빠르기 때문에 예시로 자세한<br />
+과정을 살펴보자.<br />
+Imagine we have a dataset of many patients.<br />
+입력 데이터 (features):<br />
+나이, 성별, 흡연 여부, 혈압, 운동 습관, 가족력, 직업<br />
+정답 (label):<br />
+암 발병 위험도 (1~6 단계, 6이 가장 심각)<br />
+0. Set the Goal<br />
+우리는 환자의 암발병 위험도를 측정하고 싶다고 가정하자.<br />
+1. Prepare the Data.<br />
+환자 10,000명의 데이터가 있다고 가정하고 각 데이터에는<br />
+환자마다 "<br />
+특징<br />
+(나이, 성별, 흡연 여부, 혈압, 운동 습관, 가족력, 직업)" 값들이 있고,<br />
+그에 대응되는 "<br />
+라벨 or 정답<br />
+(1~6 위험도)" 가 존재.<br />
+2. Determine the subset from the Data.<br />
+전체 데이터에서<br />
+무작위로<br />
+환자들을 뽑아<br />
+부분 데이터셋<br />
+을 만든다.<br />
+(복원추출이므로, 같은 환자가 여러 번 뽑힐 수도 있고, 아예 빠질 수도 있음)<br />
+예를 들어,<br />
+Tree 1은 환자 7,000명 샘플로 학습<br />
+Tree 2는 환자 6,800명 샘플로 학습<br />
+Tree 3은 환자 7,200명 샘플로 학습 …<br />
+이렇게 각각 다른 데이터를 본<br />
+수백 개의 트리<br />
+가 만들어짐.<br />
+(트리 갯수는 유저가 정함 - hyper parameter)<br />
+(requires large computation)<br />
+3. Important Feature to consider on each node in each Tree.<br />
+일단 각 Tree는 하나의 root Node부터 시작!!!!<br />
+여기서 아주 아주 중요한 점은<br />
+학습하는 과정에서<br />
+새로운 노드들이 생성<br />
+이 되는데,<br />
+노드들마다 feature에 대한 질문을 생성할 것이다.<br />
+(예를들어, 흡연빈도 &gt; 주 5일) 이런식으로,<br />
+하지만, 중요한 점은 모든 특징 consider x<br />
+e.g) 한 노드에서 “흡연 여부 + 나이 + 운동습관”만 고려해서 분할을 결정<br />
+다른 노드에서는 “성별 + 혈압”만 보고 결정.<br />
+-&gt; 이렇게 하면 각 트리가<br />
+조금씩 다른 관점<br />
+을 가지게 되어 다양성이 확보가능.<br />
+(한개의 트리 내부에서 노드들마다 고려하는 특징이 다르다는 것)<br />
+(THE MOST IMPORTANT STAGE)<br />
+4. Training Stage<br />
+(편의상 하나의 트리의 과정을 살펴보자, 실제로는 동시다발적으로 여러트리들이 학습)<br />
+현재까지 각 트리마다 랜덤 데이터셋을 부여받았다.<br />
+우리의 목표는 현재 데이터셋을<br />
+최대한 같은 라벨들끼리<br />
+현다른 가지들로 묶어서 분리하는게 목표.<br />
+즉, 각 노드마다<br />
+질문들을 아주 잘 만들어야 하는데,<br />
+그 질문들을 만든 방식은<br />
+분류 문제 →<br />
+불순도(impurity)<br />
+감소량으로 평가<br />
+대표적인 지표:<br />
+지니 불순도(Gini impurity)<br />
+,<br />
+엔트로피(Entropy)<br />
+회귀 문제 →<br />
+분산(variance)<br />
+감소량으로 평가<br />
+(쉽게 말해, 나눈 뒤에 두 그룹이<br />
+“더 비슷한 위험도를 가진 환자들끼리 모이게 되는가?”<br />
+-&gt; Node Purity<br />
+를 수치로 계산하는 것)<br />
+이런식으로 모든 트리에 대해서,<br />
+하나의 노드로 시작해서, 전체가 잘 분리될때까지,<br />
+노드들을 생성하고(가지치기),<br />
+각 노드마다 질문을 생성.<br />
+이렇게 Node Purity 가 특정 threhold라면.<br />
+학습 종료.<br />
+5. Put the new patient data that we wanna get the output.<br />
+이제 새로운 환자 데이터(예: 55세, 남성, 흡연자, 고혈압, 운동 부족) 투입.<br />
+(위 학습된 모델에)<br />
+Tree 1: 위험도 5 예측<br />
+Tree 2: 위험도 6 예측<br />
+Tree 3: 위험도 4 예측<br />
+Tree 4: 위험도 6 예측<br />
+Tree 5: 위험도 5 예측<br />
+Tree 6: 위험도 5 예측<br />
+Tree 7: 위험도 5 예측<br />
+...<br />
+최종 결과: 다수결로 위험도 5가 최종 예측값<br />
+(회귀 문제라면 단순 평균을 내서 예측값을 산출)<br />
+자 이제 위 작업을 파이썬 코드를 통해서 살펴보자.<br />
+일단 내가 풀고있는 문제는,<br />
+여러 환자 파라메터들이 존재하고,<br />
+이 파라메터들이<br />
+1. 관상동맥 질환 파괴위치<br />
+2. 파괴 severity (파괴 위험도)<br />
+에 주는 민감도를 분석하는게 목표이다.<br />
+(요즘, Cursor, claude, VS co pilot ... 을 활용하면 뚝딱)<br />
+그래도 흐름은 이해해야한다.<br />
+총 400개의 데이터셋을 준비하였고, 18개의 다른 종류의 라벨이 존재<br />
+random forest특성상 label(정답)이 한개만 존재한다면, 그 라벨은 분류에서 제외한다(keep_label 과정)<br />
+<img alt="Random Forest" src="./images/img-005.png" /><br />
+더불어, 라벨이 문자로 저장되어 있는 관계로, 학습을 위해서 숫자로 전환시켜주는 작업을<br />
+labelEncoder로 진행해준다.<br />
+이제 데이터를 학습, 훈련 데이터로 분리.<br />
+<img alt="Random Forest" src="./images/img-006.png" /><br />
+startify는 훈련과 학습에서 label의 비율을 맞추는 작업이다.<br />
+이후에,<br />
+sklearn에서 import한 함수를 호출해주기만 하면 된다.<br />
+<img alt="Random Forest" src="./images/img-007.png" /><br />
+n_estimator- tree갯수<br />
+GRP에서 민감도 분석을 한 이후에 S1,ST즉 파라메터가 결과값에 주는 영향력을 측정한다.<br />
+Randomforest에서는 parameter를 하나 임의로 random하게 바꾸었을때, 결과값은 얼마나 바뀌는 지를 측정하는<br />
+Permutation importance<br />
+를 측정한다. 즉, 큰 PI인 parameter는 결과값에 영향을 많이 준다고 할 수 있다.<br />
+<img alt="Random Forest" src="./images/img-008.png" /><br />
+또 다른 지수는, mutual information<br />
+는 parameter와 output이 얼마나 독립적인가를 나타낸다.<br />
+즉, parmeter 값을 알았을때, output의 불확실성이 얼마나 줄어드는 지를 나타내는 것.<br />
+<img alt="Random Forest" src="./images/img-009.png" /></p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

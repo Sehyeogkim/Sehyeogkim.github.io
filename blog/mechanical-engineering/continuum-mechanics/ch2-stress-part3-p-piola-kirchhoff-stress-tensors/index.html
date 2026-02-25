@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS) | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item active">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/continuum-mechanics/">Continuum-Mechanics</a><span class="sep">/</span><span>ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS)</span></div>
+<a href="/blog/mechanical-engineering/continuum-mechanics/" class="back-link">&larr; Back to Continuum-Mechanics</a>
+<div class="page-header"><h1>ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS)</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-02-02</span><span class="meta-item"><span class="meta-label">Category:</span> Continuum-Mechanics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/163" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>지금까지는<br />
+변형 후<br />
+를 기준으로 정의한<br />
+Cauchy Stress tensor<br />
+에 대해서 계속해서 알아보았다.<br />
+<img alt="ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS)" src="./images/img-001.png" /><br />
+하지만, stress는 정의에 따라서, 여러가지가 존재한다.<br />
+각각 특정한 목적일때 사용에 유리하기 때문이다.<br />
+지금부터 다른 stress종류들 중에서<br />
+PIOLA KIRCHHOFF STRESS TENSORS(P, S)<br />
+에 대해서 살펴보자.</p>
+<h1>1st Piola Kirchhoff stress tensor(P)</h1>
+<p>사실 1st Piola Kirchhoff stress tensor(P)에<br />
+대해서는 이미 part1에서 증명하였다.<br />
+빠르게 짚고 넘어가보자.<br />
+<img alt="ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS)" src="./images/img-002.png" /><br />
+변형 전 값들(ds,σ,n,t). , 변형후 값들(dS, P, N, T)<br />
+변형전 후 면적의 관계로 변형 전 후 부피 관계식을<br />
+다음과 같이 유도가능하다.<br />
+<img alt="ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS)" src="./images/img-003.png" /><br />
+여기에 det(F) = J를 사용하여, 변형 전 후 부피<br />
+변화식도 존재하므로, 위 식과 연립해주자.<br />
+<img alt="ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS)" src="./images/img-004.png" /><br />
+연립후 도출된 변형전후 면적의 관계식을<br />
+Nanson's Formula라고 칭한다.<br />
+<img alt="ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS)" src="./images/img-005.png" /><br />
+<img alt="ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS)" src="./images/img-006.png" /><br />
+<img alt="ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS)" src="./images/img-005.png" /><br />
+(유도된 ds, dS는 벡터)<br />
+<img alt="ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS)" src="./images/img-006.png" /><br />
+위 Formula를 초기에 정의한 stress tensor식에 대입해주면,<br />
+<img alt="ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS)" src="./images/img-007.png" /><br />
+최종적으로 Cauchy stres tensor와<br />
+1st Piola Kirchhoff stress tensor의<br />
+관계식을 유도하였다.<br />
+<img alt="ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS)" src="./images/img-008.png" /><br />
+즉, 변형전 면적을 기준으로 정의한 stress가<br />
+1st PK stress(P)라는 것.<br />
+1st가 있다면, 2nd도 있겠죠?</p>
+<h1>2nd Piola Kirchhoff stress tensor(S)</h1>
+<p>두번재 PK stress는 특이하다<br />
+정의 자체를 df는 변형후의 힘,<br />
+df~ 는 변형전의 힘이라고 정의한다.<br />
+<img alt="ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS)" src="./images/img-009.png" /><br />
+그리고, Deformation Gradient tensor<br />
+dx = F dX에서 F를 사용하여,<br />
+다음과 같이 정의한다(df는 우리가 알고 있는 실제값)<br />
+<img alt="ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS)" src="./images/img-010.png" /><br />
+df는 실제 존재하는 값, df~는 상상의 값.<br />
+위의 새로운 정의를 토대로,<br />
+우리가 지금까지 정의한 Traction vector와<br />
+Stress tensor를 똑같이 유도한다.<br />
+<img alt="ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS)" src="./images/img-011.png" /><br />
+S로 새롭게 정의 2차 PK Stress tensor.<br />
+1의 정의에 가상의힘을 실제 힘으로 바꾸어 주자.<br />
+<img alt="ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS)" src="./images/img-012.png" /><br />
+여기서 똑같은 df로 우리는<br />
+Cauchy stress tensor, 1st PK Stress tensor를 정의하였음을<br />
+잊지말자.<br />
+<img alt="ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS)" src="./images/img-013.png" /><br />
+따라서, 3번식을 정리하면<br />
+우리는 Cauchy&amp; 2nd PK stress tensor relationship<br />
+1st &amp; 2nd PK stress tensor relationship<br />
+을 유도할 수 있다.<br />
+<img alt="ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS)" src="./images/img-014.png" /><br />
+이렇게 다르게 stress를 정의하는 이유 자체는<br />
+이득인 상황이 각각 다르기 때문이겠죠?<br />
+그렇다면 각각 어떤 용도에서 사용된지 gpt한테 물어보자.<br />
+<img alt="ch2 Stress - part3 (P, PIOLA KIRCHHOFF STRESS TENSORS)" src="./images/img-015.png" /><br />
+변형전, 후가 다르다는 것은 크게 와닿지만,<br />
+비대칭과 대칭텐서 즉 P,S의 차이가 크게 와닿지는 않는다.<br />
+이후에 정리할 Non linear hyperelastic model을<br />
+공부할때 아마 두 tensor의 용도 차이가 크게 와닿을 것 같다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch5 Convection and Diffusion - part2 (exact solution vs upwind scheme) | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item active">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/computational-fluid-dynamics/">Computational_Fluid_Dynamics</a><span class="sep">/</span><span>Ch5 Convection and Diffusion - part2 (exact solution vs upwind scheme)</span></div>
+<a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="back-link">&larr; Back to Computational_Fluid_Dynamics</a>
+<div class="page-header"><h1>Ch5 Convection and Diffusion - part2 (exact solution vs upwind scheme)</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-05-03</span><span class="meta-item"><span class="meta-label">Category:</span> Computational_Fluid_Dynamics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/196" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Ch5 Convection and Diffusion - part2 (exact solution vs upwind scheme)<br />
+우리가 part1에서 convection term을 새로운 stepwise funciton.<br />
+upwind scheme<br />
+을 토대로, algebriac eq을 도출하였다.<br />
+어디까지나 우리가 궁극적으로 하고 있는<br />
+differential eq -&gt; Algebriac eq은<br />
+approximated Solution이다.<br />
+upwind shceme이 4basic rule은 잘 만족하지만,<br />
+exact solution과 비슷한지도 체크 해보기 위해서,<br />
+우리가 지난시간에 discretize -&gt; integral로 진해하였던<br />
+<img alt="Ch5 Convection and Diffusion - part2 (exact solution vs upwind scheme)" src="./images/img-001.png" /><br />
+1D Steady convection diffusion Eq.<br />
+의 exact solution을 analytically 구해보자.<br />
+간단하게 적분을 먼저 두번 진행해주자.<br />
+<img alt="Ch5 Convection and Diffusion - part2 (exact solution vs upwind scheme)" src="./images/img-002.png" /><br />
+여기서, boundary condition을 통해서 계수들을 구해주자.<br />
+<img alt="Ch5 Convection and Diffusion - part2 (exact solution vs upwind scheme)" src="./images/img-003.png" /><br />
+간단한 Form으로 변환하기 위해서, 다음과 같이 연립해주면<br />
+<img alt="Ch5 Convection and Diffusion - part2 (exact solution vs upwind scheme)" src="./images/img-004.png" /><br />
+<img alt="Ch5 Convection and Diffusion - part2 (exact solution vs upwind scheme)" src="./images/img-005.png" /><br />
+Definition of Pecelt number.<br />
+4번 식을 잘 살펴보면 Pecelt number에 따라서 Function profile이 다르게 나타난다.<br />
+<img alt="Ch5 Convection and Diffusion - part2 (exact solution vs upwind scheme)" src="./images/img-006.png" /><br />
+Pecelt numer -&gt; zero<br />
+<img alt="Ch5 Convection and Diffusion - part2 (exact solution vs upwind scheme)" src="./images/img-007.png" /><br />
+Peclet number -&gt; + inf.<br />
+<img alt="Ch5 Convection and Diffusion - part2 (exact solution vs upwind scheme)" src="./images/img-008.png" /><br />
+Peclet number -&gt; - inf<br />
+여기서 Pecelet number 에 따라 4번식을 그래프로 표현하면 다음과 같다<br />
+<img alt="Ch5 Convection and Diffusion - part2 (exact solution vs upwind scheme)" src="./images/img-009.png" /><br />
+자세히 살펴보면,<br />
+p = 0 -&gt; central difference shceme<br />
+p = -inf, inf 에서가 upwind scheme.<br />
+위 그래프의 Exact solution의 물리적 의미를 이해하기 위해<br />
+Pecelt number를 살펴보면, 아주신기하게도 F,D의 비율이다.<br />
+<img alt="Ch5 Convection and Diffusion - part2 (exact solution vs upwind scheme)" src="./images/img-010.png" /><br />
+Pe = Convection Strength / Diffusion conductance = F / D<br />
+즉 Pe 가 크다면 -&gt; 대류가 지배적이고,<br />
+작다면 -&gt; diffusion 이 지배적이다.<br />
+물리적의미를 정확하게 상상하면서 이해해보자.<br />
+A -&gt; B로 유체가 흐른다고 가정하자.<br />
+우리는 A,B사이에서 유체의 scalar 값이 A,B각각의 값과의 관계식을 알고 싶다.<br />
+1. 대류가 굉장히 강하다면,<br />
+A-&gt;B로 강한 유체의 흐름이 존재하므로,<br />
+(A,B) interval은 A의 성질을 대부분 띌 것이다.<br />
+즉 대류의 strength 가 강하다 -&gt;<br />
+F&gt;&gt;D<br />
+-&gt; large Pe<br />
+따라서, Pe가 굉장히 큰 경우 그래프를 살펴보면<br />
+step wise profile(전부 A의 값을 띔) 이다.<br />
+2. 분산이 굉장히 강하다면,<br />
+이때, 유체가 A에서 B로 흐른다 하더라도, 대류가 약하므로 유체는 방향성을 거의 갖지 않고,<br />
+오히려 분자운동에 의한<br />
+확산<br />
+이 지배적인 메커니즘이 된다.<br />
+따라서<br />
+어느 한쪽 (예: A) 의 특성이 일방적으로 전달되기 어렵고<br />
+,<br />
+A와 B의 상태는<br />
+서로를 향해 섞이면서<br />
+중간값으로 점진적으로 수렴하게 된다.<br />
+이런 물리적 상황에서, A에서 B로의 스칼라 양(예: 온도, 농도 등)은<br />
+거리의 함수로 선형적으로 변화<br />
+하게 되며,<br />
+A와 B를 선형으로 잇는 직선 (linear profile)<br />
+형태를 보인다.<br />
+즉 결론적으로, Upwind scheme(step wise profile)은 대류가 지배적인 상황에서는 잘 맞지만,<br />
+diffusion 이 큰 경우는 central difference scheme(linear profile)에 더 맞다는 것이다.<br />
+그러기에, exact solution을 이용한 새로운 scheme이 존재하며, 다음 Part 에서 이를 바로 살펴보자.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

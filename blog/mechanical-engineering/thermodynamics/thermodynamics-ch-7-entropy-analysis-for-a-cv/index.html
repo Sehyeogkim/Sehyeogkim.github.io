@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Thermodynamics] Ch 7. Entropy Analysis for a C.V | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item active">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/thermodynamics/">Thermodynamics</a><span class="sep">/</span><span>[Thermodynamics] Ch 7. Entropy Analysis for a C.V</span></div>
+<a href="/blog/mechanical-engineering/thermodynamics/" class="back-link">&larr; Back to Thermodynamics</a>
+<div class="page-header"><h1>[Thermodynamics] Ch 7. Entropy Analysis for a C.V</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-04-23</span><span class="meta-item"><span class="meta-label">Category:</span> Thermodynamics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/70" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>[Thermodynamics] Ch 7. Entropy Analysis for a C.V<br />
+이전 시간에 배웠듯이,<br />
+엔트로피 변화량은 열의 출입 + Generation term<br />
+<img alt="[Thermodynamics] Ch 7. Entropy Analysis for a C.V" src="./images/img-001.png" /><br />
+However, so far<br />
+일정한 질량의 system, 즉, Control mass에서만 계산<br />
+Ch1,2에서 언급했다 싶이,<br />
+유체역학, 열역학에서는<br />
+Control volume<br />
+을<br />
+가장 많이 사용한다. whY???<br />
+MASS의 입 출입이 존재할때,<br />
+질량유동과 같이 Property들의 흐름<br />
+도<br />
+계산 할 수 있기 때문이다.<br />
+실제 시스템 같은 경우 전부, Mass의 흐름이 존재하는 경우가 많다.<br />
+<img alt="[Thermodynamics] Ch 7. Entropy Analysis for a C.V" src="./images/img-002.png" /><br />
+Control volume analysis의 경우, 기존 Control mass term에 입출입 term을 더 해주면 된다.<br />
+<img alt="[Thermodynamics] Ch 7. Entropy Analysis for a C.V" src="./images/img-003.png" /><br />
+<img alt="[Thermodynamics] Ch 7. Entropy Analysis for a C.V" src="./images/img-004.png" /><br />
+위 식을 Base로 항상 그랬듯이, 가정을 통해서 위식을 간략하게 요약할 수 있다.<br />
+1. Steady state process<br />
+dS_c.v./ dt = 0 이므로,<br />
+<img alt="[Thermodynamics] Ch 7. Entropy Analysis for a C.V" src="./images/img-005.png" /><br />
+위 식을 Mass flow rate로 나누어 주면.<br />
+<img alt="[Thermodynamics] Ch 7. Entropy Analysis for a C.V" src="./images/img-006.png" /><br />
+만약에 열 출입이 없고, Reversible process인 경우에는<br />
+se = si 임을 알 수 있다.<br />
+2. Transient Process<br />
+trasient process에서는, 시간에 따른 control volume property들이 일정하게 변하는 과정.<br />
+따라서,<br />
+<img alt="[Thermodynamics] Ch 7. Entropy Analysis for a C.V" src="./images/img-007.png" /><br />
+양변을 시간 0 -&gt; t로 적분해주면,<br />
+<img alt="[Thermodynamics] Ch 7. Entropy Analysis for a C.V" src="./images/img-008.png" /><br />
+좌항 = 시간 t동안 c.v의 엔트로피 변화량<br />
+우항 = 시간 t동안 들어온 엔트로피 - 나간 엔트로피 + 생성된 엔트로피<br />
+대입해주면,<br />
+<img alt="[Thermodynamics] Ch 7. Entropy Analysis for a C.V" src="./images/img-009.png" /><br />
+여기서 우항 3번째 식에서 온도 T는 C.V의 온도를 의미한다.<br />
+C.V의 온도가 시간이 흐르는 동안 일정하다고 가정하면,<br />
+<img alt="[Thermodynamics] Ch 7. Entropy Analysis for a C.V" src="./images/img-010.png" /><br />
+최종적으로, 다음과 같은 식이 유도된다.<br />
+<img alt="[Thermodynamics] Ch 7. Entropy Analysis for a C.V" src="./images/img-011.png" /></p>
+<hr />
+<h1>Reversible steady-state single flow process</h1>
+<p>이번에는 work term을 분석해보자.<br />
+먼저 Energy Equation에서, 단열이라고 가정하면 q = 0<br />
+<img alt="[Thermodynamics] Ch 7. Entropy Analysis for a C.V" src="./images/img-012.png" /><br />
+따라서, 일은<br />
+<img alt="[Thermodynamics] Ch 7. Entropy Analysis for a C.V" src="./images/img-013.png" /><br />
+그리고 Reversible process 에서 ds = 0이므로,<br />
+Tds = 0 = dh - vdp 를 이용하면<br />
+<img alt="[Thermodynamics] Ch 7. Entropy Analysis for a C.V" src="./images/img-014.png" /><br />
+Therefore, the work term would be<br />
+<img alt="[Thermodynamics] Ch 7. Entropy Analysis for a C.V" src="./images/img-015.png" /><br />
+핵심적인 것은, 여기서 w는 shaft work이다. 즉, boundary work와 다른 개념이라는 것.<br />
+자세히 들여다보면, Specific volume(v)가 work에 굉장히 많은 영향을 끼친다.<br />
+가장 대표적인 예시가 바로 steam power plant<br />
+<img alt="[Thermodynamics] Ch 7. Entropy Analysis for a C.V" src="./images/img-016.png" /><br />
+여기서 pump와 turbine에서의 압력변화는 일정하였다.<br />
+하지만, Pump의 경우 훨씬 낮은 specific volumed을 turbine보다 가지고 있다.<br />
+따라서, Shaft work 자체는 pump &lt;&lt; Turbine이라는 것이다.<br />
+그렇기 때문에 외부에 일을하는 system을 만들 수 있는 것이다.</p>
+<h1>Incompressible flow work</h1>
+<p>실제로, Incompressible flow같은 경우 specific volume이 일정하기 때문에,<br />
+적분을 그대로 나오게 되고,<br />
+결과 베르누이 정리가 나오게 된다.<br />
+<img alt="[Thermodynamics] Ch 7. Entropy Analysis for a C.V" src="./images/img-017.png" /></p>
+<hr />
+<h1>Boundary work vs shaft work</h1>
+<p>지금까지 잘생각해보면, 우리는 pump, turbine에서의 일 즉, shaftwork에 대해서 분석하였다.<br />
+하지만, 이전 chapther1,2,에서는 boundary work<br />
+w = integral(p) dv 만 계속해서 사용했었다.<br />
+도대체 둘이 차이가 뭘까?????<br />
+Bondary work는 말그대로, boundary가 하는 일이다.<br />
+일은 정의에 따라<br />
+힘과 그에 평행한 이동거리<br />
+가 존재하여야 한다.<br />
+여기서 Boundary work는 Control volume의 경계선이 확장되거나 수축될때.<br />
+즉, 이동거리가 존재할때 그에 상응하는 압력이 한 일이다.<br />
+따라서,<br />
+Work = integral (Pressure) dv<br />
+로 표현하는 이유이다.<br />
+사실 둘의 차이는 이 식이 어떻게 유도되었는지 확인해보면, 바로 알 수 있다.<br />
+<img alt="[Thermodynamics] Ch 7. Entropy Analysis for a C.V" src="./images/img-012.png" /><br />
+https://jeffdissel.tistory.com/4<br />
+[Gas dynamics] Ch 2 - Control volume analysis - Application of Reynolds Transport Theorem<br />
+이제 Reynold's transport theorem 을 이용하여 B가 mass, linear momentum, Energy 인 경우로 나누어 해석해보자 1. B = m(mass), β=dB/dm = 1 System의 mass는 시간이 흘러도 일정하므로 (dm/dt) system = 0 이다. 따라서, 여기<br />
+jeffdissel.tistory.com<br />
+자세한 유도과정은 위link에서<br />
+유동일을 들어오고 나간 변화량이라 생각하여, hi,he에 포함되어 있고,<br />
+work term에서 남은 부분, 즉 shaft work만 w로 표시되어 있는 위 식을 통해.<br />
+우리가 위에서 계속해서 구한 w는 shaft work 임을 확인 할 수 있다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

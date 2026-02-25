@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Thermodynamics] Ch 6. Entropy - Thermodynamic relation | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item active">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/thermodynamics/">Thermodynamics</a><span class="sep">/</span><span>[Thermodynamics] Ch 6. Entropy - Thermodynamic relation</span></div>
+<a href="/blog/mechanical-engineering/thermodynamics/" class="back-link">&larr; Back to Thermodynamics</a>
+<div class="page-header"><h1>[Thermodynamics] Ch 6. Entropy - Thermodynamic relation</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-04-23</span><span class="meta-item"><span class="meta-label">Category:</span> Thermodynamics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/69" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>[Thermodynamics] Ch 6. Entropy - Thermodynamic relation<br />
+직전 포스터에서<br />
+Inequality of Clasius 와 Entropy의 개념<br />
+에 대해서 배웠다.<br />
+그렇다면, 카르노 cycle에서 entropy변화를 살펴보자.<br />
+앞으로, 엔트로피의 그래프는 대부분 T-s 그래프로 표시된다,<br />
+그 이유는 dQ = Tds 즉, 그래프의 면적으로 열 계산 가능하기때문.<br />
+<img alt="[Thermodynamics] Ch 6. Entropy - Thermodynamic relation" src="./images/img-001.png" /><br />
+먼저, 1 -&gt; 2에서 받은 열은,<br />
+<img alt="[Thermodynamics] Ch 6. Entropy - Thermodynamic relation" src="./images/img-002.png" /><br />
+다음, 3 -&gt; 4에서 잃은 열은,<br />
+<img alt="[Thermodynamics] Ch 6. Entropy - Thermodynamic relation" src="./images/img-003.png" /><br />
+따라서, 카르노 기관의 효율은<br />
+<img alt="[Thermodynamics] Ch 6. Entropy - Thermodynamic relation" src="./images/img-004.png" /><br />
+그래프의 면적을 통해서, 바로 도출 할 수 있다<br />
+(T-s 그래프의 장점)<br />
+이번에는 둥근 saturated line이 있고,<br />
+1-&gt;2 Saturated Liquid to Vapor<br />
+2-&gt;3 Saturatd to Superheated Vapor<br />
+<img alt="[Thermodynamics] Ch 6. Entropy - Thermodynamic relation" src="./images/img-005.png" /><br />
+이때, 1-&gt;2 과정에서 상변화에 가해진 열은<br />
+T(S_b - S_a)<br />
+일 것이다.<br />
+그리고, 같은 압력에서의 열이므로, dq = dh.<br />
+따라서, 1-&gt;2 엔트로피(질량포함) 변화량은 다음과 같다.<br />
+<img alt="[Thermodynamics] Ch 6. Entropy - Thermodynamic relation" src="./images/img-006.png" /><br />
+그렇다면, 2-&gt;3 가해진 열은 어떻게 알 수 있을까?<br />
+<img alt="[Thermodynamics] Ch 6. Entropy - Thermodynamic relation" src="./images/img-007.png" /><br />
+바로 우리가, T그래프의 함수를 알지 못하므로,<br />
+T-s 그래프의 면적을 통해서 유도할 수 있다.<br />
+(T-s그래프의 장점)</p>
+<hr />
+<p>자 이제, 앤트로피에 대해서 알겠으니까,<br />
+다음 stage<br />
+다른 Property들과의 관계는 어떻게 될까??<br />
+시작은 두 Eq.<br />
+<img alt="[Thermodynamics] Ch 6. Entropy - Thermodynamic relation" src="./images/img-008.png" /><br />
+https://jeffdissel.tistory.com/2<br />
+[Gas Dynamics] Ch 1 Basic properties<br />
+[Abstract] Before going deep in Gas dynamics, knowledges of fluid mechanics and thermodynamics are fundamentally required.Therefore, the Chapter 1 deals with the basic prerequisits for Gas dynamics 1. Density ( ρ ) [unit : kg/㎥ ] Fluid molecules 들은<br />
+jeffdissel.tistory.com<br />
+Gas dynamics 포스터에서 자세하게 증명해봤었습니다.<br />
+위 두식을 가지고, 다양한 case에서의<br />
+식들을 더 구체화 해보자.<br />
+1. Incompressible flow(solid, liquid)<br />
+2. Ideal gas</p>
+<hr />
+<p>1.Solid or Liquid<br />
+Specific heat Cv = Cp = C로 동일하다고 하였다.<br />
+따라서, 내부에너지는 du = CdT<br />
++<br />
+위에서, Tds = du + pdv = du<br />
+incompressible flow ( 밀도 변화 = 0) 이므로,<br />
+결국, Tds = du = CdT<br />
+<img alt="[Thermodynamics] Ch 6. Entropy - Thermodynamic relation" src="./images/img-009.png" /><br />
+식을 자세히 살펴보면, Reversible adiabatic process의 경우,<br />
+ds = 0, 이므로 온도 변화가 없는 것을 알 수 있다.<br />
+(액체,고체 한정)<br />
+따라서, 펌프같은 경우 온도변화가 reversible process에서 존재하지 않는다.</p>
+<hr />
+<ol>
+<li>Ideal gas<br />
+위에서 구한 내부에너지-엔트로피 식에서,<br />
+<img alt="[Thermodynamics] Ch 6. Entropy - Thermodynamic relation" src="./images/img-010.png" /><br />
+Ideal gas의 경우, 왼쪽의 Ideal gas specific heat로 내부에너지 표현가능,<br />
+오른쪽은 이상기체 상태방정식.<br />
+<img alt="[Thermodynamics] Ch 6. Entropy - Thermodynamic relation" src="./images/img-011.png" /><br />
+대입해주면, 앤트로피 변화량은 다음과 같다.<br />
+<img alt="[Thermodynamics] Ch 6. Entropy - Thermodynamic relation" src="./images/img-012.png" /><br />
+이제 엔트로피-엔탈피 식에서 시작해보자.<br />
+<img alt="[Thermodynamics] Ch 6. Entropy - Thermodynamic relation" src="./images/img-013.png" /><br />
+constant pressure, Ideal gas specific heat (Cp0)<br />
+State Eq을 사용하자.<br />
+<img alt="[Thermodynamics] Ch 6. Entropy - Thermodynamic relation" src="./images/img-014.png" /><br />
+원래 식에 대입해주면, 최종적으로<br />
+<img alt="[Thermodynamics] Ch 6. Entropy - Thermodynamic relation" src="./images/img-015.png" /><br />
+여기서 다시 Ideal gas Specific heat에 대해서 생각해보자.<br />
+Specific heat는 only 온도에 의해서만 변하는 함수였다.<br />
+그리고 Specific heat 를 derive하는 방법에는 여러가지가 있었고,</li>
+<li>일정한 Specific heat</li>
+<li>온도에 따른 함수로 표현 C = f(T)</li>
+<li>T0를 고정하고 T까지 적분 값을 구하는 것,<br />
+첫번째와 두번째는 Ch3 에서 설명을 했었다. 전부다 합리적이지만,<br />
+Entropy를 위한 비열은 3번째 경우를 사용하고,<br />
+S0_T : Standard Entropy라고 부른다.<br />
+<img alt="[Thermodynamics] Ch 6. Entropy - Thermodynamic relation" src="./images/img-016.png" /><br />
+그리고 Standard Entropy값들은 이미 계산되어 표에 명시되어 있기 때문에,<br />
+Entropy 의 변화량을 다음식으로 표현 할 수 있다.<br />
+<img alt="[Thermodynamics] Ch 6. Entropy - Thermodynamic relation" src="./images/img-017.png" /></li>
+</ol></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

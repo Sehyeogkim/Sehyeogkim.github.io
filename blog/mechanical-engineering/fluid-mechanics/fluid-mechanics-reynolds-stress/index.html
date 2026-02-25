@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Fluid mechanics] Reynolds Stress | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item active">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/fluid-mechanics/">Fluid_Mechanics</a><span class="sep">/</span><span>[Fluid mechanics] Reynolds Stress</span></div>
+<a href="/blog/mechanical-engineering/fluid-mechanics/" class="back-link">&larr; Back to Fluid_Mechanics</a>
+<div class="page-header"><h1>[Fluid mechanics] Reynolds Stress</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-05-13</span><span class="meta-item"><span class="meta-label">Category:</span> Fluid_Mechanics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/81" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>난류를 유체역학, 수학자들은 어떻게 표현했을까??<br />
+https://jeffdissel.tistory.com/39<br />
+[Fluid mechanics] Ch 6. Law of the wall.<br />
+난류 Turbulence는 Randomness그 자체이다. 시간에 따라서 진폭이 일정하지 않는 그냥 랜덤한 파동의 형태를 띈다. 이를 분석하기 위해서, 과학자들은 시간평균의 개념을 가져온다. 그리고 Time mean veloc<br />
+jeffdissel.tistory.com<br />
+Law of the wall 포스터에서 속도를 평균 + fluctation 으로 나눈후<br />
+평균을 구하고 나비아스 스톡스 방정식에 대입해주었다.<br />
+u = Average(u) + u'<br />
+그리고, 넣어준 결과 Reynolds stress( Turbulence stress) 가 식에 생성된다는 것 까지<br />
+위 포스터에서 다루었다.<br />
+그리고 과학자들은 이 term을 수학적으로 유체의 점성항과 비슷하다고 가정한후,<br />
+다음과 같이 표현 하였다.<br />
+<img alt="[Fluid mechanics] Reynolds Stress" src="./images/img-001.png" /><br />
+자, 위 표현은 평판에서 u의 속도(x방향)만 있는 경우의 Reynolds stres이다.<br />
+이제 3D로 표현한 reynolds stress 를 작성해보자.<br />
+<img alt="[Fluid mechanics] Reynolds Stress" src="./images/img-002.jpg" /><br />
+u'v' = v'u' 임을 통해서, reynolds stress를 두개의 합으로 먼저 표현해주자<br />
+(Symmetric 이고, 우리가 이전에 구한 Strain tensor로 표현 할 수 있기 때문에)<br />
+그리고, Tensor 로 표현해주면 다음과 같다.<br />
+<img alt="[Fluid mechanics] Reynolds Stress" src="./images/img-003.jpg" /><br />
+하지만, 문제점이 발생한다.<br />
+normal Reynolds stress를 이용하여<br />
+Kinematic Turbulence energy (k)를 구해보면<br />
+<img alt="[Fluid mechanics] Reynolds Stress" src="./images/img-004.jpg" /><br />
+다음과 같이, incompressible flow일때, k=0이라는 아주 이상한 답이 나온다;;<br />
+따라서, k=0 이 되지 않고,<br />
+k 의 정의 (u'u'+v'v'+z'z')/2 가 되도록 Reynolds stress tensor를 변형시켜주면<br />
+<img alt="[Fluid mechanics] Reynolds Stress" src="./images/img-005.jpg" /><br />
+normal stress tensor는 다음과 같이 표현 할 수 있다.<br />
+직접, 각 x,y,z reynolds Stress를 구한후 합하여 확인해보면<br />
+<img alt="[Fluid mechanics] Reynolds Stress" src="./images/img-006.jpg" /><br />
+k 가 정의대로 derived 됨을 알 수 있다.<br />
+따라서, 최종적으로 Strain tensor를 이용하여 Reynolds stress를 표현하면 다음과 같다.<br />
+<img alt="[Fluid mechanics] Reynolds Stress" src="./images/img-007.jpg" /></p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

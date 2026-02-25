@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch2 Conservation Laws_part1 | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item active">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/viscous-flow/">Viscous_Flow</a><span class="sep">/</span><span>Ch2 Conservation Laws_part1</span></div>
+<a href="/blog/mechanical-engineering/viscous-flow/" class="back-link">&larr; Back to Viscous_Flow</a>
+<div class="page-header"><h1>Ch2 Conservation Laws_part1</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-09-30</span><span class="meta-item"><span class="meta-label">Category:</span> Viscous_Flow</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/106" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Ch2 Conservation Laws_part1<br />
+part1에서는<br />
+Ch1에서 배운<br />
+Cartesian Tensor<br />
+를 사용하여<br />
+유체역학 시간에 배운<br />
+Conservation of Mass<br />
+Conservation of Momentum<br />
+을 빠르게 살펴보자.<br />
+가장 기본적인 핵심은<br />
+레이널즈 수송정리 이다.<br />
+https://jeffdissel.tistory.com/3<br />
+[Gas Dynamics] Ch 2 Control Volume Analysis - Reynolds Transport theorem<br />
+유체의 흐름을 분석하기 위해서는 1. Conserviation of mass2. Conservatino of momentum -&gt; Newton's second law of mtion3. Conservation of Energy 위 3가지 Equation을 정의해야만 한다. 정의하는 Control volume을 설정하고<br />
+jeffdissel.tistory.com<br />
+(위 글에서 쉽게 이해할 수 있을 것이다.)<br />
+<img alt="Ch2 Conservation Laws_part1" src="./images/img-001.png" /><br />
+Reynolds Transport Theorem(RTT)<br />
+여기서,<br />
+V(t)는 Control volume의 부피를 의미하고,<br />
+A(t) 는 Control surface<br />
+b는 Control volume표면의 속도벡터이다.<br />
+바로 이제 보존법칙 2가지 분석들어가 보자.</p>
+<hr />
+<ol>
+<li>Conservation of Mass, F(x,t) =ρ (x,t)<br />
+RTT left hand side<br />
+<img alt="Ch2 Conservation Laws_part1" src="./images/img-002.png" /><br />
+움직이는 control volume 내부의<br />
+물분자는 계속해서 동일하므로,<br />
+시간에 따른 변화는 존재하지 않는다.<br />
+RTT right hand side<br />
+<img alt="Ch2 Conservation Laws_part1" src="./images/img-003.png" /><br />
+여기서 핵심은 b = u 라는 점이다, control volume이 여기서는<br />
+아주 극소의 유체 volume이라고 가정하였기 때문에,<br />
+유체의 속도와 동일하다고 고려한다.<br />
+이제, gauss theorem 을 통해서,<br />
+면적분을 체적분 + gradient<br />
+(divergence thoeorem)<br />
+으로 전환해준다.<br />
+<img alt="Ch2 Conservation Laws_part1" src="./images/img-004.png" /><br />
+이후, 체적분으로 묶어주면<br />
+<img alt="Ch2 Conservation Laws_part1" src="./images/img-005.png" /><br />
+다음과 같이 Cartesian tensor를 활용하여,<br />
+Gradient를 표현한,<br />
+Conservation of mass Eq.<br />
+= Continuity Eq이 도출된다.</li>
+</ol>
+<hr />
+<ol>
+<li>Conservation of Momentum<br />
+시작은, Control volume에 대해<br />
+운동량 변화량 = Body force + surface Force<br />
+로 시작한다.<br />
+(d(mv)/dt = F or ma = F)<br />
+뉴턴 2법칙<br />
+<img alt="Ch2 Conservation Laws_part1" src="./images/img-006.png" /><br />
+Body force는 중력만 있다고 가정.<br />
+여기서, 먼저 Surface Force항 을 살펴보고,<br />
+left hand side의 운동량 시간변화량을 살펴보자.</li>
+</ol>
+<h1>Surface Force, f</h1>
+<p>시작은,<br />
+<img alt="Ch2 Conservation Laws_part1" src="./images/img-007.png" /><br />
+stress평형이다. control volume 표면에 대해서<br />
+surface force면적분을 해주고,<br />
+아주 작은 미소단위로 극한을 취해주면 = 0<br />
+이유는 간단하다, 밑에처럼 미소단위로 갈때,<br />
+부피가 0에더 가까워진다.<br />
+<img alt="Ch2 Conservation Laws_part1" src="./images/img-008.png" /><br />
+따라서, 운동량 변화량 식을 보면, Vm(t)항들이 0 이 되어버리기 때문에<br />
+(Control volume - 미소단위의 유체 부피)<br />
+surface force term도 0 이된다.<br />
+<img alt="Ch2 Conservation Laws_part1" src="./images/img-006.png" /><br />
+여기서, 그림처럼<br />
+<img alt="Ch2 Conservation Laws_part1" src="./images/img-009.png" /><br />
+이제 f를 1,2,3방향으로 전부 쪼개주자.<br />
+Stress equilibrium을 활용하여, 식을 전개해주자.<br />
+<img alt="Ch2 Conservation Laws_part1" src="./images/img-010.jpg" /><br />
+결론적으로, tensor로 나타내면.<br />
+<img alt="Ch2 Conservation Laws_part1" src="./images/img-011.png" /><br />
+이후, Gauss theorem을 활용하여<br />
+체적분으로 바꾸면 Gradient로 표현 할 수 있다.<br />
+<img alt="Ch2 Conservation Laws_part1" src="./images/img-012.jpg" /><br />
+지금까지,<br />
+<img alt="Ch2 Conservation Laws_part1" src="./images/img-006.png" /><br />
+Body force는 중력만 있다고 가정.<br />
+surface force항을 유도하였고,<br />
+이제 좌항을 정리해보자.<br />
+Reynolds Transport Theorem을 활용하여,<br />
+(F(x,t) =<br />
+ρ<br />
+uj<br />
+전개해주면<br />
+<img alt="Ch2 Conservation Laws_part1" src="./images/img-013.jpg" /><br />
+이후, 기존의 F = ma 식에 대입해주면,<br />
+최종적으로 전부 체적분 형태이다.<br />
+따라서, 체적분을 제거해준 후, 전개해주자.<br />
+<img alt="Ch2 Conservation Laws_part1" src="./images/img-014.jpg" /><br />
+전개하면 초록색 부분이<br />
+연속방정식 항임을 알 수 있다.<br />
+(tensor 왜 쓰는지 알겠다, 전개가 쉽다)<br />
+<img alt="Ch2 Conservation Laws_part1" src="./images/img-005.png" /><br />
+위에서 증명했었음.<br />
+<img alt="Ch2 Conservation Laws_part1" src="./images/img-015.jpg" /><br />
+따라서, 최종적으로 다음과 같이<br />
+Conservation of momentum Eq.<br />
+Cuachy's Equation of Motion<br />
+식이 유도된다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

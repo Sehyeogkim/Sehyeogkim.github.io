@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CH6 Plasticity- part1 - about plastic direction | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item active">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/solid-mechanics/">Solid_Mechanics</a><span class="sep">/</span><span>CH6 Plasticity- part1 - about plastic direction</span></div>
+<a href="/blog/mechanical-engineering/solid-mechanics/" class="back-link">&larr; Back to Solid_Mechanics</a>
+<div class="page-header"><h1>CH6 Plasticity- part1 - about plastic direction</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-06-11</span><span class="meta-item"><span class="meta-label">Category:</span> Solid_Mechanics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/209" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Plasticity 가정들.<br />
+[Isotropic Elastic - Plasticity of engineerign Materials]<br />
+1. When dislocation move, the crystal deforms plastically<br />
+2. Poly crystalline materials are regarded to be isotropic elasitc - plaasstic<br />
+3. Assmed to be Incompressible plastic deformation<br />
+4. For small deformation, the total strain decomposes into its elastic and plastic part<br />
+Elastic과 동일하게<br />
+small deformation, Equilibrium motion, Thermodynamic 2nd law를 그대로 적용된다.<br />
+<img alt="CH6 Plasticity- part1 - about plastic direction" src="./images/img-001.png" /><br />
+여기서 4번 가정을 수식으로 표현하면, small deformation에서 우리는<br />
+elastic, plastic strain을 나누고, independent하다고 가정한다.<br />
+<img alt="CH6 Plasticity- part1 - about plastic direction" src="./images/img-002.png" /><br />
+여기서 재밌는 사실은, decompose한 strain을 그대로 Thermodynamic 2nd law방정식에 대입해주면,<br />
+<img alt="CH6 Plasticity- part1 - about plastic direction" src="./images/img-003.png" /><br />
+여기서 우리가 elasitc strain과 plasitc strain은 독립적이다라고 했으므로,<br />
+rate of Helmoltz free Energy는 Elasit stress-strain power와 동일하다<br />
+(탄성영역의 핵심)<br />
+<img alt="CH6 Plasticity- part1 - about plastic direction" src="./images/img-004.png" /><br />
+그렇다면, Dissipation은 전부 plastic stress-strain power로 부터 유도된는 것!!!!<br />
+한발짝 더 나아가 사고해보면, 결국<br />
+Stress tensor는 elastic 규칙을 만족한다.<br />
+(우리가 Linear elastic에서 했던 방식 그대로)<br />
+<img alt="CH6 Plasticity- part1 - about plastic direction" src="./images/img-005.png" /><br />
+그리고 똑같은 stress tensor가 plastic deformation에서도 쓰인다는 것이다!!!<br />
+(이게 핵심이다).<br />
+여기서 만약에 isotropic인 상황이라면, 우리가 계속해서 BVP문제에서 사용하던,<br />
+Constitutive EQ도 사용가능하다는 말이다.<br />
+<img alt="CH6 Plasticity- part1 - about plastic direction" src="./images/img-006.jpg" /><br />
+자 이제, Plastic strain (핵심임) 을 분석해보자.<br />
+먼저 direction of plastic flow (np)를 다음과 같이 정의한다.<br />
+단순하게 plastic strain tensor의 방향텐서이다.<br />
+<img alt="CH6 Plasticity- part1 - about plastic direction" src="./images/img-007.png" /><br />
+여기서 정말 어려운 개념이 나온다. 바로,<br />
+np // Deviatoric stress tensor<br />
+의 방향<br />
+(이해하기 어렵습니다 정말)<br />
+<img alt="CH6 Plasticity- part1 - about plastic direction" src="./images/img-008.png" /><br />
+압축적으로 강력하게 표현하면,<br />
+결국 plastic을 일으키는 원동력이 바로,<br />
+deviatoric stress 라는 것!!!<br />
+from Mises Theory.<br />
+어떻게 아는가?? 추후에 나오겠지만,<br />
+결국 Yield strength(항복강도)가 plastic strain에 따라서, 변하게 됩니다.<br />
+그리고 그 항복강도를 결정하는 것이 바로 Deviatoric Stress임을<br />
+Mises가 실험적으로 증명하였다.<br />
+따라서, Deviatoric stress - &gt; Y (yield Strength)결정<br />
+-&gt; it is driving force of the plastic flow.<br />
+drirving force = F 라고하면,<br />
+그 방향은 결국 acceleration(a) 이고 여기서<br />
+F -&gt; Deviatoric Stress tensor<br />
+a -&gt; rate of plastic strain<br />
+따라서!!!!! 'Coaxiality'!!!!<br />
+np // rate of plasitc strain // Deviatoric Stress<br />
+<img alt="CH6 Plasticity- part1 - about plastic direction" src="./images/img-009.png" /><br />
+따라서, 우리는 Deviatoric Stress, rate of plastic strain, np를 자유롭게 치환할 수 있다.(flow rule)<br />
+<img alt="CH6 Plasticity- part1 - about plastic direction" src="./images/img-010.png" /><br />
+자 여기서, 이제 Deviatoric stress tensor를 스칼라로 표현한 Von-Miese Stress 의 정의가 나온다.<br />
+<img alt="CH6 Plasticity- part1 - about plastic direction" src="./images/img-011.png" /><br />
+<img alt="CH6 Plasticity- part1 - about plastic direction" src="./images/img-012.png" /><br />
+<img alt="CH6 Plasticity- part1 - about plastic direction" src="./images/img-013.png" /><br />
+<img alt="CH6 Plasticity- part1 - about plastic direction" src="./images/img-012.png" /><br />
+<img alt="CH6 Plasticity- part1 - about plastic direction" src="./images/img-013.png" /><br />
+최종식으로 한번 유도해보았습니다.<br />
+결국 Deviatoric stress tensor의 크기를 스칼라로 나타낸 값이다!!!<br />
+AKA Von mises stress or 'The Mises Equivalent Tensile Stress'<br />
+두번째, rate of plastic strain도 결국 텐서이므로, 크기로 나타내는 스칼라를 다음과 같이 정의하자.<br />
+Equivalent tensile plasitc strain rate<br />
+<img alt="CH6 Plasticity- part1 - about plastic direction" src="./images/img-014.png" /><br />
+위 정의를 가지고, 다음과 같이 D를 스칼라의 곱으로 전환할 수가 있다!!<br />
+<img alt="CH6 Plasticity- part1 - about plastic direction" src="./images/img-015.png" /><br />
+[Overall Flow Rules]<br />
+<img alt="CH6 Plasticity- part1 - about plastic direction" src="./images/img-016.png" /></p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

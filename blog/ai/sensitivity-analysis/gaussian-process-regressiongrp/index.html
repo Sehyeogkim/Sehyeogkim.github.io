@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gaussian Process Regression(GRP) | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item active">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/ai/">AI</a><span class="sep">/</span><a href="/blog/ai/sensitivity-analysis/">Sensitivity_Analysis</a><span class="sep">/</span><span>Gaussian Process Regression(GRP)</span></div>
+<a href="/blog/ai/sensitivity-analysis/" class="back-link">&larr; Back to Sensitivity_Analysis</a>
+<div class="page-header"><h1>Gaussian Process Regression(GRP)</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-09-04</span><span class="meta-item"><span class="meta-label">Category:</span> Sensitivity_Analysis</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/217" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>우리가 지금 하고자 하는 것은??<br />
+"어떤 입력 X 가 주어졌을 때, 대응하는 출력 y 는 무엇일까?"<br />
+일반적인 회귀(regression)<br />
+y=f(x)+ϵ<br />
+형태에서 “함수<br />
+f(x)<br />
+자체”를 특정 모델(선형식, 신경망 등)로 가정.<br />
+(목표 x -&gt; y)<br />
+하지만 Gaussian Process Regression 은<br />
+다르게 접근<br />
+함수<br />
+f ( x )<br />
+를<br />
+확률적 객체<br />
+(random function)로 보고,<br />
+"f(x)를 특정한 함수 모양으로 딱 정하지 않겠다.<br />
+대신, 가능한 모든 함수들을 후보로 두고,<br />
+그 함수들 중에서 '정규분포적인 성질' 을 가진 집합을 고려하겠다."<br />
+==========================================<br />
+여기서부터 이해하기 굉장히 어렵다.<br />
+크게 두가지만 딱 기억한다 생각하고 들어가보자.<br />
+1. 강력한 가정 (Multivariant Normal distribution)<br />
+2. Kernel Function.<br />
+이 두가지만 설명할 수 있다면, 이해 완료 참잘했어요 스탬프.<br />
+==========================================<br />
+1. Important Assumption in the Gaussin Process<br />
+(다변량 정규분포, Multivariant Normal Distribution)<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-001.png" /><br />
+What is 다변량 정규분포???<br />
+: Multivariate Normal Distribution<br />
+두가지 핵심을 기억하자.<br />
+d개의 변수가 있을때 (X1 ... Xd)<br />
+1. X1,X2, .... Xd 모두 정규분포를 띄고,<br />
+2.<br />
+임의의 선형결합 Y 또한 정규분포를 띈다면,<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-002.png" /><br />
+{X1,X2, .... Xd}는 다변량 정규분포를 띈다고 정의한다.<br />
+밑의 그림은 다변량 정규분포를 띄는 {X,Y} 예시이다.<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-003.png" /><br />
+서로 다른 변수 X,Y 각각의 정규분포를 (빨, 파)그래프로 알 수 있다.<br />
+(X,Y) 벡터를 점으로, 2차원 공간에 점을 찍어보면<br />
+타원의 boundary안에 점들이 찍히고,<br />
+가운데에 가장 많이 찍히는 것을 알 수 있다.<br />
+(타원 바깥은 매우 적은 점들)<br />
+이말은 즉 X, Y의 선형결합이 정규분포를 띈다는 의미이다.<br />
+X+Y의 합이 아주 크거나 작은 값들은<br />
+타원 바깥에 존재 즉 매우 적은 case<br />
+반대로 x1+x2 = 중앙값은 굉장히 많이 존재하여<br />
+타원 중앙에 촘촘히 존재<br />
+한발짝 더 나아가서, 다른 예시로 살펴보자.<br />
+X - height, Y - weight 의 예시로 이해해보자.<br />
+사람 500명을 선정한다음에, (키, 몸무게)를 조사하고 점으로 찍어보자.<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-004.png" /><br />
+위와 같이 타원의 boundary안에 점이 찍히는 것을 알 수 가 있다.<br />
+그리고 타원의중앙점에 점들이 모여있는 것 을 알 수 가 있다.<br />
+즉, 키와 몸무게의 선형결합은 정규분포를 띔을 알 수 있고,<br />
+그러기에 {키, 몸무게}는 정규분포를 띈다고 할 수 있다.</p>
+<h1>여기서 한가지 짚고 넘어가자.</h1>
+<p>다시 본론으로 돌아와서,<br />
+Gaussian Process 는<br />
+함수 f(x) 를 랜덤 변수들의 집합으로 보고,<br />
+입력점들을 모았을 때 항상 <strong>joint Gaussian (다변량 정규분포)</strong>을 따른다고 가정<br />
+(f(x1), f(x2) .. f(xn) 모두 각각 정규분포를 따르고,<br />
+선형결합도한 정규분포를 따른다고 가정한다는 말임)<br />
+예를들어 n개의 parameter가 있다고 가정하자.<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-005.png" /><br />
+그때 대응하는 함수값을 벡터로 표기하면,<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-006.png" /><br />
+자 이제<br />
+'함수벡터가, 다변량 정규분포를 따른다'<br />
+를 수학식으로 표현하면<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-007.png" /><br />
+여기서 u는 평균벡터<br />
+sigma는 커널함수로 구성된 공분산행렬이다.<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-008.png" /><br />
+대각 성분 -&gt; 분산<br />
+비대각 성분 -&gt; 공분산<br />
+맨처음에 중요하다고 했던 두번째 커널함수가 드디어 등장하였다.<br />
+우리가 Gaussian Process Assumption을 한 이유는,<br />
+공분산을<br />
+수학적으로 모델링<br />
+을 할 수 있기 때문이다.<br />
+즉, 서로다른 변수 x,x'이 있을때,<br />
+함수들의 공분산을 우리는 커널함수로 정의한다.<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-009.png" /><br />
+맨처음에 우리의 목표는. X = {x1,x2 ... xn} -&gt; Y = f(x)를 도출 하는 것이었다.<br />
+즉, 위 해답을 알 기 위해서 우리는<br />
+x1,x2 ... xn 들이 바뀔때,<br />
+그 함수값(f(x1)... f(xn))들은 같은 방향으로 바뀌는지,<br />
+다른 방향으로 바뀌는지 혹은 안바뀌는지를 알아야 한다.<br />
+그 변화의 방향성을 정량화한 값이 공분산이고,<br />
+이를 함수로 표현한 것이 커널 함수이다.</p>
+<h1>공분산의 정의</h1>
+<p><img alt="Gaussian Process Regression(GRP)" src="./images/img-010.png" /><br />
+따라서, 밑의 커널함수의 식을 말로 표현해보자.<br />
+(수학식은 장황한 말의 표현을 압축하고 있다)<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-009.png" /><br />
+x1,x2의 함수값의 변화경향성 -&gt; 공분산 -&gt; 커널함수<br />
+여기서 다양한 커널함수 모델이 존재하고,<br />
+대표적인 모델들부터 하나씩 살펴보자.<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-011.png" /><br />
+특징<br />
+: 입력이 가까우면 함수값도 비슷하다. 멀어지면 상관성이 줄어든다, 매끄러운 함수가정.<br />
+Matern Kernel<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-012.png" /><br />
+(Kv: Bessel function)<br />
+특징<br />
+: RBF보다 덜 매끄러운 함수도 가능하게 한다(for Non linear cases)<br />
+물리적 현상(거친 데이터, 노이즈 많은 데이터)에 잘 맞음.<br />
+Periodic Kernel<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-013.png" /><br />
+특징<br />
+: 데이터가 주기성을 가진다고 가정.<br />
+(더 많은 커널 함수들은 밑의 파이썬 코드 예제에서 더 설명~)<br />
+kernel을 선정한 후에, 가지고 있는 데이터들을 활용하여 training을 진행하여,<br />
+커널 내부의 하이퍼파라미터<br />
+(<br />
+ℓ<br />
+: length scale,<br />
+σ2<br />
+: variance 등)<br />
+을 결정한다.<br />
+(최종적으로 밑의 공분산행렬을 다 완성시킬 수 있다는 말임)<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-007.png" /><br />
+이제 새로운 변수 x<em>를 입력으로 받았을때,<br />
+존재할 수 있는 f(x</em>)의 평균과 분산을 얻을 수 있게 된다.<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-014.png" /><br />
+이게 가장 큰 GP의 장점이다. 즉,<br />
+우리는 어떤 특정 output을 도출 하는게 아니라<br />
+확률변수로 output을 도출한다.<br />
+==========================================<br />
+Python 코드로 간단하게 어떻게 활용하는지 살펴보자.<br />
+일단 데이터를 정규화 시켜주고, test, train split으로 분리해준다.<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-015.png" /><br />
+그다음, kernel을 어떤 커널함수를 사용할지를 정해야한다.<br />
+(커널을 이것저것 활용하여 결과를 뽑아보고, 가장 신뢰도가 높은 결과를 보는 커널로 선정해야한다)<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-016.png" /><br />
+1. Constant Kernel<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-017.png" /><br />
+[hyper parameter]<br />
+σ f 2 ​ (constant value): 함수 값의 전반적 스케일(분산) 조절.<br />
+2. RBF<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-018.png" /><br />
+[hyper parameter]<br />
+ℓ<br />
+(length scale): 거리에 따른 상관의 감소 속도.<br />
+3. White Kernel<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-019.png" /><br />
+Kronecker delta<br />
+[hyper parameter]<br />
+σn^2 ​<br />
+(noise_level): 관측 잡음의 분산.<br />
+4. Matern<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-020.png" /><br />
+[hyper parameter]<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-021.png" /><br />
+(RBF의 길이 척도에다가, 함수의 부드러움을 상수로 더한 case, v-&gt; inf이라면 RBF와 동일)<br />
+위 커널들을 조합하여 하나의 커널을 형성한다.<br />
+보통 가장 많이 쓰이는 조합이.<br />
+Constant Kernel * (RBF / Matern) + WhiteKernel<br />
+이후에 이제 모델을 train data로 학습하면, 하이퍼 파라메터들이 결정이 된다.<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-022.png" /><br />
+학습된 모델에 test data를 넣어 정확도를 score로 계산.<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-023.png" /><br />
+이제 모델이 학습되었다면, 이 모델에 임의의 데이터를 넣어서<br />
+Sobol Sentivity 즉 민감도 지수를 추출 할 수 있다.<br />
+(정확히 어떤 알고리즘으로 민감도지수를 추출하는지는.. 다음블로그)<br />
+<img alt="Gaussian Process Regression(GRP)" src="./images/img-024.png" /><br />
+==========================================<br />
+여기까지가 GRP에 관한 내용이고,<br />
+이 GRP가 어떻게 활용되는지 간단하게 이야기하고 마무리하도록 하자.<br />
+GRP도 결국에는 데이터들사이에서 어떠한 규칙을 발견하여<br />
+새로운 데이터는 어떤 output을 도출하는지를, 규칙을 토대로 결정하는 방식이다.<br />
+즉,<br />
+머신러닝 =<br />
+“데이터로부터 규칙을 학습하는 모든 기법” 에<br />
+GRP는 포함<br />
+된다.<br />
+그중에서, Supervised Learning(지도학습)<br />
+: 어떠한 데이터 - 정답 pair을 알고 있는 상황에서,<br />
+이를 활용하여 모델을 학습하는 방식.<br />
+이라고 할 수 있다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

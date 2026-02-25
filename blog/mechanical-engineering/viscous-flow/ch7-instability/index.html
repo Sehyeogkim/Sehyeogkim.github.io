@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch7 Instability | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item active">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/viscous-flow/">Viscous_Flow</a><span class="sep">/</span><span>Ch7 Instability</span></div>
+<a href="/blog/mechanical-engineering/viscous-flow/" class="back-link">&larr; Back to Viscous_Flow</a>
+<div class="page-header"><h1>Ch7 Instability</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-12-10</span><span class="meta-item"><span class="meta-label">Category:</span> Viscous_Flow</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/135" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Ch7 Instability<br />
+이번 단원에서부터는, 조금 복잡하고<br />
+어려운 개념에 대해서 배워보자.<br />
+Instability<br />
+불안정성<br />
+이다.<br />
+<img alt="Ch7 Instability" src="./images/img-001.png" /><br />
+stable and unstable systems<br />
+위그림에서, stable한 공은 어떠한 아주 작은 힘을 가해주어도,<br />
+원래 위치를 그대로 지킨다.<br />
+하지만 unstable한 경우 아주아주 아주 작은 힘을 가해버리면,<br />
+순간 위치를 벗어나 버린다.<br />
+이에,<br />
+공학자들은<br />
+regular 한 즉 예측 가능한 motion(stable)<br />
+에서 예측 할 수 없는,<br />
+brownian random motion(unstable)<br />
+을 구분하고자 하였고,<br />
+정확히 두 개념의 boundary는 어떻게 되는지,<br />
+interchange는 언제 하는지에 대해서 알아보자.</p>
+<hr />
+<p>[Method of Normal Modes]<br />
+먼저 perturbation(방해)의 효과를 해석하기 위해서,<br />
+다음의 두가지 가정을 해주자.<br />
+<img alt="Ch7 Instability" src="./images/img-002.png" /><br />
+이제 perturbation의 식을 세워기 전에,<br />
+기본적인 상황을 가정해보자.<br />
+기본적으로 x방향으로 유체가 흐르고 있다고 가정해보자.<br />
+그리고 Basic state의 속도장은 z에 따라 변한다고 가정하자.<br />
+<img alt="Ch7 Instability" src="./images/img-003.png" /><br />
+<img alt="Ch7 Instability" src="./images/img-004.png" /><br />
+<img alt="Ch7 Instability" src="./images/img-003.png" /><br />
+<img alt="Ch7 Instability" src="./images/img-004.png" /><br />
+Basic flow.<br />
+perturbation velocity : u는<br />
+진폭: u_hat(z)+<br />
+x,y,t 방향 각각의 파동수에 맞게<br />
+fluctuate 하는 형태일 것이다.<br />
+(Sinousal 가정)<br />
+<img alt="Ch7 Instability" src="./images/img-005.png" /><br />
+여기서 x,y방향 파동수를 벡터로 바꾸어 주자.<br />
+그리고 그 백터의 단위벡터 ek도 정의해 주자.<br />
+<img alt="Ch7 Instability" src="./images/img-006.png" /><br />
+위의 정의를 바탕으로,<br />
+c: complex phase speed<br />
+σ: temporal growh or decay rate<br />
+둘 사이의 관계식을 다음과 같이 정의 할 수 있다.<br />
+<img alt="Ch7 Instability" src="./images/img-007.png" /><br />
+즉, c: Complex phase speed는<br />
+허수와 실수를 포함하고 있는 complex number이고,<br />
+실수 부분은 진짜 파동의 속도,<br />
+허수 부분은 decay or growth 속도를 나타낸다.<br />
+그리고 허수부분이 바로 sigma의 physical meaning과 일치하므로,<br />
+식을 위와 같이 세울 수 있다.<br />
+(c = c_r + i c_i 전개하면 c_i = |k|<br />
+σ<br />
+)<br />
+새로운 정의를 추가하여,<br />
+최종적으로 다음과 같이 정의할 수 있다.<br />
+<img alt="Ch7 Instability" src="./images/img-008.png" /><br />
+perturbation definition.<br />
+여기서 잘 살펴보면,<br />
+k,m에 허수부분이 존재한다면,<br />
+x,y가<br />
+- ∞, + ∞ 일때 u가 발산함을 알 수 있다.<br />
+따라서, k,m는 실수.<br />
+더하여, perturbation이 시간에 따라서, 급수적으로 커지지 않고<br />
+감소하는 (stable)형태이러면 c_i &lt;0 이어야 함을 알 수 있다.<br />
+<img alt="Ch7 Instability" src="./images/img-009.png" /><br />
+여기까지, perturbation을 몇가지 가정을 통해서,<br />
+stable, unstable 조건에 대해서 따져 보았다.</p>
+<hr />
+<p>[Kelvin-Helmholtz Instability]<br />
+속도가 다른 두 유체가 나란히 흐르고,<br />
+그 사이에 interface가 존재하는 상황에서<br />
+instability<br />
+- Kelvin-Helmholtz Instability-<br />
+에 대해서 알아보자.<br />
+<img alt="Ch7 Instability" src="./images/img-010.png" /><br />
+Kelvin-Helmholtz Instability situation<br />
+오른쪽 그림을 보면,<br />
+진행 과정에 따라서 instability가 커짐을 확인 할 수 있다.<br />
+여기서 유체1,2 각각의 veloctity potential 을 다음과 같이 정의 할 수 있고,<br />
+laplacian of potential = 0 임을 이용하여,<br />
+laplacian of<br />
+perturbation = 0 임을 증명가능하다.<br />
+<img alt="Ch7 Instability" src="./images/img-011.png" /><br />
+definition of velocity potential<br />
+여기서 boundary condition을 짚고 넘어가자.<br />
+일단 위아래 free stream 에서 perturbation = 0 일 것이므로,<br />
+-&gt; (a)<br />
+interface Control volume<br />
+에서 들어오고 나가는 유체의 flux가 같으므로 -&gt; (b)<br />
+interface에서 압력은 같으므로 -&gt; (c)<br />
+<img alt="Ch7 Instability" src="./images/img-012.png" /><br />
+아주 중요한. Boundary condition<br />
+ch2에서 배운 대로,<br />
+interface function을 다음과 같이 정의 할 수 있고,<br />
+그에 따라, normal vector를 설정 할 수 있다.<br />
+<img alt="Ch7 Instability" src="./images/img-013.png" /><br />
+위의 interface 개념과,<br />
+밑의 아까 정의한 velocity potential(밑식)을<br />
+boundary condition(BC) (b)에 대입해 주자<br />
+<img alt="Ch7 Instability" src="./images/img-011.png" /><br />
+definition of velocity potential<br />
+대입후 정리해주면,<br />
+<img alt="Ch7 Instability" src="./images/img-014.png" /><br />
+여기서, linearization,<br />
+그리고 차수가 높은 항을 제거해주면,<br />
+<img alt="Ch7 Instability" src="./images/img-015.png" /><br />
+BC (b) 로 유도한 식.(추후에 쓰임)<br />
+한편, unsteady bernoulli eq으로<br />
+interface 근처 velocity potential을<br />
+다음과 같이 식을 세울 수 있다.<br />
+<img alt="Ch7 Instability" src="./images/img-016.png" /><br />
+여기서 BC (c)에 따라서 P1 = P2이므로,<br />
+<img alt="Ch7 Instability" src="./images/img-017.png" /><br />
+한편, P = P_undistub(interace에서 먼 곳) 임을 이용하기 위해서,<br />
+undistibuted state의 압력을 각각 식 3에서 도출한다.<br />
+<img alt="Ch7 Instability" src="./images/img-018.png" /><br />
+여기서, -1 * 3식 = -1 4식 으로 전개후 소거해주면<br />
+<img alt="Ch7 Instability" src="./images/img-019.png" /><br />
+이에 velocity potential 정의를 대입해주자.<br />
+<img alt="Ch7 Instability" src="./images/img-020.png" /><br />
+고차항을 제거해주자, 그리고 interface에서를 분석하기 위해 f = 0 -&gt; z =<br />
+ζ<br />
+.<br />
+<img alt="Ch7 Instability" src="./images/img-021.png" /><br />
+추후에 쓰일.5번식.<br />
+지금까지 BC을 이용해서 두가지 식을 증명하였다.<br />
+이제 맨처음에 배운<br />
+Method of normal modes<br />
+를 사용하여<br />
+perturbation을 정의하자.<br />
+위의 상황은 y방향은 존재하지 않고, xz방향의 2Dcase 이므로<br />
+다음과 같이 정의가능하다.<br />
+<img alt="Ch7 Instability" src="./images/img-022.png" /><br />
+위에 정의한 것을<br />
+Laplacian of velocity potential of perturbation = 0<br />
+식에 대입한다.<br />
+<img alt="Ch7 Instability" src="./images/img-011.png" /><br />
+definition of velocity potential<br />
+정리해주면, 아주 간단한 2차 linear ODE가 나온다.<br />
+<img alt="Ch7 Instability" src="./images/img-023.png" /><br />
+여기에 이제 BC (a)를 대입해주자<br />
+<img alt="Ch7 Instability" src="./images/img-024.png" /><br />
+bc (a) 적용.<br />
+이렇게 구한 상수항을 6번에 대입해주자.<br />
+<img alt="Ch7 Instability" src="./images/img-025.png" /><br />
+자 우리는 velocity potential of perturbation을<br />
+지금, method of normal modes로<br />
+파동의 함수 형태(7번식)으로 정의하였다.<br />
+<img alt="Ch7 Instability" src="./images/img-026.png" /><br />
+이제 지금까지 BC으로 위 두식들에<br />
+대입해주자.<br />
+먼저 2번식에 대입<br />
+<img alt="Ch7 Instability" src="./images/img-027.png" /><br />
+<img alt="Ch7 Instability" src="./images/img-028.png" /><br />
+이제 5번식에 대입해주자.<br />
+<img alt="Ch7 Instability" src="./images/img-029.png" /><br />
+이후 상수항을 제거해 주기위해 8번식을 9번식에 대입해주자.<br />
+<img alt="Ch7 Instability" src="./images/img-030.png" /><br />
+c에 관한 2차 방정식이므로, 정리해주고 근의 공식을 사용하자.<br />
+<img alt="Ch7 Instability" src="./images/img-031.png" /><br />
+정리를 위해 빨간색 항을 전개해주면,<br />
+다음과 같이 c를 정리할 수 있다.<br />
+<img alt="Ch7 Instability" src="./images/img-032.png" /><br />
+최종 c: complex phase speed(real part: 실제 파동속도, imaginary part: decay or growth rate)<br />
+맨 처음에 우리는 c_i가 양수이면, unstable함을 증명하였다.<br />
+<img alt="Ch7 Instability" src="./images/img-009.png" /><br />
+따라서 루트 안이 음수이면, unstable하다.<br />
+<img alt="Ch7 Instability" src="./images/img-033.png" /><br />
+이는 지금 밑의 상황에서,<br />
+두 유체의 속도차이가 크고,<br />
+밀도 차이가 작고<br />
+k가 클때<br />
+unstable가능성이 큼을 알 수 있다.<br />
+<img alt="Ch7 Instability" src="./images/img-034.png" /></p>
+<hr />
+<p>이번에는 두 유체가 모두 정지해있다고 가정해보자.<br />
+이때, c는 다음과 같이 정리된다.<br />
+<img alt="Ch7 Instability" src="./images/img-035.png" /><br />
+여기서 만약에 2(위)의 유체 밀도가 더 크다면?<br />
+instable함을 알 수 있다.<br />
+<img alt="Ch7 Instability" src="./images/img-036.png" /><br />
+Rayleigh-Taylor Instability</p>
+<hr />
+<p>U1 != = U2인 상황에서는?<br />
+재밌는 것은 U2-U1이 다른 상황에서<br />
+우리는 k가 만약에 충분히 크다면 10번식<br />
+루트 안의 항을 음수로 만들 수 있다.<br />
+<img alt="Ch7 Instability" src="./images/img-032.png" /><br />
+최종 c: complex phase speed(real part: 실제 파동속도, imaginary part: decay or growth rate)<br />
+정리해보면,<br />
+어떠한 maxium k<br />
+에서 unstable한 상황이<br />
+될 수 밖에 없다는 것이다.<br />
+이는 또 재밌는 사실을 시사 하는데,<br />
+실제 instabiltiy 실험을 한결과<br />
+(밑의 유체와 위의 유체 속도 방향이 반대)<br />
+모두 같은 wave number로 보이는 것을 알 수 있다.<br />
+<img alt="Ch7 Instability" src="./images/img-037.png" /><br />
+불안정한 k의 수가 굉장히 많지만,<br />
+그 중에서 growth rate가 가장 큰 k의<br />
+e^( |k| c_i t)<br />
+가 기하급수적으로 다른 작은 k에 비해 크므로,<br />
+해당 wave number만 실제 나타나는 것 처럼 보인다.<br />
+<img alt="Ch7 Instability" src="./images/img-038.png" /><br />
+perturbation velocity when the flow is unstable.</p>
+<hr />
+<p>마지막으로 밀도가 같은 상황에서는,<br />
+속도가 다르다면,<br />
+어느 wave number에서든 unstable함을 알 수 있다.<br />
+<img alt="Ch7 Instability" src="./images/img-039.png" /></p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Fluid mechanics] Strain tensor | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item active">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/fluid-mechanics/">Fluid_Mechanics</a><span class="sep">/</span><span>[Fluid mechanics] Strain tensor</span></div>
+<a href="/blog/mechanical-engineering/fluid-mechanics/" class="back-link">&larr; Back to Fluid_Mechanics</a>
+<div class="page-header"><h1>[Fluid mechanics] Strain tensor</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-05-13</span><span class="meta-item"><span class="meta-label">Category:</span> Fluid_Mechanics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/79" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>자자, Stress tensor 에 대해서 알아보기 앞서서,<br />
+유체의 Strain 에 대해서 정확히 짚고 넘어가자.<br />
+자<br />
+유체<br />
+의 경우에는 strain이 먼저 어떻게 생기고 변할까?<br />
+먼저, 고체역학에서 배운 strain부터 확인해보자.<br />
+<img alt="[Fluid mechanics] Strain tensor" src="./images/img-001.png" /><br />
+고체역학에서는 그대로, 변형길이/원래길이가<br />
+strain의 정의이다.<br />
+하지만,<br />
+유체를 분석할때는 shear strain을 보는 것이 아니라,<br />
+Shear strain rate (시간에 따른 strain 변화)를 파악한다.<br />
+자자, 이게 정말 정말 중요한 개념이다.<br />
+유체는 고체와 다르게<br />
+전단응력(shear stress)에 따라 모양이 일정하지 않고, 끊임없이 변형<br />
+한다.<br />
+하지만, 고체는 탄성력이 존재하여, 변형을 시켜도 원래의 상태로 돌아간다.<br />
+따라서, 시간에 따라 변형률을 구하는 것이 의미가 없고, 주어진 stress에 따른 strain을 분석한다.<br />
+이와 반대로, 유체는<br />
+시간에 따른 strain(변형) = 변형률<br />
+을 분석한다.<br />
+자 이제, 2-D 미소유체의 Shear strain rate를 파악해보자.<br />
+<img alt="[Fluid mechanics] Strain tensor" src="./images/img-002.png" /><br />
+위 그림을 보면 shear strain = alpha + beta 는<br />
+<img alt="[Fluid mechanics] Strain tensor" src="./images/img-003.png" /><br />
+따라서, 총 변형률은 strain (alpha + beta)를 dt로 나누어준 값이다.<br />
+<img alt="[Fluid mechanics] Strain tensor" src="./images/img-004.png" /></p>
+<h1>Newtonian fluid 인 경우,</h1>
+<p>Shear stress는 점성 Viscosity와 shear strain으로 다음과 같이 표현되었다.<br />
+<img alt="[Fluid mechanics] Strain tensor" src="./images/img-005.png" /><br />
+단위를 잘보면, 확인 할 수 있다.<br />
+shear stress = [N/m^2]<br />
+Viscosity(u) = [N s / m^2]<br />
+strain rate = [1/ s]<br />
+자 이제, 3-D로 확장시켜서 파악해보자.<br />
+3-D의 경우 위 shaer strain 변형률을 평균화하여 다음과 같이 나타낸다.<br />
+<img alt="[Fluid mechanics] Strain tensor" src="./images/img-006.jpg" /><br />
+[평균화한 이유는 제가 이해한바, normal strain 변형률과 같이 표현하고자 한 것이라 생각,<br />
+Normal strain 변형률을 du/dx로 표현 하기 위해서는 1/2로 나누어 주어야 하므로]</p>
+<hr />
+<p>자 이제, 3 x 3 Matrix 로 표현해보면,<br />
+<img alt="[Fluid mechanics] Strain tensor" src="./images/img-007.jpg" /><br />
+여기에 마지막, Lame's parameter 를 이용하여 다음과 같이 표현 할 수 있다.<br />
+https://jeffdissel.tistory.com/78<br />
+[Fluid mechanics] Stress tensor_Lame's Parameters<br />
+Stress:압력처럼, 단위면적당 가해지는 힘 그리고 그에 따라서 변형되는 정도, 고체역학 시간에 접했을 것이다. 그렇다면 이 stress를 3차원 좌표로 표현하는 방식인 stress tensor가 뭔지에 대해서<br />
+jeffdissel.tistory.com<br />
+마지막, Eq이 바로 Fluid에서<br />
+Lame parameter 와 strain tensor로<br />
+Normal stress term<br />
+Shear stress term 을 모두 표현 한 경우이다.<br />
+<img alt="[Fluid mechanics] Strain tensor" src="./images/img-008.png" /></p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

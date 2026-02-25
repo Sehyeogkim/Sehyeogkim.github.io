@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Gas Dynamics] Ch 1 Basic properties | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item active">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/gas-dynamics/">Gas_Dynamics</a><span class="sep">/</span><span>[Gas Dynamics] Ch 1 Basic properties</span></div>
+<a href="/blog/mechanical-engineering/gas-dynamics/" class="back-link">&larr; Back to Gas_Dynamics</a>
+<div class="page-header"><h1>[Gas Dynamics] Ch 1 Basic properties</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-03-24</span><span class="meta-item"><span class="meta-label">Category:</span> Gas_Dynamics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/2" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>[Gas Dynamics] Ch 1 Basic properties<br />
+[Abstract]<br />
+Before going deep in Gas dynamics,<br />
+knowledges of fluid mechanics and thermodynamics are fundamentally required.<br />
+Therefore, the Chapter 1 deals with the basic prerequisits for Gas dynamics<br />
+1. Density ( ρ ) [u nit : kg/ ㎥ ]<br />
+Fluid molecules 들은 끊임없이 움직이기 때문에 Fixed volume 로 해석 될 수 없다.<br />
+(Brownian motion)<br />
+하지만 특정 부피( dV<em> ) 에서는 Bulk Aggregation of the particles 들로 해석할 수 있다.<br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-001.png" /><br />
++ 입자들 사이의 거리 &gt;&gt;&gt; 입자의 지름<br />
+즉 입자들이 한정된 부피에서 움직인다고 봐도 무방하다는 것이다. 따라서 밀도를 정의할 수 있게 된다.<br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-002.png" /><br />
+이보다 큰 부피에서는 Desity 는 Point function 이고 모든 Fluid property 들은 Continum 한다.<br />
+아래 왼쪽 그림처럼 Elemental volume 이상일때 밀도는 Coninum 하게 변화하는 것을 알 수 있다.<br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-003.png" /><br />
+오른쪽 그래프에서는<br />
+dV</em><br />
+기준으로 왼쪽은 Microscopic, 오른쪽은 Macroscopic 해석을 보여준다.<br />
+즉 Bulk aggregation of particles 들로 볼 수 있나 없나가 기준인 것이다.<br />
+Specific volume :<br />
+1/<br />
+ρ<br />
+Specific weight :<br />
+ρg<br />
+2. Pressure ( P ) [u nit : N/ ㎥ ]<br />
+Absolute pressure: measrued with respect to a perfect vaccum<br />
+Gage pressure: measured with respect to the surrounding pressure(1atm)<br />
+3. Temperature ( T ) [u nit : K, ℃]<br />
+결국 온도는 상대적인 개념이다. 즉, 기준점보다 얼마나 뜨거운지 차가운지를 나타내는 척도.<br />
+따라서 먼저 기준점을 설정해야한다.<br />
+1. Celsius (℃): 물의 어는점 (0<br />
+℃<br />
+), 끓는점 (100<br />
+℃<br />
+)<br />
+2. Kelvin (K): 물의 삼중점(0.01<br />
+℃<br />
+) = 273.16K, 1K = 1<br />
+℃<br />
+4. Viscosity<br />
+[The definition of 'Fluid']<br />
+A common fluid is any substance that will continously deform when subjected to a shear stress.<br />
+고체의 경우 Deform이 얼마나 되었는지를 명확하게 수식화 할 수 있지만<br />
+(Elastic 영역 일때)<br />
+Shear stress = Shear modulus * shear starin<br />
+유체의 경우는 Viscosity 를 정의하여 수식화 해야한다.<br />
+Shear stress = Rate of angular deformation * Viscosty<br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-004.png" /><br />
+Viscosity 에 대한 자세한 내용은 유체역학 리뷰에서 더 자세하게 다루겠습니다.<br />
+5. Equation of state<br />
+Liquid: incompressible, constant density<br />
+Gas: following perfect gas equation of state<br />
+-&gt; neglects molecular volume and intermolecular forces of the gas<br />
+(High temperature with low pressure -&gt; Ideal gas)<br />
+5.1. Thermodynamics equation of state</p>
+<h1>Type of Properties</h1>
+<p>Observable: P,T,v(velocity),m<br />
+Mathematical: density, specific heats, enthalpy<br />
+Derived: Internal energy(First law of thermodynamics), Entropy(2nd Law of thermodynamics)<br />
+-&gt; Unit mass + single phase인 경우 위의 property 중 두가지만 알면 state를 fix 할 수 있다<br />
+(equation of state in thermodyanmics)<br />
+6. First law of Thermodynamics<br />
+어떠한 system 에 들어간 q(heat/unit mass)변화량 은 system 이 외부에 한 일(w)의 변화량 과<br />
+시스템의 Total energy 변화량과 같다.<br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-005.png" /><br />
+Total energy = u(내부에너지) + 시스템 내부 운동에너지 + 시스템 포텐셜 에너지, 와 같지만 Stationary system이라는 가정하에 위의 식이 나온다.<br />
+여기서 Enthalpy h = u + pv 라고 정의한다. (새로운 property 정의)<br />
+정의한 이유는 여기서 일정압력의 process일 경우 dq = dh 이기 때문, 거의 대부분 process는 일정압력에서 일어나기 때문이다.<br />
+dh = du + pdv + vdp<br />
+일정압력인경우 (dp = 0) + stationary stsyem일때 system 이 외부에 한 reversible work(dw = pdv) 이므로<br />
+dh = du + dw<br />
+dh = dq 임을 알 수 있다.<br />
+7. 2nd law of Thermodynamics<br />
+어떠한 process로 state1 -&gt; state2 일때, Surrounding에 영향을 주지않고<br />
+다시 state2 -&gt; state1으로 돌아 갈 수 있는 있는가? 의 질문으로<br />
+Reversible, Irrversible 이라는 개념이 나오게 된다.<br />
+열역학 시간에 다시 다루겠지만 이러한 개념으로<br />
+Reversible 과정일때는<br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-006.png" /><br />
+가 path independent 하다 라는 것을 발견하였고 결국 Point function △S로 정의한다.<br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-007.png" /><br />
+따라서 열역학 1법칙 에너지보존 식과 연립하면 Reversible process에서<br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-008.png" /><br />
+Tds = pdv + du<br />
+Tds = dh - vdp<br />
+One of the most important and frequently used equations in Gas dynamics</p>
+<h2>Isentropic process equation in Ideal gas assumption</h2>
+<p>위식을 이용해서 (Isentropic process, ds=0 일때 이상기체 에너지 식을 유도해보자)<br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-009.png" /><br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-010.png" /><br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-009.png" /><br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-010.png" /><br />
+좌측식과 우측 식의 온도항을 연립해주면<br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-011.png" /><br />
+은근히 많이 나오는 식이다.<br />
+8. Perfect Gas<br />
+Perfect Gas 특징은 다음과 같습니다.<br />
+1. Neglect of molecular interaction<br />
+2. Internal energy = molecule internal E + molecule Potential E + molecule kinetic E = u(T)<br />
+3. Enthalpy = u + pv = u(T) + nRT = h(T)<br />
+즉 내부에너지와 엔탈피 모두 온도 only dependent 한 함수이라는 것<br />
+9. Specific heat(c)<br />
+Definition: 어떤 물질을 1도 1kg 올리는데 필요한 열량<br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-012.png" /><br />
+(q : heat per unit mass)<br />
+여기서 constant volume, pressure 인 경우 두가지로 나누어서 생각한다.<br />
+1. constant volume인 경우<br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-013.png" /><br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-014.png" /><br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-013.png" /><br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-014.png" /><br />
+2. constant pressure 인 경우<br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-015.png" /><br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-016.png" /><br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-015.png" /><br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-016.png" /></p>
+<h1>Liquid 의 경우</h1>
+<p>dh = du +d(pv) = du + pdv + pdv<br />
+핵심은 liquid 의 경우 incompressible 하므로 dv = 0 뿐문아니라 밀도가 높기때문에 v = 0 이라고 봐도 무방하다<br />
+따라서 dh= du<br />
+결국 c = cp=cv</p>
+<h1>Perfect 의 경우</h1>
+<p>perfect gas 인경우 u=u(T), h=h(T) 라고 했으므로 partial deriative 가 Total derivative 로 바뀐다.<br />
+du = cv dT<br />
+dh = cp dT<br />
+즉 specific 모두 온도에 관한 함수로 표현 할 수 있다.<br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-017.png" /><br />
+k = cp/cv (ratio of specific heat)<br />
+R = cp-cv (gas constant)<br />
+<img alt="[Gas Dynamics] Ch 1 Basic properties" src="./images/img-018.png" /><br />
+보통 시간에 따라서 Cp,Cv는 증가한다.<br />
+그 이유는 molecular vibartion 이 분자구조가 복잡할수록 더 mode가 많아진다. 따라서 열용량이 커지는 것.</p>
+<h1>General gass 의 경우</h1>
+<p>일반 기체의 경우 Tempearture 가 크고 pressure이 0 에 가까울경우 Ideal gas 성질을 띈다.<br />
+따라서<br />
+Cv = Cv0: zero-volume specific heat<br />
+Cp = Cp0: Zero-pressure specific heat<br />
+이렇게 두가지로 나누어 정의한다.<br />
+즉 이상기체와 성질이 비슷하다고 가정하고 Cv0 = Cv0(T), Cp0 = Cp0(T) 라고 생각함.<br />
+-&gt; 실험데이터를 이용하여 Cp0(T) = f(T) 함수로 표현해서 각 기체별로 상수를 테이블 화해놈.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

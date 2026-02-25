@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item active">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/biomechanics/">BioMechanics</a><span class="sep">/</span><a href="/blog/biomechanics/blood-flow-and-metabolism/">Blood-Flow-and-Metabolism</a><span class="sep">/</span><span>[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition</span></div>
+<a href="/blog/biomechanics/blood-flow-and-metabolism/" class="back-link">&larr; Back to Blood-Flow-and-Metabolism</a>
+<div class="page-header"><h1>[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-11-17</span><span class="meta-item"><span class="meta-label">Category:</span> Blood-Flow-and-Metabolism</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/126" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition<br />
+지난 포스터에서 Surface boundary condition을 이용하여,<br />
+일반해의 계수를 위한 4가지 식을 유도하였다.<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-001.png" /><br />
+각 식들을 A,B,D,F의 항등식으로 표현해보자.<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-002.png" /><br />
+16'번식<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-003.png" /><br />
+17'번식<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-004.png" /><br />
+18번식<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-005.png" /><br />
+19번식<br />
+이를 행렬식으로 표현하면,<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-006.png" /><br />
+중요한 것은 A,B,D,F가 일반해의 임의의 constant이므로<br />
+어떠한 수가 와도 성리하는 항등식이어야 한다.<br />
+따라서, det(계수행렬) = 0. 을 만족해야 한다.<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-007.png" /><br />
+det(계수행렬) = 0 식<br />
+우리는 각 계수들을 모두 구했으므로 이를 대입해주면,<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-008.png" /><br />
+위 식으로 우리는 z의 2차방정식을 유도하였다.<br />
+방정식의 계수중<br />
+g는 유체 propagation 파동의 진동수에 따라 달라지며,<br />
+나머지는 모두 유체,고체의 property들이다.<br />
+따라서, 파동의 진동수에 따라서, 이차방정식의 . 해 즉<br />
+z가 달라지게 된다.<br />
+이후, 우리는 rigid wall일때와의 비교를 위해서,<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-009.png" /><br />
+Inviscid rigid wall에서 파동의 전파속도.<br />
+를 이용하여, z를 나타내자.<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-010.png" /><br />
+진동수와 c/c0의 관계를 위 방정식을 통해 나타내보면,<br />
+c = 실수부분 + 허수부분 * i<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-011.png" /><br />
+실선: 실수부/c0, 점선: 허수부/c0- normalized by co<br />
+위를 보면, 진동수가 어느정도 이상이면<br />
+c_real/c0 - 1 에 근사해진다는 것을 알 수 있다.<br />
+즉, inviscid flow의 형태로 진동수가 커지면<br />
+점성효과가 줄어든다는 것이다.<br />
+점성의 효과를 제대로 살펴보기 위해서.<br />
+허수부분과 실수부분을 분수형태로 정의해보자.<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-012.png" /><br />
+이를 원래 주기함수에 대입해주면,<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-013.png" /><br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-014.png" /><br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-013.png" /><br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-014.png" /><br />
+분모로 정의한 c1,c2를 c0으로 나누어 준.<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-015.png" /><br />
+c1/c0 - 실선, c2/c0 - 점선<br />
+자 위 그래프와 밑 식을 매칭하며 점성의 효과를 해석해보자.<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-014.png" /><br />
+진동수가 커질수록, c1/c0 - 1을 향해서 가며,<br />
+inviscid flow를 향해 가는 것을 알 . 수있다.<br />
+반대로, 진동수가 어느 지점 이하일때는<br />
+c1이 진동수에 따라서 달라지며 이는<br />
+점성효과로 인한 것임을 알 수 있다.<br />
+따라서, 우리는 점성에 의한 파동의 Attenuation<br />
+이라고 할 수 있다.<br />
+그리고 이 파동함수의 진폭은<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-016.png" /><br />
+이 식이 결정하는데,<br />
+c2/c0가 진동사 커지면 -infinity로<br />
+발산하는 것을 그래프로 확인 할 수 있다.<br />
+즉, viscosity로 인한 dispersion 이며,<br />
+진폭 - 1 즉, 원래 inviscid flow의 진폭과 동일하게 된다.</p>
+<hr />
+<p>여기서,<br />
+A,B,D,F 식 4개를 통해서,<br />
+A,D,F 를 B로만 나타내보자.<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-017.png" /><br />
+B를 가지고 나타내는 이유는 보통,<br />
+압력장은 사용자가 input하는 요소이기 때문에,<br />
+user가 이미 알고 있는 값이다.<br />
+16',17',18,19식을 통해서, 다음과 같이 정리한후<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-018.png" /><br />
+이제 각 상수들을 우리가 원래 정의하던 식들에 대입해주자.<br />
+먼저 x방향의 속도식의 A에 대입해주면,<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-019.png" /><br />
+이 속도장을 Steady Poisuille flow와 비교하기 위해서,<br />
+Max velocity us_hat, Pressure gradient ks를 이용하자.<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-020.png" /><br />
+정리하면,<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-021.png" /><br />
+최종적으로, 속도장은 다음과 같이 표현<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-022.png" /><br />
+같은 방법으로 r방향의 속도장을 정리해보면,<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-023.png" /><br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-024.png" /><br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-025.png" /><br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-023.png" /><br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-024.png" /><br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-025.png" /><br />
+최종적으로 우리는 Flow 속도의 계수들을 정리까지 완료하였고,<br />
+마지막으로, Rigid wall과 Elastic wall의 flow rate를 비교해보자<br />
+<img alt="[Pulsatile flow] 4. Coupling with Fluid motion on the elastic tube wall2- Boundary condition" src="./images/img-026.png" /><br />
+위 그래프를 보면 pressure gradient와 조금 더 모형이 비슷한 파동은<br />
+실선 - Elastic tube임을 알 수 있다.<br />
+따라서, pulsatile flow의 파동이 유체의 흐름에 더 잘 표현되어 있음을 알 수 있다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

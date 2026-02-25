@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Pulsatile flow] 2. Force on the elastic tube wall | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item active">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/biomechanics/">BioMechanics</a><span class="sep">/</span><a href="/blog/biomechanics/blood-flow-and-metabolism/">Blood-Flow-and-Metabolism</a><span class="sep">/</span><span>[Pulsatile flow] 2. Force on the elastic tube wall</span></div>
+<a href="/blog/biomechanics/blood-flow-and-metabolism/" class="back-link">&larr; Back to Blood-Flow-and-Metabolism</a>
+<div class="page-header"><h1>[Pulsatile flow] 2. Force on the elastic tube wall</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-11-17</span><span class="meta-item"><span class="meta-label">Category:</span> Blood-Flow-and-Metabolism</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/124" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>지난 포스터에서 우리는,<br />
+https://jeffdissel.tistory.com/123<br />
+[Pulsatile flow] Flow on a elastic tube<br />
+혈관의 흐름을 분석하기 위해서,실제 혈관의 벽면의 움직임도 고려해 주어야 한다. 이전 포스터에서는 혈관 벽이 고정 rigid wall가정으로 혈액의 속도장을 계산하였다면,(사실 큰 동맥 이외에<br />
+jeffdissel.tistory.com<br />
+(무조건 보고 오셔야 합니다..)<br />
+Elastic property를 가진 tube wall 에서<br />
+안에 흐르는 pulsatile flow 유체의<br />
+Axial 방향 속도 - U(r)<br />
+Radial 방향 속도 - V(r)<br />
+압력 - P(r)<br />
+을 다음과 같이 유도하였다.<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-001.png" /><br />
+시간, x에 따른 주기성<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-002.png" /><br />
+A,B는 일반해의 임의의 상수이고,<br />
+감마는 다음과 같이 정의 하였다.<br />
+(지난포스터참고)<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-003.png" /><br />
+여기서, 우리는 일반적인 혈액 유동의 한가지 가정을 하였었다.<br />
+바로 흐르는 유체 파동의 파장이,<br />
+반지름보다 훨씬, 크다는 것이다.<br />
+즉, 파동의 전파속도가 r방향의 유체속도보다<br />
+훨씬 크다는 가정을 하면,<br />
+다음과 같이 감마는 정의에 따라, 0에 가까워지고,<br />
+베셀함수의 성질로 다음과 같이 유도된다.<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-004.png" /></p>
+<hr />
+<h1>위와 같이 근사되는 이유 - 테일러 시리즈</h1>
+<p><img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-005.png" /><br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-006.png" /></p>
+<hr />
+<p>따라서, r방향의 진폭들이 다음과 같이 정리되며<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-007.png" /><br />
+최종적으로 시공간에 따른 유체의 속도와 압력은 다음과 같다.<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-008.png" /></p>
+<hr />
+<p>여기까지가 지난시간에 다룬 내용이다.<br />
+자 이제부터는 벽면의 고체의 변형을 고려하여,<br />
+벽이 얼마나 stress를 받고, strain을 가지는 지를 분석해보자.<br />
+(분석하는 이유는 결국 고체의 변형 = 유체의 변형,<br />
+서로 동일하기 때문이다. 벽면 boundary condition으로 인해)<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-009.png" /><br />
+Navier stokes 방정식 증명하듯이, 튜브의 미소부피가 받는 힘을 분석해보자.<br />
+먼저 미소부피와 질량은 다음과 같이 쉽게 정의된다.<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-010.png" /><br />
+h: wall 두께, a: wall 내부 반지름<br />
++ 다음과 같이, 크사이, 에타, 파이로<br />
+각방향의 displacement(압축 혹은 늘어난 길이)<br />
+를 정의해주자.<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-011.png" /><br />
+1. Axial direction (+x)<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-012.png" /><br />
+먼저, Axial 방향으로는 유체에 의한<br />
+전단응력과 옆의 고체 요소의 stress Sxx가 있다.<br />
+이를 뉴턴의 제2법칙 F=ma로 정리하면,<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-013.png" /><br />
+1. radial direction (+r)<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-014.png" /><br />
+radius 방향으로는 유체가 가하는 압력과,<br />
+고체의 곡률로 인한 Srr가 존재한다.<br />
+여기서 우리는 매우 thin 한 튜브라는 가정을 통해서,<br />
+튜브 내부에서 r에 따른 Srr의 변화가 존재하지 않는다고<br />
+가정하자.<br />
+For simplicity.<br />
+이후,<br />
+똑같이 이를 알짜힘 식으로 나타내면,<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-015.png" /><br />
+위에서 언급하였지만, Srr은 결국 미소튜브 옆의 element가<br />
+잡아당기는 힘(S<br />
+θ θ)<br />
+이 곡률로 인하여<br />
+-R방향으로(Srr) 작용하는 것이다.<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-016.png" /><br />
+따라서, Srr을<br />
+Circumferential stress(S<br />
+θ θ)<br />
+로 표현하면<br />
+다음과 같다.<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-017.png" /><br />
+지금까지 구한식은 다음과 같다,<br />
+방정식을 풀기에는 미지수들이 많으므로<br />
+Stress-Strain relationship 을 이용해주자.<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-018.png" /><br />
+각 방향의 Strain을 Stress로 나타내는 것은<br />
+고체역학 시간에 배웠었다.<br />
+(Generalized Hook's Law)<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-019.png" /><br />
+위 x, theat 방향 strain에 3번 식을 대입해주면,<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-020.png" /><br />
+여기서 thin wall 가정을 통해,<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-021.png" /><br />
+따라서, 위식은 다음과 같이 정리된다.<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-022.png" /><br />
+이제 각 방향의 strain을 우리가 아는 변위들로 나타내주자.<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-023.png" /><br />
+먼저 axial 방향으로 변위는 x방향으로만 변화한다.<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-024.png" /><br />
+따라서, Strain 정의에 의해 6번식으로 정리된다.<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-025.png" /><br />
+다음 Angular strain를 일으키는 원인은 두가지로 나눌수 있다.<br />
+1. 각도의 증가로 인한 Angular 방향 element 길이 증가.<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-026.png" /><br />
+하지만, Axissymmetric 가정으로<br />
+모든 element들이 (x,r)이 동일할때,<br />
+angular defomration이 동일해야한다.<br />
+하지만 이를 만족하기 위해서는 deformation = 0<br />
+일 수 밖에 없다.<br />
+2번째로는 반지름의 증가로 인해서,<br />
+Element length가 증가하는 경우이다.<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-027.png" /><br />
+결론적으로 1번 효과는 존재하지 않고,<br />
+2번 효과로 인한 angular strain을 유도해주면 7번식이 도출된다.<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-028.png" /><br />
+우리가 방금전에 구한 Strain들을, 4,5번 식<br />
+(generalized hook's law)에 대입해주면<br />
+strain과 stress의 관계식 8,9가 도출된다.<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-029.png" /><br />
+자 우리가 여기까지 구한 이유는 맨처음에 구한 1,2 Force식에서<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-030.png" /><br />
+미지수가 너무 많았기 때문이다,<br />
+따라서 우리는 Stress- strain 관계식 (8,9)를 대입할 것이다.<br />
+대입해주면,<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-031.png" /><br />
+약분하고 정리해주면,<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-032.png" /><br />
+자 여기까지가 고체에 작용하는 Force balance equation<br />
+으로 유체의한 Shear stress, Pressure에 의한<br />
+고체의 각방향<br />
+Displacement ( ξ , η ) 식 2개를 유도하였다.<br />
+with 가정들,<br />
+1. Elastic tube<br />
+2. Thin wall thickness<br />
+여기서 한발짝 더 지금말고 다음 포스터에서 나갈 예정이다.<br />
+바로 shear stress, pressure에 유체의 성질로 나타낸 식을 대입하는것!!<br />
+<img alt="[Pulsatile flow] 2. Force on the elastic tube wall" src="./images/img-033.png" /><br />
+다음포스터에서 뵙겠습니다</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

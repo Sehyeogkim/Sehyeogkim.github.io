@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Fluid mechanics] #Viscous dissipation rate | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item active">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/fluid-mechanics/">Fluid_Mechanics</a><span class="sep">/</span><span>[Fluid mechanics] #Viscous dissipation rate</span></div>
+<a href="/blog/mechanical-engineering/fluid-mechanics/" class="back-link">&larr; Back to Fluid_Mechanics</a>
+<div class="page-header"><h1>[Fluid mechanics] #Viscous dissipation rate</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-03-30</span><span class="meta-item"><span class="meta-label">Category:</span> Fluid_Mechanics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/36" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>[Fluid mechanics] #Viscous dissipation rate<br />
+Ch4 Differential relations in fluid flow에서<br />
+Energy equation을 증명하였다.<br />
+그 과정속에서 viscous dissipation rate에 대해서 잠깐 언급하였다.<br />
+Energy equation 최종 모습을 보면<br />
+<img alt="[Fluid mechanics] #Viscous dissipation rate" src="./images/img-001.png" /><br />
+좌항 첫번째: 시간에 따른 유체 내부에너지 변화량<br />
+좌항 두번째: 공간 좌표에 따라 압력이 바끼고 그때 의 속도기울기를 곱하여 압력이 한 일<br />
+우항 첫번째: 외부에서 혹은 내부에서 들어오고 나가는 시간에 따른 열의양<br />
+그리고 마지막항이 지금 우리가 이야기를 나눌<br />
+Viscous dissipation rate이다.<br />
+말 그대로 점성 소산이다.<br />
+소산이란 말은 lose 잃다, enegry를 잃었다는 말이다.<br />
+왜??why ??점성에 의해서<br />
+아마 유체라서 감이 덜오는 것일 꺼다.<br />
+우리가 어떤 무거운 물건을 경사에서 끌고 올라간다고 가정해보자<br />
+.<br />
+당연히 바퀴가 달린 수레위에서 끌면 더 잘끌리고 E를 덜 사용하고도<br />
+물건을 경사위로 올릴 수 있다.<br />
+즉 마찰력에 의한 E손실이 적기 때문이다.<br />
+유체도 같다. 유체와 유체사이에 점성(마찰력)이 작용하여,<br />
+에너지가 끊임없이 뺏긴다는 것이다.</p>
+<h1>TMI</h1>
+<p>마찰이 발생하는 것은 엔트로피가 증가하는 방향이기 때문에,<br />
+자연현상적으로 당연히 발생하고<br />
+irrversible 그 소산된 에너지를 다시 끌어모을 수는 없다.<br />
+그렇다면 점성에 의한 에너지 손실의 크기를 어떻게 나타낼까??<br />
+Dissipation rate는 stress tensor 와 속도 gradient의 내적이다.<br />
+<img alt="[Fluid mechanics] #Viscous dissipation rate" src="./images/img-002.png" /><br />
+살짝 애매하게 느껴질 것이다. 왜? 저거지?<br />
+일단 단위를 살펴보자.<br />
+Shear tensor = N/m^2<br />
+Velocity Gradient = 1/s<br />
+즉 N/(m^2 s)<br />
+잘생각해보면 우리가 전에 구한식은 단위부피 당 에너지의 시간에 따른 변화율 이다.<br />
+<img alt="[Fluid mechanics] #Viscous dissipation rate" src="./images/img-001.png" /><br />
+따라서 단위는 N/(m^2 s) 임을 알 수 있다. E = [N m] 이기 때문에<br />
++<br />
+위 식에서 압력이 한일 term을 보면 정확히 형태가 동일하다.<br />
+뿐만아니라 압력과 shear stresss는 단위도 같고 개념도 같다.<br />
+단위면적당 가해진 힘이기 때문이다.</p>
+<h1>혹시 백터 가운데 " : " 의 의미가 햇갈리시면?</h1>
+<p>'점곱'이라고 부르고<br />
+3x3 백터 두개가 있는 경우,<br />
+<img alt="[Fluid mechanics] #Viscous dissipation rate" src="./images/img-003.png" /><br />
+각 요소별로 곱한후 나온 내적값을<br />
+전부다 더해줍니다.<br />
+<img alt="[Fluid mechanics] #Viscous dissipation rate" src="./images/img-004.png" /><br />
+이제, Shear dissipation rate 개념을 조금 감 잡았으니,<br />
+전개해서 풀면<br />
+다음과 같다.<br />
+Dissipation rate =<br />
+<img alt="[Fluid mechanics] #Viscous dissipation rate" src="./images/img-005.png" /><br />
+여기서 만약 Newtonian fluid라면???<br />
+<img alt="[Fluid mechanics] #Viscous dissipation rate" src="./images/img-006.png" /><br />
+우리는 stress term들을 전부 gradient로 고칠 수 있다.<br />
+따라서, 전개하면<br />
+<img alt="[Fluid mechanics] #Viscous dissipation rate" src="./images/img-007.png" /><br />
+만약에 incompressible인 경우는<br />
+앞에있는 gradient와 속도의 내적 = 0 이게 되므로<br />
+뒤에 제곱 term들만 남게 된다.<br />
+따라서 incompressible Newtonian fluid에서는<br />
+항상<br />
+Dissipation rate<br />
+가 양수이다.<br />
+이제 왜 Ch4 에서 이렇게 식을 변형 시켜줬는지 이해할 수 있을 것이다.<br />
+<img alt="[Fluid mechanics] #Viscous dissipation rate" src="./images/img-008.png" /></p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

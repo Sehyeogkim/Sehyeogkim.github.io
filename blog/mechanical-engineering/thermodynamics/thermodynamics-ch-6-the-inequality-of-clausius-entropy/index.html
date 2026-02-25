@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Thermodynamics] Ch 6. The Inequality of Clausius &amp; Entropy | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item active">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/thermodynamics/">Thermodynamics</a><span class="sep">/</span><span>[Thermodynamics] Ch 6. The Inequality of Clausius &amp; Entropy</span></div>
+<a href="/blog/mechanical-engineering/thermodynamics/" class="back-link">&larr; Back to Thermodynamics</a>
+<div class="page-header"><h1>[Thermodynamics] Ch 6. The Inequality of Clausius &amp; Entropy</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-04-18</span><span class="meta-item"><span class="meta-label">Category:</span> Thermodynamics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/67" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>그림과 같이, Reversible cycle engine이 있다고 해보자.<br />
+<img alt="[Thermodynamics] Ch 6. The Inequality of Clausius &amp; Entropy" src="./images/img-001.png" /><br />
+우리는 이전 시간에, QH/QL = Th/TL 임을 확인 하였다.<br />
+(Ideal gas)<br />
+따라서,<br />
+<img alt="[Thermodynamics] Ch 6. The Inequality of Clausius &amp; Entropy" src="./images/img-002.png" /><br />
+반대로, Irreversible cycle<br />
+인 경우,<br />
+Qh 의 열을 동일하게 받았다고 했을때,<br />
+W irr &lt; W rev<br />
+QL' (irr) &gt; QL (rev)<br />
+따라서, QL이 커졌으므로,<br />
+<img alt="[Thermodynamics] Ch 6. The Inequality of Clausius &amp; Entropy" src="./images/img-003.png" /><br />
+결론적으로, reversible과 irreversible을 포함한 모든 cycle 에서<br />
+-&gt; The Inequality of Clausius<br />
+<img alt="[Thermodynamics] Ch 6. The Inequality of Clausius &amp; Entropy" src="./images/img-004.png" /></p>
+<hr />
+<p>자 이제 그림과 같이 State 1 &lt;-&gt; 2 이동하는<br />
+임의의<br />
+Reversible Process A,B,C<br />
+가 있다고 하자.<br />
+<img alt="[Thermodynamics] Ch 6. The Inequality of Clausius &amp; Entropy" src="./images/img-005.png" /><br />
+A-B cycle에서 전부 reversible이므로,<br />
+<img alt="[Thermodynamics] Ch 6. The Inequality of Clausius &amp; Entropy" src="./images/img-006.png" /><br />
+C-B cycle에서도 전부 reversible 이므로,<br />
+<img alt="[Thermodynamics] Ch 6. The Inequality of Clausius &amp; Entropy" src="./images/img-007.png" /><br />
+두 식을 연립하면,<br />
+<img alt="[Thermodynamics] Ch 6. The Inequality of Clausius &amp; Entropy" src="./images/img-008.png" /><br />
+이 식을 보고<br />
+'아하 moment'<br />
+가 떠오르게 된다.<br />
+경로에 상관없이<br />
+reversbile process path 안에서 dQ/T 는 동일 하다는 것이다.<br />
+따라서, 우리는 dQ/T를 Path independent thermodynamic property라고 할 수 있고,<br />
+'Entropy 의 변화량'<br />
+이라 부르고 다음과 같이 정의한다.<br />
+<img alt="[Thermodynamics] Ch 6. The Inequality of Clausius &amp; Entropy" src="./images/img-009.png" /><br />
+위 식을 적분해주면,<br />
+<img alt="[Thermodynamics] Ch 6. The Inequality of Clausius &amp; Entropy" src="./images/img-010.png" /><br />
+위식을 자세하게 들여다보면,<br />
+먼저, S2-S1은 경로와 무관한 값을 가질 것이다.<br />
++<br />
+State 1 -&gt; State 2로 가는 reversible 경로중 아무거나 하나를 적분해서,<br />
+위 식처럼 S2-S1을 구할 수 있다.<br />
+따라서,<br />
+Entropy는 h,u,p,T,v처럼<br />
+Thermodynamics property<br />
+라는 것,<br />
+u,h처럼, 우리는 s2-s1차이 값만 구할 수 있기 때문에,<br />
+reference point를 설정하고 표에 h,u,p,t,v 값들과 함께 표시되어 있다.<br />
+ex) reference point = 물의경우 삼중점, s = 0</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

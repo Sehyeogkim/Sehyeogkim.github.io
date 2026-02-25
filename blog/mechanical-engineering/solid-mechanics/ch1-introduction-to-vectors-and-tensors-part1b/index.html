@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch1 Introduction to Vectors and Tensors - part1b | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item active">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/solid-mechanics/">Solid_Mechanics</a><span class="sep">/</span><span>Ch1 Introduction to Vectors and Tensors - part1b</span></div>
+<a href="/blog/mechanical-engineering/solid-mechanics/" class="back-link">&larr; Back to Solid_Mechanics</a>
+<div class="page-header"><h1>Ch1 Introduction to Vectors and Tensors - part1b</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-04-11</span><span class="meta-item"><span class="meta-label">Category:</span> Solid_Mechanics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/169" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Ch1 Introduction to Vectors and Tensors - part1b<br />
+지난 포스터에 이어서<br />
+1.2 Algebra of Tensors<br />
+의 마지막 부분을 다루어 보자<br />
+지난시간에는 index notation을 활용하여,<br />
+다양한 tensor 연산 기호들을 살펴보았다.<br />
+triple product, tensor product, ....<br />
+이번에는 다양한 tensor들 중에서도,<br />
+유별나고 특별한 녀석들을 살펴볼 것이다.</p>
+<h1>Orthogonal Tensor</h1>
+<p><img alt="Ch1 Introduction to Vectors and Tensors - part1b" src="./images/img-001.png" /><br />
+다시 말하지만 Tensor는 매핑이다.<br />
+어떠한 벡터를 벡터로 바꾸어 준다<br />
+(2nd order tensor 기준)<br />
+(추후에 배우겠지만 4th order tensor는<br />
+2nd order tensor를 다른 2nd order tensor로<br />
+전환시켜준다)<br />
+<img alt="Ch1 Introduction to Vectors and Tensors - part1b" src="./images/img-002.png" /><br />
+n * n matrix.<br />
+그리고, Matrix라는 것은<br />
+2nd order tensor를 [ ... ] bracket에 표현하는<br />
+표현 방식이다!<br />
+(matrix말고 텐서를 표현하는 방식이 또 있을까??)<br />
+우리가 지금까지 계속해서 써왔던 바로,<br />
+index notation<br />
+index로 텐서를 표현하는것!<br />
+아무튼 다시 우리의 개념인 orthogonal tensor로 다시 돌아가면,<br />
+<img alt="Ch1 Introduction to Vectors and Tensors - part1b" src="./images/img-001.png" /><br />
+매핑을 해서 새로운 백터로 두개를 바꾸었는데<br />
+바꾼 벡터의 내적이 기존백터의 내적과 동일하다???<br />
+바로 Mapping시켜준, (linear transformation시켜준)<br />
+Tensor가 바로 Orthogonal tensor라는 것.</p>
+<h1>Symmetric and skew Tensors.</h1>
+<p>자 어떠한 2nd order tensor A가 있다고 하자.<br />
+이 A + AT를 더해준다면 이 행렬은 무조건 symmetric tensor즉<br />
+non diagonal term이 대칭일 것이다.<br />
+이렇게 강제로 만들어진 밑의 S: Symmetric tensor<br />
+<img alt="Ch1 Introduction to Vectors and Tensors - part1b" src="./images/img-003.png" /><br />
+그렇다면 위 W는 어떤 텐서일까? 아마 짐작하셨겠지만,<br />
+diagonal term = 0 이고, non-diagonal term이 서로<br />
+*-1을 한 형태인 tenesor이다.<br />
+자세하게 써보면 밑의 matrix expression으로 나타낼수 있다.<br />
+<img alt="Ch1 Introduction to Vectors and Tensors - part1b" src="./images/img-004.png" /><br />
+신기하게도 tensor이지만 3개의 component로 구성되어 있으므로,<br />
+벡터로 표기할수 있을꺼라는 생각이 든다.<br />
+실제 임의의 벡터 u에 대해서<br />
+밑의 식을 만족하는 W에 pair vector w가 존재한다.<br />
+<img alt="Ch1 Introduction to Vectors and Tensors - part1b" src="./images/img-005.png" /><br />
+핵심 어떤 u는 상관없다. 임의의 u vector에 대해서 위 식 성립.<br />
+<img alt="Ch1 Introduction to Vectors and Tensors - part1b" src="./images/img-006.png" /><br />
+index notation을 사용하면 정확히 안을 들여다 볼 수 있다.<br />
+즉 W tensor의 component를 정말고 vector component 로 표기할수 있다.<br />
+중간에 permutation 3rd order tensor를 이용한다면.<br />
+(k: dummy index)</p>
+<h1>Projection Tensors.</h1>
+<p><img alt="Ch1 Introduction to Vectors and Tensors - part1b" src="./images/img-007.png" /><br />
+projection tensor Pe||는 결국 어떠한 벡터 u를 mapping해주는 tensor인데<br />
+mapping한 결과가 기저벡터 e방향이고 기저벡터가 이루는 평면 위로 정사영 시킨<br />
+벡터로 mapping(linear transfomration)시키는<br />
+tensor이다.<br />
+<img alt="Ch1 Introduction to Vectors and Tensors - part1b" src="./images/img-008.png" /><br />
+그렇다면 수직성분은 그냥 기존벡터 u에서 수평성분을 빼면 나올것이므로,<br />
+우리는 수직성분 벡터로 전환시켜주는<br />
+mapping tenesor (Pe vertical) tensor도 위처럼 정의할 수 있다.<br />
+위에서 언급한 수직 수평 각 텐서를<br />
+projection tensors라고 칭한다.<br />
+(밑의 관계식을 이룰 것)<br />
+<img alt="Ch1 Introduction to Vectors and Tensors - part1b" src="./images/img-009.png" /><br />
+(Role of tensor - &gt; linear transformation , mapping)<br />
+이것만 기억하면 이해가 쉽게된다....<br />
+(이 개념이 수업을 듣고 나서야 아하 모멘트가 온 개념.)</p>
+<h1>Tensors decompositon into Sphereical and Deviatoric part.</h1>
+<p>추후에 나오는 개념이고 중요한 개념이기도 하다.<br />
+어떠한 임의의 아무 tensor A를 우리는<br />
+두개로 쪼갤수가 있다. diagonal term의 평균 = tr(A)/3을 따로 빼서<br />
+Sphereical part,<br />
+그리고 나머지 부분을 Deviatoric part라고 할수 있다.<br />
+<img alt="Ch1 Introduction to Vectors and Tensors - part1b" src="./images/img-010.png" /><br />
+(왜 이렇게 굳이 찢었는지는 여기서는 이해가 안갈것이다.<br />
+이렇게 찢은 이유는 이걸을 사용하는 ch3에서 이해가 가므로<br />
+일단 이렇게 쪼갤수가 있구나~ 딱 여기까지 생각하고 넘어가면 된다)</p>
+<h1>지난시간에 다루었던 텐서 연산기호들</h1>
+<ul>
+<li>이번시간에 다루었던 특이한 텐서들<br />
+<img alt="Ch1 Introduction to Vectors and Tensors - part1b" src="./images/img-011.png" /><br />
+tensor product w/ contraction<br />
+<img alt="Ch1 Introduction to Vectors and Tensors - part1b" src="./images/img-012.png" /><br />
+two tensor product w/ contraction<br />
+<img alt="Ch1 Introduction to Vectors and Tensors - part1b" src="./images/img-013.png" /><br />
+Symmetric tensor(S)와 임의의 tensor(B)와의 contraction<br />
+<img alt="Ch1 Introduction to Vectors and Tensors - part1b" src="./images/img-014.png" /><br />
+위에 이어서 1/2(B + BT)도 같은 결과임을 알 수 있다.<br />
+<img alt="Ch1 Introduction to Vectors and Tensors - part1b" src="./images/img-015.png" /><br />
+skew tensor(w) 와 임의의 tensor(B)의 contraction<br />
+<img alt="Ch1 Introduction to Vectors and Tensors - part1b" src="./images/img-016.png" /><br />
+마지막으로 Symmetric and skew tensor contraction is always zero.</li>
+</ul></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

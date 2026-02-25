@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme) | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item active">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/computational-fluid-dynamics/">Computational_Fluid_Dynamics</a><span class="sep">/</span><span>Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)</span></div>
+<a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="back-link">&larr; Back to Computational_Fluid_Dynamics</a>
+<div class="page-header"><h1>Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-05-03</span><span class="meta-item"><span class="meta-label">Category:</span> Computational_Fluid_Dynamics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/197" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)<br />
+(Part1 내용) general transport equation에서<br />
+Convection term을 algebriac form으로 바꾸기 위해 profile을 정해야했고,<br />
+그 과정에서 linear, stepwise profile이 제시되었다.<br />
+(part2내용) exact solution을 구해서 각각의 profile과 비교한 결과<br />
+linear profile(D &gt;&gt;F case, diffusion dominant),<br />
+Step wise profile(F&gt;&gt;D case, Convection dominatn).<br />
+Pecelt number = F/D 에 따라서 알맞는 profile이 달랐다.<br />
+따라서, 우리는 위 두 scheme을 합친 하나의 scheme으로 나타내보자.</p>
+<h1>Expotential Scheme</h1>
+<p>다시 짚고 넘어가자, 우리가 풀고자 하는 미분 방정식은 1번과 같다.<br />
+<img alt="Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)" src="./images/img-001.png" /><br />
+1D Steady Convection Diffusion Equation<br />
+여기서 새로운 개념을 정의하자, Total flux는 Convection Flux, Diffusion flux로 구성.<br />
+<img alt="Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)" src="./images/img-002.png" /><br />
+자세히 살펴보면 6번식을 dx로 미분하면 1번식이 된다. 따라서, e,w에서 Total flux가 같다는 8번식이 도출된다.<br />
+<img alt="Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)" src="./images/img-003.png" /><br />
+표기상 7번 식 = 1번식 입니다. 우리가 풀려고 하는 differential Eq.<br />
+6번식 J를 이제 x = e,w에서 구하기 위해서 part2에서 구했던 1번식의<br />
+exact solution을 이용하자.<br />
+<img alt="Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)" src="./images/img-004.png" /><br />
+exact solution of Eq1.<br />
+J를 구하기 위해서는 6번식에 d<br />
+Φ<br />
+/dx 가 존재하므로 x에 대해 미분해주자.<br />
+<img alt="Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)" src="./images/img-005.png" /><br />
+구한 Φ, d<br />
+Φ/dx를 6번 total flux식에 대입해주면 다음과 같다.<br />
+<img alt="Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)" src="./images/img-006.png" /><br />
+여기서 이제 우리는 o,L을 우리의 control volume에 맞게 설정해주면<br />
+<img alt="Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)" src="./images/img-007.png" /><br />
+O -&gt; P, L -&gt;E로 설정하면 Je식이 도출.<br />
+9번식이 도출된다.<br />
+<img alt="Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)" src="./images/img-008.png" /><br />
+같은 방식으로 마지막에<br />
+O -&gt; W, L -&gt;P로 설정하면 J_w식이 도출.<br />
+<img alt="Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)" src="./images/img-009.png" /><br />
+이를 이제 Algebriac form으로 바꾸어 주면 계수들이 다음과 같다.<br />
+<img alt="Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)" src="./images/img-010.png" /><br />
+위 algebraic이 어느 다른 scheme보다 정확하다고 할 수 있다.<br />
+정왜냐? exact solution 으로 만들었으니까.<br />
+하지만 당여닣 expotential 항이 들어가니 계산 연산이 늘어나는 것은 사실이므로,<br />
+이후에 위 방식 base + simplify한 scheme이 등장한다. 바로, hybrid scheme.</p>
+<h1>Hybrid Scheme</h1>
+<p>Expotential scheme에서 마지막에 구한 계수 a_E를 살펴보자.<br />
+<img alt="Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)" src="./images/img-011.png" /><br />
+exact solution based coefficient a_E<br />
+ae/De를 Pecelt number에 다른 함수로 그려보면 아래와 같다.<br />
+<img alt="Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)" src="./images/img-012.png" /><br />
+즉 위의 그래프가 바로 exact solution이지만, 계산연산이 많으므로<br />
+3구간으로 나눈후 linear function을 각 구간에 대해 정의한 것이 바로.<br />
+hybrid shceme.<br />
+<img alt="Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)" src="./images/img-013.png" /><br />
+특징 바로 - inf, + inf일때 위. 함수가 결국 좌우구간으로 설정한 직선함수로 수렴한다는 것이다.<br />
+그리고 그 두 직선함수를 잇기 위해서 Pe = 0 에서 접하는 직선으로 이어준 것.<br />
+<img alt="Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)" src="./images/img-014.png" /><br />
+구간으로 나누어 정의한 a_E를 이제 하나의 기호로 표현하면 다음과 같다.<br />
+<img alt="Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)" src="./images/img-015.png" /><br />
+같은 방식을 a_W로 똑같이 진행해보면, 우리가 최종적으로 유도하는 algebriac eq은 다음과 같다.<br />
+<img alt="Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)" src="./images/img-016.png" /><br />
+당연히 expotential scheme보다 부정확하지만,<br />
+연산속도는 훨씬 절감된 방식이다.<br />
+여기서 hybrid 보다는 expotnetial scheme과 잘 맞음과 동시에,<br />
+연산속도는 expotential 보다 작은<br />
+hybrid and expotential 사이에있는 scheme을<br />
+마지막으로 살펴보자.</p>
+<h1>PowerLaw Scheme</h1>
+<p>간단하다, 우리가 exact solution 으로 제작한 expotential form과 최대한 비슷한 함수를 만들면 된다.<br />
+연산을 절약하기 위해서 hybrid scheme에서는 constant, linear function을 사용하였다면,<br />
+powerlaw scheme에서는<br />
+거듭제곱함수(power law function)<br />
+을 사용하는 것이다.<br />
+구간은 Pe = -10, 0, 10 을 기준으로 하여 4구간으로 총 나누어 다음 그래프로 표현한다.<br />
+<img alt="Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)" src="./images/img-017.png" /><br />
+정확한 구간별 a_E/De 를 Peclet number로 나눈 구간함수는 다음과 같다.<br />
+<img alt="Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)" src="./images/img-018.png" /><br />
+수학의 마술로, 한줄로 위. 4 구간함수를 표현가능하다.<br />
+<img alt="Ch5 Convection and Diffusion - part3 (Expotential, hybrid scheme)" src="./images/img-019.png" /><br />
+지금까지 살펴본 내용을 정리해보면,<br />
+Central difference shceme<br />
+은 발산 &gt;&gt; 대류일때만 알맞고,<br />
+Upwind scheme<br />
+은 대류 &gt;&gt; 발산일때만 맞았다.<br />
+이에 exact solution으로 유도한 (즉, 모든 상황에서 알맞는)<br />
+Expoential scheme<br />
+을 살펴보았다.<br />
+하지만, 연산이 굉장히 오래걸리기 때문에 expotential scheme과 비슷하지만<br />
+이를 구간으로 나누어 단순화한<br />
+hybrid scheme<br />
+(constant, linear functions 으로 )<br />
+powerlaw scheme<br />
+(constant, linear and power law functions 으로 )<br />
+expotential function을 표현한<br />
+두가지를 방식을 살펴보았다.<br />
+종합적으로 위의 모든 scheme을 한가지 표현으로 정리할 수가 있고 이를 다음 포스터에서 살펴보자.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

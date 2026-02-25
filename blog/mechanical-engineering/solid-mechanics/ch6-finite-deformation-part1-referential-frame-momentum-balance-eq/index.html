@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch6 Finite Deformation - part1 - Referential frame Momentum Balance Eq. | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item active">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/solid-mechanics/">Solid_Mechanics</a><span class="sep">/</span><span>Ch6 Finite Deformation - part1 - Referential frame Momentum Balance Eq.</span></div>
+<a href="/blog/mechanical-engineering/solid-mechanics/" class="back-link">&larr; Back to Solid_Mechanics</a>
+<div class="page-header"><h1>Ch6 Finite Deformation - part1 - Referential frame Momentum Balance Eq.</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-06-13</span><span class="meta-item"><span class="meta-label">Category:</span> Solid_Mechanics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/212" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Ch6 Finite Deformation - part1 - Referential frame Momentum Balance Eq.<br />
+지금까지 우리는 small deformation가정을 빼먹지 않았다.<br />
+1. e = 1/2 *(gradu + gradu T)<br />
+2. Stress is a function of strain tensor<br />
+3. helmlotz free Energy is a function of strain tensor.<br />
+이제 부터는 위 가정에서 벗어난,<br />
+Finite deformation을 분석해보자.<br />
+천천히 단계별로 분석하자.<br />
+우리가 답하고 싶은 질문은<br />
+Q. Finite deformation에서 free E, stress는 strain과 어떤 관계가 있을까?<br />
+그 관계식은 어떤 form일까?????<br />
+즉 내가 물체에부여하는 힘, 에너지들이<br />
+이 물체의 움직임에 어떤 영향을 주는지를<br />
+수학적으로<br />
+표현하는게 결국 solid mechanics의 핵심이다.<br />
+여기서 위 물체의 움직임들 중에서<br />
+Finite Deformation<br />
+에 한해서<br />
+위 질문을 답해보자.<br />
+위답을 얻기 위해서 아래 4가지 과정을 차근차근 정리해야한다.<br />
+(그중에서 첫번째부터)<br />
+- Kinematics + Referential Momentum Balance Eq<br />
+-Frame Indifference in mechanics<br />
+-Balance Law<br />
+-Material Symmetry<br />
+1. Kinematics &amp; Momentum Balance Eq (review ch4)<br />
+(Deep한 Kinematics contents are avaiable at the below links!!!)<br />
+https://jeffdissel.tistory.com/172<br />
+Ch2 Kinematics part1<br />
+지난 시간까지 기본적인 수학 symbol들과연산기호들에 대해서 알아보았다.(Vector, Tensor) 이 기호들로 우리는고체에 일어나는 물리현상들을 설명할 것이다. 위 의자에 굉장히 무거운 사람이<br />
+jeffdissel.tistory.com<br />
+https://jeffdissel.tistory.com/173<br />
+Ch2 Kinematics - part2<br />
+2.5 Strain tensor. 변형 전과 후의 body configuration 여기서, t =.0 일때의 두 위치벡터를 정의하고,t = 0 일때 두 점의 위치 X,Y 에 대해그 두 점을 잇는 단위벡터를 a0라고 정의하자.두 점의 길이는 de.<br />
+jeffdissel.tistory.com<br />
+간략하게 필요한 내용들만 뽑아서 정리해보자.<br />
+<img alt="Ch6 Finite Deformation - part1 - Referential frame Momentum Balance Eq." src="./images/img-001.png" /><br />
+Configuration of deformed and refrence body<br />
+φ : Motion (Function maps X to x)<br />
+F : Deformation Gradient Tensor<br />
+<img alt="Ch6 Finite Deformation - part1 - Referential frame Momentum Balance Eq." src="./images/img-002.png" /><br />
+그로부터 파생되는 C,B,U,V<br />
+Finite defomration에서 짚고 넘어가야할 중요한 개념은바로,<br />
+λ : principal strecthed<br />
+즉 순수히 물체가 3방향으로 늘어난 비율을 의미한다!.<br />
+(그 3방향은 principal direction of C, right Cauchy Green tensor)<br />
+다음 중요한 개념,<br />
+Velocity Gradient(L)<br />
+(small dermation에서 자주 나온다)<br />
+즉 공간적으로 속도의 변화를 나타내는 텐서.<br />
+<img alt="Ch6 Finite Deformation - part1 - Referential frame Momentum Balance Eq." src="./images/img-003.png" /><br />
+Ch3에서 너무나도 많이 나온 Nansons' Formua<br />
+분명히 우리는 변형 전과 후의 면적 관계식을 유도하였다.<br />
+<img alt="Ch6 Finite Deformation - part1 - Referential frame Momentum Balance Eq." src="./images/img-004.png" /><br />
+Nanson's formula Configuration, Reference and Spatial area.<br />
+조심해야할 부분이<br />
+(Vector dS는 방향은 surface의 법선과 같고, 크기는 면적인 벡터이다)<br />
+<img alt="Ch6 Finite Deformation - part1 - Referential frame Momentum Balance Eq." src="./images/img-005.png" /><br />
+자 이제 위 도구들을 가지고<br />
+Momentum Conservation Equation부터 다루어보자.<br />
+<img alt="Ch6 Finite Deformation - part1 - Referential frame Momentum Balance Eq." src="./images/img-006.png" /><br />
+ch3에서 배웠던 코시의 이론 -&gt; 1,2번 식<br />
++<br />
+ch4 에서 다루었던 3번식,<br />
+Cauchy's equation of Motion<br />
+먼저 ch4에서 증명하였던, Spatial Form의 Linear momentum conservation식은 다음과 같다.<br />
+surface force + body force = ma = total F on the body<br />
+<img alt="Ch6 Finite Deformation - part1 - Referential frame Momentum Balance Eq." src="./images/img-007.png" /><br />
+위식의 총 3항 (traction, body force, acceleration term)을 하나씩<br />
+Spatial -&gt; Referential로 전환해주자.<br />
+<img alt="Ch6 Finite Deformation - part1 - Referential frame Momentum Balance Eq." src="./images/img-008.png" /><br />
+Transforming the traction integral term from Spatail to referential Frame.<br />
+자 여기서, Nanson's formula가 사용되며,<br />
+새로운 아주 중요한 stress tensor가 등장한다.<br />
+T_R = 1st Piola Stress<br />
+즉, frame을 변환시켰을때, stress tensor를 그에 맞추어 정의한 것.<br />
+Cauchy stress(T) - spatial frame<br />
+1st Piola Stress(T_R) - Referential frame<br />
+T_R = J T F ^(-T) 는 꼭 기억하자!!!!</p>
+<h1>T_R은 T와 다르게 Symmetric하지 않다는 점!!!</h1>
+<p><img alt="Ch6 Finite Deformation - part1 - Referential frame Momentum Balance Eq." src="./images/img-009.png" /><br />
+다시 돌아와서,<br />
+이제 남은 body force, acceleartion term도 referential frame으로 전환시키자.<br />
+(Continum Mechnaics에서 다루었던, RTT(Reynolds Transport Theorem) - below link.<br />
++ volume change( dv = J dV) ) 가 쓰인다.<br />
+https://jeffdissel.tistory.com/176<br />
+<img alt="Ch6 Finite Deformation - part1 - Referential frame Momentum Balance Eq." src="./images/img-010.png" /><br />
+자 이제 referential frame으로 바꾸었던 3 항을 Spatial balance Law에 대입해주면,<br />
+<img alt="Ch6 Finite Deformation - part1 - Referential frame Momentum Balance Eq." src="./images/img-011.png" /><br />
+Integral을 전부 결합하면, 아래의<br />
+local form of Referentiall Momentum Balance EQ<br />
+이 유도된다.<br />
+<img alt="Ch6 Finite Deformation - part1 - Referential frame Momentum Balance Eq." src="./images/img-012.png" /><br />
+이제 2번째 이야기를 다음포스터에서 살펴보자.<br />
+- Kinematics + Referential Momentum Balance Eq<br />
+-Frame Indifference in mechanics<br />
+-Balance Law<br />
+-Material Symmetry</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch4 Statistics - Other Estimation Methods - MAP, Regularization | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item active">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/ai/">AI</a><span class="sep">/</span><a href="/blog/ai/machine-learning/">Machine_Learning</a><span class="sep">/</span><span>Ch4 Statistics - Other Estimation Methods - MAP, Regularization</span></div>
+<a href="/blog/ai/machine-learning/" class="back-link">&larr; Back to Machine_Learning</a>
+<div class="page-header"><h1>Ch4 Statistics - Other Estimation Methods - MAP, Regularization</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-09-14</span><span class="meta-item"><span class="meta-label">Category:</span> Machine_Learning</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/238" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Ch4 Statistics - Other Estimation Methods - MAP, Regularization<br />
+지난시간 Maximum Likelihood Estimatino (MLE)에 대해서 다루었고,<br />
+이번시간에는 그 변형 혹은 다른 methods에 대해서 알아보자.<br />
+1. the method of moments.<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-001.png" /><br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-002.png" /><br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-001.png" /><br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-002.png" /><br />
+2. Recursive Estimation.<br />
+이번에는 실시간으로 데이터가 계속 추가되는 상황을 생각해보자.<br />
+(시간 = index라 생각하자 1초마다 새로운 데이터 추가)<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-003.png" /><br />
+Set of Data, y1, y2 ... yt.<br />
+시간 (t-1)까지, 누적된 데이터 집합, D1:(t-1)<br />
+D1:(t-1)까지 데이터를 가지고 예측한 파라메터를 다음과 같이 정의하자.<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-004.png" /><br />
+그랬을때, 우리가 Gaussian Distribution을 사용한다고 가정하면,<br />
+t일때는 데이터 yt가 기존데이터(<br />
+D1:(t-1)<br />
+에서 추가 되는 것을 알 수 있다.<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-005.png" /><br />
+Gaussian mean<br />
+이때, 기존 데이터를 모두 읽을 필요가 없이, 기존에 예측하던 mean u(t-1)을 가지고 업데이트를 할 수 있다.<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-006.png" /><br />
+즉, 우리는 기존데이터를 모두 저장할 필요가 없다는 아주 큰 장점.</p>
+<h1>expotentially weighted moving average</h1>
+<p>여기서 우리는 새로 추가된 데이터로 mean을 update할때,<br />
+새로 추가된 data의 정보를 ratio로 업데이트를 해줄 수 있다.<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-007.png" /><br />
+Recursive function 이기 때문에, 등비수열꼴이므로 전개를 해주면,<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-008.png" /><br />
+즉, 맨 마지막의 데이터가 가장 현재 mean에 영향을 많이 주고,<br />
+시간이 지날수록 과거 데이터의 영향이 줄어드는 것을 알 수 있다.<br />
+그래프로 이해해보자.<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-009.png" /><br />
+이론상, beta가 작은 (a)의 경우가 빠르게 작은 과거값을 잊고 더 높은 값을 띄어야 한다.<br />
+However, without bias(빨간색)선 of (a)는<br />
+그렇지 않는 것을 알 수 있다.<br />
+이는 초기값 = 0 에서 시작하고, 이 값이 영향을 주기 때문이다.<br />
+따라서, 우리는 bias term을 추가해서 초기값이 0 에서 시작하지 않도록 조정해주자.<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-010.png" /><br />
+include the bias term</p>
+<h1>Regularization (Penalty)</h1>
+<p>우리가 지금 무엇을 하고 있는지를 잠깐 짚고 넘아가자.<br />
+주어진 data set(D)를 가지고 output 을 가장 잘 예측하는 모델을 만들려고 한다.<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-003.png" /><br />
+Set of Data, y1, y2 ... yt.<br />
+model을 구성하는 파라메터를<br />
+θ<br />
+라고 정의하고,<br />
+P(D|<br />
+θ<br />
+)를 가장 극대화하는<br />
+θ<br />
+를 찾는 문제로 전환하였다.<br />
+이를 수학적으로 표현하면, 아래 Likelihood를 가장 최대로 하는<br />
+θ를 찾고, MLE라고 정의하자.<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-011.png" /><br />
+하지만, 이렇게 하다보면 주어진 데이터에만 잘 맞는 overfitting 문제가 발생할 수 있다.<br />
+이를 해결하기 위한 솔루션이 바로<br />
+Regularization<br />
+논리는 penalty Term 을 Log-Likelihood function에 추가해주는 것.<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-012.png" /><br />
+λ: Regularization Parameter<br />
+C(θ) : Complexity Penalty.<br />
+(페널티라는 단어를 꼭 기억하자)<br />
+예를들어서, C(<br />
+θ) = log [ p( θ) ] 라고 가정하자.<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-013.png" /><br />
+λ = 1/N으로 설정하면 log liklihood를 다음과 같이 바꾸어 표현가능하다.<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-014.png" /><br />
+즉, bayes rule을 통해서 p(θ|D) Posterior probability를 극대화하는 문제로 전환됨을 알 수 있다.<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-015.png" /><br />
+in other words, Maximum a posterior estimation (MAP)문제<br />
+= MLE +Penalty(Prior)<br />
+MLE에 패널티가 추가된 것,<br />
+그리고 그 패널티가 바로 Prior<br />
+prior이외에 다른 penalty 부과 방식은 weight Decay<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-016.png" /><br />
+weight size가 커지지 않도록 만들어 주는 방법도 존재한다.<br />
+아주 간단한 예시로 이차원 점들을 잇는 polynomial model을 만들때,<br />
+차수를 키우게 되면 (a)처럼 MSE가 더 작은 모델을 만들 수 있다.<br />
+(하지만 Overfitting일 확률이 굉장히 높다)<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-017.png" /><br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-016.png" /><br />
+lambda - L2 regularizer<br />
+lambda ( 0 -&gt; 0.00019)로 정규화장치를 켜주면,<br />
+weight의 크기를 반영하게 되어, 차수를 더 적게 사용하는 모델을 만들어낸다.<br />
+그렇다면, 여기서 드는 질문은.<br />
+그렇다면 어떻게 적절한 Lambda - L2 regularizer를 설정할까?<br />
+1. Validation Set<br />
+원리는 생각보다 간단하다, 일단 dataset을 train, valid두개로 쪼개주자.(랜덤하게)<br />
+D =. D_train +. D_valid<br />
+최적의<br />
+lambda<br />
+를 찾을 때까지.<br />
+밑의 block을 반복해줄 것.<br />
+=================================================================================<br />
+[Block]<br />
+D_train -&gt; Dataset으로 계산하자:<br />
+Regularized Empirical Risk (MAP at given D_train)<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-018.png" /><br />
+그리고 미분을 통해서 stagnation point를<br />
+theata<br />
+를 찾자.<br />
+(위 R을 가장 작게하는 theata 찾기)<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-019.png" /><br />
+이제, 방금 구한<br />
+theat를 사용하고, D_valid 를 가지고<br />
+Regularized Empirical Risk (MAP at given D_valid) 를 구하자.<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-020.png" /><br />
+=================================================================================<br />
+우리가 해야할 것은,<br />
+위 Block을 계속해서 반복하면서, 최적의 lambda를 찾는 것<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-021.png" /><br />
+그리고, 그떄 최적의 lambda를 구하면 그것을 기준으로의 theat를 구하면 완성된다.<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-022.png" /><br />
+2. Cross Validation<br />
+위 방법은 Dataset을 쪼개야하는 단점이 존재한다.<br />
+즉, dataset자체의 수가 많지 않으면, 그것보다 작은 train dataset은 굉장히 더 작다는 것.<br />
+따라서, 우리는 하나의 dataset에서 여러개의 train |valid split을 진행하는 cross validation 방법을 주로 사용.<br />
+먼저 Dataset을 K개의 fold로 분할한다.<br />
+예를들어서, K = 5로 데이터를 분할하고, 분할한 집합에 1,2,3,4,5 라벨을 붙혀줬다고 해보자.<br />
+여기서 80%를 Train에 사용한다고 했을때, 나올 수 있는 train|valid set집합은 5가지이다.<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-023.png" /><br />
+즉 우리는 위 5개에 대해서,<br />
+(방금 전에 배운 Validation Set)<br />
+과정을 진행해 주어서, 총 5개의<br />
+Regularized Empirical Risk을구한다.<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-024.png" /><br />
+Definition of Regularized Empirical Risk, D-k: (total dataset - Dk)<br />
+만야게 이렇게 구한 R = {0.1, 0.01, 0.5, 0.001, 0.3} 이라면,<br />
+4번째 집합의 lambda를 최적의 lambda로 선택하는 것.<br />
+<img alt="Ch4 Statistics - Other Estimation Methods - MAP, Regularization" src="./images/img-025.png" /></p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>

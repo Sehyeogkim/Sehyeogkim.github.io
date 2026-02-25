@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch7 State of Equation - last of direct method. | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+</head>
+<body>
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item active">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/mechanical-engineering/">Mechanical_Engineering</a><span class="sep">/</span><a href="/blog/mechanical-engineering/computational-linear-algebra/">Computational-Linear-Algebra</a><span class="sep">/</span><span>Ch7 State of Equation - last of direct method.</span></div>
+<a href="/blog/mechanical-engineering/computational-linear-algebra/" class="back-link">&larr; Back to Computational-Linear-Algebra</a>
+<div class="page-header"><h1>Ch7 State of Equation - last of direct method.</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-09-28</span><span class="meta-item"><span class="meta-label">Category:</span> Computational-Linear-Algebra</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/241" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Ch7 State of Equation - last of direct method.<br />
+지금 우리는 Computational Linear Algebra content 절반에 와있다.<br />
+The problem we are trying to solve<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-001.png" /><br />
+A : m x n Matrix, x = n x 1 vector, b = m x 1 vector<br />
+우리는 위 문제를 컴퓨터로 풀기 위한 두 방법중<br />
+a. Direct methods -&gt; for small dense matrix<br />
+b. iterative methods. -&gt; for large spares matrix<br />
+only (a. direct method)를 살펴보았다.<br />
+Direct method안에서<br />
+QR factorization<br />
+을 먼저 다루었고 (part1,2 and 3)<br />
+https://jeffdissel.tistory.com/220<br />
+2. QR Factorization - part1 (Gram Schmedit)<br />
+자 지난시간에는 아주 빠르게 Linear Algebra를 한번 쭉 살펴보았고, 이제 진짜 computer을 이용해서 Matrix Eq을 어떻게 효과적으로구할 수 있을지에 대해서 살펴보자. 그 전에 projector Matrix를 정의하고<br />
+jeffdissel.tistory.com<br />
+A가 QR분해가 가능하지 아닌지를 판별하기 위해 (condition Number)를 정의하였고, 이를 위해 EVD가 필요하였다.<br />
+Eigen Value Decomposition(EVD)<br />
+뿐만아니라, A가 m x n (m &gt; n) nonsingular Matrix인 경우에는 EVD가 사용불가능하므로, SVD를 이용하여<br />
+spectral number(tool to get condition Number)를 구하여, 해의 존재가능성을 살펴보았다.<br />
+Singular Value Decomposition(SVD)<br />
+여기서 주의할 점은, A의 state(상태)가 어떠냐에 따라서,<br />
+우리는 Ax = b를 푸는 방식이 달라졌다.<br />
+1. A is a square matrix (n x n)<br />
+1a) Full rank, rank(A) = n 인 경우 ( non-singular Matrix)<br />
+유일한 해가 존재.<br />
+1b) rank(A) &lt; n 인 경우, (singular Matrix)<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-002.png" /><br />
+2. A is a non square matrix (m x n) and m &gt; n<br />
+2a) Full rank, rank(A) = n 인 경우<br />
+즉, 연립방정식의 수(m) &gt; 해 변수 수 (n) 이므로,<br />
+Ax =b를 만족하는 해가 존재하지 않는다.<br />
+따라서, residual 을 가장 최소로하는 x를 찾는<br />
+Least Squared Problem<br />
+으로 전환<br />
+(정확한 해가 존재하지 않으니)<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-003.png" /><br />
+Least squared problem.<br />
+2b) Full rank, rank(A) &lt; n 인 경우<br />
+위의 경우처럼 연립방정식의 수가 많으므로 대부분 해가 존재하지 않는다.<br />
+단, b가 col(A) 중 하나일 경우는 수많은 해가 존재.<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-002.png" /><br />
+3. A is a non square matrix (m x n) and m &lt; n<br />
+3a) Full rank, rank(A) = m 인 경우<br />
+이번 경우는 해변수갯수(n) &gt; 연립방정식의 수 (m) 이므로<br />
+해가 무수히 많이 존재한다.<br />
+3b) rank(A) &lt; m 인 경우, 위와 마찬가지로 대부분 해가 존재하지 않지만<br />
+b가 column space의 기저벡터와 같다면, 무수히 많은 해가 존재함.<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-002.png" /><br />
+자 여러 A의 시나리오 중에서 direct method를 활용해서 계산할때,<br />
+우리는 다음의 절차를 통해서 계산하였다.<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-004.png" /><br />
+지금까지 배운 내용 총 정리한 Direct method diagram<br />
+하지만, 이 중에서 우리는 오늘 첫번재 square non singular Matrix A 의 경우,<br />
+1. A is a square matrix (n x n)<br />
+1a) Full rank, rank(A) = n 인 경우 ( non-singular Matrix)<br />
+유일한 해가 존재.<br />
+더 효율적인 알고리즘인 LU decomposition에 대해서 알아보자.<br />
+QR factorization &lt; LU decomposition<br />
+사실 말은 거창해보이지만, 우리가 Linear algebra시간에 배운<br />
+LU decomposition is nothing but Gauss eliminiation Method<br />
+Linear algebra Guass elimination을 상기려보자.<br />
+아래의 A matrix가 있을때.<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-005.png" /><br />
+적절한 L1을 앞에 (rotator)로 곱해주면 첫번째 column vector가 회전하여 e1방향과 align한 벡터로 전환된다.<br />
+(Householder algorithm과 동일)<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-006.png" /><br />
+(선형대수학에서는 첫번재 성분빼고 전부 0으로 만드는 열1 - 열2 이런식으로 연산을 했던 기억이 있다)<br />
+두번째로 L2를 rotator for column 2 를 해주면, 우리는 두번재 열의 low triangular 성분을 전부 제거가능하다.<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-007.png" /><br />
+이렇게 쭉 진행해주면, 우리는 Right triangular Matrix U만 남게 된다.<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-008.png" /><br />
+따라서, 우리는 A를 다음과 같이 표현가능하다.<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-009.png" /><br />
+이를 일반화하면, 특정 column k를 rotate해주는 rotator Lk를 다음과 같이 정의할 수 있고,<br />
+이를 순차적으로 계속해서 곱해주어 A의 left traingular 성분을0 으로 제거하는 방식이다.<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-010.png" /><br />
+여기서 L의 k번째 column vector -&gt; l 이라고 정의를 하면,<br />
+우리는 L의<br />
+역행렬<br />
+을 다음과 같이 l로 정의할 수 있다.<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-011.png" /><br />
+위의 Gauss Elimination 예시를 살펴보면 역행렬을 순차적으로 계속해서 곱해주었다.<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-009.png" /><br />
+따라서, 위에서 l로 표현된 Lk를 순차적으로 곱해주면, 다음과 같이 정리된다.<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-012.png" /><br />
+ekT ek+1 T = 0<br />
+따라서, L-1을 1부터 n까지 전부 곱하면, column vector l의 순차적인 합으로 나오게 되고,<br />
+최종적으로 다음의 Matrix 하나로 정리된다.<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-013.png" /><br />
+Left triangualr Matrix L.<br />
+즉, 우리는 A를 left and right triangluar Matrix, L and U로 분해가 가능하는 것이다.<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-014.png" /><br />
+(기억하자 조건은 A is a square and non singular Matrix)<br />
+위 방식이 컴퓨터에서 몇번의 연산을 해야하는 지를 살펴보면, 2/3 n ^3 번 연산을 진행해야한다.<br />
+재밌는 사실은 QR factorization - householder Algorihm -&gt; 4/3 n^3보다 절반의 연산이라는 것!!!<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-015.png" /><br />
+하지만, 여기서 Gaussian elimination을 잘생각해보면,<br />
+우리가<br />
+하나의 열에서 다른 열을 빼는 연산<br />
+을 통해서,<br />
+left non diagonal component를 0으로 만들어주는 작업을 계속 진행하였다.<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-016.png" /><br />
+위 loop를 잘보면, 빼는 연산을 하기 이전에<br />
+대각 성분을 1로 만들고, 모든 다른 요소들을 대각성분으로 나누는 작업을 진행하였다.<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-017.png" /><br />
+여기서 나누는 숫자를 Pivot이라 부르고 위 경우 uk,k 대각성분이 pivot인 상황.<br />
+문제는 만약에 나누는 숫자가 0 or 굉장히 작은 숫자라면,<br />
+-&gt; inf error.<br />
+이를 해결하기 위해서, 우리는<br />
+열과 행을 바꾸어 주는 작업을 진행<br />
+한다.<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-005.png" /><br />
+예를들어서, 2라는 숫자가 지금은 대각 성분이지만,<br />
+row1 &lt; - &gt; row2<br />
+를 진행하면 숫자 4가 대각성분으로 전환된다.<br />
+이런 식으로, 열과 행을 바꾸는 방법은 바로<br />
+permutation Matirx를 이용하는 것!.<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-018.png" /><br />
+간단하게 row vector 1 and 2를 전화하는 방법은 다음의 permutation Matrix를 곱해주는것.<br />
+(column vector전환은 뒤에 곱해주면 된다)<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-019.png" /><br />
+여기서 row vector들만 전환하는 즉 앞에만 곱하는 경우를<br />
+-&gt; Partial pivoting<br />
+row, column vector들을 전부 전환하는 (앞 뒤로 곱하는 경우를)<br />
+-&gt; complete pivoting<br />
+이라고 부른다.</p>
+<hr />
+<p>최종적으로 정리를 해보면,<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-001.png" /><br />
+A : m x n Matrix, x = n x 1 vector, b = m x 1 vector<br />
+Ax = b문제를 풀기 위해, 직접적으로 A -&gt; A-1을 구해 x = A -1 b를 구하면 좋지만,<br />
+연산량이 너무 많아져, A를 분해해서 위 문제를 푸는 Direct method를 지금까지 다루었다.<br />
+(상황에 따라 분해하는 방법이 다름)<br />
+[분해하는 방법들]<br />
+QR factorization - HouseHolder Algorithm<br />
+Lu decomposition (today)<br />
+Eigen Value Decomposition(EVD)<br />
+Singular Value Decomposition(SVD)<br />
+이제는 Direct method의 본질적인 문제를 살펴보고, 다음 주제인 iterative Method로 넘어가자.<br />
+FVM에서 Diffusion Equation을 풀기위해 우리는 각 셀의 equation을 하나의 Matrix에 저장한다.<br />
+핵심은 0인 요소가 너무 많다는 것 -&gt; Sparse Matrix<br />
+이런 경우는 우리는 0은 어차피 연산을 해봤자 0이기 떄문에 연산을 안하는게 이득이다.<br />
+하지만, GaussElimination은 구분을 하지 못하고, 전부 zero -&gt; non zero로 오히려 만들어버린다.<br />
+<img alt="Ch7 State of Equation - last of direct method." src="./images/img-020.png" /><br />
+따라서, 연산량 측면에서<br />
+Large sparse Matrix(which is frquently defined in the engineering problems)<br />
+는 Iterative Method로 하는게 더 이득이다.<br />
+이게 iterative method의 motive -&gt; next blog chapter topic.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>
