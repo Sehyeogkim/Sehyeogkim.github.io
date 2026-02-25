@@ -4,6 +4,8 @@ url: "https://sehyeogkim.github.io"
 baseurl: ""
 markdown: kramdown
 theme: minima
+header_pages:
+  - index.md
 plugins:
   - jekyll-feed
 permalink: /posts/:year/:month/:day/:title/
@@ -12,3 +14,5 @@ exclude:
   - bin/
   - AGENTS.md
   - README.md
+  - agents/
+  - blog_data/
