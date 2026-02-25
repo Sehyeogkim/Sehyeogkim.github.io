@@ -1,5 +1,6 @@
 # === Updated by AI Agent: 2026-02-25 22:30 KST ===
 # 기존: _site/, .sass-cache/, .jekyll-cache/, .jekyll-metadata, .bundle/, vendor/
+# === Updated by AI Agent: 2026-02-26 08:00 KST — blog_data 추가 ===
 _site/
 .sass-cache/
 .jekyll-cache/
@@ -10,3 +11,6 @@ vendor/
 tmp/
 __pycache__/
 *.pyc
+
+# 원본 소스 데이터 (로컬 전용, 원격에 올리지 않음)
+blog_data/
