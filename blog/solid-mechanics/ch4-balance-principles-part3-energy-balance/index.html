@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch4 Balance principles - part3 (Energy balance) | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item active">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/solid-mechanics/">Solid-Mechanics</a><span class="sep">/</span>  <span>Ch4 Balance principles - part3 (Energy balance)</span></div>
+<a href="/blog/solid-mechanics/" class="back-link">&larr; Back to Solid-Mechanics</a>
+<div class="page-header"><h1>Ch4 Balance principles - part3 (Energy balance)</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-04-15</span><span class="meta-item"><span class="meta-label">Category:</span> Solid-Mechanics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/184" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Ch4 Balance principles - part3 (Energy balance)<br />
+지난시간까지<br />
+mass balance,<br />
+linear and angular momentum balance<br />
+에 대해서 알아보았고,<br />
+가장 중요한 energy balance에 대해서 마지막으로 알아보자.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-001.png" /><br />
+Spatial configuration of the body<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-002.png" /><br />
+위 상황에서 열역학 제 1법칙 에너지보존법칙을 적용하자.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-003.png" /><br />
+body 내부의 에너지 총 변화량 = 받은 heat rate + 받은 외부로부터 power<br />
+(모두다 단위가 (J/s)인 것을 명심하자)<br />
+먼저 총 내부에너지 (시간변화량 말고) 그냥 총 내부 에너지 전체량은<br />
+다음과 같이 internal E per unit mass를 전체 mass에 대해서 적분해준다.<br />
+(dm =<br />
+ρ<br />
+dv)<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-004.png" /><br />
+All the symbols are spatial description!!!!!!<br />
+그다음 pt 영역안의 각 점들의 움직임 -&gt; 운동에너지<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-005.png" /><br />
+(주의할점은 위의 값들은 에너지 총량이고,<br />
+밑에 등장하는 값들은 에너지 per sec이다)<br />
+이제 surface of body로 출입하는 열 + body안에서 생성되거나 supply받은 열<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-006.png" /><br />
+그리고 이제 외부에서 받은 에너지/sec -&gt; power를<br />
+traction vector, body force vector로 표현해보자.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-007.png" /><br />
+이렇게 구한 4가지 항을 이제 다시 열역학 제 1법칙에 대입해주자.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-008.png" /><br />
+정리하면 총 5개의 적분항이 나오고, 그중에서 3가지 항을 변형시켜보자.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-009.png" /><br />
+주의할점은 1번항의 시간 미분항이 Material time derivative라는 점.<br />
+가장먼저 1번항을 정리해보면,<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-010.png" /><br />
+https://jeffdissel.tistory.com/176<br />
+Ch4 Balance principles - part1 (mass balance and RTT)<br />
+지금까지 정리한 모든 stress, deformation, motion을 정의한 이유는바로 balance prinicple 을 이용하여 결국, 방정식을 세우기 위함이다. 이번 쳅터에서는 mass balance,Linear momentum balanceAngular momentum balanceEne<br />
+jeffdissel.tistory.com<br />
+(RTT - Reynolds Transport Theorem을 이용하여 위의 식으로 표현가능하다)<br />
+(자세한 내용은 위 링크 블로그 마지막 증명과정에서 설명)<br />
+2번항은 계속해서 등장하는 Divergence theorem을 이용하여,<br />
+surface integral -&gt; body integral로 전환가능하다.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-011.png" /><br />
+3번항이 다소 복잡하다 Cauchy's Theorem ( t = Tn )을 사용하면 tensor가 등장하기 때문이다.<br />
+따라서, 복잡한 경우 index notation으로 전환시켜주고 -&gt; divergence Theroem을 통해서,<br />
+전개해주면 다음과 같이 유도가능하다.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-012.png" /><br />
+Tij dvi/dxj = T:gradv 인것 i,j가 dummy index여서 반복하는데 둘다 tensor이므로 : 즉 contraction을 사용해야한다.<br />
+자 간결하게 표현한 3가지 식을 처음 2번식에 대입해주고 volume integral로 묶어주자.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-013.png" /><br />
+우항을 넘겨주고 묶어주면, Cauchy's 1st eq of motion 항이 나온다!<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-014.png" /><br />
+따라서 정리하면 3번식이 도출된다.<br />
+모든 영역에 대해서 위식이 만족해야하므로,<br />
+local form으로 전환이 가능하다.<br />
+local energy balance eq 3 도출<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-015.png" /><br />
+이렇게 local form으로 전환이 가능한 이유는?<br />
+맨처음에 Pt를 정의할때 임의로 Bt에서 골랐기 때문에,<br />
+만약에 국소로 작은 점의 크기로 자르더라도 성립해야한다.<br />
+따라서 local form 3번식으로 도출가능.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-001.png" /><br />
+Spatial configuration of the body</p>
+<hr />
+<p>자 여기가까지 energy balance식을 유도하였고,<br />
+이제 Entropy imbalance - 열역학 제2법칙을 적용해보자.<br />
+total internal energy를 유도했던 과정과 동일하게 우리는,<br />
+specific entropy per unit mass를 전체 영역에 대해서 적분하면,<br />
+Net Entropy of Pt region을 구할 수 있다.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-016.png" /><br />
+여기서 entropy flux를 살펴보자.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-017.png" /><br />
+열역학 시간에 배웠지만, entropy는 결국 heat flux가 존재하면,<br />
+entropy flux도 생긴다.<br />
+(사실은 entropy flux -&gt; heat flux라고 생각하는게 맞다)<br />
+그리고, entropy가 heat generation처럼<br />
+body 내부에서 generate 하거나 supply받을 수 도 있으므로,<br />
+우리는 Total Entropy flux를 다음과 같이 정의 할 수 있다.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-018.png" /><br />
+Total entrop flux = in and out entropy across the surface and generated entropy on the body<br />
+자 위에 total entropy flux와 total interal entropy를 정의하고,<br />
+열역학 제 2법칙을 한번 살펴보자.<br />
+(분명히 우리는 배웠다는 사실 하지만 까먹었다 저도..)</p>
+<hr />
+<p>[열역학 제 2법칙]<br />
+분명히 존재하지만 죽어가는 뇌기억세포를 살려보자.<br />
+일단 엔트로피는 다음과 같이 정의되었다.<br />
+dQ/T = ds<br />
+(<br />
+열출입 -&gt; 엔트로피 변화<br />
+)<br />
+그리고 등장한 부등식 한개.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-019.png" /><br />
+Clasisus Inequality (for closed system)<br />
+위<br />
+수학식은 결국 어떠한 문장을 단순하게 표현한 한가지 방식<br />
+일 뿐이다.<br />
+그렇다면 저 수학식은<br />
+어떤 문장<br />
+을 함유하고 있는지를 알아차려야 한다.<br />
+[문장의 의미]<br />
+" (From Entropy definition),<br />
+열의 입출입 across the system surface 으로 인한, entropy 변화량(flux)보다<br />
+system 내부 총 엔트로피 변화량이 더 크다"<br />
+→ 왜???? "비가역성으로 인해<br />
+추가적인 엔트로피가 생성되기 때문"<br />
+즉 열이 이동하는 과정자체 가 시스템의 엔트로피를 증가 시키기 때문에<br />
+(if and only if the process is irreveresible)<br />
+(너무너무나도 중요한 핵심이다 그 과정자체가 엔트로피를 증가시킨다)<br />
+쉽게 생각하면,<br />
+어떠한 은행에 동전 500만원을 넣었다,<br />
+근데 잔고가 + 550만원이 된 상황;;;<br />
+분명히 500만원을 넣었는데????<br />
+정답: 넣는 행위자체가 잔고를 증가시켰다 (like 이자)<br />
+(단, 이자가 부여되는 조건은 내가 잔고에서 돈을 빼지 않는다는 조건)<br />
+즉, 넣는 것은 가능하지만 똑같은 양을 똑같은 경로로 빼는 것은 불가능하다<br />
+(적금 조건)<br />
+-&gt; Definition of irreversible process.</p>
+<hr />
+<p>이제 위 열역학 제 2법칙을 우리 system에 적용시키면,<br />
+내부 총 엔트로피 변화량 &gt;= total flux of entropy<br />
+"시스템 전체의 엔트로피 증가는<br />
+경계에서 들어온 엔트로피<br />
++ 내부에서 생성된 엔트로피<br />
+보다<br />
+크거나 같아야<br />
+한다"<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-016.png" /><br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-018.png" /><br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-016.png" /><br />
+Net entropy in the body region Pt<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-018.png" /><br />
+Total entrop flux = in and out entropy across the surface and generated entropy on the body<br />
+위에서 유도한 두값을 가지고 그대로 부등식을 세우고 정리하면<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-020.png" /><br />
+Reynolds Transport Theorem and divregence Theorem are used.<br />
+자 이제, 처음에 구했던 Energy balance Eq - 3번<br />
+그리고 방금 구했던 부등식 - 4번 방정식을<br />
+연립해보자.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-021.png" /><br />
+연립해주면 5번 부등식이 유도된다.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-022.png" /><br />
+5번식의<br />
+θ<br />
+div(q/ θ ) - div q<br />
+를 정리하면 다음과 같이 간결하게 표현된다<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-023.png" /><br />
+쉽게 정리하기 위해 a = q/θ라고 치환했습니다.<br />
+이제 다시 5번식에 정리한 표현을 대입하면 간결한 5번식으로 reborn<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-024.png" /><br />
+여기서 갑자기 새로운 개념이 등장한다.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-025.png" /><br />
+일단 어떤 물리적의미를 가지고 있는지 보기전까지 치환했다고 생각하자.<br />
+그리고 5번식에 위 정의한 Helmholtz Free E를 대입해주면,<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-026.png" /><br />
+local form of free E imbalance.<br />
+그리고, Dissipation을 다음과 같이 정의할 수 있다.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-027.png" /><br />
+(유체역학 시간에 배웠지만, viscous dissipation rate 즉 얼마나 viscous force로 인해서<br />
+mechanical energy가 thermal energy로 손실되는가를 보았었다.<br />
+그 dissipation이 irrveresible process이기 때문에 위 inequality가 성립<br />
+즉, 무조건 양수라는 것이다.<br />
+만약에 여기서 isothermal 가정 즉 온도변화가 body에 시공간에 대해 없다고 가정하면,<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-028.png" /><br />
+그리고 per unit mass -&gt; unit volum으로 바꾸어 주자.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-029.png" /><br />
+그리고 6번식에 대입해주면,<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-030.png" /><br />
+contraction property 이용.<br />
+여기서 v는 spatial velocity vector임을 명심하자.<br />
+위에 tranpose를 만들면서까지 변형시킨 이유는 symm(gradv)로 바꾸기 위해서 이다.<br />
+그리고 symm(grad v)는 Stretching tensor라는 것은 ch2에서 다루었다.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-031.png" /><br />
+위에서 어떻게 strain tensor의 time rate로 전환했는지를 살펴보자.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-032.jpg" /><br />
+여기서 strain tensor(small deformation)의<br />
+정의를 살펴보면 displacement gradient(u)로 표현된다.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-033.jpg" /><br />
+u(X,t) = x(X,t) - X의 displacement vector 정의자체를 가지고,<br />
+그대로 식에 대입하게 되면,<br />
+De/Dt = symm(grad v)를 도출하게 된다.<br />
+여기서<br />
+Material time derivative<br />
+of the strain tensor임을 조심하자.<br />
+이후에, 그대로 우리가 열역학 제2법칙을 토대로 유도하였던 최종식에 대입해주자.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-034.png" /><br />
+그냥 대입해주면 최종적으로<br />
+Cauchy stress tensor,<br />
+the rate of strain tensor의<br />
+contraction Form이 도출된다.<br />
+<img alt="Ch4 Balance principles - part3 (Energy balance)" src="./images/img-035.jpg" /><br />
+즉, IsoThermal, small deformation 가정에서<br />
+body의 rate of strain tensor<br />
+시간에 따른 변형 자체와<br />
+Cauchy stress tensor가<br />
+free energy보다 무조건 크다는 것.<br />
+저 식의 물리적의미를 깊게 이해하기 위해서는<br />
+결국, free energy가 의미하는게 무엇일까?<br />
+라는 질문으로 이어지게 된다.<br />
+해당내용을 다음 글에서 다루어 보자.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

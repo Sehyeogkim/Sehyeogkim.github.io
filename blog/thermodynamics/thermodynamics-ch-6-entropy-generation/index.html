@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Thermodynamics] ch 6. Entropy generation. | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item active">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/thermodynamics/">Thermodynamics</a><span class="sep">/</span>  <span>[Thermodynamics] ch 6. Entropy generation.</span></div>
+<a href="/blog/thermodynamics/" class="back-link">&larr; Back to Thermodynamics</a>
+<div class="page-header"><h1>[Thermodynamics] ch 6. Entropy generation.</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-04-28</span><span class="meta-item"><span class="meta-label">Category:</span> Thermodynamics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/75" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>아마 공대생이시면, 엔트로피가 항상 증가한다 라는 말은<br />
+무조건 한번쯤은 들어보았을 것이다.<br />
+맞는 말이지만 앞뒤 다짜르고 한말이다 즉 감소하는 경우도 존재한다.<br />
+그렇다면, 정확히 어떤 상황에서 항상 증가하는 것일까?</p>
+<hr />
+<p>이전전 포스터에서(ch6)<br />
+Clasisus Inequality에 대해 증명하였다.<br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-001.png" /><br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-002.png" /><br />
+따라서, 위 그림에서 A,B는 reversible이고, C는 irrversible이므로,<br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-003.png" /><br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-004.png" /><br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-003.png" /><br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-004.png" /><br />
+두식에서, B항을 연립해주면,<br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-005.png" /><br />
+여기서 ENtropy 정의에 1과 2사이의 Entropy 변화량을<br />
+Reversible process A 를 통해서 나타낼 수 있다.<br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-006.png" /><br />
+정말 중요한 것은,<br />
+S2-S1은 경로 A를 통해서든 C를 통해서든 그게<br />
+어떤 경로이든 상관없이 일정하다는 것이다<br />
+왜????<br />
+Entropy is state function, Thermodynamics Property<br />
+Pressure, Temperature, Internal E, Enthalpy처럼<br />
+경로와 무관하게 어떠한 State면 어떠한 값으로 딱 나오는<br />
+열역학적 property이다.(이전전포스터에서 설명)<br />
+결국, Irrversible C의 경우에는<br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-007.png" /><br />
+Reversible 인 A의 경우에는<br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-008.png" /><br />
+따라서, 최종적으로 Reversible, Irreversible 인 경우 모두를 포함하여<br />
+다음과 같이 표현할 수 있다.<br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-009.png" /><br />
+여기서, 투입된 열은 reversible일수도,<br />
+irrversible일수도 있고 상관이 없다.<br />
+이제, 위 식을<br />
+Generation term을 추가해서 표현하면,<br />
+다음과 같이 표현 할 수 있다.<br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-010.png" /><br />
+(여기서 햇갈리지 말아야할 것은,<br />
+dQ/T -&gt; Reversible process라는 것이다)<br />
+그리고 Sgen -&gt; Irreversilbe process에서만,<br />
+나타나는 엔트로피 증가이다.<br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-011.png" /><br />
+조금 어렵기 때문에 방금전의 예시중 Process C를 다시 살펴보자.<br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-007.png" /><br />
+dSc 의 경우 dQ/T에 더해서, 엔트로피가 더욱더 증가하였기 때문에,<br />
+부등호가 존재함을 알 수 있다.<br />
+결국 Sgen &gt; 0 이면, Irrversible process이고,<br />
+Sgen = 0 이면 Reversible process임을 알 수 있다.<br />
+따라서,<br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-010.png" /><br />
+증명한, 위 식에 irrversible heat flow를 계산해주면,<br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-012.png" /><br />
+즉, Irreversbile 의 경우에<br />
+실제 reversible에서 열전달보다 적은 양의 열이 전달됨을 알 수 있다.<br />
+뿐만아니라, 열역학 제 1법칙과 Property relationship 식을 이용해서<br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-013.png" /><br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-014.png" /><br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-013.png" /><br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-014.png" /><br />
+Irreversible Work를 유도 할 수 있다.<br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-015.png" /><br />
+기존의 Reversible work의 경우 모두 dW = pdV 였지만,<br />
+Irrevesrible의 경우 그보다 작다.</p>
+<hr />
+<p>위에서 쭉 다뤄왔던 내용들을 요약하고 마무리하자.<br />
+엔트로피가 항상 증가하는 말 이전에,<br />
+'Entropy는 생성된다'<br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-016.png" /><br />
+위식이 함축하고 있는 의미는,<br />
+Reversible process의 경우 엔트로피는 생성되지 않았고(Sgen = 0)<br />
+dQ&lt;0 인 경우, 엔트로피는 감소한다.<br />
+즉, 열이 밖으로 나가는 경우에는 엔트로피는 감소할 것이다.<br />
+반대로 엔트로피가 증가할 수 있는 경우는<br />
+열이 안으로 들어오는 경우(dQ&gt;0)<br />
++<br />
+S gen &gt; 0 인 경우,<br />
+즉 Irreversible process 이다.</p>
+<hr />
+<h3>진짜 마지막으로, Entropy변화량의 boundary를 조금더 키워서 관찰해보자.</h3>
+<p><img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-017.png" /><br />
+Control mass<br />
+를 기준으로 그 주변 (surrounding) 에서 열을 받고,<br />
+일을 밖으로 하는 상황을 가정해보자.<br />
+위에서 배운 내용에 의하면,<br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-018.png" /><br />
+그리고 Surrounding의 entropy변화량은<br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-019.png" /><br />
+그렇다면, Control mass + Surrounding인 총 Net의 entropy변화량은<br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-020.png" /><br />
+온도가 높은 곳에서 낮은 곳으로 열이 흐르므로,<br />
+T0&gt;T<br />
+dSnet ≥ 0<br />
+결국 전체 universe net 관점에서 entropy는 항상 증가한다.<br />
+바로 서론에서 언급한 그 명제가 성립된다.<br />
+그렇다면 엔트로피는 어디서 왔을까?<br />
+정답은 우주 속에 있다.<br />
+밑 영상에서 보다 자세하게 설명해주고 있다. 정말 재밌습니다^^<br />
+https://youtu.be/DxL2HoqLbyA?si=MqBFpbAARXtjLLee</p>
+<hr />
+<p><img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-017.png" /><br />
+여기서 Control mass 2관점에서 한번 해석해보자.<br />
+c.m2는 그저, Surrounding과 control mass를 구분 짓는 벽이라고 생각하자.<br />
+그렇다면, Surrounding으로부터 들어온 모든 열은 Control mass로 흐르기 때문에,<br />
+dE = 0 , dS = 0이라는 것을 알 수 있다. 따라서,<br />
+엔트로피의 정의에 의해.<br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-021.png" /><br />
+여기서 Sgen2 는 Control mass 2에서 생성된 Entropy이다.<br />
+그리고 이전 포스터에서 Generation Entropy는 항상 양수이거나 0과 같다는 것을 배웠다.<br />
+<img alt="[Thermodynamics] ch 6. Entropy generation." src="./images/img-022.png" /><br />
+결국, dQ&gt;0 인 경우 T0 &gt; T,<br />
+dQ&lt;0 d인 경우 T0 &lt;T.<br />
+즉, 열은 높은 곳에서 낮은 곳으로 흐른다는 것</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

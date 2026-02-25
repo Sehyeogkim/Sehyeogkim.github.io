@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Uniform E generation | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item active">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/heat-transfer/">Heat-transfer</a><span class="sep">/</span>  <span>[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Uniform E generation</span></div>
+<a href="/blog/heat-transfer/" class="back-link">&larr; Back to Heat-transfer</a>
+<div class="page-header"><h1>[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Uniform E generation</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-03-28</span><span class="meta-item"><span class="meta-label">Category:</span> Heat-transfer</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/28" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Uniform E generation<br />
+이제 한발 더 나아가서 가정 하나를 바꿔보자</p>
+<h1>Assumption</h1>
+<p>Steady state process<br />
+1-Dimensional<br />
+Constant E generation<br />
+Unifrom k<br />
+[General Temperature Eq]<br />
+<img alt="[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Uniform E generation" src="./images/img-001.png" /><br />
+에서<br />
+<img alt="[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Uniform E generation" src="./images/img-002.png" /><br />
+위 식을 적분해주면<br />
+<img alt="[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Uniform E generation" src="./images/img-003.png" /><br />
+이제 Boundary condition을 통해서 T(x)를 derive해보자<br />
+T(-L) = Ts1, T(+L) = Ts,2<br />
+<img alt="[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Uniform E generation" src="./images/img-004.png" /><br />
+<img alt="[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Uniform E generation" src="./images/img-005.png" /><br />
+따라서, 상수를 대입해주면<br />
+<img alt="[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Uniform E generation" src="./images/img-006.png" /><br />
+(qx 는 더이상 x와 independent하지 않다)<br />
+Boundary condition이 다음 그림과 같이<br />
+Symmetric한 경우는??<br />
+T(-L) = Ts= T(+L)<br />
+<img alt="[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Uniform E generation" src="./images/img-007.png" /><br />
+<img alt="[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Uniform E generation" src="./images/img-008.png" /><br />
+<img alt="[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Uniform E generation" src="./images/img-007.png" /><br />
+<img alt="[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Uniform E generation" src="./images/img-008.png" /><br />
+Temperature Distribution을 그리면<br />
+위 그림처럼 이차함수 형태가 된다.<br />
+여기서 x = 0 에서 dT/dx = 0이 되고,<br />
+이 순간 Heat transfer rate = 0 이 된다.<br />
+즉, Insulation 효과와 동일 하다<br />
+<img alt="[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Uniform E generation" src="./images/img-009.png" /><br />
+따라서, 그림을 다음과 같이 Adiabatic surface라고 고려 가능.<br />
+이제 바깥 surface convection을 고려해주자.<br />
+Surface x = L에서는 convection과 conduction의<br />
+Heat flux 는 동일해야만 한다.<br />
+[why? Heat generation이 surface에서는 없으므로]<br />
+<img alt="[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Uniform E generation" src="./images/img-010.png" /><br />
+우리는 T(x)를 알고 있으므로, 미분해주고 x=L대입하면<br />
+<img alt="[Heat and Mass transfer] Ch 3 ,1-Dimensional, Steady-State Conduction - Uniform E generation" src="./images/img-011.png" /><br />
+즉 Convection Heat flux = Heat generation * L과 같다는 의미이다.<br />
+Heat generation q dot의 단위를 보면<br />
+W/m^3이다. 즉 단위부피당 열의 생성량을 의미한다.<br />
+따라서<br />
+q dot * 길이<br />
+가 의미 하는 것은<br />
+해당 길이동안<br />
+물질이 생성한 총 Heat flux (W/m^2)<br />
+를 의미한다.<br />
+그리고 그 Heat flux를 그대로 Convection이 전달받아서 위식이 나온 것이다.<br />
+q dot과 Heat flux의 관계를 햇갈리지 않게 이해할 필요가 있다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

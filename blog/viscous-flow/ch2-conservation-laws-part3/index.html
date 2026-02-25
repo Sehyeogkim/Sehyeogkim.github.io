@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch2 Conservation Laws_ part3 | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item active">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/viscous-flow/">Viscous-Flow</a><span class="sep">/</span>  <span>Ch2 Conservation Laws_ part3</span></div>
+<a href="/blog/viscous-flow/" class="back-link">&larr; Back to Viscous-Flow</a>
+<div class="page-header"><h1>Ch2 Conservation Laws_ part3</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-09-30</span><span class="meta-item"><span class="meta-label">Category:</span> Viscous-Flow</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/108" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>지난 두 포스터에서<br />
+Conservation of Mass<br />
+Conservaction of Momentum<br />
+두가지를 다루었고,<br />
+이번에는 마지막으로<br />
+Conservation of Energry 를 다루어 보도록 하겠습니다.<br />
+시작부터, 조금 복잡한 식이지만,<br />
+사실 의미를 따지고 보면 그렇게 복잡하지는 않습니다^^<br />
+<img alt="Ch2 Conservation Laws_ part3" src="./images/img-001.png" /><br />
+[좌항]<br />
+<img alt="Ch2 Conservation Laws_ part3" src="./images/img-002.png" /><br />
+control volume과 질량대비 내부에너지(e)<br />
++ 운동에너지 term(1/2 u^2)<br />
+그리고 우항들은 전부, 어떠한 에너지인지를 설명해주는 항들입니다.<br />
+(중력,표면력, 열)<br />
+<img alt="Ch2 Conservation Laws_ part3" src="./images/img-003.png" /><br />
+여기서 계산을 편리하게 하기 위해서,<br />
+모두 cartesian tensor<br />
+형태로 바꾸어 줍니다.<br />
++ Guassian Theorem으로 체적분으로 변경.<br />
+<img alt="Ch2 Conservation Laws_ part3" src="./images/img-004.png" /><br />
+우항의 체적분을 전부 합쳐주고,<br />
+좌항은 Reynolds Transport Theorem 을 활용 + 가우스 정리를 이용하면,<br />
+다음과 같이 표현된다.<br />
+<img alt="Ch2 Conservation Laws_ part3" src="./images/img-005.jpg" /><br />
+이제 좌항 = 우항식을 전체적으로 세워주면, 다음식이 도출 된다.<br />
+<img alt="Ch2 Conservation Laws_ part3" src="./images/img-006.jpg" /><br />
+이후에, 좌항의 두 미분 term을 쪼개주면<br />
+귀신같이 continuity term이 나오게 된다.<br />
+<img alt="Ch2 Conservation Laws_ part3" src="./images/img-007.jpg" /><br />
+최종적으로,<br />
+Total Energy Equation<br />
+이 derived.<br />
+<img alt="Ch2 Conservation Laws_ part3" src="./images/img-008.jpg" /><br />
+최종 energy term을<br />
+mechanical E, thermal E 로 쪼개서 나타내 보자.<br />
+먼저 Mechanical E eq은<br />
+Momentum 보존식에서 다음과 같이 유도할 수 있다.<br />
+<img alt="Ch2 Conservation Laws_ part3" src="./images/img-009.jpg" /><br />
+Total E - Mechanical E = thermal E<br />
+<img alt="Ch2 Conservation Laws_ part3" src="./images/img-010.jpg" /><br />
+최종적으로, Thermal E eq은<br />
+다음과 같이 표현된다.<br />
+(여기서 압력 + shear stress로 분리)<br />
+<img alt="Ch2 Conservation Laws_ part3" src="./images/img-011.png" /><br />
+여기서, velocity gradient tensor를<br />
+우리가 배웠던 shear rate tensor, rotation tensor로 쪼개주고<br />
+shear stress tensor와 밑에 처럼 곱해주면,<br />
+symmetric 행렬과 anti-symmetric 행렬의 특징으로<br />
+0이 되어버린다.<br />
+<img alt="Ch2 Conservation Laws_ part3" src="./images/img-012.jpg" /><br />
+결국 위처럼, Sij만 남게 된다는 것.<br />
+남은 부분을 Dissipation Function이라고 부르고,<br />
+단위부피당, 내부에너지 -&gt; 열에너지로 변환되는 정도를 나타낸다.<br />
+<img alt="Ch2 Conservation Laws_ part3" src="./images/img-013.jpg" /><br />
+최종적으로 Dissipation rate, Fourier conduction law까지 적용시키면<br />
+다음의 에너지 방정식이 유도된다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

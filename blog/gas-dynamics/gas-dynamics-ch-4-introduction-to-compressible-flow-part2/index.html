@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Gas Dynamics] Ch 4 Introduction to Compressible Flow - part2 | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item active">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/gas-dynamics/">Gas-Dynamics</a><span class="sep">/</span>  <span>[Gas Dynamics] Ch 4 Introduction to Compressible Flow - part2</span></div>
+<a href="/blog/gas-dynamics/" class="back-link">&larr; Back to Gas-Dynamics</a>
+<div class="page-header"><h1>[Gas Dynamics] Ch 4 Introduction to Compressible Flow - part2</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-03-25</span><span class="meta-item"><span class="meta-label">Category:</span> Gas-Dynamics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/9" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>자 이제 Ma를 이용하여 이상기체 일때 다른 property들을 표현해보자<br />
+1. mass flow rate<br />
+이상기체 상태방정식 P=<br />
+ρRT , M = V/a를 대입하면<br />
+<img alt="[Gas Dynamics] Ch 4 Introduction to Compressible Flow - part2" src="./images/img-001.png" /><br />
+2. Stagnation Enthalpy (ht)<br />
+Stagnation Enthalpy 에서 potential term을 무시후, ch3 stagnation enthalpy 식을 유도했었다.<br />
+dh = CpdT 임을 이용하여 대입하면, (Specific heat constant의 정의)<br />
+다음과 같은 식을 유도할 수 있다.<br />
+<img alt="[Gas Dynamics] Ch 4 Introduction to Compressible Flow - part2" src="./images/img-002.png" /><br />
+뿐만아니라 Cp가 일정하다고 가정하고,<br />
+Cp-Cv = R, Cp/Cv = r 임을 이용하여 다음과 같이 식을 유도하여<br />
+최종적으로 Stagnation temperature과 현재 temperature을 Ma,r 의 식으로 나타낼 수 있다.<br />
+<img alt="[Gas Dynamics] Ch 4 Introduction to Compressible Flow - part2" src="./images/img-003.png" /><br />
+3. Stagnation Pressure (pt)<br />
+ch3 에서 언급했다 싶이 Static -&gt; Stagnation process 자체는 Isentropic하다<br />
+따라서 ch1에서 언급한 Isentropic process 식 ( 온도비율과 압력비율의 관계식)은 다음 과 같다.<br />
+<img alt="[Gas Dynamics] Ch 4 Introduction to Compressible Flow - part2" src="./images/img-004.png" /><br />
+따라서 state1-&gt;state2 process를 Static -&gt; stagnation process라고 하면<br />
+<img alt="[Gas Dynamics] Ch 4 Introduction to Compressible Flow - part2" src="./images/img-005.png" /><br />
+4. Stagnation Pressure - En ergy Equation<br />
+ch3 에서 유도하였던 Stagnatino pressure -Energy equation 에서<br />
+<img alt="[Gas Dynamics] Ch 4 Introduction to Compressible Flow - part2" src="./images/img-006.png" /><br />
+No shaft work(d ws =0), No heat transfer(d se =0) 가정을 해보자<br />
+<img alt="[Gas Dynamics] Ch 4 Introduction to Compressible Flow - part2" src="./images/img-007.png" /><br />
+여기에다가 IDEAL GAS 라고 가정하면 stagnation state 에서<br />
+P=<br />
+ρRT을 적용하여 밀도를 압력과 온도식으로 전환 할 수 있다.<br />
+<img alt="[Gas Dynamics] Ch 4 Introduction to Compressible Flow - part2" src="./images/img-008.png" /><br />
+최종적으로 Stagnation Pressure - Entropy function 이 도출된다.<br />
+Careful about the assumptions!<br />
+1. Steady state process<br />
+2. 1-D<br />
+3. Ideal gas<br />
+4. No heat transfer<br />
+5. No shaft work<br />
+위 식이 의미하는 바가 무엇일까??<br />
+Assumption들을 보면 한 가지 가정 빼고 전부 다 있는 것을 알 수 있다.<br />
+그건바로 No friction assumption 즉 irrversible process 인 경우를 포함하는 식이다. 게다가<br />
+s2,s1 모두 irreversible entropy 를 의미하는 것을 알 수 있다.<br />
+Friction이 있는 irrversible process 같은 경우 Entropy 가 증가하여 Stagnation pressure 은 감소한다.<br />
+만약 마찰이 없는 reversible process라면 Entropy 가 일정하여 Stagnation pressure 도 일정하다!<br />
+결국 우리는 과정의 Entropy 변화가 있냐 없냐?<br />
+즉 Isentropic process인지 아닌지 에 따라서<br />
+Stagnation pressure이 감소한지 일정한 지를 알 수 있다.<br />
+여기서 햇갈리지 말아야 하는 부분은 바로 Stagnation enthalpy(ht)<br />
+(ch3에서 Energy equation 을 통해서 해당식을 증명함)<br />
+<img alt="[Gas Dynamics] Ch 4 Introduction to Compressible Flow - part2" src="./images/img-009.png" /><br />
+dht = 0 인 경우는 바로 No heat transfer, no shaft work 인 경우였다.<br />
+다시 한번 정리해보면 진짜 마지막 정리입니다.<br />
+1. dht = 0 인 경우, Stagnation enthalpy 일정한 경우의 Assumptions<br />
+-1-D<br />
+-Steady state<br />
+- No Shaft work (dws =0)<br />
+-No heat transfer (dq =0 )<br />
+-Entropy 일정하던 말던 상관 없음#######<br />
+2. dpt = 0 인 경우, Stagnation pressure 일정한 경우의 Assumptions<br />
+1-D<br />
+-Steady state<br />
+- No Shaft work (dws =0)<br />
+-No heat transfer (dq =0 )<br />
+-Ideal gas<br />
+-Entropy 일정 (ds = 0)<br />
+마지막으로 앞으로 맨날 계속해서 continuously, frequently, permenantly<br />
+그릴 h-s, T-s 그래프<br />
+이 그래프가 왜 용이한지 부터 좀 이야기 해야 그릴 맛이 그리기 시작을 하지 않을까요?<br />
+1. 일단 s 가 변하는지 아니면 일정한지를 한눈으로 보면<br />
+Stagnation pressure이 일정한지를 바로 아니 편리할 예정<br />
+따라서 x축에 s를 둠<br />
+2. Enthalpy 를 y축에 두면 우리는 Stagnation enthalpy도 같이 표시 할 수 있다.<br />
+따라서 Stagnation Enthalpy가 변하는지 일정한 지도 한 눈에 알 수 있다.<br />
+Furthermore, Plus, Moreover, Additionally, On top of that<br />
+h + V^2/2 = ht 에서 만약에 Stagnation Enthalpy가 일정한 process이면 h1t = h2t<br />
+만약에 h1<h2 이라면 V1>V2 라는 것을 바로 catch 할 수 있다.<br />
+즉 이렇게 속도의 크기 비교도 한눈에 가능하다는 장점.<br />
+밑 그림처럼 파이프를 지나고 State 1-&gt;2-&gt;3 으로 흐른다고 가정하자.</p>
+<h1>Assumptions</h1>
+<p>-Steady state proces<br />
+-1-D<br />
+-No heat transfer<br />
+-No shaft work<br />
+-Negligible potential<br />
+<img alt="[Gas Dynamics] Ch 4 Introduction to Compressible Flow - part2" src="./images/img-010.png" /><br />
+위 가정들을 통해서 우리는 아까도 말했다 싶이<br />
+Stagnation Enthalpy constant<br />
+Entropy Increase<br />
+Stagnation pressure decrease<br />
+임을 알 수 있다.<br />
+Static Enthaply 는<br />
+1-&gt; 2 증가<br />
+2-&gt; 3 감소<br />
+임을 사진으로 알 수 있고 따라서 속도는?? Guess해봅시다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

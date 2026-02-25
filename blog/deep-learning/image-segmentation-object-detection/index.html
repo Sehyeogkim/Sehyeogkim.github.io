@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image Segmentation, Object detection. | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item active">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/deep-learning/">Deep-learning</a><span class="sep">/</span>  <span>Image Segmentation, Object detection.</span></div>
+<a href="/blog/deep-learning/" class="back-link">&larr; Back to Deep-learning</a>
+<div class="page-header"><h1>Image Segmentation, Object detection.</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-12-11</span><span class="meta-item"><span class="meta-label">Category:</span> Deep-learning</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/140" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Image Segmentation, Object detection.<br />
+지금까지는<br />
+분류 작업, 확률, 예측,<br />
+이미지 Reconstruct 등을<br />
+output으로 계산해 왔다.<br />
+[Image Segmentation]<br />
+이번에는 영역 구분을 하는<br />
+image segmentation에 대해서 알아보자.<br />
+아주 간단하다,<br />
+우리가 관심이 있는 영역과<br />
+관심이 없는 영역을 분류하는 것이다.<br />
+<img alt="Image Segmentation, Object detection." src="./images/img-001.jpg" /><br />
+image segmentation<br />
+위 사진의<br />
+관심영역:사람<br />
+관심이 있는 영역에 한개의 사진에 여러개 존재할 수 도 있다.<br />
+관심영역: 사람, 자동차, 도로, 도로 주변 물건<br />
+<img alt="Image Segmentation, Object detection." src="./images/img-002.png" /><br />
+이를 위해,<br />
+우리는<br />
+Transposed Conv을 활용하여<br />
+reconstructed image를 제작해야하고,<br />
+더하여!!! 각 픽셀별로 어떠한 종류인지 분류작업도 해주어야 한다.<br />
+<img alt="Image Segmentation, Object detection." src="./images/img-003.png" /><br />
+즉, CNN에서의<br />
+image reconstruction을 진행<br />
++ pixel classification 도 진행<br />
+해야한다.<br />
+<img alt="Image Segmentation, Object detection." src="./images/img-004.png" /><br />
+위(CAE) , 밑(FCN)<br />
+위 모델 구조를 살펴보면, 전부 동일하지만<br />
+FCN의 경우 skip connection즉<br />
+이전 block에서의 정보가 추후 block에 input으로<br />
+들어간다.<br />
+이는 우리가<br />
+Residual Network 에서 배운 것과 동일하다.<br />
+<img alt="Image Segmentation, Object detection." src="./images/img-005.png" /><br />
+a residual network block<br />
+이전 정보를 가져와서 output과 연결시키는 작업이다.<br />
+FCN에서는 이렇게 함으로 써 feature의 갯수가 줄어들면<br />
+spatial 정보도 줄어드는데<br />
+이를 이전 x를 가지고 옴 으로 써 해결한다.<br />
+<img alt="Image Segmentation, Object detection." src="./images/img-006.png" /><br />
+[Object Detection]<br />
+이번에는 같은 목적이지만,<br />
+더 간단하게 모든 픽셀을 다 계산하지 않고,<br />
+bounding box를 활용하여,<br />
+물체의 위치 + 분류<br />
+2가지 작업을 진행하는<br />
+Object detection<br />
+에 대해서 알아보자.<br />
+<img alt="Image Segmentation, Object detection." src="./images/img-007.png" /><br />
+위 사진을 보면, 바로 이해 하실 것이다.<br />
+위 물체 탐지를 달성하기 위해서<br />
+우리의 모델은 두가지 작업을 해야한다.<br />
+1. 물체의 위치(bounding box위치)<br />
+2. 물체 분류(자동차인지 사람인지 자전거인지)<br />
+이는 이전 image segmentation보다<br />
+훨씬 간편함을 알 수 있다.<br />
+(모든 픽셀을 다 분류하지 않아도 되기 때문)<br />
+모델 구조는 간단하다,<br />
+특징을 CNN(Convolutional Nerual Network)로 추출해주고,<br />
+상자의 위치, 물체 분류 이 두가지 작업을 위해<br />
+각각 Dense layer로 Flatten작업을 해준다.<br />
+<img alt="Image Segmentation, Object detection." src="./images/img-008.png" /><br />
+최종적으로 우리가 얻는 것은<br />
+(위 output) : 상자의 좌표와 크기<br />
+(아래 output) : 어떤 물체인지 분류.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Self-Supervised Learning | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item active">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/deep-learning/">Deep-learning</a><span class="sep">/</span>  <span>Self-Supervised Learning</span></div>
+<a href="/blog/deep-learning/" class="back-link">&larr; Back to Deep-learning</a>
+<div class="page-header"><h1>Self-Supervised Learning</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-12-11</span><span class="meta-item"><span class="meta-label">Category:</span> Deep-learning</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/143" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>지금까지, generator 개념을 제외하고는 전부,<br />
+supervised Learning<br />
+에 대해서 다루었다<br />
+즉, 어떤 모델을 가지고 있는 input output pair data<br />
+를 가지고 학습시키는 방식이다.<br />
+하지만,<br />
+실제 deep learning으로 내가 원하는 모델을<br />
+구축할때 무조건 직면하는 문제가 발생한다.<br />
+바로. 원하는 organized data가 존재하지 않는다는 것이다.<br />
+1. 학습할 데이터의 양이 부족하거나.<br />
+2. 데이터가 존재해도 output paired label이 안 붙어 있다는 점이다.<br />
+정확성이 높은 모델을 만들기 위한,<br />
+data를 정돈하는 회사가 따로 있을 정도이다.<br />
+(e.g. Scale AI)<br />
+위 문제를 해결하기 위해.<br />
+model 이 직접, labeling을 진행하는<br />
+self-supervised Learning<br />
+에 대해서 알아보자.<br />
+<img alt="Self-Supervised Learning" src="./images/img-001.png" /><br />
+Process of Self-supervised Learning<br />
+self-supervised Learning에서는 두가지 Task 과정이 순서대로 진행된다.<br />
+1. Pretext task.<br />
+-labeling 스스로 하는 방법 학습.<br />
+2. Downstream task.<br />
+-label을 붙힌 후,<br />
+원하는 작업을 위한 모델 학습.<br />
+먼저 pretext-task에 대해서 알아보자.<br />
+[기본적인 규칙]<br />
+은 다음과 같다<br />
+1. User가 일부러 가지고 있는 데이터를 변형,조작 한다.<br />
+2. 조작된 데이터를 모델에게 주고,<br />
+반대로, 어떻게 조작되었는지를 예측하도록 한다.<br />
+위에서 말하는 유저의 인위적인<br />
+변형 혹은 조작은<br />
+다음과 같다.<br />
+a) Context Prediction<br />
+[학습과정]<br />
+가지고 있는 고양이 사진에서 9개의 조각을 임의로 빼낸후,<br />
+각 조각이 어디에 들어가야할지(번호)를 정확히 예측하도록<br />
+모델을 학습시킨다.<br />
+<img alt="Self-Supervised Learning" src="./images/img-002.png" /><br />
+b) Jigsaw puzzle<br />
+[학습과정]<br />
+이번에는 조각들을 무작위로 섞은 후에,<br />
+원래 이미지의 조각으로 맞추도록<br />
+모델을 학습시킨다.<br />
+<img alt="Self-Supervised Learning" src="./images/img-003.png" /><br />
+c) Image colorization<br />
+[학습과정]<br />
+기존 사진에서 색을 제거한 후에, 따로 저장한다.<br />
+이후, CAE를 통해서 색을 예측한 사진을 만들고,<br />
+기존 저장된 진짜 색과 비교하여 CAE를 학습시킨다.<br />
+<img alt="Self-Supervised Learning" src="./images/img-004.png" /><br />
+d) super-resolution<br />
+[학습과정]<br />
+기존 사진의 크기를 강제로 축소시킨다.<br />
+이후, generator로 크기를 키우도록하고, 실제 사진과 비교한다.<br />
+(GAN으로 학습가능)<br />
+<img alt="Self-Supervised Learning" src="./images/img-005.png" /><br />
+e) Image-Impainting<br />
+[학습과정]<br />
+실제 사진의 부분을 일부러 제거해주고,<br />
+generator보고 제거한 부분을 예측해서 생성하도록 학습시킨다.<br />
+이후, 제거하기 전 실제 사진과 generator가 만든 사진을<br />
+discriminator가 구분하도록 학습시킨다.<br />
+(GAN)<br />
+<img alt="Self-Supervised Learning" src="./images/img-006.png" /><br />
+이제.<br />
+이렇게<br />
+pretext task<br />
+로 학습된 모델을<br />
+그대로, 진짜 사용하고 싶은 모델(<br />
+Downstream task<br />
+)<br />
+로 transfer 시킨다.<br />
+<img alt="Self-Supervised Learning" src="./images/img-007.png" /><br />
+결국, unlabeled dataset -&gt; pretextask에서<br />
+feature extacting을 하는 모델로 학습하였고,<br />
+이를 그대로 tranfer learning하여<br />
+원하는 Downstream task에 사용하는<br />
+workflow이다.<br />
+self-supervised learning이<br />
+가장 중요하게 쓰이는 곳이 바로<br />
+Large Language Model(LLM)<br />
+이다.<br />
+(지금은 transfomer 사용)<br />
+단어의 결합으로 이루어진 문장은 label이란게 존재하지 않는<br />
+unlabeled data이다.<br />
+따라서, 우리는 수 많은 public source들에서<br />
+문장들을 수집한다.<br />
+<img alt="Self-Supervised Learning" src="./images/img-008.png" /><br />
+이후, 임의로 user 가 변형, 조작을 진행시켜 주어,<br />
+pre-text task로 모델을 학습시킨다.<br />
+<img alt="Self-Supervised Learning" src="./images/img-009.png" /><br />
+만들어진 최종 모델을<br />
+donwstream task<br />
+를 위한 모델로 transfer 시킨다.<br />
+ex) ChatGPT</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

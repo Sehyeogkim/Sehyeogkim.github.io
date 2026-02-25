@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli&#x27;s Eq. | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item active">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/gas-dynamics/">Gas-Dynamics</a><span class="sep">/</span>  <span>[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli&#x27;s Eq.</span></div>
+<a href="/blog/gas-dynamics/" class="back-link">&larr; Back to Gas-Dynamics</a>
+<div class="page-header"><h1>[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli&#x27;s Eq.</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-03-24</span><span class="meta-item"><span class="meta-label">Category:</span> Gas-Dynamics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/5" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>지난번에 분석한 Reynolds Transport Theorem 에 더해서<br />
+Control volume의 Entropy 를 분석해보자<br />
+Revesrible proc ess 에서 Entropy 는 다음과 같이 정의되었다.<br />
+(자세한내용 증명, 정의 밑의 열역학 포스터 참고)<br />
+<img alt="[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli's Eq." src="./images/img-001.png" /><br />
+https://jeffdissel.tistory.com/67<br />
+[Thermodynamics] Ch 6. The Inequality of Clausius &amp; Entropy<br />
+그림과 같이, Reversible cycle engine이 있다고 해보자. 우리는 이전 시간에, QH/QL = Th/TL 임을 확인 하였다. (Ideal gas) 따라서, 반대로, Irreversible cycle 인 경우, Qh 의 열을 동일하게 받았다고 했을때, W irr<br />
+jeffdissel.tistory.com<br />
+하지만 이 엔트로피 변화는<br />
+Reversible 과정<br />
+에서만 이라는 것<br />
+실제 Process는 거의 Irreversible process 마찰 무조건 있다 무조건<br />
+(카르노 기관이 불가능한 이유)<br />
+그래서 그래서 엔트로피를 두 part로 분리하였다.<br />
+reversible term + irrversible term<br />
+<img alt="[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli's Eq." src="./images/img-002.png" /><br />
+그리고 가역과정 엔트로피를 우리가 열역학 시간에 정의한 그대로<br />
+<img alt="[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli's Eq." src="./images/img-003.png" /><br />
+라고 정의하자.<br />
+System이 열을 받으면 Q&gt;0 , 열이 외부로 나가면 Q&lt;0 이었기 때문에<br />
+dSe 는 양수, 음수 상황에 따라서 둘다 가능하다.<br />
+Reynolds transport theorem 에서도 모든 표현들을 unit mass로 표현 했으므로<br />
+Entropy도 unit mass로 표현 해주면 다음과 같다. (small s)<br />
+<img alt="[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli's Eq." src="./images/img-004.png" /><br />
+<img alt="[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli's Eq." src="./images/img-005.png" /><br />
+<img alt="[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli's Eq." src="./images/img-004.png" /><br />
+<img alt="[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli's Eq." src="./images/img-005.png" /></p>
+<hr />
+<p>잠깐만<br />
+가역적 열 q reversible<br />
+이 뭔지 한번 보고가자<br />
+[나도 헷갈려서 정리함]<br />
+<img alt="[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli's Eq." src="./images/img-006.jpg" /><br />
+State 1-&gt;2-&gt;1 이렇게 순환하는 Cycle 과정이 있다고 하자.<br />
+진짜 애매하고 헷갈리지만 중요한 부분은<br />
+여기서 열은 가역과정 열이라는 의미 그니까 Friction 으로 인해 발생하는 열이랑은 별개<br />
+가역적인 열 = 거꾸로 Process했을때 원래 상태로 돌아갈 수 있는 열<br />
+뭔말이냐면<br />
+열을 받아서 State 1 에서 novel State2가 되었다고 했을때<br />
+State 2가 되고 나서 열을 밖으로 똑같은 양을 빼도 원래 state1으로 돌아갈 수 있으면<br />
+그 주고받은 열을 Reversible heat 라고한다.<br />
+[열역학 제 2법칙 내용 잠시 언급]<br />
+Entropy는 Path function 이 아니라 Point function 이였다. 즉 State 가 같다면 Entropy 값은 같다.<br />
+따라서,<br />
+Cycle dS = 0 이라는 것은 자명하다.<br />
+위에서 정의한대로, 엔트로피를 reversible, irreversible term 두개로 나누어서 생각하면<br />
+cycle 식은 다음과 같다.<br />
+<img alt="[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli's Eq." src="./images/img-007.png" /><br />
+여기서 irrversible 과정은 엔트로피가 발생하는 과정이다. 따라서<br />
+<img alt="[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli's Eq." src="./images/img-008.png" /><br />
+즉 Reversible entropy cycle 은 항상 음수이거나 0이라는 것이다. 이 식이 바로 Inequality of Clasius 였다.<br />
+https://jeffdissel.tistory.com/67</p>
+<hr />
+<p>이제 엔트로피의 정리가 끝났으니 지금까지 구했던 식들과 짬뽕해보자<br />
+먼저 열역학 제 1법칙으로 유도했던<br />
+잠시 빠르게 언급하면<br />
+dq = du + dw = du + pdv (dw = pdv)<br />
+dh = du + pdv + vdp ( h = u + pv 양변 미분)<br />
+dq = dh-vdp<br />
+<img alt="[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli's Eq." src="./images/img-009.png" /><br />
+여기서 Heat transfer 은 system에 작용하는 혹은 외부로 방출하는 모든 열을 포함한다.<br />
+따라서 Reversible Irreversible 모두 포함하므로 dq = Tds =Tdse+Tdsi 로 표현한다.<br />
+즉, 마찰열도 포함<br />
+그 이유는 단순하게 이 열역학 제1법칙은 시스템에 작용하는 모든 열에 관한 식이기 때문에<br />
+<img alt="[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli's Eq." src="./images/img-010.png" /><br />
+이제 전 Post 마지막에 증명하였던 Steady-state 1-D differential form energy equation 에 대입해보 면<br />
+(dq, dws 모두 reversible process라 가정하자)<br />
+<img alt="[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli's Eq." src="./images/img-011.jpg" /><br />
+<img alt="[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli's Eq." src="./images/img-012.png" /><br />
+방금전에 정의한 Reversible heat 의 Entropy 형태를 위 식에 대입해주면<br />
+<img alt="[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli's Eq." src="./images/img-005.png" /><br />
+<img alt="[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli's Eq." src="./images/img-013.png" /><br />
+최종 Pressure-Energy Equation 이 도출된다.<br />
+One of the most important and frequently used Equation.</p>
+<h4>Friction, shaft work 없다고 가정할경우 Tdsi = 0, dws =0</h4>
+<p><img alt="[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli's Eq." src="./images/img-014.png" /><br />
+[Euler's equation]<br />
+여기서 한술 더 떠서 밀도가 일정하다고 가정하고 (incompressible flow) state1 -&gt; state2 로 적분해주면<br />
+중학교 때 배운 베르누이 형님이 나온다.<br />
+<img alt="[Gas Dynamics] Ch 3 Control Volume analysis - Pressure-E Eq.+Bernoulli's Eq." src="./images/img-015.png" /><br />
+[Bernoulli's equation]</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

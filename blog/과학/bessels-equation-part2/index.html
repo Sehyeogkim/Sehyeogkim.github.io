@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bessel&#x27;s Equation_Part2 | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item active">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/과학/">과학</a><span class="sep">/</span>  <span>Bessel&#x27;s Equation_Part2</span></div>
+<a href="/blog/과학/" class="back-link">&larr; Back to 과학</a>
+<div class="page-header"><h1>Bessel&#x27;s Equation_Part2</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-09-29</span><span class="meta-item"><span class="meta-label">Category:</span> 과학</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/102" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>[이전 포스터 요약]<br />
+지금 현재 우리는<br />
+베셀방정식의 해를 구하는 중이다.<br />
+<img alt="Bessel's Equation_Part2" src="./images/img-001.png" /><br />
+프로비니우스 해법으로<br />
+Jm(x) , J-m(x) 두가지가 해가 나왔지만,<br />
+<img alt="Bessel's Equation_Part2" src="./images/img-002.jpg" /><br />
+m = 정수일때<br />
+<img alt="Bessel's Equation_Part2" src="./images/img-003.png" /><br />
+즉 linearly dependent라는 관계로<br />
+증명되었다. (Jm, J-m 으로 일반해 derive못함)<br />
+따라서,<br />
+새로운 해 Ym(x) 를 정의하였고,<br />
+이를 제 2종 베젤함수라고 부른다.<br />
+<img alt="Bessel's Equation_Part2" src="./images/img-004.png" /><br />
+자 여기서, 2가지만 이번시간에 알아보고 가자.<br />
+1. m이 정수가 아닐때는?<br />
+2. Ym(x), Jm(x) 는 선형독립인가?</p>
+<hr />
+<ol>
+<li>m이 정수가 아닐때<br />
+먼저, 결론적으로 말씀 드리면,<br />
+Jm(x) 와 J-m(x)가<br />
+선형 종속이 아니게 된다.<br />
+따라서,<br />
+<img alt="Bessel's Equation_Part2" src="./images/img-005.png" /><br />
+(c1,c2는 상수)<br />
+위형태가 베셀 방정식의 일반해가 된다.<br />
+이제, linearly independent임을 증명해보자.<br />
+증명방법은<br />
+Wronskian이 모든 x에 대해서 0 이 아님을 보이면 된다.<br />
+<img alt="Bessel's Equation_Part2" src="./images/img-006.jpg" /><br />
+자 여기서,<br />
+<img alt="Bessel's Equation_Part2" src="./images/img-001.png" /><br />
+위 베젤 함수에 방정식의 해<br />
+Jm(x), J-m(x) 를 대입하여 밑 1,2식을 도출하자.<br />
+<img alt="Bessel's Equation_Part2" src="./images/img-007.jpg" /><br />
+위 연산과정을 거친 후,<br />
+정리하면 최종적으로 Wronskian이 도출됨을 알 수 있다.<br />
+<img alt="Bessel's Equation_Part2" src="./images/img-008.jpg" /><br />
+핵심은, Wronskian을 아직 정확히 구하지는 못했지만,<br />
+C/x 형태임을 확인하였다.<br />
+이제 지난시간에 구한,<br />
+제 1종 베젤함수의 실제 식을 미분하여,<br />
+Wronskian식을 계산해보자.<br />
+<img alt="Bessel's Equation_Part2" src="./images/img-009.jpg" /><br />
+시그마 항의 n=0, n=1 항만 전개해주면,<br />
+계속해서, 차수가 2만큼 증가함을 확인 할 수 있다.<br />
+<img alt="Bessel's Equation_Part2" src="./images/img-010.jpg" /><br />
+이제 Wronskian식에 대입하기 위해 곱해주는데,<br />
+핵심은 x의 차수가 -1이외의 것들은 0 이 됨을 우리는 알고있다.<br />
+즉, n=0의 항들의 곱만이 x차수가 -1이고 이외는<br />
+차수가 높아짐을 알 수 있다.<br />
+따라서, n=0항들만 곱해주어 Wronskian을 구해주자.<br />
+<img alt="Bessel's Equation_Part2" src="./images/img-011.jpg" /><br />
+<img alt="Bessel's Equation_Part2" src="./images/img-012.png" /><br />
+<img alt="Bessel's Equation_Part2" src="./images/img-011.jpg" /><br />
+<img alt="Bessel's Equation_Part2" src="./images/img-012.png" /><br />
+(감마함수 성질1,2)<br />
+여기에 감마함수의 첫번째 성질을 이용하면,<br />
+다음의 Wronskian식이 감마함수로와 x^-1의 곱으로 나타난다.<br />
+<img alt="Bessel's Equation_Part2" src="./images/img-013.jpg" /><br />
+여기서 감마함수의 2번째 성질로 사인함수로 감마함수를 바꿔주면<br />
+결론적으로 우리가 원하는 Wronskian의 식이 나오게 된다.<br />
+위 식을 보면 알 수 있듯이,<br />
+m = 정수일때, Wronskian = 0<br />
+m = 정수 아닐때, Wronskian != 0<br />
+따라서, m:정수일때<br />
+Jm(x), J-m(x) 는 선형종속(Wronskian = 0)<br />
+아닐때는, 선형독립임(Wronskian != 0)<br />
+을 확인하였다.</li>
+</ol>
+<hr />
+<ol>
+<li>Ym(x), Jm(x) 선형독립 증명<br />
+따라서, 지난시간에<br />
+m이 정수일때 Ym(x)<br />
+제2종 베젤함수를 정의하여,<br />
+<img alt="Bessel's Equation_Part2" src="./images/img-014.png" /><br />
+베젤방정식의 일반해가 다음과 같다고 하였다.<br />
+<img alt="Bessel's Equation_Part2" src="./images/img-015.png" /><br />
+(C1,C2는 상수)<br />
+여기서 제2종 베젤함수는 베젤 방정식을 통해 유도된 해가 아니라,<br />
+식을 통해 유도된<br />
+Jm(x), J-m(x)<br />
+로 구성된 해이다.<br />
+(말이 좀 복잡하긴하네요)<br />
+즉, 식을 통해 유도된 Jm(x), J-m(x)<br />
+로 일반해를 정의하려고 했지만,<br />
+m이 정수일대, 선형종속이므로 정의하지 못하여<br />
+Jm(x), J-m(x) 의 조합</li>
+<li>Jm(x) 와 선형독립<br />
+이 되도록<br />
+새로운 해를 정의한 것이다.<br />
+그렇다면, 새롭게 정의한 Ym(x)이<br />
+Jm(x)과 선형독립임을 확인해보자.<br />
+확인방법은, 지난시간에 했던 것과 동일하게<br />
+Jm(x), Ym(x) 의 Wronskian이 0이 아님을 증명하면 된다.<br />
+<img alt="Bessel's Equation_Part2" src="./images/img-016.jpg" /><br />
+먼저, 제2종 베젤함수를 미분시켜주고,<br />
+론스키안 식(1번) 에 대입해준다.<br />
+<img alt="Bessel's Equation_Part2" src="./images/img-017.jpg" /><br />
+대입해주게 되면,<br />
+과정에서<br />
+Ja(x), J-a(x)의 Wronskian이 나온다.<br />
+(<br />
+아까 위에서 derived)<br />
+따라서, 최종적으로 2/(pi*x) 가<br />
+도출되고,<br />
+0이 아님이 증명되었다.</li>
+</ol>
+<hr /></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

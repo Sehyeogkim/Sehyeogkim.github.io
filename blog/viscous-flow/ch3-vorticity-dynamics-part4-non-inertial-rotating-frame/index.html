@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch3 Vorticity dynamics_part4_Non inertial rotating frame | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item active">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/viscous-flow/">Viscous-Flow</a><span class="sep">/</span>  <span>Ch3 Vorticity dynamics_part4_Non inertial rotating frame</span></div>
+<a href="/blog/viscous-flow/" class="back-link">&larr; Back to Viscous-Flow</a>
+<div class="page-header"><h1>Ch3 Vorticity dynamics_part4_Non inertial rotating frame</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-10-10</span><span class="meta-item"><span class="meta-label">Category:</span> Viscous-Flow</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/116" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Ch3 Vorticity dynamics_part4_Non inertial rotating frame<br />
+바로 이전 포스터에서,<br />
+우리는 비관성 좌표계에서 Navier's Stokes Eq을 유도하였다.<br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-001.png" /><br />
+햇갈리기 때문에, parameter들의 정의를 다시 한번 살피고 가자.<br />
+u': 물체의 속도 (비관성좌표계에서 관찰한)<br />
+U: 비관성좌표계 자체의 속도 (관성좌표계에서 관찰한)<br />
+Ω: 비관성좌표계의 각속도 (관성좌표계에서 관찰한)<br />
+x': 물체의 위치벡터 (비관성좌표계에서 관찰한)<br />
+여기서, 우리는 일정한 속도로 회전하고 고정된 non inertial reference frame을 살펴볼 것이다.<br />
+따라서, 정리하면 식2가 도출된다.<br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-002.png" /><br />
+복잡한 계산을 편하게 해주는 것이 바로 Tensor notation<br />
+(익숙해지면, 정말편하지만 어려워서 아직 익숙하지 않다..)<br />
+(아예 모르시다면, 밑의 포스터를 무조건 보고 오셔야 됩니다)<br />
+https://jeffdissel.tistory.com/105<br />
+Ch1. Kinematics<br />
+시작에 앞서서,Cartesian Tensor에 대해서익숙해지고 들어가자. 유체의 움직임에 관한 식을유도하는 과정에서가장 중요한 도구인Cartesian Tensor. 기본적으로,i,j,k 인덱스를 사용한다.규칙: 인덱스<br />
+jeffdissel.tistory.com<br />
+다시 본론으로,<br />
+비관성좌표계에서 나비아스 스톡스 방정식을 Tensor notation으로 표현해주면<br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-003.png" /><br />
+Tensor notation<br />
+Levi-Cevita Tensor<br />
+를 사용하여, (eijk)<br />
+각 항들을 다음과 같이 분해하자.<br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-004.png" /><br />
+그대로 대입해주고, 정리해주면 식4가 도출된다.<br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-005.png" /><br />
+여기서, 각항들을 새로운 Levi-Cevita Tensor<br />
+index (nqi) 이후 d/dx_q를 취해주면, 좌변 두번째 항 = 0 이된다.<br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-006.png" /><br />
+두번째항은 Scalar의 Divergence이었고, A로 표현하면 다음과 같다.<br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-007.png" /><br />
+0인지 확인을 위해 직접 전개를 해보니,<br />
+Levi-Cevita Tensor의 특징으로 0이 도출된다.<br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-008.png" /><br />
+가만히 보니까 어디서 많이 본 듯한 비주얼이다.<br />
+우리가 계산한 것이 바로. curl(divergence of A)<br />
+였던 것이다.<br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-009.png" /><br />
+발산항의 curl은 항상 0 인 것은 자명하기 때문에<br />
+0이었던 것이다.<br />
+다시 본론으로 돌아와서,<br />
+2nd 항이 0 이었던 것을 확인했고<br />
+나머지 항들을 다시 써보자<br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-010.png" /><br />
+먼저 1번 항을 전개해보자.<br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-011.png" /><br />
+nqi ,ijk를 몇개 전개해보니 규칙이 발견되었다.<br />
+위 규칙을 Kronecker Delta 로 다음과 같이 표현이 가능하다.<br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-012.png" /><br />
+따라서, 1번을 정리하면<br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-013.png" /><br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-014.png" /><br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-013.png" /><br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-014.png" /><br />
+두번째항은 전개하면 똑같이, Curl(divergence of scala P) = 0이므로<br />
+다음과 같이 정리가 된다.<br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-015.png" /><br />
+3번째 항도 1번째 항에서 사용한 규칙으로<br />
+Kronecker Delta를 활용하여 전개하면<br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-016.png" /><br />
+마지막으로 4번 항은 아주 심플하게 curl u 즉, vorticity이다.<br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-017.png" /><br />
+방금 유도한 1,2,3,4 항들을 전부 대입해주면<br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-018.png" /><br />
+우변 두번째 항을 좌변으로 넘겨주어 total time derivative of Vorticity (W)<br />
+로 표현해주면 다음과 같이 식이 나온다.<br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-019.png" /><br />
+결론적으로 우리가 유도한 식은<br />
+Vorticity Equation인데, 회전하고있는 비관성 좌표계에서 바라본 Vorticity Eq이다.<br />
+우리가 이전에 구한 관성좌표계에서 유도한 Vorticity 방정식과 비교해보면<br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-020.png" /><br />
+w -&gt; (w+2 Ω) 임을 알 수 있고,<br />
+따라서, (w+2<br />
+Ω): Absolute vorticity in an inerital frame.<br />
+이라고 부른다.<br />
+우리가 구한 비관성좌표계의 vorticity식에서<br />
+inviscid, barotropic flow 가정으로 우변의 두항을 날려주고<br />
+각속도는 z방향만 있다고 했을때 식을 전개하면 다음과 같다.<br />
+<img alt="Ch3 Vorticity dynamics_part4_Non inertial rotating frame" src="./images/img-021.png" /><br />
+위 식이 의미하는 것은, vorticity = 0 즉, irrotational flow이어도<br />
+비관성좌표계 자체가 회전하면, vorticity 가 변해서 rotational로<br />
+변한다는 것이다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

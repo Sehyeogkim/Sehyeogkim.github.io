@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CH5 Elasticity - part8 (Plain Strain) | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item active">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/solid-mechanics/">Solid-Mechanics</a><span class="sep">/</span>  <span>CH5 Elasticity - part8 (Plain Strain)</span></div>
+<a href="/blog/solid-mechanics/" class="back-link">&larr; Back to Solid-Mechanics</a>
+<div class="page-header"><h1>CH5 Elasticity - part8 (Plain Strain)</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-06-11</span><span class="meta-item"><span class="meta-label">Category:</span> Solid-Mechanics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/207" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>지금부터는 Boundary condition중 굉장히 많이 나오는<br />
+Plain stress, strain<br />
+두가지를 살펴보고, 이번에는 plain strain 을 먼저 살펴볼 것이다.<br />
+고체역학의 가장 큰 장점은 직관적이고, 현실적이다.<br />
+x3방향으로 무한히 긴 원기둥<br />
+을 가정해보자.<br />
+it is impoosible to analyze all over the cylinde!!!!!!<br />
+Therefore, 우리는 3방향으로는 strain이 없다라고 가정하고, 접근하자.<br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-001.png" /><br />
+따라서, plane(x1,x2)와 펴행한 단면을 다음과 같이 자른 후 그 단면만 분석할 것이다.<br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-002.png" /><br />
+u3 = 0 즉 x3방향의<br />
+displacement = 0으로 설정한다.<br />
+뿐만아니라 굉장히 중요한 것은,<br />
+다른 모든 property들은 x3방향과 무관한다.<br />
+x3방향으로는 homogeneous하다고 생각하면 된다.<br />
+이에, 우리는 strain tensor를 다음과 같이 1,2 방향으로만 해석한다.<br />
+(33방향은 전부 0 이므로 해석할 필요가 없다)<br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-003.png" /><br />
+새롭게 index가 2d로 바뀌었으므로, 이에 맞추어 stress도 3D -&gt; 2D 로 바꾸어 주자.<br />
+Beginning from the Isotropic Linear elastic Constitutive Law.<br />
+(stress tensor first)<br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-004.png" /><br />
+먼저 i = j = 3인 stress component를 살펴보면,<br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-005.png" /><br />
+즉, e_33 = 0이지만, 3방향으로 변화량은 없지만 stress는 존재한다!!!!.<br />
+이제, stress tensor를 2D index로 바꾸어 주자(메<br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-006.png" /><br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-007.png" /><br />
+2 D index alpha, beta.<br />
+여기서 beta = alpha를 대입하면,<br />
+(<br />
+σ_α α = σ_11 + σ_22 ) 를 구할 수 있다.<br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-008.png" /><br />
+우리가 3번방향의 stress를 구했던 식을 가져와서 비교해보면,<br />
+여기서<br />
+e_rr, e_α<br />
+α<br />
+는 dummy indcies이므로 둘다 e_11 + e_22를 의미한다, 즉 동일하다.<br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-009.png" /><br />
+따라서, 2번식과 1번식을 e에 대해서 연립을 해주면,<br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-010.png" /><br />
+굉장히 특이한 식이 발견된다.<br />
+즉, 11,22 stress component의 합에 poisson ratio를 곱하면,<br />
+33방향의 stress component가 나온다!.<br />
+자 이제, constituvie law strain tensor버전으로 접근해보자.<br />
+여기서 주의할점은 sigma_kk = sigma_11, 22,33 3개의 합인데,<br />
+우리는 33을 indexing을 제외한 2D indexing으로 전환하고 싶다.<br />
+따라서, sigma_33을 11,22로 표현한 위 식을 대입하자.<br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-011.png" /><br />
+따라서, 다음과 같이 정리할 수 있다.<br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-012.png" /><br />
+결론적으로,<br />
+plain<br />
+stress의 상황에서 2D index constitutive Law는 다음과 같다.<br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-013.png" /><br />
+Boundary value problem(BVP)<br />
+자 이제 위 constitutive Law식을 Equilibrium of motion식에 대입해주자.<br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-014.png" /><br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-015.png" /><br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-014.png" /><br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-015.png" /><br />
+Plain strain의 경우 우리가 2D compatability Eq을 적용할 수 있다.<br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-016.png" /><br />
+위 식에 우리가 구한 plain strain form을 대입해주자.<br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-017.png" /><br />
+대입해주면, 4번식이 유도된다.<br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-018.png" /><br />
+한편, Equilibrium 식에서 우리가 다음과 alpha = 1,2를 대입한 두가지 식을 유도하고,<br />
+미분을 진행해주면 5번식이 유도된다.<br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-019.png" /><br />
+마지막으로, Compatability Equation에서 유도된 4번식과<br />
+위의 Equilibrium of Motion 에서 유도한 5번식을 연립하면,<br />
+<img alt="CH5 Elasticity - part8 (Plain Strain)" src="./images/img-020.png" /><br />
+최종적으로, 마지막 식이 유도된다!!</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

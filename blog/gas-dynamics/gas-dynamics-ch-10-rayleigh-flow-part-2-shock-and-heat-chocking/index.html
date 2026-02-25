@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Gas Dynamics] Ch 10 Rayleigh Flow - part 2 - shock and Heat chocking | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item active">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/gas-dynamics/">Gas-Dynamics</a><span class="sep">/</span>  <span>[Gas Dynamics] Ch 10 Rayleigh Flow - part 2 - shock and Heat chocking</span></div>
+<a href="/blog/gas-dynamics/" class="back-link">&larr; Back to Gas-Dynamics</a>
+<div class="page-header"><h1>[Gas Dynamics] Ch 10 Rayleigh Flow - part 2 - shock and Heat chocking</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-03-27</span><span class="meta-item"><span class="meta-label">Category:</span> Gas-Dynamics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/25" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Finally,<br />
+Gas dynamics 마지막 포스터 입니다..<br />
+진짜 길고 길었던 Gas dynamics<br />
+어렵지만 그래도 마지막까지 가봅시다<br />
+지난시간<br />
+Heat transfer 존재할때<br />
+Rayleigh flow에 대해서 알아보았습니다.<br />
+1. Rayleigh flow + shock<br />
+2. Chocking in Rayleigh flow<br />
+이 두가지만 살펴보고 마무리하겠습니다.<br />
+먼저 Normal shock의 특징 다시한번 remind<br />
+1. Supersonic -&gt; Subsonic<br />
+2. Mass flow rate 일정<br />
+3. Linear Momentum 일정<br />
+4. Stagnation Enthalpy 일정<br />
+Fanno flow 경우 4 가지 조건 모두 만족하는<br />
+서로 같은 모멘텀이지만, 다른 Ma에서<br />
+Normal shock이 발생하여<br />
+Ma &gt;1 에서 Ma &lt;1 로 jump 했던게<br />
+기억 나실 겁니다.<br />
+하지만 Rayleigh flow는<br />
+한가지 조건<br />
+이 만족이 안됩니다.<br />
+바로<br />
+Stagnation Enthalpy가 선을 따라서 계속해서 증가한다는것.<br />
+하지만, 그럼에도 조건을 다 만족시키면서<br />
+점프 하는 경우의 수가 있습니다.<br />
+[State2 Supersonic 에서 시작해 바로 State 3 으로 jump case]<br />
+<img alt="[Gas Dynamics] Ch 10 Rayleigh Flow - part 2 - shock and Heat chocking" src="./images/img-001.png" /><br />
+Stagnaiton enthalpy 일정을<br />
+Normal shock 에서만<br />
+맞춰주기 위해서<br />
+2-&gt;2t=3t-&gt;3 으로<br />
+즉 Supersonic -&gt; subsonic 으로 점프 하는 것이죠.<br />
+따라서 점2-&gt;3과정 외에는 Rayleigh line 에서<br />
+Stagnation Enthalpy가 계속해서 변합니다.<br />
+why? dht = dq 였기 때문에.<br />
+그렇다면 오직 점2,3에서만<br />
+위 4가지 조건<br />
+1. Supersonic -&gt; Subsonic<br />
+2. Mass flow rate 일정<br />
+3. Linear Momentum 일정<br />
+4. Stagnation Enthalpy 일정<br />
+을 만족하네요??<br />
+이 조건은 normal shock 의 조건이었고<br />
+Normal shock이 일어나는 Fanno flow의 조건이기도 했습니다.<br />
+따라서 따라서<br />
+Fanno line 과 Rayliegh line을 동시에 그리면 중첩되는 점은<br />
+2,3 두 곳 밖에 없다는 것입니다.<br />
+[밑사진에서는 1-&gt;2과정]<br />
+<img alt="[Gas Dynamics] Ch 10 Rayleigh Flow - part 2 - shock and Heat chocking" src="./images/img-002.png" /><br />
+예제를 풀어보면 이해가 더 잘되겠죠??<br />
+<img alt="[Gas Dynamics] Ch 10 Rayleigh Flow - part 2 - shock and Heat chocking" src="./images/img-003.png" /><br />
+<img alt="[Gas Dynamics] Ch 10 Rayleigh Flow - part 2 - shock and Heat chocking" src="./images/img-004.png" /><br />
+<img alt="[Gas Dynamics] Ch 10 Rayleigh Flow - part 2 - shock and Heat chocking" src="./images/img-005.jpg" /><br />
+<img alt="[Gas Dynamics] Ch 10 Rayleigh Flow - part 2 - shock and Heat chocking" src="./images/img-003.png" /><br />
+<img alt="[Gas Dynamics] Ch 10 Rayleigh Flow - part 2 - shock and Heat chocking" src="./images/img-004.png" /><br />
+<img alt="[Gas Dynamics] Ch 10 Rayleigh Flow - part 2 - shock and Heat chocking" src="./images/img-005.jpg" /><br />
+진짜 최종 마지막으로 Chocking으로<br />
+Gas dynamics 시마이<br />
+해봅시다<br />
+이번에도 Fanno flow처럼<br />
+Subsonic, Supersonic 으로 나누어서 생각해보자.<br />
+[Subsonic case]<br />
+그림과 같은 Heat을 받는 Converging only nozzle을 생각해보자.<br />
+똑같이 Prec을 점점 줄이면서 nozzle 유동을 조절한다.<br />
+<img alt="[Gas Dynamics] Ch 10 Rayleigh Flow - part 2 - shock and Heat chocking" src="./images/img-006.png" /><br />
+P rec 을 줄이다 보면<br />
+Mass flow rate는 계속해서 증가한다.<br />
+그러다가 M3 = 1인 그 순간<br />
+Mass flow rate가 최대인 순간이다.<br />
+그 이후 Prec을 아무리 줄여도<br />
+Mass flow rate는 이전과 동일하다.<br />
+많이 들어봤죠?<br />
+Area chocking, friction choking과<br />
+정확히 동일하다는 것을 감 잡았을 것이다.<br />
+따라서, 우리는 이 현상을<br />
+Thermal Chocking이라고 부른다.<br />
+하지만, however, but,<br />
+느낌 오시나요??<br />
+압력을 아무리 줄여도<br />
+바뀌지 않던 mass flow rate가<br />
+변하는 경우가 존재한다.<br />
+바로<br />
+Heat Transfer<br />
+이 늘어난 경우이다.<br />
+Ch3에서도 Ch9에서도 계속 말했다 싶이,<br />
+총 엔트로피 변화량은<br />
+Reversible 한 dse, Irreversible 한 dsi로 나뉜다.<br />
+<img alt="[Gas Dynamics] Ch 10 Rayleigh Flow - part 2 - shock and Heat chocking" src="./images/img-007.png" /><br />
+여기서 우리는 no friction이라고 했으니<br />
+dsi = 0 임을 알 수 있다.<br />
+결국 dse term 만 남게 된다.<br />
+Ch2에서 설명했듯이<br />
+dse 는 Heat transfer term이다.<br />
+따라서,<br />
+Heat transfer 증가 -&gt; 총 엔트로피 증가<br />
+결국 Rayleigh flow의 엔트로피는 증가해야만 한다.<br />
+이를 만족 시켜주기 위해서는 밑 그래프에 보이듯이<br />
+Mass flow rate 가 감소해야만 한다.<br />
+즉, 새로운 Rayleigh line으로 이동 함을 알 수 있다.<br />
+<img alt="[Gas Dynamics] Ch 10 Rayleigh Flow - part 2 - shock and Heat chocking" src="./images/img-008.png" /><br />
+[Supersonic case]<br />
+그렇다면 supersonic의 경우는??<br />
+Fanno flow에서는 어땠었는지 기억을 회상해보자.<br />
+열이 추가로 들어왔을때, Mass flow rate를 감소시키지 않고<br />
+길이를 더 늘려 Friction 증가할 경우,<br />
+normal shock 이용해서<br />
+Boundary condition을 맞춰주었다.<br />
+하지만,<br />
+Rayleigh flow에서<br />
+normal Shock의 효과에 대해서<br />
+알아보자.<br />
+<img alt="[Gas Dynamics] Ch 10 Rayleigh Flow - part 2 - shock and Heat chocking" src="./images/img-009.png" /><br />
+위 파이프의 경우 shock이 없는 경우이다.<br />
+그때 Tt / Tt<em>는 Normal shock이 있는 경우와 동일하다.<br />
+그 이유는 아래 그래프를 보면, 같은 Rayleigh line이므로,<br />
+T2t</em> = T3t<em><br />
+뿐만아니라 Normal shock을 지나도 Stagnation Enthalpy는 동일하다.<br />
+따라서 T2t = T3t.<br />
+<img alt="[Gas Dynamics] Ch 10 Rayleigh Flow - part 2 - shock and Heat chocking" src="./images/img-001.png" /><br />
+여기서 중요한 것은 Heat transfer 양은 Tt/Tt</em>양과 비례하다는 것이다.<br />
+따라서, 'Normal shock이 있던 없던 둘의 Heat transfer양은 동일하다'<br />
+결국 우리에게 주어진 문제,<br />
+Supersonic에서 Heat transfer양이 늘어난 경우,<br />
+Normal shock은 has nothing to do with them.<br />
+이라는 말이다.<br />
+교재에서는,<br />
+The location preceding the Rayleigh flow에서<br />
+Shock이 일어나야 한다 라고 언급하며,<br />
+Converging-Diverging nozzle에서<br />
+Diverging구간에서 Normal shock<br />
+or Detached shock in front of the Exit<br />
+이 해결책이라고 언급하였다.<br />
+이렇게 Rayleigh Flow를 마지막으로<br />
+Gas Dynamics Review를 마무리 하겠습니다.<br />
+많이 부족기때문에 혹시 틀린 내용있다면<br />
+댓글 부탁드립니다~</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>4. Eigen Value Problem - part2 | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item active">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/computational-linear-algebra/">Computational-Linear-Algebra</a><span class="sep">/</span>  <span>4. Eigen Value Problem - part2</span></div>
+<a href="/blog/computational-linear-algebra/" class="back-link">&larr; Back to Computational-Linear-Algebra</a>
+<div class="page-header"><h1>4. Eigen Value Problem - part2</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-09-08</span><span class="meta-item"><span class="meta-label">Category:</span> Computational-Linear-Algebra</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/227" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><ol>
+<li>Eigen Value Problem - part2<br />
+지난 시간에, Eigen value problem의 기본적인 개념<br />
+그리고 마지막에 Similiarity Transformation에서 다루었다.<br />
+https://jeffdissel.tistory.com/226</li>
+<li>Eigen Value Problems - Part1<br />
+선형대수학에서 무조건 나오는 내용이고,처음에 이해하기 어려운 내용이 바로 "고유값,고유벡터,고유값 분해" 개념이다. 다시한번, 빠르게 리뷰를 해보도록 하자.Square Matrix A 가 존재한다고 하<br />
+jeffdissel.tistory.com<br />
+(지난포스터 내용)<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-001.png" /><br />
+지난시간에 새로운 개념들을 계속해서 배웠고,<br />
+정확히 어디에 쓰이는 지는 자세하게 다루지 않았다.<br />
+오늘을 위해서 아껴둔 것...<br />
+위의 Transformation에서 X = Q 라고 설정하고,<br />
+Q* = Q -1 즉 Unitary Matrix라고 한다면, 다음과 같이 A를 표현가능하다<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-002.png" /><br />
+A,T are similiar, X = Q is a unitary<br />
+우리는 위 분해를<br />
+Schur Factorization<br />
+이라고 부른다.<br />
+그리고 정말 여기서 핵심은<br />
+T는 upper triangle Matrix이고, 고유값이 대각원소를 구성한다는 것!.<br />
+여기서 핵심은, 모든 Square Matrix는 위 분해가 가능하다는 것이다.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-003.png" /><br />
+지난시간에 다루었던, similiart transformation에서 파생된 분해들은...<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-004.png" /><br />
+(digonal Matrix: Sigma)<br />
+조건: A는 non singular Matrix<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-005.png" /><br />
+(digonal Matrix: Sigma)<br />
+조건:<br />
+A<br />
+is normal (Hermitian, skew-Hermitian, or unitary)<br />
+전부 A가 특정 Matrix이어야 위 분해들이 가능했지만,<br />
+Schur Factorization은 모든 Square Matrix에 대해 가능하다는 점이 핵심이다.<br />
+따라서,<br />
+"Most of the general purpose eigenvalue algorithms in use toda<br />
+proceed by computing the Schur factorization"<br />
+여기서 Unitary Matrix를 계속 곱해주면서,<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-006.png" /><br />
+A -&gt; T로 수렴시키는 방법을 사용한다.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-007.png" /><br />
+자세하게는, 두과정을 통해 진행이 된다.</li>
+<li>A -&gt; H</li>
+<li>H -&gt; T<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-008.png" /><br />
+============================<br />
+그런데 여기서 잠깐.<br />
+왜. ?? 우리가 굳이 A - &gt; T로 전환하려고 하는건가????<br />
+바로 Eigen Value를 찾기 위해서!<br />
+T의 Diagonal Term이 바로 Eigen Value of A이기 떄문!<br />
+============================<br />
+다시 본론으로 돌아가서, 우리는. A -&gt; H, upper Hessenberg Matrix로 먼저 전환해준다고 하였다.<br />
+(근데 H가 무슨 Matrix?? 정의는 다음과 같다)<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-009.png" /><br />
+근데 왜 바꿔???<br />
+"Note that both the LU and QR decomposition of an upper Hessenberg matrix is relatively cheap"</li>
+</ol>
+<h1>Procedure (A -&gt; H)</h1>
+<p>먼저 n x n Matrix A를<br />
+벡터 b,c, Scalar a11,<br />
+Matrix A hat 으로 나누어주자.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-010.png" /><br />
+여기서 우리는 upper Hessenberg Matrix(H)로 바꾸기 위해서,<br />
+즉 0으로 특정 요소들을 만들기 위해서!<br />
+Reflector<br />
+를 사용한다.<br />
+https://jeffdissel.tistory.com/221<br />
+2. QR factorization - part2 (Householder)<br />
+지난시간에 QR 분해의 기본적인 원리에 대해서 살펴보았다.(정확히 본질을 이해하면, QR분해가 아무것도 아니라는 것을 알게 된다) 그러니까, 어떤 A라는 matrix의 column vector들을,range(A) Basis vector{q1<br />
+jeffdissel.tistory.com<br />
+(reflector는 너무나도 중요하고, 처음에 생소한 개념이다. 꼭 이전 블로그 글을 읽고오시길.<br />
+QR 분해를 위한, Householder Algorithm에서 등장하였다.)<br />
+Reflector Q1 hat을 다음 조건을 만족하도록, 제작한다.<br />
+(b벡터를 회전시켜 b벡터의 local e1방향 제외 전부 0 으로 만들어 줌)<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-011.png" /><br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-012.png" /><br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-011.png" /><br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-012.png" /><br />
+dimension: (n -1) x 1<br />
+그리고 Q_hat을 확장시켜 n x n 크기의 Q1 Matrix를 정의한다.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-013.png" /><br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-014.png" /><br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-013.png" /><br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-014.png" /><br />
+아주 특이하게도 위의 성질을 띈다.<br />
+이제 이를 A1과 곱한 행렬을 A(1/2)라고 편의상 정의하자.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-015.png" /><br />
+(1,1) (2,1)를 제외하고 1 행의 원소는 0.<br />
+이제 우리는 Similiarity Transformation을 해주기 위해서. Q1<em> = Q1을 뒤에 추가로 곱해준다.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-016.png" /><br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-017.png" /><br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-016.png" /><br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-017.png" /><br />
+자 앞뒤로 Q1(1st reflector)를 곱해준 결과,<br />
+1행의 1열, 2열을 제외하고 모두 0으로 전환되었다.<br />
+(여기까지가 1st iteration)<br />
+HouseHolder Algorithm과 동일하다.<br />
+이제, 2행의 1,2,3열 제외 전부 0을 만들어 주기 위해,<br />
+2nd reflector를 다음과 같이 정의한다.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-018.png" /><br />
+이후 A1(1st iteration result)의 앞에 먼저곱해주면.<br />
+(Q hat 2 b2는 사실상 e1방향만 살아남고 나머지는 0으로 회전된 벡터이다)<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-019.png" /><br />
+Similiarity Transformation을 진행해야, eigenvalue가 그대로 보존이 되기때문에,<br />
+강제로 뒤에 Q2-1 = Q2 를 곱해주어 2nd iteration을 마무리하자.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-020.png" /><br />
+위 과정을 계속해서 반복하면,<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-021.png" /><br />
+Q는 계속해서 누적되어 쌓이고,<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-022.png" /><br />
+최종적으로 Upper Hessenberg Matirx B를 A로부터 도출 할 수 있다.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-023.png" /><br />
+사실상 Householder 와 거의 비슷하고,<br />
+Pseudo code는 다음과 같다.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-024.png" /><br />
+그리고 총 연산수는 다음과 같다.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-025.png" /><br />
+==============================<br />
+여기서 만약에 A = A</em> (Conjugate of A)인<br />
+Hermitan Matrix라면?<br />
+연산수는 당연히 절반으로 줄어들고,<br />
+대칭으로 0 이 계속해서 되는 것을 알 수 있다.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-026.png" /><br />
+==============================<br />
+한편 우리의 최종 목표는 Schur Factorization을 실시하여,<br />
+Eigenvalue of. A를 찾는게 최종 목표였다.<br />
+이를 달성하기 위해서<br />
+1. A -&gt; H (Hessenberg Matirx)<br />
+를 먼저 선행하고, 이후에<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-027.png" /><br />
+Hessenberg Matrix State<br />
+이제, 진짜 목적을 달성하기 위해.<br />
+2. H -&gt; T (right traingle Matrix)<br />
+를 구현해보자.<br />
+위 두번째 과정을 효율적으로 진행할<br />
+Francis Algorithm<br />
+먼저 이 알고리즘의 핵심은 'shifting'이다.<br />
+Eigenvalue 후보를 rho로 정한 후에 A를 옮겨준다.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-028.png" /><br />
+Shifted A Matrix.<br />
+위 결과 shifted A의 1st column은 다음과 같다.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-029.png" /><br />
+여기서 위 벡터를 Reflector를 이용하여,<br />
+똑같이 전부 0으로 변환해주자.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-030.png" /><br />
+그리고 eigenvalue보존을 위한 similiarty Transformation을 위해서,<br />
+뒤에 Q0를 다시 곱해주어야한다.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-031.png" /><br />
+여기서 재밌는 사실은, 원래계획과 다르게 Q0를 뒤에 곱해주면,<br />
+이렇게 0으로 1행의 off diagonal term이 전부 바뀌는게 아니라<br />
+새로운 non zero term (Bulge)가 생성이 된다.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-032.png" /><br />
++: Bulge<br />
+bulge를 일단 무시하고,<br />
+그다음 2행의 off diagonal term을 0로 만들어 주는<br />
+Reflector Q23를 제작한 후에, 위 Matrix에 곱해주면,<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-033.png" /><br />
+신기하게도, Bulge가 이동한다.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-034.png" /><br />
+'일단 bulge가 이동한다' 라는 사실을 인지하고,<br />
+예시를 통해서 정확히 어떤 과정이 일어나고 있는지?<br />
+우리의 목표인 Triangle Matrix가 되고 있는 건지 짚고 넘어가자.<br />
+초기 upper Hessenberg Matrix가 다음과 같다고 하자.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-035.png" /><br />
+2만큼 shift했다고 가정하자 (mu = 2)<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-036.png" /><br />
+첫 reflector는 1열 벡터 x를 e1방향을 제외하고 0으로 만드는 것.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-037.png" /><br />
+Reflector를 만드는 방법은 householder algorithm에서와 동일하다.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-038.png" /><br />
+Q0를 이용하여 H를 변형시키면 다음과 같이 bulge가 생성된다.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-039.png" /><br />
+이제 기존에서와 같이 2행의 offdiagonal term을 0으로 만들<br />
+reflector를 다음과 같이 설정하고, 똑같이 곱해주자.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-040.png" /><br />
+Q1 = G1으로 양옆에 곱해주면,<br />
+다음과같이 1행은 다시 bulge가 사라졌고,<br />
+오히려 2행에 bulge가 새롭게 생긴 것을 알 수 있다.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-041.png" /><br />
+여기서 중요한점은 기존의 H와 방금 H2의 1행 off diagonal term을 잘 살펴보자.<br />
+<img alt="4. Eigen Value Problem - part2" src="./images/img-035.png" /><br />
+기존 3 -&gt; 2.485461로 감소 한 것을 알 수 있다.<br />
+즉, buldge라는 숫자는 계속해서 오른쪽 밑으로 믿으로 iteration이 진행하면서 이동하다가,<br />
+결국 마지막에는 마지막행 diagonal term으로 흡수되지만,<br />
+(사라지지만)<br />
+그 bulge값의 출처는 사실상 offdiagonal term들에서 나왔음을 알 수 있다.<br />
+즉, Franci's Algorithm의 핵심은,<br />
+"off diagonal term의 값들을 bulge로 뽑아내서 밑으로 흘러 내려가 사라지게 만드는 것"<br />
+따라서, 위 과정을 쭉 반복하다보면,<br />
+H -&gt; T로 전환시킬 수가 있고,<br />
+이때의 Diagonal Term -&gt; Eigen Value of A<br />
+인 우리의 목표를 이룰 수 있게 된다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,6 +1,12 @@
+# === Updated by AI Agent: 2026-02-25 22:30 KST ===
+# 기존: _site/, .sass-cache/, .jekyll-cache/, .jekyll-metadata, .bundle/, vendor/
 _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
 .bundle/
 vendor/
+.DS_Store
+tmp/
+__pycache__/
+*.pyc

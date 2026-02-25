@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CH5 Elasticity - part7 (Thermal Elasticity1) | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item active">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/solid-mechanics/">Solid-Mechanics</a><span class="sep">/</span>  <span>CH5 Elasticity - part7 (Thermal Elasticity1)</span></div>
+<a href="/blog/solid-mechanics/" class="back-link">&larr; Back to Solid-Mechanics</a>
+<div class="page-header"><h1>CH5 Elasticity - part7 (Thermal Elasticity1)</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-06-11</span><span class="meta-item"><span class="meta-label">Category:</span> Solid-Mechanics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/206" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>CH5 Elasticity - part7 (Thermal Elasticity1)<br />
+이번시간에는<br />
+Elasticity + Thermal effect까지 같이 고려한 해석을 진행해보자.<br />
+small deformation상황으로 설정하고<br />
+conintum body에서 일부분을 떼어서 분석하자.<br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-001.png" /><br />
+여기서 에너지 보존방정식을 해당 body에 대해서 다음과 같이 세울 수 있다.<br />
+(chapter 4 에서도 똑같이 다루었다)<br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-002.png" /><br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-003.png" /><br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-002.png" /><br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-003.png" /><br />
+여기서, 굉장히 복잡한식을 한개의 integral로 묶어주는 작업을 실시하자.<br />
+가장 중요한 divergene Theorem, Reynolds Transport Theorem 두가지가 이 과정에서 사용된다.<br />
+자세한 증명은 따로 정리해둔 링크로 보시면 됩니다~<br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-004.png" /><br />
+먼저 1번항을 바꾸어 주자 (Reynolds Transport Theroem이 사용됩니다)<br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-005.png" /><br />
+2,3번항도 똑같이 바꾸어주자 (Divergence theorem 이용)<br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-006.png" /><br />
+자 이제 바꾸어준 1,2,3항을 기존 energy 보존방정식에 대입해주면,<br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-004.png" /><br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-007.png" /><br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-004.png" /><br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-007.png" /><br />
+귀신같이 중간에 Cauch'ys Equation of Motion 식이 나온다.<br />
+(Cauchy's Eq of Motion link)<br />
+따라서, 우리는 Locally 방정식 4를 유도할 수 있다.<br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-008.png" /><br />
+자세히 보시면 d grad(u) / dt - &gt; Strain rate tensor로 전환된 것을 볼 수 있다.<br />
+굉장한 디테일이 숨어있다.<br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-009.png" /><br />
+이번에는 열역학 제 2법칙 엔트로피 증가법칙을 continum body P 에 적용하자.<br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-010.png" /><br />
+사소해보이지만 굉장히 중요한, time derivative를 적분 안으로 RTT를 활용하여 넣어주자.<br />
+(RTT - Reynolds Transport Theroem입니다)<br />
+따라서 최종 Local inequalitiy 4번식을 얻게 된다.<br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-011.png" /><br />
+다시 정리하면 우리는 이 두식을 얻기 위해 열심히 달려왔다....<br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-012.png" /><br />
+4식에 절대 온도(theat)를 곱한후, 3번식을 빼면,<br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-013.png" /><br />
+여기서 Helmoltz Free Energy의 개념을 물리학자들이 정의하였다.<br />
+바로 Internal Energy에서 entropy가 차지하는 에너지를 뺀 에너지이다.<br />
+(열역학 쳅터에서 다룬 내용! 우리가 body P한테,<br />
+'너가 가지고 있는 에너지 진짜 사용할 수 있는 에너지 즉,<br />
+reversible한 에너지가 얼마냐? 라는질문의 답이 바로,<br />
+Helmoltz free Energy)<br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-014.png" /><br />
+여기서, 이제 5번식에 위 energy 정의와 heat flux를 같이 대입해주자.<br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-015.png" /><br />
+6번식을 strain rate tensor, Temperature rate로 각각 묶으면<br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-016.png" /><br />
+우리가 다음의 관계식을 얻을 수 있다.<br />
+자 여기서 자세히 보면, Elasticity 를 다룰때, 우리가 1번식을 가지고<br />
+모든 개념을 정의하였다.<br />
+<img alt="CH5 Elasticity - part7 (Thermal Elasticity1)" src="./images/img-017.png" /></p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

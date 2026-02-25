@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Fluid mechanics] Ch 6. Law of the wall. | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item active">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/fluid-mechanics/">Fluid-Mechanics</a><span class="sep">/</span>  <span>[Fluid mechanics] Ch 6. Law of the wall.</span></div>
+<a href="/blog/fluid-mechanics/" class="back-link">&larr; Back to Fluid-Mechanics</a>
+<div class="page-header"><h1>[Fluid mechanics] Ch 6. Law of the wall.</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-03-31</span><span class="meta-item"><span class="meta-label">Category:</span> Fluid-Mechanics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/39" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>난류 Turbulence는<br />
+Randomness그 자체이다.<br />
+시간에 따라서 진폭이 일정하지 않는 그냥 랜덤한 파동의 형태를 띈다.<br />
+<img alt="[Fluid mechanics] Ch 6. Law of the wall." src="./images/img-001.png" /><br />
+이를 분석하기 위해서, 과학자들은 시간평균의 개념을 가져온다.<br />
+그리고<br />
+Time mean velocity<br />
+라고 다음과 같이 정의한다.<br />
+<img alt="[Fluid mechanics] Ch 6. Law of the wall." src="./images/img-002.png" /><br />
+그니까, 특정시간동안 속도의 평균값을 구한후,<br />
+각 시간마다, 평균과의 편차를 다음과 같이 구하는 것이다.<br />
+<img alt="[Fluid mechanics] Ch 6. Law of the wall." src="./images/img-003.png" /><br />
+이 편차를 해당시간으로 적분해주면 어떻게 될까? 당연히 0 이 될 것이다.<br />
+<img alt="[Fluid mechanics] Ch 6. Law of the wall." src="./images/img-004.png" /><br />
+(각 반학생들의 점수에서 평균을 빼면 = 편차<br />
+그 편차를 모두 더하면 = 0<br />
+당연한 평균값의 원리이다.)<br />
+0 으로 만들꺼면서 편차를 굳이 왜 정의했을까??<br />
+바로 편차를 제곱하고 더하면, 얼마나 Fluctuate하는지를 알 수 있기 때문이다.<br />
+그리고 그 값을 Intensity of Turbulence라고 정의한다.<br />
+<img alt="[Fluid mechanics] Ch 6. Law of the wall." src="./images/img-005.png" /><br />
+이제 우리가 정의한 대로, Continutiy eq과 Momentum eq에 대입해보자.<br />
+<img alt="[Fluid mechanics] Ch 6. Law of the wall." src="./images/img-006.png" /><br />
+먼저, Continutiy는 0으로 원래 형태와 같게 나오게 된다.<br />
+Momentum에서는 다음과 같이 식이 표현되고<br />
+신기하게 생긴 녀석들이 viscous term에 붙게 된다.<br />
+<img alt="[Fluid mechanics] Ch 6. Law of the wall." src="./images/img-007.png" /><br />
+그리고 이녀석들을 Turbulent stresses라고 부른다.<br />
+즉, 점성에 의한 stress말고 난류의 fluctate에 의한 stress도 존재하는 것이다.<br />
+<img alt="[Fluid mechanics] Ch 6. Law of the wall." src="./images/img-008.png" /><br />
++x방향으로 흐르고 2차원 유체라고 가정하면, d/dy term빼고는 전부 소거할 수 있다.<br />
+이제 소거하고 정리하면, 다음과 같이 단순화 할 수 있고,<br />
+이제부터, stress는 laminar, turbulence로 나누어서 생각한다.<br />
+Laminar stress는 기존에 우리가 나루던, 점성에 의한 stress이다.<br />
+<img alt="[Fluid mechanics] Ch 6. Law of the wall." src="./images/img-009.png" /><br />
+여기서 정말 재밌는 사실은,<br />
+<img alt="[Fluid mechanics] Ch 6. Law of the wall." src="./images/img-010.png" /><br />
+사진(a)를 보면, Laminar turbulence stress가 벽 근처에서는 지배적임을 알 수 있다.<br />
+No-slip condition에서 벽에서 속도는 0 이고, 벽 덕분에 벽근처 유체의 속도는 엄청나게 감소할 것이다.<br />
+따라서!!!!!!!, du/dy 값이 굉장히 크다!!<br />
+y방향으로의 u(x방향속도)의 변화가 굉장히 크다는 것이다.<br />
+다시 위에 Laminar stress를 보면, du/dy와 비례함을 알 수 있다. 그래서 벽근처에서는<br />
+Laminar stress dominant<br />
+하지만, 벽으로 멀어질수록, y방향 속도변화량이 크지않고,<br />
+Turbulent로 인한 momentum change가 주된 원인으로 stress를 작용한다.<br />
+그래서 우리는 벽근처에서 Free stream까지 크게 3가지 층으로 나눈다.<br />
+1. Viscous sub layer or wall layer: Viscous stress dominant<br />
+2. Overlap layer: mixed<br />
+3. Outer turbulent layer: Turblent stress dominat<br />
+천재적인 유체역학자들은 이제 현상만 보고, 실험을 통해서 식을 세우기 시작한다.<br />
+Prandtl deduced in 1930<br />
+u가 shear layer thickness와는 아무 상관이 없다 라고 발표하고<br />
+u를 결정하는 요소 4가지를 발표한다.<br />
+<img alt="[Fluid mechanics] Ch 6. Law of the wall." src="./images/img-011.png" /><br />
+그리고 이 함수를 Dimensional analysis(무차원 분석)을 한다.<br />
+<img alt="[Fluid mechanics] Ch 6. Law of the wall." src="./images/img-012.png" /><br />
+(u*: Friction velocity)<br />
+Karman deduced in 1933<br />
+karman은 'outer turbuluent layer에서의 유체는 viscosity랑 아무 상관이없다'라고 발표합니다.<br />
+그런데 U(free stream velocity)와의 차이 값은, 4가지 요소:<br />
+<img alt="[Fluid mechanics] Ch 6. Law of the wall." src="./images/img-013.png" /><br />
+와 관련이 있다. 라고 발표하죠.<br />
+이렇게, Prandtl은 Viscous sublayer<br />
+Karman은 Outer turbulent layer을<br />
+분석했습니다.<br />
+그렇다면, 가운데, Overlap layer은??????<br />
+바로, 1937년 Millikan이라는 사람이 발표하죠.<br />
+Law of the wall<br />
+Logarithmic overlap layer(k = 0.41, B = 5.0)<br />
+<img alt="[Fluid mechanics] Ch 6. Law of the wall." src="./images/img-014.png" /><br />
+그리고 무차원수(u+, y+)로 단순화해서 표현합니다.<br />
+<img alt="[Fluid mechanics] Ch 6. Law of the wall." src="./images/img-015.png" /><br />
+[위식들을 전부 plot한 그래프 ]<br />
+<img alt="[Fluid mechanics] Ch 6. Law of the wall." src="./images/img-016.png" /><br />
+y+&lt;5 : Viscous sublayer (u+ = y+)<br />
+5&lt; y+ &lt; 30 : Overlap layer ( u+ = ln y+ /0.41 + 5)<br />
+그 사이에 두 그래프가 미분가능하지 않게 만난다.<br />
+따라서, Experimental data로 smooth 하게 connect했음을 볼 수 있다.<br />
+단지 예측이지만 실제로 정확한 값이 도출되는 그래프,<br />
+당시에 무슨 실험장치도 없이 현상만 가지고 저걸 발견을 어떻게 했을까?<br />
+진짜 천재는 천재인가보다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

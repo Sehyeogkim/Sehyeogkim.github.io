@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch2 Conservation Laws_ part2 | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item active">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/viscous-flow/">Viscous-Flow</a><span class="sep">/</span>  <span>Ch2 Conservation Laws_ part2</span></div>
+<a href="/blog/viscous-flow/" class="back-link">&larr; Back to Viscous-Flow</a>
+<div class="page-header"><h1>Ch2 Conservation Laws_ part2</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-09-30</span><span class="meta-item"><span class="meta-label">Category:</span> Viscous-Flow</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/107" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>[prerequisite]<br />
+https://jeffdissel.tistory.com/106<br />
+Ch2 Conservation Laws_part1<br />
+part1에서는 Ch1에서 배운 Cartesian Tensor를 사용하여유체역학 시간에 배운 Conservation of MassConservation of Momentum 을 빠르게 살펴보자. 가장 기본적인 핵심은레이널즈 수송정리 이다.https://jeffdi<br />
+jeffdissel.tistory.com<br />
+지난 포스터에서,<br />
+Conservation of Momentum<br />
+식을 정리하면서<br />
+코시방정식<br />
+까지 유도하였다.<br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-001.png" /><br />
+여기서, 한 단계 더 나가는게 오늘 블로그 입니다.<br />
+핵심은 바로,<br />
+stress와 속도와의 관계식 을<br />
+유도하는 것<br />
+이다.<br />
+정지해 있는 미소유체의 경우,<br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-002.png" /><br />
+X,Y,Z방향으로 압력 밖에 작용하지 않을 것이다.<br />
+하지만,<br />
+우리가 고려할 미소유체는<br />
+움직이는 경우이며<br />
+이때,<br />
+deviatoric shear stress가 발생.<br />
+(viscous stress 라고 생각하자)<br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-003.png" /><br />
+먼저, 뉴턴유체 가정 으로 시작을 하면,<br />
+(Viscous stress와 Velocity Gradient tensor가 비례)<br />
+다음과 같이 식을 쓸 수 있다.<br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-004.png" /><br />
+위 식에서 총 3가지 특징을 살펴보자.<br />
+1. Ch1에서 배운,<br />
+Velocity Gradient tensor<br />
+= Strain rate tensor(Smn) + Rotation Tensor(Rmn)<br />
+2. 비례상수로<br />
+K*ijmn: Viscosity Tensor로 불리고,<br />
+방향에 따라서 비례상수가 다를 수 있기 때문에 Tensor로 정의한다.<br />
+(Anistropic Fluid)<br />
+3. Rmn = 0 , why?<br />
+우리가 구하는 viscous stress는 deform에 초점을 맞추고 있고,<br />
+Rotation과는 무관하다.<br />
+여기서 Istropic Fluid 가정 을<br />
+추가하고 식을 더 정리해보면<br />
+(위 가정의 핵심은 대칭성<br />
+t12 = t21, t13 = t31 이런식으로 대칭적인 특징을 지닌다)<br />
+K를 두가지로 나눌 수 있게 된다 (대칭적이므로)<br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-005.png" /><br />
+1. λ는 제1 라메상수로,<br />
+부피변화<br />
+에 대한<br />
+유체의 내부 저항성<br />
+을 나타내고,<br />
+2. u는 제2 라메상수로,<br />
+전단변형에 대한 저항성<br />
+을 나타낸다.<br />
+우리가 아는 그 viscosity 가 두번째, 라메상수이다.<br />
+최종적으로, 해석해보면<br />
+제 1 라메상수 항은<br />
+normal방향<br />
+으로의<br />
+부피 변화에 대한 내부 저항성<br />
+-&gt; shear stress<br />
+제 2 라메상수, shear modulus는 우리가 익숙한<br />
+viscosity * shear rate tensor(elongation + angular deformation)<br />
+-&gt; shear stress<br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-006.png" /></p>
+<hr />
+<p>조금 복잡한 개념들을 지나,<br />
+우리가 지금 뭘 하고있는지 왜 여기있는지 다시 짚고 넘어가자.<br />
+최종적으로 우리는<br />
+Stress - Velocity의 관계식<br />
+을 사용하여,<br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-001.png" /><br />
+위 Conservation of Momentum 식을 속도장의 식으로 정리하고 싶다.<br />
+여기서, Stress를 압력과 deviatoric stress tensor로 쪼갠후<br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-007.png" /><br />
+newtonian + Isotropic 가정 +<br />
+lama 1상수, 2상수(shear modulus) 다음과 같이 표현하였다<br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-008.png" /><br />
+여기서, diagonal term을 살펴보면, 다음과 같이 정리할 수 있다.<br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-009.jpg" /><br />
+여기서,<br />
+Mean pressure<br />
+Bulk viscosity<br />
+를 새롭게 정의하여, 식을 다음과 같이 정리한다.<br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-010.jpg" /><br />
+왜 굳이 이렇게 정의하나 싶겠지만,<br />
+Mean pressure의 경우는 결국 유체에 작용하는 평균 압력을 뜻하고,<br />
+그와 별개인 bulk viscosity 는 위에 적힌 그대로,<br />
+체적변화에 따른 유체 내부의 저항성을 represent 한다.</p>
+<h1>Stokes' assumption for incompressible flow</h1>
+<p>(uv = 0)</p>
+<h1>Smm의 physical meaning</h1>
+<p><img alt="Ch2 Conservation Laws_ part2" src="./images/img-011.jpg" /><br />
+한편,<br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-008.png" /><br />
+여기까지 유도한 식을<br />
+bulk viscosity, shear modulus 두개로 정리하면.<br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-012.jpg" /><br />
+다음과 같이 정리 할 수 있다.<br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-013.png" /><br />
+이제 우리가 하고 싶었던<br />
+Conservation of Momentum 식에<br />
+위의 Stress term을 대입해보자.<br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-014.jpg" /><br />
+tensor 연산을 정리하며,<br />
+중간에 dui/dxi = dum/dxm 이기 때문에.<br />
+식이 최종적으로는<br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-015.jpg" /><br />
+위와 같이 유도된다.<br />
+여기서 incompressible flow 가정이 추가되면,<br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-016.jpg" /><br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-017.png" /><br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-018.png" /><br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-016.jpg" /><br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-017.png" /><br />
+<img alt="Ch2 Conservation Laws_ part2" src="./images/img-018.png" /><br />
+우리가 아는 나비아 스톡스 방정식이 나오게 된다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

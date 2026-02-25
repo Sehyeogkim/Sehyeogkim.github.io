@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part4- Converging-diverging nozzle | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item active">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/gas-dynamics/">Gas-Dynamics</a><span class="sep">/</span>  <span>[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part4- Converging-diverging nozzle</span></div>
+<a href="/blog/gas-dynamics/" class="back-link">&larr; Back to Gas-Dynamics</a>
+<div class="page-header"><h1>[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part4- Converging-diverging nozzle</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-03-25</span><span class="meta-item"><span class="meta-label">Category:</span> Gas-Dynamics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/13" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>이제 두번째 마지막 Nozzle type 인 Convering &amp; Diverging Nozzle에 대해서 알아보자<br />
+지금 뭐하고 있는건지 잠깐 다시 remind 하면 Quick review<br />
+Gas dynamics에서 3가지 Factor들이 유체의 흐름에 영향을 준다.<br />
+1. Area change<br />
+2. Friction<br />
+3. Heat transfer<br />
+Factors 중에서 Area change 가 있을 경우 (without friction, heat transfer)<br />
+유체의 흐름이 어떻게 될까?? 에 대해서 분석 중이고<br />
+Area change 를 가장 잘 나타내는 nozzle 중에서 Converging Diverging nozzle 에 대해서 탐구하고자 한다.</p>
+<h1>Assumptions</h1>
+<p>-Steady state<br />
+- 1-D process<br />
+-No heat transfer<br />
+- No shaft work<br />
+- Negligible potential<br />
+-No Friction<br />
+<img alt="[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part4- Converging-diverging nozzle" src="./images/img-001.png" /><br />
+우리는 위 사진과 같이 Area의 비율을 사용자의 설정대로 Nozzle을 설계할 수 있고<br />
+이전 nozzle과 똑같이 Receiver Pressure 이 감소함에 따라서 어떻게 유체의 흐름이 바뀔 것이다.</p>
+<h2>분석하기 앞서서 노즐의 흐름이 가장 효율적인 경우가 언제일까? 에 대해서 생각해보자</h2>
+<p>가장 이해가기 쉬운 것은 ch5 part1 에서 배웠던 면적변화에 따른 유체의 property변화를 관찰하는 것이다.<br />
+<img alt="[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part4- Converging-diverging nozzle" src="./images/img-002.png" /><br />
+<img alt="[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part4- Converging-diverging nozzle" src="./images/img-003.png" /><br />
+<img alt="[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part4- Converging-diverging nozzle" src="./images/img-002.png" /><br />
+[ch5 part1 에서유도한 식]<br />
+<img alt="[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part4- Converging-diverging nozzle" src="./images/img-003.png" /><br />
+즉 우리의 목표는 유체의 속도를 마찰 손실 없이 극대화 하는 것이다.<br />
+따라서 M&gt;1 일때 dA&gt;0 이면 dV&gt;0 임을 이용하여<br />
+Converging 과정을 통해서 subsonic -&gt; sonic 을 만들어주고<br />
+이후 Diverging 과정을 통해서 sonic -&gt; supersonic을 만들어 주는게 최종 목표이라는 것<br />
++++ 마찰 손실없이 Entropy 변화 = 0 즉 Isentropic process까지 덤으로<br />
+그러면 먼저 subsonic-&gt;sonic-&gt;supersonic 일 경우 receiver pressure이 어떻게 되어야 하는지를<br />
+밑의 문제에서 한 번 알아보자<br />
+(그때가 가장 최적의 상태이기 때문)</p>
+<h1>State 1-&gt;State 2 (subsonic-&gt;sonic)</h1>
+<h1>State 2 에서 Ma = 1 이므로 dA = 0</h1>
+<h1>State 2-&gt;State 3 (sonic-&gt;supersonic)</h1>
+<p><img alt="[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part4- Converging-diverging nozzle" src="./images/img-001.png" /><br />
+First, 모든 과정이 Isentropic과정이므로 2-&gt;3번 과정을 3<em>-&gt;3 과정이라고 해석 할 수 있다.<br />
+why?? 2번에서 Ma = 1 이고 Isentropic 과정을 통해서 State 3 으로 갔기 때문에<br />
+Reference 정의에 딱 들어맞음.<br />
+따라서 A2 = A3</em> 임을 알 수 있다.<br />
+<img alt="[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part4- Converging-diverging nozzle" src="./images/img-004.png" /><br />
+Reference 과 static 면적비율로 우리는 Isentropic table 에서 Ma3, p3/pt3 비율을 알 수 있다.<br />
+근데 여기서 잠깐 Table을 잘보면 A/A* = 2.494 인 경우가<br />
+Ma =0.24, 2.44 두개 임을 알 수 있다<br />
+여기서 우리는 최적의 상태를 분석하기 때문에<br />
+1-&gt;2-&gt;3<br />
+subsonic -&gt; sonic -&gt; supersonic<br />
+따라서 Ma = 2.44 인 녀석이 우리의 관심사라는 것<br />
+By Appendix G<br />
+<img alt="[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part4- Converging-diverging nozzle" src="./images/img-005.png" /><br />
+[pt1 = pt3 why? Isentropic process, 즉 Entropy 변화가 없으므로 1,2,3 Stagnation pressure은 계속해서 일정]<br />
+따라서 최적의 압력 = 64.24psia임을 확인 하였다.<br />
+이제 밑으 표를 보면 Design Operation 에서의 압력이 우리가 구한 Pressure=64.24 임을 알 수 있다.<br />
+계속해서 압력은 감소하고, 속도는 증가하며 Throat(State 2, Ma =1, dA =0) 인 지점에서 Sonic flow인 경우<br />
+<img alt="[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part4- Converging-diverging nozzle" src="./images/img-006.png" /><br />
+그렇다면 여기서 우리는 First critical subsonic exhaust 에 눈길이 가게 된다.<br />
+왜냐면 First, second 도 안하고 Third로 바로 했으니까<br />
+아까 Ma 경우의수가<br />
+0.24, 2.44<br />
+2가지 였고 Ma&gt;1인 경우가 최적의 설계이기 때문에 골랐었다.<br />
+그 다른 Ma = 0.24인 경우가 바로 First critical pressure의 경우인 것이다.<br />
+<img alt="[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part4- Converging-diverging nozzle" src="./images/img-007.png" /><br />
+위의 계산을 통해서 First critical pressure = 96.07psia 임을 확인하였다.<br />
+즉 First critical pressure의 경우<br />
+1-&gt;2-&gt;3<br />
+subsonic-&gt; sonic -&gt; subsonic<br />
+Converging nozzle에서 속도가 증가하다가<br />
+Throat 에서 Sonic flow가 되었지만<br />
+Diverging part에서는 속도가 감소하여 다시 Subsonic이 된 것.<br />
+reversly Third critical pressure 의 경우<br />
+1-&gt;2-&gt;3<br />
+subsonic-&gt; sonic -&gt;<br />
+supersonic<br />
+Converging nozzle에서 속도가 증가하다가<br />
+Throat 에서 Sonic flow가 되었고<br />
+Diverging part에서는 다시 증가하여 다시 Supersonic이 된 것.</p>
+<h1>마무리</h1>
+<p>이제 first, third 압력 말고 다른 압력인 경우 전체적으로 분석하고 마무리 해보자<br />
+기본적으로 P1 = 100psia (pressure in the chamber, 왼쪽 그림) 인 경우에서<br />
+Receiver pressure (Prec) 를 100psia에서 시작해서 점점 감소시키면서 흐름이 어떻게 바뀌는지 분석해보자<br />
+<img alt="[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part4- Converging-diverging nozzle" src="./images/img-001.png" /><br />
+<img alt="[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part4- Converging-diverging nozzle" src="./images/img-006.png" /><br />
+<img alt="[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part4- Converging-diverging nozzle" src="./images/img-001.png" /><br />
+<img alt="[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part4- Converging-diverging nozzle" src="./images/img-006.png" /><br />
+<img alt="[Gas Dynamics] Ch 5 Varying - Area Adiabatic Flow - part4- Converging-diverging nozzle" src="./images/img-008.png" /><br />
+1. Pressure (receiver) &gt; Pressure (first critical) 인경우 ( 그래프 case c )<br />
+P1과 압력차이가 크지 않아서 Throat 에서 Sonic flow에 도달 하지 못한다.<br />
+2. Pressure (receiver) = Pressure (first critical) 인경우 ( 그래프 case b )<br />
+압력차이가 어느정도 생겨서 속도가 증가하여<br />
+State 2 에서 Ma =1 달성<br />
+3. Pressure (receiver) = Pressure (Third critical) 인경우 ( 그래프 case a ), Design Condition<br />
+압력차이가 커서 속도가 증가하여<br />
+State 2 에서 Ma =1 달성 후 supersonic 까지 달성<br />
+이렇게 길게 분석하였음에도 다음과 같은 궁금증들이 아직 존재한다.<br />
+그렇다면 Second Critical pressure 은 어디일까??<br />
+First, third 사이에서는 유동이 어떻게 될까?<br />
+Third 보다 더 작으면 또 어떻게 될까??<br />
+이 모든 질문들의 해답은 다음 Chapter 6, Chapter 7 에서 찾을 수 있다는 점.<br />
+열전달 수업시간이 다가와 가보겠습니다ㅎ</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

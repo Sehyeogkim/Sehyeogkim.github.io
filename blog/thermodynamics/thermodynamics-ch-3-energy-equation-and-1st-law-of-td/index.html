@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Thermodynamics] Ch 3. Energy equation and 1st law of T.D | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item active">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/thermodynamics/">Thermodynamics</a><span class="sep">/</span>  <span>[Thermodynamics] Ch 3. Energy equation and 1st law of T.D</span></div>
+<a href="/blog/thermodynamics/" class="back-link">&larr; Back to Thermodynamics</a>
+<div class="page-header"><h1>[Thermodynamics] Ch 3. Energy equation and 1st law of T.D</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-04-18</span><span class="meta-item"><span class="meta-label">Category:</span> Thermodynamics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/64" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>자 이제 시스템의 에너지를 조금 더 분석해보자.<br />
+<img alt="[Thermodynamics] Ch 3. Energy equation and 1st law of T.D" src="./images/img-001.png" /><br />
+변화의 정의에 따라서, in-out으로 변화량을 계산할 수 있다.<br />
+Ch1에서 시스템을 정의할때, 들어오고 나가는 에너지의 종류는 Only 2가지라고 하였다.<br />
+Work and heat.<br />
+들어오는 Heat (+)<br />
+나가는 Work (-)<br />
+라고 정의하면 다음과 같이 식을 나타낼 수 있다.<br />
+<img alt="[Thermodynamics] Ch 3. Energy equation and 1st law of T.D" src="./images/img-002.png" /><br />
+자, 이 식이 바로 에너지보존법칙 열역학 제 1법칙이다.<br />
+이 식에서 E와 Q,W의 변화량이 다른 식으로 표현되어 있음을 알 수 있다.<br />
+이게 사실 열역학 제 1법칙의 핵심이다.<br />
+System 의 에너지는 State function이고,<br />
+Q,W는 Path function 이라는 것이다.<br />
+즉, Q와 W의 변화량은 process경로에 따라서 바뀌지만 -&gt; Path dependent<br />
+E는 처음,끝 지점에에 따라서만 결정된다 -&gt; Path independent<br />
+따라서,<br />
+<img alt="[Thermodynamics] Ch 3. Energy equation and 1st law of T.D" src="./images/img-003.png" /><br />
+위 처럼 Cycle process일때, 즉 시작점과 끝점의 state가 동일할때<br />
+dE = 0 이기 때문에, 적분해주면 열역학 제 1법칙은 다음과 같이 표현된다.<br />
+<img alt="[Thermodynamics] Ch 3. Energy equation and 1st law of T.D" src="./images/img-004.png" /><br />
+따라서, 나중에 배울 Heat engine refrigerator cycle 에서<br />
+cycle process에서 들어오는 열과 나가는 에너지는 같다는 결론이 나온다.<br />
+이제 열과 에너지에 대해서 조금 더 자세하게 알아보자.<br />
+1. 일<br />
+보통 일은 Flow work, Shear(viscous) work, Shaft work로 나뉜다.<br />
+유체역학에서는 위 3가지중, Flow work, shear work를 위주로 다루었지만,<br />
+열역학에서는 Flow work ,shaft work를 다룬다.<br />
+먼저, Flow work (Boundary work)는<br />
+쉽게 생각하면, Boundary의 팽창 혹은 수축으로 인한 일.<br />
+고등학교 물리시간에 배우는 일의 형태는,<br />
+정의에 따라서, 힘과 평행한 이동거리의 곱으로 표현된다.<br />
+이제 밑의 그림의 피스톤의 경우를 정의대로 해석해보자.<br />
+<img alt="[Thermodynamics] Ch 3. Energy equation and 1st law of T.D" src="./images/img-005.png" /><br />
+<img alt="[Thermodynamics] Ch 3. Energy equation and 1st law of T.D" src="./images/img-006.png" /><br />
+F = PA를 적용하면, Ads = dV라는 것을 쉽게 케치할 수 있다.<br />
+따라서,적분해주면<br />
+<img alt="[Thermodynamics] Ch 3. Energy equation and 1st law of T.D" src="./images/img-007.png" /><br />
+다시 언급하지만 일은<br />
+path dependent<br />
+하기 때문에 1-&gt;2 로 갈때,<br />
+경로에 따라서 일이 달라질 수 있음을 아래 그래프를 통해서 확인 할 수 있다.<br />
+<img alt="[Thermodynamics] Ch 3. Energy equation and 1st law of T.D" src="./images/img-008.png" /><br />
+2. 열<br />
+Heat는 온도가 높은 곳에서 낮은 곳으로의 에너지 흐름이다.<br />
+열전달 과목에서 배우지만, 에너지가 전달되는 즉 열의 방식에는 3가지<br />
+전도,대류,복사가 있다.<br />
+(자세한 내용은 열전달 에서)<br />
+가장 중요한 개념은 바로 열은 전달되는 에너지를 의미한다.<br />
+즉, 열을 어떤 물체 혹은 body가 함축하고 있다는 것은 말이 안된다.<br />
+이동하는 에너지 = 열, not stational<br />
+열도 일과 마찬가지로 path dependent하기 때문에<br />
+State 1-&gt;2로 이동할때, 경로에 따라서 열의 크기가 달라진다.</p>
+<hr />
+<p>자 지금까지 시스템 에너지의 변화량에 관여하는 두가지,<br />
+열 일<br />
+에 대해서 알아보았다.<br />
+여기서 시스템의 에너지 는 ch1에서<br />
+e = u + KE + PE<br />
+u:내부에너지, KE:운동에너지, PE:퍼텐셜 에너지<br />
+임을 확인 하였고,<br />
+내부에너지<br />
+에 대해서 자세하게 알아보자.<br />
+3. 내부에너지<br />
+[ch1에서 다루었지만]<br />
+u = u_ext + u_int + u_translational<br />
+이렇게 내부에너지는 3가지로 나누어졌다.<br />
+여기서 이상기체의 경우 분자들간의 거리가 무시되고( u_ext = 0 ),<br />
+나머지 항들 모두 온도와 비례하는 항이기 라는 것을 알 수 있다.<br />
+따라서,<br />
+<img alt="[Thermodynamics] Ch 3. Energy equation and 1st law of T.D" src="./images/img-009.png" /><br />
+즉, T -&gt; thermodynamic porperty이므로<br />
+u -&gt; Thermodynamic property<br />
+임을 알 수 있다.<br />
+결국 state들마다, u를 알 수 있다는 말이다.<br />
+물의 경우 Triple point (0.01도에서) u = 0이라고 정의한후,<br />
+dQ = du를 활용하여, 다른 점들의 내부에너지를 모두 표에 표기하였다.<br />
+4. 엔탈피 (Enthalpy)<br />
+엔탈피는,<br />
+h = u + Pv<br />
+라고 과학자들이 정의<br />
+[왜이렇게 정의했는지는 바로 뒤에 비열을 설명하면서 같이 설명하겠다]<br />
+일단, 저렇게 정의하게 되면 이상기체의 경우,<br />
+h = u(T) + RT = h(T)<br />
+이므로,<br />
+즉 h또한 온도에 관한 함수로 표현 된다.<br />
+따라서,<br />
+h<br />
+또한<br />
+Thermodynamics property<br />
+라는 것을 확인 할 수 있다.<br />
+4. Specific Heat (비열)<br />
+비열을 중학교때 배웠던 기억이 다들 있을 것이다,<br />
+:1도 1kg올리는데 필요한 열량<br />
+열역학에서는 비열을 두 종류, 부피일정, 압력일정으로 나누어서 해석한다. why?<br />
+보통 두가지 process가 흔히 일어나기 때문에.<br />
+a) Constant volume specific heat<br />
+<img alt="[Thermodynamics] Ch 3. Energy equation and 1st law of T.D" src="./images/img-010.png" /><br />
+자 constant volume인 경우, 일이 존재하지 않으므로<br />
+dQ = dU<br />
+따라서, 위 식처럼 질량으로 나눈 u로 Cv 표현 가능.<br />
+b) Constant pressure specific heat<br />
+Constant pressure 인 경우,<br />
+<img alt="[Thermodynamics] Ch 3. Energy equation and 1st law of T.D" src="./images/img-011.png" /><br />
+위 식을 통해서 dQ = dh 임을 확인 할 수 있다.<br />
+이게 바로 엔탈피를 h = u + Pv로 정의한 이유이다.<br />
+즉, 엔탈피 변화량은 일정한 압력인 과정에서 투입된 열량과 동일하다!<br />
+이제 비열 정의에 대입해주면,<br />
+<img alt="[Thermodynamics] Ch 3. Energy equation and 1st law of T.D" src="./images/img-012.png" /><br />
+5. 고체 액체, Specific Heat (비열)<br />
+고체 액체에서는 specific volume v의 변화량은 거의 0이고,<br />
+뿐만아니라 v는 매우 작다.<br />
+따라서, h = u + pv<br />
+dh = du + pdv + vdP = du<br />
+결국 Cp = Cv임을 확인 할 수 있다.<br />
+따라서, 비열은 일정하다고 해도 무방하다.<br />
+6. 이상기체, Specific Heat (비열 )<br />
+이상기체의 경우가 계속해서 나오고 있는 이유는,<br />
+u = u(T), h = h(T) 라는 성질<br />
+이 굉장히 유용하기 때문이다.<br />
+비열식에 대입해주면,<br />
+(0은 이상기체일때라는 표시)<br />
+<img alt="[Thermodynamics] Ch 3. Energy equation and 1st law of T.D" src="./images/img-013.png" /><br />
+<img alt="[Thermodynamics] Ch 3. Energy equation and 1st law of T.D" src="./images/img-014.png" /><br />
+즉, Cv0와 Cp0모두 온도에 관한 함수이다.(u(T),h(T)이기 때문)</p>
+<h1>온도에 따라서, 기체별로 Cpo의 값을 나타내주는 그래프</h1>
+<p><img alt="[Thermodynamics] Ch 3. Energy equation and 1st law of T.D" src="./images/img-015.png" /><br />
+분자별로 Temperature dependency를 결정하는 요소는,<br />
+분자의 vibration<br />
+복잡한 분자일수록 vibration이 많이 일어나, 비열이 커진다.<br />
+자 그렇다면, 비열을 이용해서 Enthalpy를 유도해보자.<br />
+3가지 방법.<br />
+1. Constant Specific heat.<br />
+<img alt="[Thermodynamics] Ch 3. Energy equation and 1st law of T.D" src="./images/img-016.png" /><br />
+단순하게, 그냥 T2,T1평균온도에서, Specific heat 값을 읽고 일정하다고 가정한다.<br />
+2. Reference Enthalpy<br />
+<img alt="[Thermodynamics] Ch 3. Energy equation and 1st law of T.D" src="./images/img-017.png" /><br />
+기준을 하나 T0로 잡고 적분해준다. 결국 우리는 보통, 엔탈피의 변화량을<br />
+계산하기 때문에<br />
+<img alt="[Thermodynamics] Ch 3. Energy equation and 1st law of T.D" src="./images/img-018.png" /><br />
+다음과 같이 유도할 수 있게 된다.<br />
+3. Function of T<br />
+<img alt="[Thermodynamics] Ch 3. Energy equation and 1st law of T.D" src="./images/img-019.png" /><br />
+위의 표처럼, 실험적으로 구한 C(T) 함수를 사용하여 정확한 값을 구할 수 있다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

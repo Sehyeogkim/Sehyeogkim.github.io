@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch1. Kinematics | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item active">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/viscous-flow/">Viscous-Flow</a><span class="sep">/</span>  <span>Ch1. Kinematics</span></div>
+<a href="/blog/viscous-flow/" class="back-link">&larr; Back to Viscous-Flow</a>
+<div class="page-header"><h1>Ch1. Kinematics</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-09-29</span><span class="meta-item"><span class="meta-label">Category:</span> Viscous-Flow</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/105" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Ch1. Kinematics<br />
+시작에 앞서서,<br />
+Cartesian Tensor<br />
+에 대해서<br />
+익숙해지고 들어가자.<br />
+유체의 움직임에 관한 식을<br />
+유도하는 과정에서<br />
+가장 중요한 도구인<br />
+Cartesian Tensor.<br />
+기본적으로,<br />
+i,j,k 인덱스를 사용한다.<br />
+규칙: 인덱스가 1,2,3일때를 모두 작성하고 더해주는 식이다.<br />
+<img alt="Ch1. Kinematics" src="./images/img-001.png" /><br />
+index 한 종류인 경우.<br />
+<img alt="Ch1. Kinematics" src="./images/img-002.png" /><br />
+위처럼, 인덱스가 두 종류가 곂쳐져 있는 경우는<br />
+먼저, 한 인덱스를 고정하고 다른 인덱스를 1,2,3대입후 더해주는 식으로 진행한다.<br />
+<img alt="Ch1. Kinematics" src="./images/img-003.png" /><br />
+gradient<br />
+굉장히 많이쓰이는 gradient를 Cartesian으로 표현하면,<br />
+위와 같다.</p>
+<h1>자주쓰이는 연산자 2가지.</h1>
+<p><img alt="Ch1. Kinematics" src="./images/img-004.png" /><br />
+i = j 가 같으면 1, 다르면 0<br />
+생각보다 단순하다.<br />
+<img alt="Ch1. Kinematics" src="./images/img-005.png" /><br />
+두번째는 123 순서 기준으로 정방향이면 1, 역방향 -1,<br />
+곂치는 숫자가 존재하면 바로 0 이다.<br />
+어디다 쓰이냐는 생각이 드실 것이다.<br />
+바로 예시로 적용해보자.<br />
+<img alt="Ch1. Kinematics" src="./images/img-006.jpg" /><br />
+curl 의 경우<br />
+Alternation tensor로<br />
+위처럼,<br />
+쉽게 표현할 수 있음을 알 수 있다.</p>
+<hr />
+<p>자 이제, tensor notation을 사용하여,<br />
+유체의 motion - kinematics 를 분석해보자.<br />
+<img alt="Ch1. Kinematics" src="./images/img-007.png" /><br />
+먼저, 점 0에서 p 로 미소 유체가 이동하였다고 가정해보자.<br />
+여기서, 각 1,2,3방향으로의 속도 변화량을<br />
+Velocity Gradient Tensor로 다음과 같이 표현 할 수 있다.<br />
+<img alt="Ch1. Kinematics" src="./images/img-008.jpg" /><br />
+여기서, Velocity Gradient tensor로 두가지로 나누어 표현해보자.<br />
+<img alt="Ch1. Kinematics" src="./images/img-009.png" /><br />
+나눈 이유는,<br />
+각각 term의 설명을 들으면 이해가 될 것이다.<br />
+1. Sij - Strain rate Tensor<br />
+<img alt="Ch1. Kinematics" src="./images/img-010.jpg" /><br />
+여기서<br />
+Diagonal term<br />
+non- Diagonal term<br />
+나누어 설펴보자.<br />
+a. Diagonal term<br />
+Physical meaning<br />
+: fluid element length change 의 rate를 각 방향별(1,2,3) 별로 나타낸다.<br />
+Elongation, contraction길이를 나타낸다.<br />
+<img alt="Ch1. Kinematics" src="./images/img-011.jpg" /><br />
+같은 방식으로 dx2 , u2를 가지고 2방향으로<br />
+유체 요소가 elongation or contraction하는 rate를 구한다면<br />
+(시간의 변화에 따른 strain)<br />
+S22가 나올 것이다.<br />
+b. Non- Diagonal term<br />
+Physical meaning<br />
+: Fluid element angular deformation rate(시간에 따른)<br />
+<img alt="Ch1. Kinematics" src="./images/img-012.jpg" /><br />
+위의 경우, x3동일 평면에서<br />
+angular deformation rate를 다음과 같이 구할 수 있다.<br />
+<img alt="Ch1. Kinematics" src="./images/img-013.jpg" /><br />
+결론적으로<br />
+Non-diagonal Strain rate tensor term<br />
+이 나옴을 확인 할 수 있다.<br />
+지금까지, Strain rate tensor(Sij)<br />
+에 대해서 알아보았고,<br />
+<img alt="Ch1. Kinematics" src="./images/img-009.png" /><br />
+이제 Rotation Tensor(Rij)를 분석해보자.<br />
+<img alt="Ch1. Kinematics" src="./images/img-014.jpg" /><br />
+행렬 형태로 나타내면 위와 같고,<br />
+이를 Curl(u) , Vorticity (w)로<br />
+다음과 같이 표현할 수 있다.<br />
+<img alt="Ch1. Kinematics" src="./images/img-015.jpg" /><br />
+여기서 Rotation Tensor의 항들이 의미하는 바는.<br />
+유체 요소의<br />
+Average rotational rate on counter-clockwise direction.<br />
+아까, non-diagonal term의 angular deformation그림을 그대로 이용하자.<br />
+<img alt="Ch1. Kinematics" src="./images/img-012.jpg" /><br />
+반시계방향으로의<br />
+Average rotation rate를 구해보면,<br />
+다음과 같이 표현 할 수 있고,<br />
+Rotation tensor의 component임을 확인 할 수 있다.<br />
+<img alt="Ch1. Kinematics" src="./images/img-016.jpg" /><br />
+햇갈리지 말아야 할 것이 바로<br />
+Angular deformation vs Rotation 이다.<br />
+Angular deformation - Strain rate tensor (non-diagonal term)<br />
+Rotation - Rotation tensor<br />
+밑의 예시를 보면 바로 이해가 갈 것이다.<br />
+<img alt="Ch1. Kinematics" src="./images/img-017.png" /><br />
+(a)의 경우 angular deformation<br />
+(b) 의 경우 Angular deformation + irrotational<br />
+(c) 의 경우 Rotational + no deformation.<br />
+(d) irrotational + no deformation.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

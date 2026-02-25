@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Convolutional AutoEncoder(CAE) | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item active">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/deep-learning/">Deep-learning</a><span class="sep">/</span>  <span>Convolutional AutoEncoder(CAE)</span></div>
+<a href="/blog/deep-learning/" class="back-link">&larr; Back to Deep-learning</a>
+<div class="page-header"><h1>Convolutional AutoEncoder(CAE)</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-12-11</span><span class="meta-item"><span class="meta-label">Category:</span> Deep-learning</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/139" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Convolutional AutoEncoder(CAE)<br />
+AutoEncoder에 대해서는 이미 다들 익숙 하실 것이다.<br />
+기본적으로 Input data의 특징을 추출하기 위해서<br />
+Encoder에서<br />
+latent space로 dimension을 축소시킨후,<br />
+Decoder에서<br />
+다시 원래 inputdata와 최대한 비슷하게<br />
+복구시키는 작업도 진행해준다.<br />
+<img alt="Convolutional AutoEncoder(CAE)" src="./images/img-001.png" /><br />
+Scheme of Autoencoder<br />
+이렇게 되면 장점이 뭐냐하면,<br />
+Decoder<br />
+를 활용하여,<br />
+우리는 latentspace에서의 조작을 통해서<br />
+방대한 data를 생성할 수 있다.<br />
+위 autoencoder는<br />
+ANN구조<br />
+의 layer을 가진 모델이고<br />
+이번에는<br />
+Convolutional Neural Network<br />
+를 가진<br />
+Autoencoder를 분석해보자.<br />
+<img alt="Convolutional AutoEncoder(CAE)" src="./images/img-002.jpg" /><br />
+Autoencoder와 구조는 똑같고,<br />
+목적도 똑같다.<br />
+encoder에서 특징을 추출한후,<br />
+decoder에서 원래 데이터로 복원시키는<br />
+구조이다.<br />
+여기서 Encoder의<br />
+Convolutional layer Process(사진축소 과정)은<br />
+CNN에서와 동일한 규칙으로 적용된다.<br />
+<img alt="Convolutional AutoEncoder(CAE)" src="./images/img-003.png" /><br />
+Kernel size = 3<em>3이고, strides = 1</em>1<br />
+인 공통적인 상황에서<br />
+(padding = valid<br />
+이라면,<br />
+feature map이 좌측과 같이 축소되며)<br />
+(padding = same<br />
+이라면,<br />
+input size = output size가 되도록<br />
+padding이 한곂 추가)<br />
+됨을 알 수 있다.<br />
+위 규칙들은 사실상 CNN과 동일한 문법이므로,<br />
+넘어가도록 하겠다.<br />
+여기서 기존,<br />
+CNN에는 없는 과정이 바로,<br />
+Decoder부분이다.<br />
+<img alt="Convolutional AutoEncoder(CAE)" src="./images/img-004.png" /><br />
+decoding part<br />
+이 부분에서, latent space의 작은 사이즈에서<br />
+오히려 크기를 키워주어야 한다.<br />
+아주 친절하게 tensorflow에 해당 함수가 존재하고,<br />
+<img alt="Convolutional AutoEncoder(CAE)" src="./images/img-005.png" /><br />
+library<br />
+사용하는 방법도 기존 encoder와 동일하다.<br />
+다음 그림처럼<br />
+(2<em>2) -&gt; (4</em>4)<br />
+로<br />
+크기를 키우는 상황에서.<br />
+<img alt="Convolutional AutoEncoder(CAE)" src="./images/img-006.png" /><br />
+반대로 [4<em>4] -&gt; [2</em>2] 로 전환시키는 encoder에서의<br />
+문법을 그대로 사용하면 된다.<br />
+즉, [4<em>4] 를 2</em>2로 축소시키기 위해서는<br />
+with 3<em>3 kernel size.<br />
+Padding - 'Valid'<br />
+(=No padding)<br />
+when, strides = 1</em>1<br />
+이어야 한다.<br />
+이해를 했는지 문제를 통해서 확인해보자.<br />
+Q<br />
+(3<em>3) 커널 사이즈, (2</em>2) stride, padding = 'same'<br />
+인 상황에서 (3<em>3) -&gt; ? 어떤 사이즈로 변화할 까?<br />
+<img alt="Convolutional AutoEncoder(CAE)" src="./images/img-007.png" /><br />
+역으로 생각해보자.<br />
+Encoder에서<br />
+stride (2</em>2), padding = 'same', kernelsize (3<em>3)으로<br />
+(3</em>3) output이 나오려면,<br />
+(5<em>5)<br />
+이어야 한다.<br />
+padding = 'same' -&gt; 1 layer 추가 (7</em>7)됨<br />
+거기서, stride = 2*2 이므로<br />
+<img alt="Convolutional AutoEncoder(CAE)" src="./images/img-008.png" /><br />
+이런 식으로 tensfor flow를 활용하여 모델을 구조화 하고,<br />
+l<br />
+oss function은 최종적으로 reconstructed 된 이미지와<br />
+기존의 input이미지의 차이를 가지고 계산한다.<br />
+<img alt="Convolutional AutoEncoder(CAE)" src="./images/img-009.png" /><br />
+reconstructed image from CAE</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

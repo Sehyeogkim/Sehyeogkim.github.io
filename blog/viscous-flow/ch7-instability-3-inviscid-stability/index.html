@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch7 Instability 3 - Inviscid stability | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item active">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/viscous-flow/">Viscous-Flow</a><span class="sep">/</span>  <span>Ch7 Instability 3 - Inviscid stability</span></div>
+<a href="/blog/viscous-flow/" class="back-link">&larr; Back to Viscous-Flow</a>
+<div class="page-header"><h1>Ch7 Instability 3 - Inviscid stability</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-12-10</span><span class="meta-item"><span class="meta-label">Category:</span> Viscous-Flow</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/137" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Ch7 Instability 3 - Inviscid stability<br />
+지난 시간에<br />
+Squire's Theorem을 통해서<br />
+모든 3D disturbances는<br />
+2D로 전환됨을 확인하여,<br />
+2D disturbance를<br />
+method of normal modes로 가정후,<br />
+Naviers stokes 방정식에 대입후,<br />
+Stream function을 활용하여,<br />
+Orr-Sommerfeld Eq을<br />
+유도하였다.<br />
+<img alt="Ch7 Instability 3 - Inviscid stability" src="./images/img-001.png" /><br />
+위의 방정식을 Inviscid인 경우 해석해보자.<br />
+<img alt="Ch7 Instability 3 - Inviscid stability" src="./images/img-002.png" /><br />
+위 Rayleigh Eq의 경우<br />
+c, Φ 가 특정 k에 대하여 식을 만족한다고 가정하면,<br />
+complex conjugate<br />
+C<em>, Φ</em>도 위 식을 만족함을 알 수 있다.<br />
+<img alt="Ch7 Instability 3 - Inviscid stability" src="./images/img-003.png" /><br />
+complex conjuage pairs<br />
+진짜인지 한번 증명해보자.<br />
+각각 의 경우 를 Rayleigh Eq(10)에 대입해주자.<br />
+<img alt="Ch7 Instability 3 - Inviscid stability" src="./images/img-004.png" /><br />
+그리고 Real part, imaginary part로 나누어주자.<br />
+<img alt="Ch7 Instability 3 - Inviscid stability" src="./images/img-005.png" /><br />
+우리가 증명할 것은,<br />
+1번식 = 0 일때,<br />
+2번식 = 0 임을 보이면 된다.<br />
+1번식 = 0 -&gt;<br />
+1번식_real part = 0,<br />
+1번식_imaginary part =0<br />
+이다.<br />
+위 전개식을 보면,<br />
+1번식_real = 2번식_real<br />
+1번식_imagine = - 2번식_imagine<br />
+이므로,<br />
+결론적으로 2번식 = 0 임을 알 수 있다.<br />
+이는 참 재밌는 사실을 함축 하고 있다.<br />
+ci &lt; 0 인 c가 위 식을 만족하면,<br />
+Method of normal modes에서<br />
+거듭 강조했다 싶이, stable한 경우이다.<br />
+<img alt="Ch7 Instability 3 - Inviscid stability" src="./images/img-006.png" /><br />
+음수이면, u 가 시간에 따라서 decay -&gt; stable<br />
+하지만 재밌게도, C의 complex conjugate(C<em>)도<br />
+Rayleigh Eq을 만족하는 상황이므로,<br />
+동시에 C</em> &gt;0 즉, unstable한 상황이 발생한다.<br />
+따라서, inviscid 한 경우에는<br />
+Ci = 0 이어야 지만, stable하다 라고 말할 수 있다.<br />
+(to each growing mode, there is a corresponding decaying mode)<br />
+unstable 한 경우를 더 분석해보기 위해<br />
+10번식의<br />
+좌변 첫번째 항<br />
+에<br />
+Φ<em>를 양변에 곱해주고 적분해주자.<br />
+<img alt="Ch7 Instability 3 - Inviscid stability" src="./images/img-007.png" /><br />
+BC으로, d<br />
+Φ/dy = 0<br />
+(속도 = 0)임을 알 수 있다.<br />
+<img alt="Ch7 Instability 3 - Inviscid stability" src="./images/img-008.png" /><br />
+(여기서 d<br />
+Φ</em>/dy 를 변환 과정)<br />
+<img alt="Ch7 Instability 3 - Inviscid stability" src="./images/img-009.png" /><br />
+같은 방식으로 10번식 전체에<br />
+Φ<em>를 곱해주고 적분해주자.<br />
+<img alt="Ch7 Instability 3 - Inviscid stability" src="./images/img-010.png" /><br />
+11번 식을 잘보면, 2번째 항에 imaginary part가 숨어있음을 알 수 있다.<br />
+(by c)<br />
+추출을 위해 U-C</em>을 2번째항, 분모 분자에 곱해주자.<br />
+<img alt="Ch7 Instability 3 - Inviscid stability" src="./images/img-011.png" /><br />
+허수부분 = 실수부분 = 0 이므로,<br />
+12번식 = 허수부분 = 0 임을 알 수 있다.<br />
+12번 식을 해석해보면,<br />
+<img alt="Ch7 Instability 3 - Inviscid stability" src="./images/img-012.png" /><br />
+c_i가 0 이 아닐 때,<br />
+위 적분 식이 = 0 이기 위해서는<br />
+d^2U/dy^2 = 0 인 지점이 boundary안에<br />
+존재해야 한다.<br />
+그 지점이 inflection point!<br />
+이 관점이 바로,<br />
+[RAYLEIGH Theorem]<br />
+Inviscid flow 에서<br />
+inflection point가 존재하면,<br />
+unstable flow 가능성이 존재한다.<br />
+이번에는 11번식의 real part = 0 을 분석해보자.<br />
+<img alt="Ch7 Instability 3 - Inviscid stability" src="./images/img-013.png" /><br />
+여기서 12번식의 적분항 = 0 이므로, 14번식을 만들 수 있다.<br />
+(U1 : inflection point 근처 속도)<br />
+<img alt="Ch7 Instability 3 - Inviscid stability" src="./images/img-014.png" /><br />
+여기서, 13,14번 식을 더해주면,<br />
+unstable 의 새로운 조건이 탄생한다.<br />
+<img alt="Ch7 Instability 3 - Inviscid stability" src="./images/img-015.png" /><br />
+위 식을 분석해보면,<br />
+우리가 분석하는 boundary 안<br />
+어딘가에서는<br />
+<img alt="Ch7 Instability 3 - Inviscid stability" src="./images/img-016.png" /><br />
+이게 바로 [Fjortoft's Theorem]<br />
+위 theorem 을 이해시켜주는 간단한 예시를 살펴보자.<br />
+<img alt="Ch7 Instability 3 - Inviscid stability" src="./images/img-017.png" /><br />
+위 상황을 잘보면,<br />
+Rayleigh condition<br />
+d,e,f가 만족 하고,<br />
+Fortoft condition은<br />
+e,f가 만족함을 알 수 있다.<br />
+따라서, e,f,가 unstable의 가능성을<br />
+함축하고 있다.<br />
+(무조건 unstable은 아님, ci =0 일 수 있으니)</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Heat and Mass transfer] Ch 3 1-Dimensional, Steady-State Conduction-Thermal Resistance | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item active">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/heat-transfer/">Heat-transfer</a><span class="sep">/</span>  <span>[Heat and Mass transfer] Ch 3 1-Dimensional, Steady-State Conduction-Thermal Resistance</span></div>
+<a href="/blog/heat-transfer/" class="back-link">&larr; Back to Heat-transfer</a>
+<div class="page-header"><h1>[Heat and Mass transfer] Ch 3 1-Dimensional, Steady-State Conduction-Thermal Resistance</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-03-28</span><span class="meta-item"><span class="meta-label">Category:</span> Heat-transfer</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/26" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>[Heat and Mass transfer] Ch 3 1-Dimensional, Steady-State Conduction-Thermal Resistance<br />
+Ch2 에서 증명하였던, Heat equation<br />
+에서<br />
+<img alt="[Heat and Mass transfer] Ch 3 1-Dimensional, Steady-State Conduction-Thermal Resistance" src="./images/img-001.png" /><br />
+우리는 1-D, Steady state Conduction, no E generation 인 경우,<br />
+<img alt="[Heat and Mass transfer] Ch 3 1-Dimensional, Steady-State Conduction-Thermal Resistance" src="./images/img-002.png" /><br />
+이제 위식을 적분하여 T(x)를 유도해보자.<br />
+<img alt="[Heat and Mass transfer] Ch 3 1-Dimensional, Steady-State Conduction-Thermal Resistance" src="./images/img-003.png" /><br />
+위 사진같은 상황에서<br />
+(Conduction만보자)<br />
+우리는<br />
+Boundary condition<br />
+을 알기 때문에<br />
+x = 0, T = T2<br />
+x = L, T = T1<br />
+첫번째 식을 적분해주어<br />
+Temperature equation<br />
+,<br />
+그 식을 미분한<br />
+Heat transfer rate equatio<br />
+n을 유도하자.<br />
++ 면적을 나눈<br />
+Heat flux<br />
+까지.<br />
+<img alt="[Heat and Mass transfer] Ch 3 1-Dimensional, Steady-State Conduction-Thermal Resistance" src="./images/img-004.png" /><br />
+<img alt="[Heat and Mass transfer] Ch 3 1-Dimensional, Steady-State Conduction-Thermal Resistance" src="./images/img-005.png" /><br />
+<img alt="[Heat and Mass transfer] Ch 3 1-Dimensional, Steady-State Conduction-Thermal Resistance" src="./images/img-004.png" /><br />
+<img alt="[Heat and Mass transfer] Ch 3 1-Dimensional, Steady-State Conduction-Thermal Resistance" src="./images/img-005.png" /><br />
+여기서 한발 더 나아가서,<br />
+Thermal Resistance<br />
+를 정의해보자.<br />
+[과학자들이 정의하는 이유는<br />
+그냥 편리해서이다.]<br />
+Thermal resistance는<br />
+electrical resistance에서 사실 복붙한 개념이다.<br />
+However, not only resistance<br />
+but Voltage, current도 같이 복붙하였다.<br />
+Voltage (V) -&gt; Temperature (T)<br />
+Current (I) -&gt; Heat transfer rate (q)<br />
+e-Resistance (R) -&gt; Thermal Resistance (R)<br />
+아니 이렇게 맘대로 복붙해도 되는겨?<br />
+우리는 새로운 Thermal Resistance를 정의하는 것이고<br />
+관계식만 맞다면<br />
+문제가 없다.<br />
+<img alt="[Heat and Mass transfer] Ch 3 1-Dimensional, Steady-State Conduction-Thermal Resistance" src="./images/img-006.png" /><br />
+그 관계식은 중학교때 배운 Ohmn's law를<br />
+똑같이 Thermal properties에 적용시키고<br />
+관계식을 만족하는 R을 정의하면 되는것.<br />
+<img alt="[Heat and Mass transfer] Ch 3 1-Dimensional, Steady-State Conduction-Thermal Resistance" src="./images/img-007.png" /><br />
+방금전에 Derive한 Heat transfer rate에 적용시키면<br />
+Rt를 다음과 같이 정의할 수 있다.<br />
+두발 더 나아가서, Thermal resistance를<br />
+Convection, Radiation 에도 적용시켜보자.</p>
+<h1>Convection</h1>
+<p><img alt="[Heat and Mass transfer] Ch 3 1-Dimensional, Steady-State Conduction-Thermal Resistance" src="./images/img-008.png" /></p>
+<h1>Radiation</h1>
+<p><img alt="[Heat and Mass transfer] Ch 3 1-Dimensional, Steady-State Conduction-Thermal Resistance" src="./images/img-009.png" /><br />
+이렇게 정의하면 아주 재밌고 유용한 일이 일어난다.<br />
+(왜 정의했는지 이해가 됨)<br />
+<img alt="[Heat and Mass transfer] Ch 3 1-Dimensional, Steady-State Conduction-Thermal Resistance" src="./images/img-010.png" /><br />
+위에서 살펴본 예시를<br />
+이렇게 Thermal circuit으로 표현 할 수 있다.<br />
+게다가, 우리는 Total Resistance를 구 할 수 있다.<br />
+Total Resistance (직렬) = Summation of All R<br />
+따라서,<br />
+이렇게 총 저항으로 총 Voltage difference<br />
+즉, 총 Temperature difference를 구할 수 있다.<br />
+why? 직렬이므로 (q일정)<br />
+<img alt="[Heat and Mass transfer] Ch 3 1-Dimensional, Steady-State Conduction-Thermal Resistance" src="./images/img-011.png" /><br />
+여기서 하나만 더 정의해보자.<br />
+qx =<br />
+△T/Rt 를<br />
+Newton's law of cooling의 형태인(convection)<br />
+qx = UA△T형태로 바꿔보면<br />
+Rt = 1/UA, 즉 U = 1/(Rt A) 가 된다.<br />
+우리는 U를 overall heat transfer coefficient 라고 정의한다.<br />
+※만든 이유는 사실 간단하다.<br />
+위에 R term들을 자세하게 보면<br />
+모두 면적 A가 포함 되어 있음을 알 수 있다.<br />
+따라서,<br />
+U = 1/ (Rt*A) 를 통해<br />
+그냥 A를 소거하고 분석하기 용이 하다.<br />
+(Composite wall에 자주 쓰임)<br />
+진짜. 마지막으로 Contact Resistance를 살펴보고 마무리하자.<br />
+사진처럼 Solid A-&gt;B로 heat 이 흐를때 (called as Composite wall)<br />
+완벽하게 A온도 = B온도 라고 생각했었다.<br />
+하지만 실제로는 온도가 감소한다.<br />
+그 이유는? 실제로 미세하게 solid 표면을 보면 surface roughness효과로<br />
+아주 작은 공기층들이 있음을 알 수 있다.<br />
+Ch1에서 배웠다 싶이<br />
+Thermal conductivitiy<br />
+Solid &gt; liquid &gt; Gas 였다.<br />
+따라서,<br />
+Thermal resistance는<br />
+Solid &lt; Liquid &lt; Gas<br />
+즉 gas의 경우 같은 q 대비, 온도 차이가 크다는 의미이다.<br />
+<img alt="[Heat and Mass transfer] Ch 3 1-Dimensional, Steady-State Conduction-Thermal Resistance" src="./images/img-012.png" /><br />
+온도차이가 있기 때문에 우리는<br />
+thermal resistance가 존재한다 라고 생각 할 수 있다.<br />
+다음과 같이 표현하고 'Contact Resistance'라고 정의한다.<br />
+<img alt="[Heat and Mass transfer] Ch 3 1-Dimensional, Steady-State Conduction-Thermal Resistance" src="./images/img-013.png" /><br />
+하지만,<br />
+우리의 목표는 온도 감소 없이 열이 흐르도록 하고 싶다면?<br />
+1. Interfacial fluid w/ high conductivity<br />
+Thermal resistance를 감소 -&gt; △T 감소<br />
+Thermal resistance를 감소시키려면<br />
+Thermal conductivity가 더 큰 fluid를 Solid 층 사이에 넣어주면 된다.<br />
+우리는 사이에 넣는 유체를<br />
+Interfacial Fluid라 부른다.<br />
+2. Increase Pressure<br />
+A와 B를 표면 방향으로 압축 시킨다면?<br />
+roughness가 당연히 감소할 것이고<br />
+공기층 제거 -&gt; solid 접촉면 증가<br />
+따라서, Thermal conductivity는 Solid &gt; Air<br />
+즉, Thermal Resistance는 감소 할 것이다.</p>
+<h1>정리해보자면</h1>
+<p>우리는 Thermal resistance라는 개념을 도입하였다.<br />
+Thermal conductivity와 처음에는 햇갈렸지만,<br />
+Thermal resistance가 크면 저항이 크니까 전압이 크다<br />
+결국 온도차이가 크다<br />
+-&gt; 열전달이 잘 안된다. 방해된다.<br />
+Thermal conductivity는 전도에서<br />
+사실 Thermal Resistance의 구성 요소 였다.<br />
+R = L/kA 였으므로,<br />
+따라서 Thermal conductivity가 크다는 것은?<br />
+열전도가 잘된다. why?<br />
+R 감소하므로, 온도변화 감소.<br />
+-&gt; 열 전달 잘된다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

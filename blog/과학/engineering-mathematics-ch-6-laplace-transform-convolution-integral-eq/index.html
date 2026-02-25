@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Engineering Mathematics] Ch 6. Laplace Transform - Convolution. Integral Eq. | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item active">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/과학/">과학</a><span class="sep">/</span>  <span>[Engineering Mathematics] Ch 6. Laplace Transform - Convolution. Integral Eq.</span></div>
+<a href="/blog/과학/" class="back-link">&larr; Back to 과학</a>
+<div class="page-header"><h1>[Engineering Mathematics] Ch 6. Laplace Transform - Convolution. Integral Eq.</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-04-10</span><span class="meta-item"><span class="meta-label">Category:</span> 과학</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/56" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>[Engineering Mathematics] Ch 6. Laplace Transform - Convolution. Integral Eq.<br />
+자, Linearity 성질을 이용해서,<br />
+Laplace transform의 합은 합치거나 쪼개지는게 가능하였다.<br />
+하지만, Multiplication은 성립 하지 않는다.<br />
+f = e^t, g = 1인 경우를 생각해보자, L(f) L(g) 의 곱은 L(f*g) 일까??<br />
+L(1) = 1/s 이므로, 단순하게 아니라는 것은 확인 할 수 있다.<br />
+곱의 법칙이 생각보다 많이 쓰이기 때문에, 수학자들은 Laplace 곱이 성립하도록<br />
+h(t) 를 f(t) g(t) 로부터 다음과 같이 정의하였다.<br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Convolution. Integral Eq." src="./images/img-001.png" /><br />
+H,F,G를 h(t), f(t) , g(t)의 Laplace transform 이라고 할때,<br />
+H = F 곱하기 G가 위 를 만족하는 경우 성립 한다는 것이다.<br />
+아마 의문이 들것이다. 굳이 ??????<br />
+저렇게 어려운 식으로 억지로 만들만큼 라플라스 곱이 쓸모가 있을까?<br />
+간단한 예시로 꽤 쓸모있다는 것을 바로 책에서 보여줬다. ㅋㅋㅋㅋ<br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Convolution. Integral Eq." src="./images/img-002.png" /><br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Convolution. Integral Eq." src="./images/img-003.png" /><br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Convolution. Integral Eq." src="./images/img-002.png" /><br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Convolution. Integral Eq." src="./images/img-003.png" /><br />
+H(s)를 두개의 곱을 쪼갠 후 각자의 역 Laplace를 알기 때문에 h(t)를 유도 할 수 있다.<br />
+Integral Method 를 사용하여 Nonhomogeneous Linear ODE 를 풀어보자.<br />
+다음과 같이 2차 Linear Non homogeneous ODE가 있다고 하자.<br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Convolution. Integral Eq." src="./images/img-004.png" /><br />
+이전 post에서 Q(s)를 Transfer Function이라고 부르고, 다음과 같이 정의한다고 했다<br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Convolution. Integral Eq." src="./images/img-005.png" /><br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Convolution. Integral Eq." src="./images/img-006.png" /><br />
+여기서 y(0) = y'(0) = 0 인 경우,<br />
+Y(s) = R(s) Q(s) 가 되어 Laplace곱으로 표현된다.<br />
+이제 아까 전에 배운, Integral Method를 사용하면,<br />
+<img alt="[Engineering Mathematics] Ch 6. Laplace Transform - Convolution. Integral Eq." src="./images/img-007.png" /></p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

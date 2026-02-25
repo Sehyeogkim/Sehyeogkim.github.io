@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch1 Kinematics part4 - (B,e), Volume and Area deformation | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item active">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/continuum-mechanics/">Continuum-Mechanics</a><span class="sep">/</span>  <span>Ch1 Kinematics part4 - (B,e), Volume and Area deformation</span></div>
+<a href="/blog/continuum-mechanics/" class="back-link">&larr; Back to Continuum-Mechanics</a>
+<div class="page-header"><h1>Ch1 Kinematics part4 - (B,e), Volume and Area deformation</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-02-02</span><span class="meta-item"><span class="meta-label">Category:</span> Continuum-Mechanics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/160" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Ch1 Kinematics part4 - (B,e), Volume and Area deformation<br />
+part2,3에서 정의한<br />
+C,E*,E에 대해서 간략하게 review해보자.</p>
+<h1>Right Cauchy green deformation Tensor(C)</h1>
+<p>C = F ^T F = U^2<br />
+(F = RU = dx/dX)</p>
+<h1>Lagrangain Strain tensor(E*)</h1>
+<p>E<em> = 1/2( C - I )<br />
+= 1/2 ( ∇u + ∇u^T + ∇u</em>∇u^T)</p>
+<h1>Infinitesimal Strain tensor(E)</h1>
+<p>E = 1/2 ( ∇u + ∇u^T )<br />
+위 tensor들의 핵심은,<br />
+변형전을 기준<br />
+으로 하는 tensor들이라는 것이다.<br />
+F = dx(X,t) / dX<br />
+자체가 변형전의 위치벡터를 기준으로 하는 텐서이고,<br />
+이 로부터 C, E*, E가 유도되었기 때문이다.</p>
+<hr />
+<p>이번에는 변형후를 기준<br />
+으로하는<br />
+Cauchy Green deformation tensor, Strain tensor를 살펴보자.<br />
+part2에서 F = RU = VR 이렇게<br />
+두가지 방식으로 분해가능하였다.<br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-001.png" /><br />
+C(Right Cauchy green deformation tensor)는<br />
+F = RU로 부터 유도되었다면,<br />
+B = F F^T 는 F = VR 로 부터 유도한 tensor이다.<br />
+여기서 가장 중요한 사실은 C와 B의 eigen value,vector 관계이다.<br />
+위 BR = RC식에 n을 곱해주자.<br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-002.png" /><br />
+위 과정을 통해서, B와 C의 eigen value는 같고,<br />
+B의 Eigen vector는 rotation tensor연산된,<br />
+즉 회전한 벡터임을 알 수 있다.<br />
+위사실을 사용하여, 다음과 같이.<br />
+변형전 dX<br />
+변형후 dx<br />
+의 길이벡터를 가진 연속체를 생각해보자.<br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-003.png" /><br />
+(여기서, 변형전 단위벡터 = C의 eigen vector라고 가정하자)<br />
+이때, dx1,2를 서로 내적해주면,<br />
+dx = FdX 관계를 이용하여 다음과 같이 유도할 수 있다.<br />
+(part2에서 증명)<br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-004.png" /><br />
+여기서 우리는 C와 B의 eigen vector관계를 사용하여,<br />
+e1(B의 고유벡터)로 n을 바꾸어 주자.<br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-005.png" /><br />
+즉, B tensor의 diagonal term이 ds^2/dS^2임을 확인 할 수 있다.<br />
+(이는 C와 동일함, part2에서 확인)<br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-006.png" /><br />
+part2 - C diagonal term.<br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-007.png" /><br />
+이번에는 B의 off-diagonal term을<br />
+확인해보자.<br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-008.jpg" /><br />
+이것또한, C와 동일한 모습임을 알 수 있다.<br />
+비슷하지만 다른 두 텐서.<br />
+C와 B의 차이점을 확인하고 넘어가자.<br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-009.jpg" /><br />
+'<br />
+즉, 변형전의 벡터를 기저벡터 -&gt; 고유벡터<br />
+(positive definite symmetric tensor이므로)<br />
+로 정의된 것이 C<br />
+변형후의 벡터를 기저벡터 -&gt; 고유벡터<br />
+(positive definite symmetric tensor이므로)<br />
+로 정의된 것이 B<br />
+재밌는 것은, 변형 전후, 고유벡터의 변환은<br />
+회전(R)과 stretching(U)중에서<br />
+회전에 의해서만 이루어 짐을 확인하였다.<br />
+즉, stretching 동작에서는 고유벡터가 바뀌지 않는다는 것.<br />
+따라서, C와 B의 고유벡터가 R연산 차이인 것이다.<br />
+이번에는 Eulerian Starin tensor(e*)를 살펴보자.<br />
+(변형 후를 기준)<br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-010.png" /><br />
+Eulerian Strain tensor의 정의<br />
+위와같이 정의한 후,<br />
+(항상 strain을 구해기 위해서는 길이벡터를 내적해준다)<br />
+이후 길이 내적 - 이전 길이 내적 을 진행하여, 길이 차이에 대한<br />
+scale을 구해준다 -Eq2.<br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-011.png" /><br />
+도출된 식에서,<br />
+1,2방향이 같은경우와 다른경우로,<br />
+diagonal , off-diagonal term을 구분하여 구해준다.<br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-012.png" /><br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-013.png" /><br />
+변형전,후 벡터.<br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-014.png" /><br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-015.png" /></p>
+<hr />
+<h1>변형전, 후 부피변화</h1>
+<p>이번에는 변형 전, 후 부피변화에 대해서 살펴보자.<br />
+변형전,후 길이벡터들을 정의에 따라서 작성하면 다음과 같다.<br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-016.jpg" /><br />
+이후, 처음 부피 dV_0를<br />
+나중부피 dV식에 대입해주면, 다음과 같이 도출된다.<br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-017.jpg" /><br />
+아주 간단한 식이지만,<br />
+굉장히 추후에 많이 쓰인다.<br />
+꼭 기억해두자.</p>
+<h1>변형전, 후 면적 변화.</h1>
+<p>이번에도 변형 전후, 길이벡터들을 통해서 변형 전후,<br />
+면적변화를 살펴보자.<br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-018.jpg" /><br />
+여기서 n_0는 변형전의 면적의 법선벡터이고,<br />
+n은 변형후의 면적의 법선벡터이다.<br />
+중요한 것은, 변형전에 e1,e2좌표공간이므로,<br />
+법선벡터 n_0 = e3임을 알 수 있다.<br />
+여기 3번식에서, 벡터의 연산을 통해서,<br />
+다음의 관계를 도출할 수 있다.$<br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-019.png" /><br />
+위 관계로 4번식을 도출하고, 3번식의 n을 대입해주자.<br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-020.png" /><br />
+4,5번식을 종합적으로 보면<br />
+F^Tn은 e3성분만 존재함을 알 수 있다.<br />
+<img alt="Ch1 Kinematics part4 - (B,e), Volume and Area deformation" src="./images/img-021.jpg" /><br />
+따라서, 최종적으로 우리는 변형전, 후 면적벡터의 관계를 도출할 수 있다.<br />
+굉장히 중요하므로 꼭 기억해두자.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

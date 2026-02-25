@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Thermodynamics] Ch 9. Rankine cycle | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item active">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/thermodynamics/">Thermodynamics</a><span class="sep">/</span>  <span>[Thermodynamics] Ch 9. Rankine cycle</span></div>
+<a href="/blog/thermodynamics/" class="back-link">&larr; Back to Thermodynamics</a>
+<div class="page-header"><h1>[Thermodynamics] Ch 9. Rankine cycle</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-04-23</span><span class="meta-item"><span class="meta-label">Category:</span> Thermodynamics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/71" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>[Thermodynamics] Ch 9. Rankine cycle<br />
+이번 시간부터는,<br />
+실제 현실에서 사용되는 Cycle들과 가장 효율이 좋은<br />
+카르노 기관과의 차이점을 분석해보자.<br />
+오늘의 주인공<br />
+Rankie cycle<br />
+은<br />
+Steam power plant로<br />
+그림과 같이, Boiler, Turbine, condenser, pump로 구성되어 있다.<br />
+<img alt="[Thermodynamics] Ch 9. Rankine cycle" src="./images/img-001.png" /><br />
+T-s그래프를 보면서 천천히 감을 잡아보자.<br />
+먼저. 1번 state - Saturated Liquid부터 시작한다.<br />
+1 -&gt; 2 Reversible adiabatic process in pump (압력증가), W in<br />
+2 -&gt; 3 Reversible Heat exchange in boiler (압력일정), Q in<br />
+3번 State는 Saturated Vapor<br />
+3 -&gt; 4 Reversible adiabatic process in turbine (압력감소), W out<br />
+4 -&gt; 1 Reversible Heat exchange in condenser (압력일정), Q out<br />
+(실제상황에서는, Boiler에서 나왔을때, 3'즉 superheated 상태로 일반적으로 나와<br />
+3' -&gt; 4' 로 Turbine을 거친다)<br />
+1 -&gt; 2 -&gt; 3 -&gt; 4 Reversible Rankie cycle과<br />
+1' -&gt; 2' -&gt; 3 -&gt; 4 Carnot cycle (이전에 배운)<br />
+을 비교해보자.<br />
+<img alt="[Thermodynamics] Ch 9. Rankine cycle" src="./images/img-002.png" /><br />
+Cycle에서 효율은 1-Q_L/Q_H 였고,<br />
+그 효율은 온도 비율에 의해서 결정되었다.<br />
+(CH5에서 설명)<br />
+결론적으로, Average High temperature 과 Average Low temperature 의 차이가<br />
+크면 -&gt; 효율이 컸다.<br />
+Carnot cycle의 경우,<br />
+평균 높은 온도 = T3<br />
+평균 낮은 온도 = T4<br />
+Rankie cycle 의 경우,<br />
+T2 &lt;평균 높은 온도 &lt; T3<br />
+평균 낮은 온도 = T4<br />
+따라서, 카르노기관의 높낮은 온도차이가 더 크기 때문에<br />
+효율이 더 좋다는 것을 알 수 있다.<br />
+However, 그렇다면 Rankie cycle이 존재하는 이유가 뭘까? 효율이 낮은데<br />
+그 이유는 Carnot cycle은 실제 Reversible process일때만 위의 계산처럼 효율이 좋다.<br />
+실제로 자세히보면, Pump가 1' -&gt; 2'로 갈때<br />
+Liquid + Vapor mix 가 Pump에서 Operate함을 알 수있다.<br />
+안에있는 기포들은,<br />
+pump의 효율을 당연히 떨어트리고, 작동과정에 방해가 된다.<br />
+결국, 실제상황에서는 Rankie cycle이 현실적이라는 것이다 .</p>
+<hr />
+<p>이제는 Rankie cycle자체에서,<br />
+어떻게 효율을 높일 수 있을까?</p>
+<h1>기본적인 3가지 원리</h1>
+<p>효율 = 1- T_L / T_h<br />
+T_h = Average high temperature<br />
+T_L = Average Low temperature<br />
+다시 말하지만, TH&gt;&gt;&gt;TL 일수록 cycle의 효율은 좋다.<br />
+위 효율의 정의대로, Th를 고정시키고, Tl을 더 낮춰보자.<br />
+그렇다면 효율은 증가할 것이다.<br />
+<img alt="[Thermodynamics] Ch 9. Rankine cycle" src="./images/img-003.png" /><br />
+하지만 위 경우도 문제가 존재한다. 바로 3-4'과정 즉, Turbine과정에서<br />
+습기가 많이 생긴다는 것이다.<br />
+실제로, 10% 이상의 Quality 습기가 존재할때, blade에 부식이 생겨 효율이 떨어진다.<br />
+그렇다면, 다르게 Tl을 고정시키고, TH를 증가시키자.<br />
+-&gt; 효율 증가.<br />
+아까 언급했다 싶이, 실제로 Superheated vapor를 사용하는 이유이다.<br />
+밑의 그림처럼 오른쪽으로 확장시키면,<br />
+Average high temperature increases,<br />
+AVerage low temperature constant<br />
+-&gt; Efficiency increase<br />
+게다가, Turbine에서 습기가 제거되므로( 4 -&gt; 4')<br />
+Turbine의 효율도 증가한다.<br />
+<img alt="[Thermodynamics] Ch 9. Rankine cycle" src="./images/img-004.png" /><br />
+즉, 최대한 최대한 온도를 높일 수 있는 곳까지 높이는 것이 가장<br />
+이상적인 Cycle이다.<br />
+하지만, 재료적으로 높은 온도의 내성 한계가 존재하므로,<br />
+무한으로 올릴 수는 없다.<br />
+마지막으로는, 밑의 그림처럼<br />
+Max pressure을 증가 시켜준다.<br />
+밑의 그림처럼, Superhated case 1-2-3-4에서 오른쪽 빗금친 영역과 같은 넓이로<br />
+위쪽으로 확장시켜 1-2'-3'-4'을 만들어주면<br />
+안쪽 넓이가 일이기 때문에, 일은 두 과정 모두 동일하다.<br />
+하지만 들어온 Heat 의 경우,<br />
+Pressure이 큰 경우 더 작음을 확인 할 수 있다.<br />
+<img alt="[Thermodynamics] Ch 9. Rankine cycle" src="./images/img-005.png" /><br />
+효율의 또 다른 정의가 바로 W/Q in 이기 때문에,<br />
+Pressure이 높을때, 효율이 좋음을 확인 할 수 있다.<br />
+하지만, 4 -&gt; 4'과정에서 어떤 문제점이 발생할지 이제는 감이 올것이다.<br />
+바로 Turbine mositure increase이다.<br />
+터빈의 효율 하락</p>
+<hr />
+<p>지금까지 효율과 직결되는 기본적인 원리에 대해서 알아보았다.<br />
+이제 실제로, 실제 효율을 증가시키는 방법을 살펴보자.<br />
+1. Reheat<br />
+<img alt="[Thermodynamics] Ch 9. Rankine cycle" src="./images/img-006.png" /><br />
+위 그림처럼, Turbine에서 나온 기체를 중간에 Boiler에서 다시 Reheat 시키면<br />
+3 -&gt; 4 -&gt; 5과정을 통해 다시 열을 받게 된다.<br />
+T_s그래프를 살펴보면<br />
+Average High temperature increase<br />
+Average low temperature constant이다.<br />
+결론적으로, 효율은 증가함을 알 수 있다.<br />
+2. Regenerative<br />
+Regenerative 에서 핵심은 바로 Tubrine에서 열을 끌어다가<br />
+pump-boiler사에이 유체의 온도를 높이는 곳에 쓰는 것이다.<br />
+<img alt="[Thermodynamics] Ch 9. Rankine cycle" src="./images/img-007.png" /><br />
+왼쪽 Cycle을 보면 pump-boiler사이에 Turbine이 연결되어 있음을 알 수 있다.<br />
+그리고 오른쪽의 T-s Diagram을 살펴보면,<br />
+Turbine 과정에서 열을 잃었기 때문에,<br />
+4-5 가 엔트로피 감소과정으로 바뀐 것을 볼 수 있다.<br />
+만약에, Turbine에서의 열이 Reversible heat exchange라면,<br />
+4-5 그래프 t-s graph figure = 1-2-3 t-s graph figure과<br />
+동일 할 것이다.<br />
+그렇다면, 우리가아는 카르노 기관 1'-3-4-5'<br />
+과 효율이 동일 함을 알 수 있다.(면적을 보면 정확히 동일)<br />
+However,<br />
+실제로, Turbine에서 열을 직접적으로 연결해서 사용하는 것은 불가능,<br />
+그리고 Reversible heat exchange도 당연히 불가능 하므로..<br />
+밑 사진처럼 Feed water heater 을 사용하여<br />
+Turbine에서의 열을 대신 Exchange해주는 장치를 설정한다.<br />
+<img alt="[Thermodynamics] Ch 9. Rankine cycle" src="./images/img-008.png" /></p>
+<hr />
+<p>지금까지 우리는 모든 과정들이 Reversible하다고 가정하였다.<br />
+그렇다면, 실제는 당연히 Irrversible하므로, 실제Cycle과 비교해보자.<br />
+<img alt="[Thermodynamics] Ch 9. Rankine cycle" src="./images/img-009.png" /><br />
+먼저 1 -&gt; 2 pump에서는 마찰로 인한 Irreversibility가 존재, s 증가<br />
+따라서, 목표하는 압력을 높이기 위해서는 더 많은 일이 필요하다.<br />
+2 -&gt; 3, 4-&gt; 1 과정에서 pipe 내부마찰로 인해 Pressure decrease<br />
+3 -&gt; 4 Turbine경우에도, 사실상 압력차이로 만들어내는 일이<br />
+reversible보다 작다. 결국 마찰로 인해 엔트로피는 증가함을 알 수 있다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

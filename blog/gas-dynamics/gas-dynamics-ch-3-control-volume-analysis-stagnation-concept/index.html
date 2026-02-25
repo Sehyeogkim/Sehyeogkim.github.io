@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular-Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid-Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item active">Gas-Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/math/" class="nav-item">math<span class="nav-post-count">0</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid-Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous-Flow<span class="nav-post-count">28</span></a>
+        <a href="/blog/과학/" class="nav-item">과학<span class="nav-post-count">26</span></a>
+        <a href="/blog/취미/" class="nav-item">취미<span class="nav-post-count">2</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/gas-dynamics/">Gas-Dynamics</a><span class="sep">/</span>  <span>[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept</span></div>
+<a href="/blog/gas-dynamics/" class="back-link">&larr; Back to Gas-Dynamics</a>
+<div class="page-header"><h1>[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-03-24</span><span class="meta-item"><span class="meta-label">Category:</span> Gas-Dynamics</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/m/6" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept<br />
+Gas dynamics 에서 가장많이 쓰이고 꼭 알아야 하는 개념,<br />
+Stagnation property<br />
+어떤 정의? 왜 정의?<br />
+Static properties -<br />
+그냥 우리가 실제로 관찰하는 fluid property임. 나는 정지해서 관측하고 유체는 움직이고<br />
+Stagnation property -<br />
+우리가 재려고 하는 fluid 를 나와 같은 potential 그리고 Velocity 로 바꾸었을때 fluid property<br />
+보통 관찰자는 정지해있고 Potential =0 인 곳에 있는다.<br />
+그니까 Stagnation property 는 속도가 0이고 z=0인 관찰자의 reference에서의 property이다.<br />
+그러면 왜 도대체 왜 이런 새로운 개념을 또 만든걸까?<br />
+분명히 이유가 있으니까 Stagnation 이라는 개념을 만든 것이다.<br />
+Stagnation이 같고, Static이 다른 경우 우리는 서로 다른 Static을 구할 수 있기 때문이다.<br />
+솔직히 감이 안올 것같다. 밑에서 그림을 통해서 이해해보자.<br />
+Static 과 Stagnation의 관계를 먼저 살펴보자.<br />
+<img alt="[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept" src="./images/img-001.jpg" /><br />
+여기서, 핵심은<br />
+모든 Static property들은 각자, Stagnation property를 가지고 있다.<br />
+Static 에서 Stagnation proerty로 바꾸어주는 과정은 Isentropic과정이라는 것이,<br />
+Stagnation property의 정의라는 것 아주 중요하다.</p>
+<h2>Isentropic process</h2>
+<p>No Energy exchange(Q=W=0), No energy loss 즉 Entropy change = 0<br />
+결론적으로 adiabatic + no Entropy change -&gt; Isentropic Process<br />
+그니까, "Stagnation is a point from Static point through<br />
+Isentropic + no shaft work process"<br />
+"Stagnation point is a reference where the velocity and potential is<br />
+exactly same with a viewer"</p>
+<hr />
+<h1>Static - &gt; Stagnation Enthalpy Relationship</h1>
+<p><img alt="[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept" src="./images/img-001.jpg" /><br />
+이제 위 그림에서 Stagnation - static realtionsihp 관계식들을 총 정리해보자<br />
+Steady state, 1-D Energy equation 부터 살펴보자<br />
+1 -&gt; Static, 2-&gt; Stagnation state<br />
+<img alt="[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept" src="./images/img-002.png" /><br />
+나중속도, potential,heat transfer, shaft work 모두 0 이므로<br />
+<img alt="[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept" src="./images/img-003.png" /><br />
+우항은 Enthalpy 만 남는다. 그리고 Stagnation enthalpy ht 라고 정의한다.<br />
+만약 potential 차이가 없다면<br />
+<img alt="[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept" src="./images/img-004.png" /><br />
+가장 많이 쓰이는 식 정말 많이 쓰인다.<br />
+Stagnation -static enthalpy relationship from steady state, 1-D, Energy Equation</p>
+<h1>이제 State1-&gt; State2 로 가는 일반적인 process를 살펴보자</h1>
+<p>Steady state - 1-D energy equation<br />
+<img alt="[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept" src="./images/img-005.png" /><br />
+여기서 State1과 State2각각 Stagnation point 가 있을 것이다.<br />
+왜냐하면 각각 static point이기 때문이다.<br />
+Therefore,<br />
+<img alt="[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept" src="./images/img-006.png" /><br />
+Differential form 으로 나타내면<br />
+<img alt="[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept" src="./images/img-007.png" /><br />
+이 식이 의미하는게 뭘까? 일단 이 식은 Steady-state, 1-D, 가정이 함축되어 있다.<br />
+여기서 Adiabatic(dq=0) , no shaft work(ws=0) assumption 까지 추가된다면<br />
+dht =0 즉 state 1 과 state2 의 stagnation Enthalpy 가 일정한 것이다.<br />
+핵심적인 것은 위의 가정에 No friction 이라는 말은 없다.<br />
+따라서 Entropy가 일정한 process가 아니어도<br />
+위의 식은 성립할 수 있다는 의미<br />
+CH10 Rayleigh flow 이전까지는<br />
+모두 Steady state,1-D,Adaibatic 가정을 하고 flow흐름을 분석하기 때문에<br />
+Stagnation enthalpy 는 일정하다 라는 뇌세포가 머리에 있어야한다.</p>
+<hr />
+<p>한박자 더가보자<br />
+지금부터 State를 편의상<br />
+밑에 정의한 숫자로 표현 할 것이다.<br />
+State 1: 1<br />
+State2: 2<br />
+Stagnation state of State 1 : 1t<br />
+Stagnation state of State 2: 2t<br />
+라 정의해보자.<br />
+이제, 1t -&gt; 2t process<br />
+즉, Stagnation에서 다른 stagnation으로 가는 과정을 살펴볼 것이다.<br />
+<img alt="[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept" src="./images/img-008.png" /><br />
+근데 Static-&gt; Stagnation process자체의 정의가 Isentropic 이었으므로<br />
+State 1의 entropy = Stagnation 1t의 entropy<br />
+State 2의 entropy = Stagnation 2t의 entropy<br />
+위 두식을 빼주면,<br />
+ds (State 1-&gt;2) = ds (stagnation 1t -&gt; 2t)<br />
+<img alt="[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept" src="./images/img-009.png" /><br />
+여기서 dht 는 익숙한 표현이다.<br />
+아까전에 유도한 energy equation 과 연립<br />
+<img alt="[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept" src="./images/img-010.png" /><br />
+그리고 전에 다뤘던 Entropy 식들을 이제 대입해보자.<br />
+<img alt="[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept" src="./images/img-011.png" /><br />
+여기서 이전 포스터부터, 까먹지 말아야할 부분이 Control volume에 유입된 열,<br />
+Energy equation에 사용된 열은 Reversible process라는 것이다.<br />
+따라서, dq = Tds_e<br />
+<img alt="[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept" src="./images/img-012.png" /><br />
+마지막 식이 바로 Stagnation pressure-energy equatoin<br />
+마지막으로 Incompressible flow 의 Stagnation pressure 에 대해서 탐구해보자<br />
+dv=0 이므로 as incompressible flow<br />
+Tds = du + pdv = du<br />
+그렇다면 Static(u) -&gt; Stagnation process(u_t) 에서<br />
+Isentropic (ds = 0)이므로 du = 0<br />
+따라서,<br />
+u=u_t<br />
+이제 엔탈피의 미분항으로부터 식을 전개하보면<br />
+<img alt="[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept" src="./images/img-013.png" /><br />
+여기서 stagnation enthaply 는 다음과 같이 정의되었다.<br />
+<img alt="[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept" src="./images/img-014.png" /><br />
+이제 이식을 위에 대입해주면 최종 Stagnation pressure 이 derived<br />
+<img alt="[Gas Dynamics] Ch 3 Control volume analysis - Stagnation concept" src="./images/img-015.png" /><br />
+[Stagnation pressure on incompressible flow]</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

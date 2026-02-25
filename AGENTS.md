@@ -11,7 +11,8 @@ Task-specific requirements must be read from each pipeline directory's `AGENTS.m
   - `agents/notion_data_reader/agents.md`
 - Tistory pipeline:
   - `agents/tistory_data_reader/AGENTS.md`
-
+- Github data poster:
+  - `agents/github_data_poster/agents.md`
 ## Global Rules (All Pipelines)
 
 - Do not start bulk extraction until the user explicitly says to start.
