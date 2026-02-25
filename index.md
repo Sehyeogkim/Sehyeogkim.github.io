@@ -4,12 +4,10 @@ title: Home
 ---
 
 ## Knowledge Base
-This page is the entry point for my learning roadmap.
+This site is generated from local `blog_data` sources.
 
-### Main Domains
-- Agentic AI
-- Mechanics
-
-### Notes
-- The left sidebar is the structured map.
-- I will keep adding posts by section and track.
+### Categories
+- [Agentic_AI](/blog/agentic-ai/) (8 posts)
+- [Fluid_mechanics](/blog/fluid-mechanics/) (0 posts)
+- [Gas-Dynamics](/blog/gas-dynamics/) (5 posts)
+- [math](/blog/math/) (0 posts)

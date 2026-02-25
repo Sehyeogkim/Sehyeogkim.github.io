@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tistory Post Exporter"
+  short_description: "Export Tistory posts into txt+images folders."
+  default_prompt: "Export one or more Tistory posts into per-post directories with inline image markers and downloaded images."

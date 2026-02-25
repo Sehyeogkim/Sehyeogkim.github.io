@@ -1,0 +1,18 @@
+generated_at: '2026-02-25T12:48:45.341259+00:00'
+categories:
+  - name: 'Agentic_AI'
+    slug: 'agentic-ai'
+    url: '/blog/agentic-ai/'
+    post_count: 8
+  - name: 'Fluid_mechanics'
+    slug: 'fluid-mechanics'
+    url: '/blog/fluid-mechanics/'
+    post_count: 0
+  - name: 'Gas-Dynamics'
+    slug: 'gas-dynamics'
+    url: '/blog/gas-dynamics/'
+    post_count: 5
+  - name: 'math'
+    slug: 'math'
+    url: '/blog/math/'
+    post_count: 0

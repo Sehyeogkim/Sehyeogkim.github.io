@@ -1,0 +1,17 @@
+data 20260225 jeff
+Goal is to make a github page
+There are data from tistory and the notion right now.
+
+지금 나는 github page blog를 만들려고하거든?? 일단 내 데이터가 tistory, notion 이렇게 두군데에 존재해
+notion 에는 agentic ai 관련 블로그 내용이 존재하고
+8개정도의 page가 있어 페이지 하나당 하나의 post를 개시할 예정이야.
+일단 포스터 하나당 하나의 dir을 내용의 카테고리 dir에 다가 만들고 그 dir안에 notin page 내용을 txt파일로 그대로 작성해줘.
+조심할 것은 image도 같이 저장을 그 dir에다가 해주고, images라는 dir을 만들고, 거기다가 저장하고, txt파일에 이미지가 특정 위치들에 있을껀데 경로를 넣어서 이후에 github page
+를 제작할때 혼돈되지 않도록 해주라.
+
+notion 에 접근하는 바법은 plugin으로 연결된 MCP server를 이용해.
+
+plauqe page -> Agentic AI page -> blog contents page -> 들어가면 Agentic AI로 시작하는 여러 page들이 존재해
+이 page 하나당 하나의 포스터인거고, 일단 카테고리가 Agentic AI이니까.
+
+모든 데이터를 /Users/jeff/blog/Sehyeogkim.github.io/blog_data/Agentic_AI 여기다가 저장하자.

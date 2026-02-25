@@ -1,0 +1,4 @@
+interface:
+  display_name: "Read Tistory"
+  short_description: "Log in to Tistory and explain a selected post to the user."
+  default_prompt: "Read one Tistory post after login and explain it clearly for the user."

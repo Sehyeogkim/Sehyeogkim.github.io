@@ -32,31 +32,23 @@ layout: default
   }
 
   .knowledge-sidebar li {
-    margin: 0.3rem 0;
+    margin: 0.35rem 0;
   }
 
-  .knowledge-group {
-    font-weight: 700;
-    margin-top: 0.8rem;
-  }
-
-  .knowledge-subgroup {
-    font-weight: 600;
-    margin-top: 0.45rem;
-    margin-left: 0.9rem;
-  }
-
-  .knowledge-post {
-    font-weight: 400;
-    margin-left: 1.6rem;
-  }
-
-  .knowledge-post a {
+  .knowledge-sidebar a {
     text-decoration: none;
   }
 
-  .knowledge-post a:hover {
+  .knowledge-sidebar a:hover {
     text-decoration: underline;
+  }
+
+  .knowledge-home-link {
+    font-weight: 700;
+  }
+
+  .knowledge-category-link {
+    font-weight: 500;
   }
 
   @media (max-width: 900px) {
@@ -70,33 +62,17 @@ layout: default
   }
 </style>
 
-{% assign agentic_theory_pages = site.pages | where_exp: "p", "p.path contains 'blog/agentic-ai/theory/' and p.name != 'index.md'" | sort: "title" %}
-{% assign agentic_app_pages = site.pages | where_exp: "p", "p.path contains 'blog/agentic-ai/applications/' and p.name != 'index.md'" | sort: "title" %}
-{% assign mech_fluid_pages = site.pages | where_exp: "p", "p.path contains 'blog/mechanics/fluid-mechanics/' and p.name != 'index.md'" | sort: "title" %}
-{% assign mech_solid_pages = site.pages | where_exp: "p", "p.path contains 'blog/mechanics/solid-mechanics/' and p.name != 'index.md'" | sort: "title" %}
+{% assign categories = site.data.knowledge_map.categories | default: empty %}
 
 <div class="knowledge-shell">
   <aside class="knowledge-sidebar">
     <h3>Knowledge Map</h3>
     <ul>
-      <li class="knowledge-group">Agentic AI</li>
-      <li class="knowledge-subgroup">Theory</li>
-      {% for p in agentic_theory_pages %}
-        <li class="knowledge-post"><a href="{{ p.url | relative_url }}">{{ p.title | default: p.name }}</a></li>
-      {% endfor %}
-      <li class="knowledge-subgroup">Applications</li>
-      {% for p in agentic_app_pages %}
-        <li class="knowledge-post"><a href="{{ p.url | relative_url }}">{{ p.title | default: p.name }}</a></li>
-      {% endfor %}
-
-      <li class="knowledge-group">Mechanics</li>
-      <li class="knowledge-subgroup">Fluid Mechanics</li>
-      {% for p in mech_fluid_pages %}
-        <li class="knowledge-post"><a href="{{ p.url | relative_url }}">{{ p.title | default: p.name }}</a></li>
-      {% endfor %}
-      <li class="knowledge-subgroup">Solid Mechanics</li>
-      {% for p in mech_solid_pages %}
-        <li class="knowledge-post"><a href="{{ p.url | relative_url }}">{{ p.title | default: p.name }}</a></li>
+      <li class="knowledge-home-link"><a href="{{ '/' | relative_url }}">Home</a></li>
+      {% for c in categories %}
+      <li class="knowledge-category-link">
+        <a href="{{ c.url | relative_url }}">{{ c.name }}</a>
+      </li>
       {% endfor %}
     </ul>
   </aside>
