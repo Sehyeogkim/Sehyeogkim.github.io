@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Heat transfer] Ch 1. Introduction | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/advanced-engineering-mathematics/" class="nav-item">Advanced_Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item active">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/heat-transfer/">Heat-transfer</a><span class="sep">/</span>  <span>[Heat transfer] Ch 1. Introduction</span></div>
+<a href="/blog/heat-transfer/" class="back-link">&larr; Back to Heat-transfer</a>
+<div class="page-header"><h1>[Heat transfer] Ch 1. Introduction</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2024-04-17</span><span class="meta-item"><span class="meta-label">Category:</span> Heat-transfer</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/61" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>지금부터 기계공학의 꽃 열전달에 대해서 들어가보자.<br />
+당연히 열전달이 뭔지부터 ㄱㄱ<br />
+Heat transfer:<br />
+온도차이<br />
+로 인한<br />
+Thermal Energy<br />
+이동</p>
+<h1>종류는 3가지</h1>
+<ol>
+<li>Conduction - Stationary medium에서</li>
+<li>Convection - Moving Fluid 에서</li>
+<li>Radiation - Electromagnetic wave에서 No - Medium<br />
+1단원에서는 기본적으로 이 3가지가 무엇인지 알아보고.<br />
+2,3,4,5단원은 Conduction<br />
+6단원부터는 Convection radiation을 알아보자.</li>
+<li>Conduction<br />
+<img alt="[Heat transfer] Ch 1. Introduction" src="./images/img-001.png" /><br />
+사진을 보는 것처럼, Conduction은 분자간의 충돌로 인한 에너지 교환이다.<br />
+분자들은, Translation, rotation, vibration E를 가지고 있고,<br />
+온도가 높을 수록 이 에너지는 당연히 클것이다.<br />
+따라서, 온도가 높은 곳에있는 분자 -&gt; 온도가 낮은 분자들로<br />
+에너지가 이동하고<br />
+이것을 Conduction이라고 부른다.<br />
+Conduciton의 heat flux 다음과 같이 Fourier's Law로 표현된다.<br />
+(Steady state condition 일때!! - 2단원에서 설명)<br />
+k: Thermal conductivity (W/m k)<br />
+qx'': Heat flux (Heat rate per area, W/m^2)<br />
+<img alt="[Heat transfer] Ch 1. Introduction" src="./images/img-002.png" /><br />
+여기서 Thermal conductivity는 medium의 안의 입자들이 얼마나<br />
+충돌로 인한 에너지교환을 잘 하는지를 나타내는 parameter이다.<br />
+즉, K가 클수록 -&gt;&gt; 열전달이 잘 된다는말!</li>
+</ol>
+<h1>열전달이 잘된다???, 같은 heat flux에서, 온도 차이가 작다 라는 말이다.</h1>
+<p>그리고, 위의 부호가 (-)인 이유는 Heat flux는 온도가 높은 곳에서 낮은곳으로 이동하고,<br />
+즉, dT/dx &lt;0 이기 때문이다.</p>
+<h1>헷갈리지 말아야 할 용어,</h1>
+<p>Heat rate(q), (W)<br />
+<img alt="[Heat transfer] Ch 1. Introduction" src="./images/img-003.png" /><br />
+Heat rate는 단위가 와트, 즉 J/s이다.<br />
+2. Convection<br />
+대류 열전달은 Moving fluid에서 일어난다.<br />
+대류의 원인은 크게 두가지, Diffusion, Bulk motion두가지로 인해서 일어나고,<br />
+뜨거운 고체 surface와 주변의 유체의 열전달로 예시를 들 수 있다.<br />
+<img alt="[Heat transfer] Ch 1. Introduction" src="./images/img-004.png" /><br />
+자자, 결국 열전달은 에너지교환이다.<br />
+즉, 속도차이가 큰 고체 표면 근처의 유체에서<br />
+열교환이 활발하게 일어날 것이고, 이때 온도 구배가 큼을 확인 할 수 있다.<br />
+Convection을 자세히는 6단원에서 다룰 것이지만, 3가지로 분류만해보면<br />
+1. Natural or free convection<br />
+2. Forced convection<br />
+3. Phase change convection<br />
+으로 분류 할 수 있고,<br />
+Natural Conveciton위주로 책에서는 다룰 예정이다.<br />
+Natural convection은 자연 대류 즉, 공기의 부력에 의한 heat exchange만<br />
+고려한다.</p>
+<h1>Heat flux : Newton's cooling law</h1>
+<p>를 사용하여 다음과 같이 표현하고<br />
+<img alt="[Heat transfer] Ch 1. Introduction" src="./images/img-005.png" /><br />
+가장 중요한 것은 h: Convection heat transfer coefficient (W/m^2 K)<br />
+h는 대류 열전달 계수 즉 클수록, 대류 열전달이 활발히 일어난다는 의미이다.<br />
+이에 영향을 주는 것은, 위 그림에서 분석한 Boundary layer, Surface geometry, fluid motion등등 여러 가지가 있다.<br />
+3. Radiation<br />
+복사 열전달은 온도가 0 이 아닌 surface에서는 모두 방출된는 에너지 이다.<br />
+Radiation의 근본 원인:<br />
+분자 전자배열의 change -&gt; Electromatnetic waves(Photons) 방출<br />
+전자기파가 결국 복사 열전달 방식이기 때문에 매질을 필요로 하지 않는다.<br />
+(매질(공기)가 없는 우주에서 날라오는 태양의 에너지: 복사열전달)<br />
+<img alt="[Heat transfer] Ch 1. Introduction" src="./images/img-006.png" /><br />
+복사열은 다음과 같이, Surface emissive power(Eb)로 표현되며,<br />
+Stefan-Boltzmann Law라고 부른다.<br />
+(σ=5.6704×10−8 W/m2·K)<br />
+<img alt="[Heat transfer] Ch 1. Introduction" src="./images/img-007.png" /><br />
+여기서 재밌는 것은, 위의 경우는 흑체(Black body)의 경우이고,<br />
+흑체가 아닌 경우는 흑체와의 복사열 비율 (<br />
+emissivity<br />
+)<br />
+를 사용하여 나타낸다.<br />
+<img alt="[Heat transfer] Ch 1. Introduction" src="./images/img-008.png" /><br />
+하나더 재밌는 것은, 모든 표면은 복사열은 다른 source(surrounding)으로 부터<br />
+G만큼<br />
+받고,<br />
+그 받은 것중에서 일부만 흡수하며, 흡수율을 Absorptivity로 표현한다.<br />
+<img alt="[Heat transfer] Ch 1. Introduction" src="./images/img-009.png" /><br />
+여기서 흡수율은 0과 1 사이 이며, 1보다 작은 경우, 물체에서 빛이 전부 반사하지 않기 때문에,<br />
+Opaque하다 라고 말한다.<br />
+만약에, 표면이 매우 작고,<br />
+아주 큰 Surrounding 의 온도가 Tsur 일 경우<br />
+G = σ Tsur^4로 표현 할 수 있다. (surface gray -&gt; α = e)<br />
+따라서, Radiation Heat Flux 는 다음과 같다.<br />
+[방출하는 Emissive power - 흡수하는 Irradiation]<br />
+<img alt="[Heat transfer] Ch 1. Introduction" src="./images/img-010.png" /><br />
+이상하게 Convection term이랑 똑같이 생기가 하려고 저 식을 인수분해 해줘<br />
+다음과 같이 표현한다.<br />
+<img alt="[Heat transfer] Ch 1. Introduction" src="./images/img-011.png" /><br />
+<img alt="[Heat transfer] Ch 1. Introduction" src="./images/img-012.png" /><br />
+<img alt="[Heat transfer] Ch 1. Introduction" src="./images/img-011.png" /><br />
+<img alt="[Heat transfer] Ch 1. Introduction" src="./images/img-012.png" /><br />
+hr : Radiation Heat transfer Coefficient</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

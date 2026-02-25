@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ch3 probability - part3, the exponential Family, multi model | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/advanced-engineering-mathematics/" class="nav-item">Advanced_Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/machine-learning/" class="nav-item active">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/machine-learning/">Machine_Learning</a><span class="sep">/</span>  <span>Ch3 probability - part3, the exponential Family, multi model</span></div>
+<a href="/blog/machine-learning/" class="back-link">&larr; Back to Machine_Learning</a>
+<div class="page-header"><h1>Ch3 probability - part3, the exponential Family, multi model</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-09-12</span><span class="meta-item"><span class="meta-label">Category:</span> Machine_Learning</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/233" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>이번 시간에는 굉장히 중요한<br />
+Exponential Family<br />
+에서 다루어 보자.<br />
+원리는 간단하다. 다양한 posterial pdf form 이 존재하고,<br />
+이를 일반화한 하나의 식으로 표현한 것.<br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-001.png" /><br />
+(각 Term의 의미는 추후에 보자)<br />
+예를들어 Distribution case 1 은<br />
+T(y) = y, η = 2, A(η) = log η, ...<br />
+이런식으로 , case마다 정확히 함수가 어떤 지를 정의할 수 있다.<br />
+======================================================<br />
+마치 우리가 Computational Numberical Fluid Dynamics 시간에 배웠듯이,<br />
+General transport equaiton form이 존재하고, 각 term에 어떤 상수 함수값이 들어가냐에 따라서<br />
+different kinds of Eq으로 재 탄생하였다.<br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-002.png" /><br />
+이렇게 일반화하는 데는 다 이유가 있었다.<br />
+분석하는 방법을 통일 할 수 있고,<br />
+서로 달라 보였던 현상들도 같은 물리적의미로 해석이 가능하였다.<br />
+=====================================================<br />
+이제 다시 확률이론으로 넘아가자.<br />
+pdf가 밑의 term으로 나타낼 수 있다면<br />
+p(y| η )는 exponential family안에 있다고 정의한다.<br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-003.png" /><br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-004.png" /><br />
+각 distribution의 종류별로 함수의 형태는 아래 표와 같다.<br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-005.png" /><br />
+예시로 살펴봐야 이해가 간다.</p>
+<h1>Bernoulli distribution</h1>
+<p><img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-006.jpg" /><br />
+위 pdf의 특징을 살펴보면서, 왜 저렇게 정의했는지를 살펴보자.<br />
+먼저 N개의 데이터 관측을 했다고 했을대, 우리는 N개 전체에 대한 pdf는<br />
+sum of T(yn)으로 나타낼 수 있다(exp의 성질 이용)<br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-007.png" /><br />
+우리는 A(η)의 gradient Laplacia으로 T(y)의 평균과 분산을 구할 수 있다.<br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-008.png" /><br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-009.png" /><br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-008.png" /><br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-009.png" /></p>
+<h1>Maximum entropy derviation of exponential Family.</h1>
+<p>자 여기서 우리는 왜 exponential family form에 한번 집중해보자.<br />
+어떤 데이터를 설명하는 확률분포 p(x)를 우리는 구하고싶은 상황에서,<br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-010.png" /><br />
+우리는 위의 기댓값 Fk만 알고 있다고 가정하자.<br />
+제한된 정보를 가지고 최대한 맞는 p(x)를 찾기 위해서는 Lagrangian Multiplier를 사용한다.<br />
+제약조건은 총 3가지.<br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-011.png" /><br />
+첫번째 항부터 살펴보면, KL Divergence<br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-012.png" /><br />
+q(x) is a prior.<br />
+우리가 구하고자하는 p(x)는 posterior 인데, 여기서<br />
+prior과 얼마나 차이<br />
+가 나는지.<br />
+그 정도를 나타내는 함수이다.<br />
+두번째 항은 당연히 모든 x에 대한 확률의 합은 1이어야하는<br />
+확률의 기본적인 조건.<br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-013.png" /><br />
+this must be 1.<br />
+마지막 항은 우리가 가지고있었던 유일한 정보인, 기댓값 정보의 적분을<br />
+Trapezoidal rule을 활용하여 sigma로 표현한 것.<br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-010.png" /><br />
+자 이제 위 entropy J를 최소화하는 P를 찾기 위해 미분해주자 그때 x = c라하자.<br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-014.png" /><br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-015.png" /><br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-014.png" /><br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-015.png" /><br />
+여기서 Z를 구하기 위해서<br />
+'확률의 합 = 1' 식<br />
+을 사용하자.<br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-016.png" /><br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-017.png" /><br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-016.png" /><br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-017.png" /><br />
+자 이제 위에서 구한 p(x)식에 Z를 대입하면,<br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-018.png" /><br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-019.png" /><br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-018.png" /><br />
+<img alt="Ch3 probability - part3, the exponential Family, multi model" src="./images/img-019.png" /><br />
+우리가 풀고있던, exponential family pdf form 이 등장한다.<br />
+즉, 주어진 제약조건안에서 가장 entropy를 최대화하는 방향으로<br />
+함수의 Form을 지정한 것이다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>5. Singular Value Decomposition(SVD) - part1 | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../assets/css/style.css">
+</head>
+<body>
+  <!-- Mobile header -->
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../assets/images/bg.jpg" alt="Background"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo"
+             src="../../../assets/images/profile.jpg"
+             alt="Sehyeog Kim"
+             onerror="this.style.background='#21262d'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Knowledge Base</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-label">Categories</span>
+        <a href="/blog/advanced-engineering-mathematics/" class="nav-item">Advanced_Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/agentic-ai/" class="nav-item">Agentic_AI<span class="nav-post-count">8</span></a>
+        <a href="/blog/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <a href="/blog/computational-linear-algebra/" class="nav-item active">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/numerical-heat-transfer-and-fluid-flow/" class="nav-item">Numerical-Heat-transfer-and-Fluid-flow<span class="nav-post-count">14</span></a>
+        <a href="/blog/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <a href="/blog/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main-content">
+      <div class="breadcrumb">  <a href="/">Home</a><span class="sep">/</span>  <a href="/blog/computational-linear-algebra/">Computational-Linear-Algebra</a><span class="sep">/</span>  <span>5. Singular Value Decomposition(SVD) - part1</span></div>
+<a href="/blog/computational-linear-algebra/" class="back-link">&larr; Back to Computational-Linear-Algebra</a>
+<div class="page-header"><h1>5. Singular Value Decomposition(SVD) - part1</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2025-09-09</span><span class="meta-item"><span class="meta-label">Category:</span> Computational-Linear-Algebra</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://jeffdissel.tistory.com/228" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>지난 시간<br />
+Ch4 - Eigen Value Problem<br />
+의 내용을 review해보고 오늘의 본론으로 넘어가보자.<br />
+가장 중요한 핵심은, Similiarity 개념이였다.<br />
+"Similiarity Transfomration of A"<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-001.png" /><br />
+그리고 Similiarity Transformation이 된<br />
+Matrix B와 기존의 A의 관계를 Simliar하다<br />
+고 정의한다.<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-002.png" /><br />
+다르게 표현하면 다음과 같이 표현이 가능하고,<br />
+X를 Transforming Matrix<br />
+라고 정의한다.<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-003.png" /><br />
+중요한점은!!!!<br />
+A와 B는 같은 EigenValue를 가진다는 것(Ch4에서 증명완료)<br />
+여기서 한발짝 더 나아가서, X = Q (unitary Matirx)라고 했을때,<br />
+Q-1 = Q* 임을 이용하면, 다음과 같이 분해 가능하다.<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-004.png" /><br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-005.png" /><br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-004.png" /><br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-005.png" /><br />
+위 과정의 핵심은<br />
+Francis' Algorithm<br />
+이었고,<br />
+결국 reflector를 이용한, QR분해가 핵심이었다.<br />
+하지만, QR분해를 진행하기 위해서는 full rank이어야 한다.<br />
+실제로는 full rank가 아닌 행렬들이 더 많기 때문에<br />
+오늘 다룰 분해 방법인 SVD<br />
+가 더 많이 쓰인다.<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-006.png" /><br />
+m x n Matrix A (rank: r &lt; m)<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-007.png" /><br />
+먼저 range(A)를 다음과 같이 정의할 수 있다.<br />
+A의 independent 기저벡터들로 이루어진 space.<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-008.png" /><br />
+여기서 A를<br />
+Singular Value Decomposition<br />
+한 최종 form은 다음과 같다.<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-009.png" /><br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-010.png" /><br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-009.png" /><br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-010.png" /><br />
+여기서 주목할 점은 먼저 dimension이다.<br />
+A : m x n<br />
+U : m x m<br />
+Σ : m x n<br />
+V : n x n<br />
+그리고 각 행렬의 성질인데,<br />
+U,V는 Orthogonal matrix<br />
+(Column vectors are orthonormal)<br />
+Σ is diagonal Matrix<br />
+주목할 점은 rank: r에 맞게<br />
+r+1부터는 Diagonal term = 0 이라는 것을 알 수 있다.<br />
+rank r 이후는 사실상 저장되지 않아도 된다는 것(전부 0 이므로)<br />
+따라서, r<br />
+educed SVD form이 등장한다.<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-011.png" /><br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-012.png" /><br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-011.png" /><br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-012.png" /><br />
+다시 dimension을 살펴보면,<br />
+A : m x n<br />
+U_hat : m x r<br />
+Σ_hat : r x r<br />
+V _hat: r x n<br />
+즉 필요없는 정보는 저장하지 않는 다는 것.</p>
+<h1>해의 유일성</h1>
+<p>재밌는 사실은 모든 m x n Matrix는 rank의 숫자도 상관없이, SVD가 가능하다는 것.<br />
++ Singular Values are uniquely determined.<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-013.png" /><br />
+A가 n x n 행렬일때, sigma_j가 전부 다르다면 singular vector들도<br />
+유일히 결정된다는 사실.</p>
+<h1>Application - Diagonal matrix Eq.</h1>
+<p><img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-014.png" /><br />
+정말 재미있는 사실은 우리는 b = AX식을<br />
+Diagonal matrix equation으로 SVD를 이용하면 쉽게 전환가능하다.</p>
+<h1>Application - vs Eigen Value decomposition</h1>
+<p>우리가 Eigen Value에 대해서 배웠을때도<br />
+Eigen Value Decomposition에 대해서 다루었다.<br />
+여기서 핵심은, A: square Matrix에 대해.<br />
+A, Σ는 서로 similiar 한 Matrices이며,<br />
+X는 eigenVector of A 로 구성된 행렬.<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-015.png" /><br />
+EVD: Eigen Value Decomposition<br />
+우리가 방금 전에 다룬 SVD랑 비교해보면,<br />
+1. SVD는 A: m x n 이어도 가능하고, 모든 상황에서 가능하다.<br />
+2. U,V는 Orthogonal Matrix ( Orthnormal vector로 구성),<br />
+(X는 서로 수직이지만 Normal하진 않아도됨)<br />
+3. Simga가 diagonal Matrix이지만 Singular Value, Eigen value 서로 다름.<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-009.png" /><br />
+SVD: Singular Value Decomposition</p>
+<h1>그렇다면, singular value와 eigen value의 관계는??</h1>
+<p>먼저 SVD 된 A를 A<em>A에 대입.<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-016.png" /><br />
+여기서 재미있는 사실은<br />
+A: m x n Matrix -&gt; A</em>A : n x n Matrix<br />
+따라서, EVD가 가능해졌다.<br />
+V는 Orthogonal Matrix이므로 ( V<em> = V-1)<br />
+따라서, Eigenvalue of (A</em>A) = σ^2<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-017.png" /></p>
+<h1>Application - Spectral Norm.</h1>
+<p>우리가 SVD를 이용하면, Matrix A의 norm을 쉽게 구할 수 있다.<br />
+먼저 Matrix norm의 종류는 여러가지가 있고, 그중에서 2가지를 살펴보자.<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-018.png" /><br />
+Spectral Norm<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-019.png" /><br />
+Frobenius norm<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-020.png" /><br />
+이렇게 singular Value를 이용해서 쉽게 구할 수 있다. 증명해보자.<br />
+1. Spectral Norm<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-018.png" /><br />
+Spectral Norm<br />
+편의상 ||x|| = 1인 x Matrix를 다음과 같이 정의하자.<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-021.png" /><br />
+V: Singular right Matrix. (uniatry Matrix)<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-022.png" /><br />
+SVD를 이용하면 간단하게 증명가능하다 ( ||y|| = 1 이용)<br />
+2. Frobenius Norm<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-019.png" /><br />
+Frobenius norm<br />
+SVD 를 이용하면, A*A는 다음과 같다.<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-023.png" /><br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-024.png" /><br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-025.png" /><br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-024.png" /><br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-025.png" /><br />
+trace 성질 이용.<br />
+따라서, 최종적으로 norm은 다음과 같다.<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-026.png" /></p>
+<h1>Application - Spectral condition Number.</h1>
+<p><img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-027.png" /><br />
+Definition of Condition Number<br />
+(Condition Number는 수치적안정성을 측정하는 기준치로 사용됨, 이후에 설명)<br />
+위 정의에 SVD 분해를 활용하여 방금전에 Norm을 증명하였다.<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-028.png" /><br />
+역행렬의 경우,<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-029.png" /><br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-030.png" /><br />
+Inverse of diagonl Matrix<br />
+norm 의 정의에 그대로 대입해주면,<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-031.png" /><br />
+따라서, 최종적으로 condition Number는 다음과 같다.<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-032.png" /><br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-033.png" /></p>
+<h1>Application - Rank determination</h1>
+<p>SVD of A (m x n Matrix, rank r)<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-034.png" /><br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-035.png" /><br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-034.png" /><br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-035.png" /><br />
+즉 여기서,<br />
+r개의 singular value의 정보<br />
+가 저장되어 있다.<br />
+여기서 저장공간의 부족으로 중요한 (값이 큰)<br />
+k개의 singular Matrix<br />
+만<br />
+저장할 수 있을까????<br />
+(only k singular value Matrix)<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-036.png" /><br />
+당연히, Ak ! = A 일 것이다. 그 오차를 norm 으로 표현하면 다음과 같다.<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-037.png" /><br />
+하지만, 오차가 그렇게 크지 않는 k를 찾을 수 있을까???<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-038.png" /><br />
+best rank k approximation.<br />
+어려워보이지만, 생각보다 쉽게 이해할 수 있다.<br />
+Ak에서 결국 담지 않은 원래 A의 정보: (σ k+1 ~ r)<br />
+그리고 그 순서는 오름차순이기 때문에<br />
+σ k + 1이 가장 담지 못한 정보중에서 큰 정보이다.<br />
+따라서, 우리는 error를 σ k+1(scalar)값이 표현하다고 설정하는 것.<br />
+다시 정리하면, 우리는 threshold e를 설정하고,<br />
+이를 기준으로 저장할 singular Value 들을 분류한후, Ak 새로운 Matrix를 가지고 작업한다.<br />
+(계산속도 빨라짐, 정보저장공간 확보)<br />
+<img alt="5. Singular Value Decomposition(SVD) - part1" src="./images/img-039.png" /></p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim. Built with gitfolio-inspired theme.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../../../assets/js/main.js"></script>
+</body>
+</html>
