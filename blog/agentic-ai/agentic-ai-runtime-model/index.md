@@ -167,7 +167,7 @@ client = OpenAI(api_key="...")
 
 
 ### #OpenAI API key 발급 방법.
-1.  [API Platform]({{https://openai.com/api/}}) 에 접속
+1.  [API Platform](<https://openai.com/api/>) 에 접속
 ![🎐 Agentic AI - runtime, model](./images/img-011.png)
 2. 우측 상단의 API platform 클릭
 3. 좌측 Side bar → API keys
@@ -188,7 +188,7 @@ client = OpenAI(api_key="sk-proj-eivw_9cNtm5Gh7flhiQszio8ppdT4UrVcD------")
 
 이후 agent model이 장착 된 것이고, 사용모델이 openai 회사의 모델들을 사용할 수 있다.
 (아래의 pricing 을 살펴보면 Token당 달러로 가격이 측정된다)
-[Pricing]({{https://openai.com/api/pricing/}})
+[Pricing](<https://openai.com/api/pricing/>)
 
 # Model runtime
 ---
@@ -258,7 +258,7 @@ Vertex AI는 이것을:
 - 내부 GPU, TPU, 스케일링은 Google이 관리한다.
 
 실제 google cloud → vertex AI console에 접속해보면,(url console창)
-[Google Cloud console]({{https://console.cloud.google.com/vertex-ai/studio/prompt-gallery/47d889d2-b22d-46ed-b986-ca3bcbeb5a47?hl=en&project=lofty-cabinet-478609-f4}})
+[Google Cloud console](<https://console.cloud.google.com/vertex-ai/studio/prompt-gallery/47d889d2-b22d-46ed-b986-ca3bcbeb5a47?hl=en&project=lofty-cabinet-478609-f4>)
 
 ![🎐 Agentic AI - runtime, model](./images/img-016.png)
 직접 model setting을 UI를 통해 할 수 있고, input, output도 관리가 가능하다.

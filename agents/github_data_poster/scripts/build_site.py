@@ -15,6 +15,7 @@ INDEX_FILE = REPO_ROOT / "index.md"
 
 HEADER_KEYS = {"Title", "URL", "PageID", "PostID", "Date", "Category"}
 IMAGE_MARKER_RE = re.compile(r"^\[IMAGE:\s*images/([^\]]+)\]\s*$")
+LIQUID_URL_RE = re.compile(r"\{\{\s*(https?://[^}\s]+)\s*\}\}")
 
 
 def slugify(text: str) -> str:
@@ -55,7 +56,11 @@ def render_body(body_lines: list[str], title: str) -> list[str]:
             image_name = m.group(1).strip()
             rendered.append(f"![{title}](./images/{image_name})")
         else:
-            rendered.append(line)
+            # Notion-origin text may include {{https://...}} which Jekyll treats as Liquid.
+            normalized = LIQUID_URL_RE.sub(r"<\1>", line)
+            # Escape any leftover Liquid delimiters so content renders as plain text.
+            normalized = normalized.replace("{{", "&#123;&#123;").replace("}}", "&#125;&#125;")
+            rendered.append(normalized)
     return rendered
 
 

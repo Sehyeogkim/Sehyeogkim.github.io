@@ -159,7 +159,7 @@ agent와의 대화와 실행되는 action의 결과를 사용자가 실시간으
 # Agent Development Framework.
 ---
 ![🎐 Agentic AI - Definition & Framework](./images/img-012.png)
-google cloud ADK youtube channel: [https://www.youtube.com/watch?v=pX0_iIfRilU]({{https://www.youtube.com/watch?v=pX0_iIfRilU}})<br>
+google cloud ADK youtube channel: [https://www.youtube.com/watch?v=pX0_iIfRilU](<https://www.youtube.com/watch?v=pX0_iIfRilU>)<br>
 그렇다면, 우리는 도대체 어디서 agent ai를 설계해야할까? LLM(뇌)와 사용자를 연결하는 AG-UI에 대해서 알아보았고,이후에 다룰 팔 다리인 tools, skills and so on을 연결하고 해체하고 편집하는 공간이 있어야한다. 그 공간 이자 작업자의 팔레트가 바로 \*\*Agent Development Framework\*\*이다.<br><br>에이전트는 “무슨 일을 시키느냐”에 따라 구조가 달라진다.<br>어떤 에이전트는 도구가 2\~3개면 충분하지만, 어떤 에이전트는 검색·DB·브라우저·코드 실행까지 여러 도구가 필요하다.  메모리도 마찬가지다. 단기 세션만으로 되는 경우도 있고, 사용자별 장기 기억이 꼭 필요한 경우도 있다.<br>(즉, 사용자의 목적에 맞는 agent를 build할 수 있게 된다.)<br><br>이미 수많은 회사들이 자신이 build한 프레임 워크를 공개하고 있고, 그중 Google이 오픈소스로 제공하는 선택지가 \*\*ADK(Agent Development Kit)\*\* 다. (이후 application 단계에서 자세하게 살펴보도록 하자)
 ![🎐 Agentic AI - Definition & Framework](./images/img-013.png)
 

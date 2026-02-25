@@ -83,7 +83,7 @@ state는
 ![🎐 Agentic AI - Memory](./images/img-006.png)
 
 하지만, 이야기 했다 싶이. context window의 제한 위 사진에서는 200k token이 존재한다. 따라서, 모든 대화를 넣을 수 없다. 그래서 openai docs에 따르면 두가지 방식 을 사용한다.
-[Context Engineering - Short-Term Memory Management with Sessions from OpenAI Agents SDK]({{https://developers.openai.com/cookbook/examples/agents_sdk/session_memory/?utm_source=chatgpt.com}})
+[Context Engineering - Short-Term Memory Management with Sessions from OpenAI Agents SDK](<https://developers.openai.com/cookbook/examples/agents_sdk/session_memory/?utm_source=chatgpt.com>)
 
 ### Trimming
 ---
@@ -93,7 +93,7 @@ Trimming은 아주 단순하게 time sequence에 따라 대화내용을 정렬�
 ### Compaction
 ---
 Compact (summarizing)은 대화내용들을 전부 요약한다음에 하나의 compaction block으로 create한 후에, Context window에 짚어 넣어 이후 대화를 진행하는 것이다.
-[Compaction]({{https://platform.claude.com/docs/en/build-with-claude/compaction}})
+[Compaction](<https://platform.claude.com/docs/en/build-with-claude/compaction>)
 
 ![🎐 Agentic AI - Memory](./images/img-008.png)
 
@@ -121,10 +121,10 @@ Compact (summarizing)은 대화내용들을 전부 요약한다음에 하나의 
 ![🎐 Agentic AI - Memory](./images/img-009.png)
 
 ### Claude memory
-실제 Claude code docx ([Manage Claude's memory - Claude Code Docs]({{https://code.claude.com/docs/en/memory#how-it-works}}))를 살펴보면, session의 맨 처음에 200줄의 `memory.md`내용이 자동 기입된다고 말한다. 즉 모든 대화에서 memory.md를 넣으면 비효율적이니 session의 처음에 기입한다.
+실제 Claude code docx ([Manage Claude's memory - Claude Code Docs](<https://code.claude.com/docs/en/memory#how-it-works>))를 살펴보면, session의 맨 처음에 200줄의 `memory.md`내용이 자동 기입된다고 말한다. 즉 모든 대화에서 memory.md를 넣으면 비효율적이니 session의 처음에 기입한다.
 ![🎐 Agentic AI - Memory](./images/img-010.png)
 ### (B) 벡터 DB(Vector Database) / 임베딩 검색
-([Exploring Vector Databases: Pinecone, Chroma, Weaviate, Qdrant, Milvus, PgVector, and Redis]({{https://mehmetozkaya.medium.com/exploring-vector-databases-pinecone-chroma-weaviate-qdrant-milvus-pgvector-and-redis-f0618fe9e92d}}))
+([Exploring Vector Databases: Pinecone, Chroma, Weaviate, Qdrant, Milvus, PgVector, and Redis](<https://mehmetozkaya.medium.com/exploring-vector-databases-pinecone-chroma-weaviate-qdrant-milvus-pgvector-and-redis-f0618fe9e92d>))
 ![🎐 Agentic AI - Memory](./images/img-011.png)
 
 자 두번째로, 외부 저장공간을 이용하는 memory 장기기억 방식이다. 위사진을 보게 되면, 다양한 **제품/오픈소스 프로젝트**가 존재한다. y축은 상업/open source 로 구분이 되어 있으며, 위쪽은 **Dedicated = 벡터 검색이 주업(전용 엔진)**, **Support = 본업은 따로 있고 벡터 검색은 옵션(추가 기능) 로 이해하면 된다.**
@@ -134,7 +134,7 @@ Compact (summarizing)은 대화내용들을 전부 요약한다음에 하나의 
 ### Retrieval Augmented Generation (RAG) Process
 ---
 ![🎐 Agentic AI - Memory](./images/img-012.png)
-[An introduction to RAG and simple/ complex RAG]({{https://medium.com/enterprise-rag/an-introduction-to-rag-and-simple-complex-rag-9c3aa9bd017b}})
+[An introduction to RAG and simple/ complex RAG](<https://medium.com/enterprise-rag/an-introduction-to-rag-and-simple-complex-rag-9c3aa9bd017b>)
 
 사용자에게 질문을 받기 전에, 먼저 Vector Database를 구축해야한다. 이해를 위해서, 병원에서 사용하는 RAG라고 가정하자.
 - A: Raw Data Source
@@ -165,7 +165,7 @@ Compact (summarizing)은 대화내용들을 전부 요약한다음에 하나의 
 
 
 # Conclusion
-[Effective context engineering for AI agents]({{https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents?utm_source=chatgpt.com}})
+[Effective context engineering for AI agents](<https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents?utm_source=chatgpt.com>)
 ![🎐 Agentic AI - Memory](./images/img-013.png)
 
 마무리로, antropic (claude)의 context window를 살펴보고 마무리하자. 결국 기억을 하려면 prompt에 입력을 해주어야 한다. 따라서 prompt engineering이라는 좌측의 용어도 존재한다. “프롬트를 어떻게 쓰고, 조작하는지”

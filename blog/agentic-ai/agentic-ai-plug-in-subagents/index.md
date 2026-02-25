@@ -22,7 +22,7 @@ Agent의 기본구조에서 한단계 더 나아가 advanced topic에 대해서 
 
 ### What is Cursor?
 이번시간에는 **Cursor IDE**를 바탕으로 살펴보도록 하자. (추후에 Application에서 자세하게 다룰 예정)
-[Plugins \| Cursor Docs]({{https://cursor.com/docs/plugins}})
+[Plugins \| Cursor Docs](<https://cursor.com/docs/plugins>)
 
 (어떤 agent applicaton이든 설계구조는 비슷하다)
 ![🎐 Agentic AI - Plug-in, subagents](./images/img-001.png)
@@ -68,7 +68,7 @@ process는 tool사용방식과 동일하다.
 1. Cursor IDE → Settings → Marketplace 에 들어가면 다양한 우리가 알던 application들이 존재한다.
 ![🎐 Agentic AI - Plug-in, subagents](./images/img-006.png)
 1. 다운로드 한 이후에, notion API token을 발급받는다.
-	[Create a token - Notion Docs]({{https://developers.notion.com/reference/create-a-token}})
+	[Create a token - Notion Docs](<https://developers.notion.com/reference/create-a-token>)
 ![🎐 Agentic AI - Plug-in, subagents](./images/img-007.png)
 
 

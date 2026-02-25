@@ -25,7 +25,7 @@ Source: [https://www.notion.so/3112a46dc68c80b9847cf8972f707112](https://www.not
 Agentic AI를 한 문장으로 정리하면, **사용자 의도를 이해하고 → 여러 단계 계획을 세우고 → 도구를 호출해 실행까지 끝내는** 자율 시스템이다. 단순히 “답변을 생성하는 모델”이 아니라, **계획(Planning)** 과 **도구(Tools)** 를 통해 실제 업무를 완료하도록 설계된 아키텍처인 것이다.
 
 사용자의 목적에 따라서, 자신의 문제를 풀 최대한 효율적인 agent framework를 구축하면 되는 것이고, 후보군으로는 다양한 framework가 존재한다. 이번 시간에는 어떠한 framework들이 존재할 수 있는지 google에서 제공하는 문서를 바탕으로 쭉 정리해보자.
-[Choose a design pattern for your agentic AI system  \|  Cloud Architecture Center  \|  Google Cloud Documentation]({{https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system}})
+[Choose a design pattern for your agentic AI system  \|  Cloud Architecture Center  \|  Google Cloud Documentation](<https://docs.cloud.google.com/architecture/choose-design-pattern-agentic-ai-system>)
 
 
 # Single - agent system

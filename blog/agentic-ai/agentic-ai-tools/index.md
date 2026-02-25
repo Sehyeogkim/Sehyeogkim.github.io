@@ -39,7 +39,7 @@ Agentic AI를 한 문장으로 정리하면, **사용자 의도를 이해하고
 2. 이후에 그 tool을 가지고 perform을 한 후, 결과를 도출하여 response 하는 과정이다.
 ![🎐 Agentic AI - tools](./images/img-002.png)
 
-출처: [Tool use with Claude]({{https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview}})
+출처: [Tool use with Claude](<https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview>)
 
 ### 1. Built-in client tools.
 ---
@@ -73,7 +73,7 @@ Server tools follow a different workflow where Anthropic's servers handle tool e
 ### 3. MCP server tools.
 ---
 MCP를 안쓰는 agent AI는 없을 정도로 굉장히 중요하므로, 조금 깊게 들어가 보자. 지금 우리는 도구 조작을 agent가 어떻게 하는지를 살펴보고 있고, 지금까지 인간이 역사적으로 지금까지 만들어 놓은 도구들 google cloud, notion, excel, powerpoint and so on. 등을 조작을 하려면 API 함수를 읽고, 그거에 맞게 코드를 작성해야 (before MCP사진) 우리가 원하는 정보를 주고 받을 수 있었다. 
-[Architecture overview - Model Context Protocol]({{https://modelcontextprotocol.io/docs/learn/architecture}})
+[Architecture overview - Model Context Protocol](<https://modelcontextprotocol.io/docs/learn/architecture>)
 ![🎐 Agentic AI - tools](./images/img-004.png)
 
 하지만, 이제는 MCP라는 약속된 프롤토콜을 사용함으로 써, 편리해졌다.
@@ -215,7 +215,7 @@ def weather_current(location):
 ```
 
 (그렇다면, 우리를 위해서 누군가가 API를 읽고, client ↔ server 통신이 가능한 json-rpc형식으로 변환함수를 만들어 놓았고, 그것들이 여러 github or market에 존재하는 것)
-[최고의 MCP 서버 찾기 \| MCP 마켓]({{https://mcpmarket.com/ko}})
+[최고의 MCP 서버 찾기 \| MCP 마켓](<https://mcpmarket.com/ko>)
 
 
 

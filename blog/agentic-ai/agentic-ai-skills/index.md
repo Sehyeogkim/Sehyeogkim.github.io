@@ -52,7 +52,7 @@ e.g.) openai 최신 모델을 질문하는 예시.
 만약에 agent를 직접 설계하는 입장이라면, skill dir을 직접 알려주는 식으로 명령을 해야하지만, OPNEAI, ANTROPIC에서 제공하는 완성된 agent는 skill 이름만 말해주면 자동으로 그 스킬을 사용한다.
 
 가장 대표적인, OPENAI의 Agent AI Application platform인, 알트만 형의 CODEX를 살펴보자.
-[Agent Skills]({{https://developers.openai.com/codex/skills/}})
+[Agent Skills](<https://developers.openai.com/codex/skills/>)
 공식문서를 살펴보면, skill dir이 이런식으로 구성이 되어 있다. 
 skill을 위한 데이터와 설명 파일 (.md)가 들어있다.
 ![🎐 Agentic AI - skills](./images/img-001.png)
@@ -125,7 +125,7 @@ Codex UI에 들어가서 (2026.02기준 mac os만 지원) `/ch` 을 기입하면
 이제 실행을 해보자.
 ![🎐 Agentic AI - skills](./images/img-004.png)
 
-[SKILL.md]({{http://SKILL.md}}) 파일에 적힌대로, OPENAI 공식문서만 참고해서 정보를 전달하는 것을 알 수 있다.
+[SKILL.md](<http://SKILL.md>) 파일에 적힌대로, OPENAI 공식문서만 참고해서 정보를 전달하는 것을 알 수 있다.
 
 
 
@@ -164,7 +164,7 @@ Codex UI에 들어가서 (2026.02기준 mac os만 지원) `/ch` 을 기입하면
 
 ### Priorities of the skills
 ---
-여기서 [skills.md]({{http://skills.md}}) 파일이 작업을 하다보면 굉장히 다양한 곳에 여러개가 존재할 것이다.
+여기서 [skills.md](<http://skills.md>) 파일이 작업을 하다보면 굉장히 다양한 곳에 여러개가 존재할 것이다.
 일단 codex, claude, gemini, cursor 어떤 agent application이던지. skills 작업공간은 이것만 기억하자.
 - *Application 설치 장소*
 - *Project 공간*
@@ -183,7 +183,7 @@ codex를 저는 user directory에 설치를 하였고, 그 내부에 skills라�
 
 ### 2. Project dir
 내가 진행하고 있는 프로젝트에 따라서 여러 project 폴더가 존재한다. 그리고 그 프로젝트에서 codex를 열게 되면, 해당 프로젝트를 기준으로 항상 작업을 하게 된다.
-> IDE or CLI 에서 open한 project위치를 기준으로 SKILL.md, [AGENTS.md]({{http://AGENTS.md}})(추후에 설명) 들을 main으로 prompt(context window)에 추가한다는 것.
+> IDE or CLI 에서 open한 project위치를 기준으로 SKILL.md, [AGENTS.md](<http://AGENTS.md>)(추후에 설명) 들을 main으로 prompt(context window)에 추가한다는 것.
 ![🎐 Agentic AI - skills](./images/img-011.png)
 
 tistory의 블로그 내용을 github -pages로 전부 옮기는 프로젝트를 진행하고자. proejct내부에 스킬들을 생성한 것을 확인 할 수 있다.
