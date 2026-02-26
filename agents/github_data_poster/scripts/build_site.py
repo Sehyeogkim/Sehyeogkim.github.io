@@ -42,6 +42,12 @@ GROUP_MAP: dict[str, dict] = {
             "Sensitivity_Analysis",
         ],
     },
+    "AI_Application": {
+        "desc": "Claude, Codex, Cursor, Gemini",
+        "categories": [
+            "Claude",
+        ],
+    },
     "BioMechanics": {
         "desc": "Blood Flow, Cardiovascular Diseases",
         "categories": [
@@ -69,6 +75,7 @@ GROUP_MAP: dict[str, dict] = {
 
 GROUP_SLUGS = {
     "AI": "ai",
+    "AI_Application": "ai_application",
     "BioMechanics": "biomechanics",
     "Mechanical_Engineering": "mechanical-engineering",
 }
@@ -381,7 +388,7 @@ def main() -> int:
     processed = 0
     failed: list[str] = []
 
-    for gname in ["AI", "BioMechanics", "Mechanical_Engineering"]:
+    for gname in ["AI", "AI_Application", "BioMechanics", "Mechanical_Engineering"]:
         gslug = GROUP_SLUGS[gname]
         ginfo = GROUP_MAP[gname]
         g_out = TARGET_ROOT / gslug

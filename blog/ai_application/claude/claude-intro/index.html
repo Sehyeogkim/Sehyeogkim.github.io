@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claude - Intro | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <script>!function(){var t=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",t)}();</script>
+</head>
+<body>
+  <button class="theme-toggle" aria-label="Toggle theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">AI_Application</span>
+        <a href="/blog/ai_application/claude/" class="nav-item active">Claude<span class="nav-post-count">2</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/ai_application/">AI_Application</a><span class="sep">/</span><a href="/blog/ai_application/claude/">Claude</a><span class="sep">/</span><span>Claude - Intro</span></div>
+<a href="/blog/ai_application/claude/" class="back-link">&larr; Back to Claude</a>
+<div class="page-header"><h1>Claude - Intro</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2026-02-26</span><span class="meta-item"><span class="meta-label">Category:</span> Claude</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://www.notion.so/Claude-Intro-3112a46dc68c804eb4c3e35012023ef0" target="_blank" rel="noopener">link</a></span></div>
+<article class="post-content"><p>Claude는 <code>Antropic</code>이라는 회사에서 계발하는 자신의 인공지능 LLM model + agentic AI 기능을 합친 Application이다.<br />
+<img alt="Claude - Intro" src="./images/img-001.png" /><br />
+계속해서 새로운 LLM model을 계발하고 있고 (2026.02 기준 opus4.6), 그리고 openai의 수익을 넘어 굉장히 빠르게 성장하고 있다. 엔트로픽에서 강조하는 것은, 자신들의 고객의 target은 개인이 아니라 회사라는 점이다. 즉, 회사에서 원하는 AI platform service를 제공하는 것을 목표로 두고 있다.</p>
+<p>이번시간에는 클로드에 대해서 일단 빅 픽쳐로 어떤 것들이 어떤 기능을 하는지 빠르게 확인하는 시간을 가지자.</p>
+<h1>Contents</h1>
+<ul>
+<li>Claude 3 applications</li>
+<li>Claude Workspace</li>
+<li>Claude Pricing/model</li>
+</ul>
+<h1>Claude ai vs Code vs Cowork</h1>
+<hr />
+<p>클로드는 사용자의 목적에 따라서, 3가지 application/platform을 지원한다.<br />
+- Claude ai - Chatgpt와 같은 web 대화형 application<br />
+- Claude Code - 코딩 작성을 위한 application<br />
+- Claude Cowork - 비계발자들의 컴퓨터 업무 생산성을 위한 application</p>
+<h3>1. Claude.ai</h3>
+<hr />
+<p>https://claude.ai/new<br />
+google에 클로드를 검색해서, 들어가고 로그인을 진행하면 딱 이렇게 창이 뜨게 된다. 즉 Chatgpt와 정확히 동일한 기능을 가지고 있다는 것. <br />
+<img alt="Claude - Intro" src="./images/img-002.png" /><br />
+(chatpgt는 너무나도 익숙하실 것이므로, 다음으로 넘어가자)</p>
+<h3>2. Claude Code</h3>
+<hr />
+<p>Claude Code는 유료 정기결제 회원들만 사용할 수 있다. (무료 플랜 사용 불가능)<br />
+Claude code를 사용하는 방법은 이렇게 3가지 Terminal, IDE, Web이 존재한다. 모두 똑같은 기능들을 제공하고, 보통 코드를 어디서 내가 작업을 하느냐에 따라서 이용공간이 달라진다.<br />
+(CLI - backend, IDE - frontend, Web - for all)<br />
+<img alt="Claude - Intro" src="./images/img-003.png" /></p>
+<h3>3. Claude Cowork</h3>
+<hr />
+<p>가장 최근에 출시되었고, 계속해서 업데이트가 빠르게 되고 있는 기능이다. target은 코딩업무가 아닌 다른 컴퓨터 관련 업무 (회계, 구매 … ) 등등 작업들을 하는 회사를 상대로 출시한 application이다.<br />
+이 기능을 사용하려면 유료 플랜이어야 하며, Desktop에 설치를 진행해야한다.(Window, MacOs 둘다 지원)<br />
+<img alt="Claude - Intro" src="./images/img-004.png" /></p>
+<p>이렇게 Desktop mode에 들어오면 위에 Chat/Cowork/Code가 생기는 것을 확인할 수 있다.<br />
+<img alt="Claude - Intro" src="./images/img-005.png" /><br />
+(상세한 기능들은 Cowork blog에서 따로 하겠습니다)</p>
+<h1>Workspace (CLI / IDE / Desktop / Web)</h1>
+<hr />
+<p>3가지 어플리케이션을 살펴보았고, 결국 목적에 따라 작업 공간이 달라진다. 여기서 Web은 Chatgpt와 정확히 동일하기 때문에 넘어가도로 하겠습니다.</p>
+<h3>CLI</h3>
+<hr />
+<p><img alt="Claude - Intro" src="./images/img-006.png" /><br />
+클로드는 사실 코드 특화 모델을 먼저 계발하였다. 따라서, 많은 계발자들이 사용하고 있고 그들이 작업을 하는 공간은 Terminal 이다. (계발자가 아닌 저는 이런게 존재하는 지도 최근에서야 알게 되었다…)</p>
+<p>설치 방법은: https://code.claude.com/docs/en/setup</p>
+<p>저는 맥북을 활용하여, terminal에서 아래의 command를 실행하였고, 설치가 그냥 끝났습니다.</p>
+<pre><code class="language-python">curl -fsSL https://claude.ai/install.sh | bash
+</code></pre>
+<p>그다음에 terminal에서 </p>
+<pre><code class="language-python">claude
+</code></pre>
+<p>만 작성을 하면, 이렇게 대화창이 열리게 되고 여기서 작업을 진행할 수가 있다.<br />
+<img alt="Claude - Intro" src="./images/img-007.png" /><br />
+(즉 파일들을 전부 읽고, 수정하고 작업을 하기 간편한 방식)</p>
+<h3>IDE</h3>
+<hr />
+<p><img alt="Claude - Intro" src="./images/img-008.png" /><br />
+Visual Studio Code, Cursor모두 코드를 직접 수정할 수 있는 팔레트같은 공간이다. 이 공간에서 Cluade를 extension으로 설치하여 사용할 수 있다. 코드를 직접 수정하는 작업이 많다면, 이 방식을 선호한다.</p>
+<p>이후에 Extension - Claude를 좌측 sidebar에서 선택을 하면 이렇게 대화창이 보이게 된다.<br />
+<img alt="Claude - Intro" src="./images/img-009.png" /></p>
+<h3>Desktop</h3>
+<hr />
+<p>Desktop 모드는 chat/ cowork / code전부 지원한다.<br />
+여기서 이 모드의 가장 큰 핵심은 개발자가 아닌 사람들이 아주 쉽게 모든 기능을 ‘시각적’으로 이용할 수 있다는 점이다.<br />
+<img alt="Claude - Intro" src="./images/img-010.png" /></p>
+<p>일단 추후에 자세하게 설명을 드리겠지만, 우리가 이론에서 보았던 Agentic AI - (Tools, Plug-in)을 Desktop mode에서는 <code>Connector</code>라고 칭한다. 우리가 어떤 도구를 가지고 있고 사용이 가능한지를 그냥 시각적으로 바로 아래처럼 체크가 가능하다.<br />
+<img alt="Claude - Intro" src="./images/img-011.png" /></p>
+<p>기존에 IDE, CLI를 사용했을때는 MCP.json파일을 생성하고, 거기다가 npm 명령어를 기입하고, 등등 꽤 복잡한 방식이었다면, Desktop mode는 그냥 + 버튼만 누르면 연결된다.<br />
+<img alt="Claude - Intro" src="./images/img-012.png" /></p>
+<p>노션 연결을 클릭하였고, 이렇게 바로 Web url로 Notion에 접속하게 된다.<br />
+<img alt="Claude - Intro" src="./images/img-013.png" /><br />
+그냥 continue를 누르면 바로 연결 완료.</p>
+<p>노션 연결을 확인해보자.<br />
+<img alt="Claude - Intro" src="./images/img-014.png" /></p>
+<p><code>Manage Connectors</code>에 들어가게 되면, 이렇게 도구 사용 접근 권한도 세밀하게 조절할수가 있다.<br />
+<img alt="Claude - Intro" src="./images/img-015.png" /></p>
+<p>자세한 기능들은 추후에 Cowork post에서 다루어 보고, 결국 Desktop 모드는 복잡한 연결 호환 들을 UI로 아주 간편하게 만들어서, 엔트로픽의 고객층이 회사 전체 라는 것이 이해가 된다.</p>
+<h1>Model / Pricing</h1>
+<hr />
+<p>결제 방식은 두가지이다.<br />
+1. 정기결제(per month)<br />
+2. 토큰 사용당 결제 (API)</p>
+<h3>1. 정기 결제</h3>
+<hr />
+<p>https://claude.com/pricing</p>
+<p>정기결제를 진행하면 (e.g) $17 Pro plan을 구독하게 되면, 엔트로픽이 우리에게 ($17 값어치의 토큰 + alpha) 를 부여하는 것이다. 따라서, 해당 이상을 사용하면 제한이 뜨게 된다.</p>
+<p>개인적인 생각으로는 Claude는 성능이 굉장히 좋지만, 그 만큼 토큰을 굉장히 많이 잡아 먹는다. 따라서, Claude Pro를 쓰시다보면 굉장히 빨리 토큰을 사용하여 제한이 걸리는 경험을 많이 하였다. 한번 Pro를 사용해보시고 적절히 바꾸시는게 좋을 듯하다.<br />
+<img alt="Claude - Intro" src="./images/img-016.png" /></p>
+<h3>2. 토큰 사용당 결제 (API)</h3>
+<hr />
+<p>혹여나 유저가 매일 사용하지 않고, 부분적으로 필요할때만 사용할수도 있다. 그런 경우 $17 달러의 토큰이 필요가 없는 경우, 우리가 사용한 토큰에 비해서 결제하는 시스템이 존재한다. (단점은 CLI - terminal에서만 사용이 가능하다)<br />
+(Antropic, OpenAI, Google 전부 같은 시스템이다)</p>
+<p>https://platform.claude.com/settings/keys<br />
+Claude Deeloper Platform → left sidebar → Manage → API keys → Create new key.<br />
+<img alt="Claude - Intro" src="./images/img-017.png" /></p>
+<p>생성후, antropic 파일을 zshrc파일에 저장해주자. (영구 변수를 설정하는 것)</p>
+<pre><code class="language-python">nano ~/.zshrc
+export ANTHROPIC_API_KEY=&quot;sk-ant-xxxxxxx&quot;
+</code></pre>
+<p>변수 설정이 잘 되었는지 확인하자.</p>
+<pre><code class="language-python">echo $ANTHROPIC_API_KEY
+</code></pre>
+<p>→ 나의 key가 printout 되어야 함.</p>
+<p>이후에 다시 CLI에서 claude를 치면, 이렇게 API key 인식했는데 쓸꺼야? 라고 물어본다.<br />
+<img alt="Claude - Intro" src="./images/img-018.png" /></p>
+<p>Cursor에서 보여주는 모델별 100만 토큰당 가격표이다.<br />
+https://cursor.com/docs/models<br />
+<img alt="Claude - Intro" src="./images/img-019.png" /><br />
+딱봐도 Antropic이 다른 모델들보다 훨씬 가격이 많이 나가는 것을 확인할 수 있다.</p>
+<h1>Conclusion</h1>
+<hr />
+<p>이번 글에서는 Claude가 제공하는 <strong>3개의 플랫폼</strong>과 각각의 <code>작업 환경(Workspace)</code>에 대해 살펴보았다.<br />
+Claude는 단순한 LLM이 아니라, 사용 목적에 따라 다른 실행 환경을 제공하는 <strong>멀티 플랫폼 AI 시스템</strong>이다.</p>
+<h3>Claude의 3가지 플랫폼과 작업 환경</h3>
+<h2>[TABLE]</h2>
+<p>특히 개인적으로 느낀 Claude의 가장 큰 차별점은 <strong>Claude Desktop</strong>에 있다.<br />
+Claude Desktop은 단순한 채팅 인터페이스를 넘어서:<br />
+- 외부 Application과의 Connector 기반 연결<br />
+- 파일 접근 및 관리<br />
+- 컴퓨터 수준의 작업 제어<br />
+- UI 기반의 도구 관리<br />
+등을 매우 직관적으로 제공한다.<br />
+현재 기준으로는 OpenAI의 Codex보다 <strong>외부 애플리케이션 연결성과 컴퓨터 통합 제어 측면에서 더 많은 기능을 지원하는 구조</strong>로 보인다.<br />
+Anthropic이 기업을 주요 고객층으로 설정한 전략이 이 Desktop 구조에서 명확히 드러난다.</p>
+<hr />
+<h3>단점: 토큰 비용</h3>
+<p>그러나 단점도 분명하다.<br />
+마지막 가격 비교 표에서 확인했듯이, Claude 모델은 다른 모델들에 비해 <strong>토큰 비용이 상당히 높은 편</strong>이다.<br />
+이는 다음과 같은 의미를 가진다:<br />
+- ✅ 생산성을 극대화할 수 있는 강력한 모델<br />
+- ❌ 대규모 사용 시 비용 부담이 큼<br />
+즉, Claude는 “강력한 성능과 높은 생산성”을 제공하지만, 그만큼 비용 효율성 측면에서는 전략적인 사용이 필요하다.</p>
+<hr />
+<p>결론적으로 Claude는 단순한 LLM이 아니라,<br />
+<strong>Enterprise 중심의 Agentic AI Platform</strong>으로 진화하고 있는 시스템이라고 볼 수 있다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>
