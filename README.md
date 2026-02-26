@@ -1,4 +1,2 @@
 # Sehyeogkim.github.io
-Storage, long-term memories for personal skills, knowledged that I walked through.
-
-update 0222 today is Sunday, now let us start to write down all the script in here.
+Just simply, this repository is a Storage for long-term memories, personal skills and knowledges like an agent.
