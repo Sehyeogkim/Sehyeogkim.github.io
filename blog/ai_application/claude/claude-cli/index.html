@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Claude - CLI (Code) | Sehyeog Kim</title>
+  <link rel="stylesheet" href="../../../../assets/css/style.css">
+  <script>!function(){var t=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",t)}();</script>
+</head>
+<body>
+  <button class="theme-toggle" aria-label="Toggle theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+
+  <header class="mobile-header">
+    <span class="site-title">Sehyeog Kim</span>
+    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+  </header>
+  <div class="sidebar-overlay"></div>
+
+  <div class="site-wrapper">
+    <aside class="sidebar">
+      <div class="sidebar-bg">
+        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
+      </div>
+      <div class="sidebar-profile">
+        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
+             onerror="this.style.background='#eaeef2'">
+        <h1 class="profile-name">Sehyeog Kim</h1>
+        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
+        <div class="profile-links">
+          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
+          </a>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="/" class="nav-item nav-home">Home</a>
+        <span class="nav-group-label">AI</span>
+        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
+        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
+        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
+        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">AI_Application</span>
+        <a href="/blog/ai_application/claude/" class="nav-item active">Claude<span class="nav-post-count">3</span></a>
+        <span class="nav-group-label">BioMechanics</span>
+        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
+        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
+        <span class="nav-group-label">Mechanical_Engineering</span>
+        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
+        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
+        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
+        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
+        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
+        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
+        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
+        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
+        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/ai_application/">AI_Application</a><span class="sep">/</span><a href="/blog/ai_application/claude/">Claude</a><span class="sep">/</span><span>Claude - CLI (Code)</span></div>
+<a href="/blog/ai_application/claude/" class="back-link">&larr; Back to Claude</a>
+<div class="page-header"><h1>Claude - CLI (Code)</h1></div>
+<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2026-03-06</span><span class="meta-item"><span class="meta-label">Category:</span> Claude</span></div>
+<article class="post-content"><p>Intro 글에서 Claude Code를 간단하게 소개했었다. Claude Code는 Anthropic이 개발자들을 위해 만든 <strong>CLI 기반의 Agentic AI 코딩 도구</strong>이다.<br />
+이번 글에서는 Claude CLI (Claude Code)에 대해서 설치부터 핵심 기능까지 자세하게 살펴보겠다.</p>
+<h1>Contents</h1>
+<ul>
+<li>Installation</li>
+<li>기본 사용법</li>
+<li>핵심 기능 (Tools, CLAUDE.md, Context Window)</li>
+<li>작업 흐름 (Workflow)</li>
+<li>IDE 연동</li>
+<li>Tips &amp; 활용법</li>
+</ul>
+<h1>Installation</h1>
+<hr />
+<p>Claude CLI를 설치하는 방법은 매우 간단하다. Terminal을 열고 아래 명령어를 실행하면 된다.</p>
+<pre><code class="language-bash">curl -fsSL https://claude.ai/install.sh | bash</code></pre>
+<p>설치가 완료되면, 터미널에서 바로 실행할 수 있다.</p>
+<pre><code class="language-bash">claude</code></pre>
+<p>처음 실행하면 로그인 화면이 나온다. 두 가지 인증 방식이 존재한다:</p>
+<ol>
+<li><strong>정기결제 계정 로그인</strong> - Pro/Team/Enterprise 구독자는 바로 로그인</li>
+<li><strong>API Key 인증</strong> - 토큰 사용량 기반 결제 (개발자에게 추천)</li>
+</ol>
+<p>API Key를 사용하려면, 환경변수를 설정해주어야 한다.</p>
+<pre><code class="language-bash">nano ~/.zshrc
+export ANTHROPIC_API_KEY="sk-ant-xxxxxxx"
+source ~/.zshrc</code></pre>
+<p>설정 후 <code>claude</code>를 실행하면, API Key를 인식하고 사용 여부를 물어본다.</p>
+<h1>기본 사용법</h1>
+<hr />
+<p>Claude CLI는 터미널에서 <code>claude</code> 명령어로 실행한다. 실행하면 대화형 인터페이스가 열리고, 자연어로 코딩 작업을 요청할 수 있다.</p>
+<h3>Interactive Mode (대화 모드)</h3>
+<hr />
+<pre><code class="language-bash">claude</code></pre>
+<p>가장 기본적인 방법이다. 현재 디렉토리를 작업공간(Working Directory)으로 인식하고, 해당 폴더 내의 모든 파일을 읽고/수정/생성할 수 있다.</p>
+<h3>One-shot Mode (단발 명령)</h3>
+<hr />
+<pre><code class="language-bash">claude "이 프로젝트의 구조를 설명해줘"</code></pre>
+<p>대화 모드에 진입하지 않고, 한 번의 질문에 대한 답변만 받고 종료하는 방식이다. 빠르게 확인할 때 유용하다.</p>
+<h3>Pipe Mode (파이프 입력)</h3>
+<hr />
+<pre><code class="language-bash">cat error.log | claude "이 에러 로그를 분석해줘"</code></pre>
+<p>다른 명령어의 출력을 Claude에게 직접 전달할 수 있다. 로그 분석, 코드 리뷰 등에 활용도가 높다.</p>
+<h1>핵심 기능</h1>
+<hr />
+<p>Claude CLI가 단순한 챗봇이 아닌 <strong>Agentic AI</strong>인 이유는, 다양한 도구(Tools)를 자율적으로 사용하기 때문이다.</p>
+<h3>Tools (도구)</h3>
+<hr />
+<p>Claude CLI는 20개 이상의 내장 도구를 가지고 있다. 주요 도구들:</p>
+<ul>
+<li><strong>Read</strong> - 파일 읽기</li>
+<li><strong>Write</strong> - 파일 생성</li>
+<li><strong>Edit</strong> - 파일 수정 (diff 기반)</li>
+<li><strong>Bash</strong> - 터미널 명령어 실행</li>
+<li><strong>Glob</strong> - 파일 패턴 검색</li>
+<li><strong>Grep</strong> - 코드 내용 검색</li>
+<li><strong>Agent</strong> - 하위 에이전트 생성 (병렬 작업)</li>
+<li><strong>WebSearch</strong> - 웹 검색</li>
+<li><strong>WebFetch</strong> - 웹 페이지 내용 가져오기</li>
+</ul>
+<p>핵심은 이 도구들을 Claude가 <strong>스스로 판단하여 사용</strong>한다는 점이다. 예를 들어, "이 프로젝트에서 사용하지 않는 함수를 찾아줘"라고 요청하면, Claude는 Glob으로 파일을 찾고, Grep으로 함수 정의와 호출을 검색하고, 분석 결과를 알려준다.</p>
+<h3>CLAUDE.md</h3>
+<hr />
+<p>Cowork 글에서도 다루었지만, <code>CLAUDE.md</code> 파일은 CLI에서도 동일하게 작동한다. 프로젝트 루트에 이 파일을 두면, Claude가 매 대화마다 이 파일을 읽는다.</p>
+<pre><code class="language-markdown"># CLAUDE.md
+
+## Project
+이 프로젝트는 GitHub Pages 블로그입니다.
+
+## Rules
+- 한국어로 블로그 포스트를 작성합니다
+- 이미지는 images/ 폴더에 저장합니다
+- kebab-case 네이밍 규칙을 따릅니다</code></pre>
+<p>이렇게 프로젝트의 규칙과 컨텍스트를 정의하면, Claude가 항상 이를 참고하여 일관된 작업을 수행한다.</p>
+<h3>Context Window &amp; Memory</h3>
+<hr />
+<p>Claude CLI의 Context Window는 대화가 길어지면 자동으로 이전 메시지를 압축한다. 따라서, 아주 긴 작업도 끊기지 않고 진행할 수 있다.</p>
+<p>또한 <strong>Memory 시스템</strong>이 있어서, 사용자가 <code>/memory</code> 명령으로 중요한 정보를 저장할 수 있다. 저장된 메모리는 다음 세션에서도 유지된다.</p>
+<h1>작업 흐름 (Workflow)</h1>
+<hr />
+<p>Claude CLI로 실제 개발 작업을 할 때의 일반적인 흐름을 살펴보자.</p>
+<h3>1. 프로젝트 디렉토리로 이동</h3>
+<hr />
+<pre><code class="language-bash">cd ~/my-project
+claude</code></pre>
+<h3>2. 작업 지시</h3>
+<hr />
+<p>자연어로 원하는 작업을 설명한다. Claude는 알아서 파일을 찾고, 읽고, 수정한다.</p>
+<pre><code class="language-text">&gt; 로그인 기능에 비밀번호 재설정 기능을 추가해줘</code></pre>
+<h3>3. 검토 및 승인</h3>
+<hr />
+<p>Claude가 파일을 수정하기 전에 항상 사용자에게 확인을 요청한다. 위험한 작업(파일 삭제, git push 등)은 반드시 승인이 필요하다. 이것이 Agentic AI에서 중요한 <strong>Human-in-the-Loop</strong> 패턴이다.</p>
+<h3>4. Git 연동</h3>
+<hr />
+<p>Claude CLI는 Git과 자연스럽게 연동된다. 작업이 끝나면:</p>
+<pre><code class="language-text">&gt; 지금까지의 변경사항을 커밋해줘</code></pre>
+<p>Claude가 변경된 파일들을 분석하고, 적절한 커밋 메시지를 작성하여 커밋한다.</p>
+<h1>IDE 연동</h1>
+<hr />
+<p>Claude CLI는 터미널뿐만 아니라 IDE에서도 사용할 수 있다.</p>
+<h3>VS Code Extension</h3>
+<hr />
+<p>VS Code에서 Claude Extension을 설치하면, 좌측 사이드바에 Claude 대화창이 나타난다. CLI와 동일한 기능을 IDE 안에서 사용할 수 있다.</p>
+<h3>Web (claude.ai/code)</h3>
+<hr />
+<p>브라우저에서도 Claude Code를 사용할 수 있다. GitHub 저장소를 연결하면 웹에서 직접 코드를 수정하고 커밋할 수 있다. 터미널 접근이 어려운 환경에서 유용하다.</p>
+<h1>Slash Commands</h1>
+<hr />
+<p>Claude CLI에는 유용한 슬래시 명령어들이 내장되어 있다.</p>
+<ul>
+<li><code>/help</code> - 도움말 표시</li>
+<li><code>/memory</code> - 메모리에 정보 저장</li>
+<li><code>/compact</code> - 대화 내용 압축 (토큰 절약)</li>
+<li><code>/clear</code> - 대화 초기화</li>
+<li><code>/cost</code> - 현재 세션의 토큰 사용량 및 비용 확인</li>
+<li><code>/model</code> - 모델 변경 (Haiku, Sonnet, Opus)</li>
+</ul>
+<p>특히 <code>/compact</code>는 대화가 길어졌을 때 컨텍스트를 압축하여 토큰 비용을 절약할 수 있어 매우 유용하다.</p>
+<h1>Permission (권한 모드)</h1>
+<hr />
+<p>Claude CLI는 보안을 위해 권한 시스템을 제공한다.</p>
+<ul>
+<li><strong>Ask mode</strong> - 모든 도구 사용 시 사용자 승인 필요 (가장 안전)</li>
+<li><strong>Auto-approve mode</strong> - 읽기 도구는 자동 승인, 수정 도구는 승인 필요</li>
+<li><strong>Full auto mode</strong> - 모든 도구 자동 승인 (주의 필요)</li>
+</ul>
+<p>개인적으로 처음 사용하시는 분은 Ask mode로 시작하여, Claude가 어떤 도구를 어떤 상황에서 사용하는지 파악한 후에 Auto-approve mode로 전환하는 것을 추천한다.</p>
+<h1>Tips &amp; 활용법</h1>
+<hr />
+<h3>1. CLAUDE.md를 잘 작성하자</h3>
+<p>프로젝트의 구조, 네이밍 규칙, 사용하는 기술 스택, 테스트 방법 등을 CLAUDE.md에 정리하면, Claude의 작업 품질이 크게 향상된다.</p>
+<h3>2. 작은 단위로 요청하자</h3>
+<p>한 번에 큰 기능을 요청하기보다, 작은 단위로 나누어 요청하고 중간중간 검토하는 것이 좋다. 이는 실수를 줄이고 결과물의 품질을 높인다.</p>
+<h3>3. Git 브랜치를 활용하자</h3>
+<p>새로운 기능을 작업할 때는 항상 별도의 브랜치에서 진행하자. Claude가 예상치 못한 변경을 하더라도 쉽게 되돌릴 수 있다.</p>
+<h3>4. /compact를 자주 사용하자</h3>
+<p>대화가 길어지면 토큰 소비가 빠르게 증가한다. 작업 단위가 끝날 때마다 <code>/compact</code>를 사용하여 토큰을 절약하자.</p>
+<h1>Conclusion</h1>
+<hr />
+<p>Claude CLI (Claude Code)는 개발자들을 위한 <strong>가장 강력한 Agentic AI 코딩 도구</strong> 중 하나이다.</p>
+<p>단순한 코드 자동완성을 넘어서:</p>
+<ul>
+<li>프로젝트 전체를 이해하고 수정</li>
+<li>Git 연동을 통한 버전 관리</li>
+<li>20개 이상의 도구를 자율적으로 사용</li>
+<li>하위 에이전트를 생성하여 병렬 작업</li>
+<li>CLAUDE.md 기반의 프로젝트 맞춤 설정</li>
+</ul>
+<p>이러한 기능들이 Claude CLI를 단순한 코딩 보조 도구가 아닌, <strong>Agentic AI 개발 파트너</strong>로 만들어준다.</p>
+<p>결국 핵심은, Claude CLI를 얼마나 잘 활용하느냐는 <strong>지시를 얼마나 명확하고 구조적으로 하느냐</strong>에 달려있다. 좋은 CLAUDE.md 파일, 명확한 요청, 그리고 적절한 검토 과정이 최고의 결과를 만들어낸다.</p></article>
+      <footer class="site-footer">
+        <p>&copy; 2026 Sehyeog Kim</p>
+      </footer>
+    </main>
+  </div>
+  <script src="../../../../assets/js/main.js"></script>
+</body>
+</html>
