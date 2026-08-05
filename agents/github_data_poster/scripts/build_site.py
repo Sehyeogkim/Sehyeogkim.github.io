@@ -14,6 +14,7 @@ import datetime as dt
 import html as html_mod
 import re
 import shutil
+import sys
 from pathlib import Path
 
 import markdown
@@ -72,6 +73,10 @@ GROUP_MAP: dict[str, dict] = {
         ],
     },
 }
+
+# 참고: "Thoughts" 그룹(/blog/thoughts/)은 이 빌더가 관리하지 않는다.
+# 노션에서 직접 가져와 2단계 구조(group → post)로 생성하며, blog_data 를 쓰지 않는다.
+# append 모드(기본)에서는 건드리지 않으므로 안전하다. --clean 을 쓰면 사라지니 주의.
 
 GROUP_SLUGS = {
     "AI": "ai",
@@ -374,8 +379,15 @@ def main() -> int:
         print(f"ERROR: source root not found: {SOURCE_ROOT}")
         return 1
 
-    if TARGET_ROOT.exists():
-        shutil.rmtree(TARGET_ROOT)
+    # 기본은 append 모드: 기존 blog/ 를 지우지 않고 덮어쓰기만 한다.
+    # blog_data 가 불완전한 머신(예: WSL)에서 실행해도 기존 포스트가 날아가지 않는다.
+    # 전체 재빌드가 필요하면 --clean 을 명시적으로 붙일 것.
+    if "--clean" in sys.argv:
+        if TARGET_ROOT.exists():
+            print(f"CLEAN: removing {TARGET_ROOT}")
+            shutil.rmtree(TARGET_ROOT)
+    else:
+        print("APPEND 모드 (기존 blog/ 유지). 전체 재빌드는 --clean 사용.")
     TARGET_ROOT.mkdir(parents=True, exist_ok=True)
 
     # Build reverse lookup: category_dir_name → group_name
