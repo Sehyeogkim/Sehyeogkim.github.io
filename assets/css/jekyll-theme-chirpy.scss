@@ -30,15 +30,15 @@
 .content { overflow-wrap:anywhere; }
 .content iframe { max-width:100%; }
 
-#sidebar #avatar { border-radius: 16px !important; }
+#sidebar #avatar { border-radius: 50% !important; }
 #sidebar #avatar img { width: 100%; height: 100%; object-fit: cover; }
 
-/* Full-width photo above the sidebar title. */
-#sidebar .profile-wrapper { padding: 0; margin: 0 0 1rem; }
-#sidebar #avatar { width: 100%; height: auto; aspect-ratio: 1; box-shadow: none; }
+/* Large circular photo centered above the sidebar title. */
+#sidebar .profile-wrapper { padding: 0; margin: 1rem 0; }
+#sidebar #avatar { width: calc(100% - 2rem); height: auto; aspect-ratio: 1; margin-inline: auto; box-shadow: none; }
 #sidebar #avatar img { display: block; }
 #sidebar #avatar img:hover { transform: none; }
-#sidebar .site-title { margin: 1rem 1.5rem .5rem; }
+#sidebar .site-title { margin: 1rem auto .5rem; text-align: center; }
 #sidebar .site-subtitle:empty { display: none; }
 
 #sidebar-collapse-toggle { display: none; }
