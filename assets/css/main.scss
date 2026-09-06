@@ -6,6 +6,7 @@
 
 /* Retain the native Minimal Mistakes portfolio layout and type system. */
 :root { --journal-line: #e8e8e8; --journal-muted: #72787c; }
+.journal-home .page__title { display: none; }
 .journal-topic-index { margin: 0 0 1.6em; font-size: .7em; }
 .journal-topic-index summary { cursor: pointer; padding: .35em 0; }
 .journal-topic-index ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: .45em 1.2em; margin-top: .8em; padding-left: 1.2em; }

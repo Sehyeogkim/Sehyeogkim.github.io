@@ -1,7 +1,6 @@
 remote_theme: "mmistakes/minimal-mistakes@4.28.1"
 minimal_mistakes_skin: default
-title: "Sehyeog Kim"
-subtitle: "Study · Essay · Leisure"
+title: "Personal Blog"
 name: "Sehyeog Kim"
 description: "공부하며 이해한 것들, 살아가며 생각한 것들, 그리고 길 위의 기록."
 url: "https://sehyeogkim.github.io"
@@ -17,6 +16,15 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/Sehyeogkim"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/sehyeog-kim-5a1131265"
+    - label: "X"
+      icon: "fab fa-fw fa-twitter"
+      url: "https://x.com/say_hugk99"
+    - label: "Instagram"
+      icon: "fab fa-fw fa-instagram"
+      url: "https://www.instagram.com/say_hugk/"
 footer:
   links:
     - label: "GitHub"
