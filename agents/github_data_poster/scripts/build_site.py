@@ -17,7 +17,6 @@ import shutil
 import sys
 from pathlib import Path
 
-import markdown
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 SOURCE_ROOT = REPO_ROOT / "blog_data"
@@ -28,7 +27,7 @@ HEADER_KEYS = {"Title", "URL", "PageID", "PostID", "Date", "Category"}
 IMAGE_MARKER_RE = re.compile(r"^\[IMAGE:\s*images/([^\]]+)\]\s*$")
 LIQUID_URL_RE = re.compile(r"\{\{\s*(https?://[^}\s]+)\s*\}\}")
 
-MD = markdown.Markdown(extensions=["tables", "fenced_code", "nl2br"])
+MD = None  # Initialized only when running the legacy builder without Jekyll.
 
 # ---------------------------------------------------------------------------
 # 3-Group hierarchy mapping
@@ -375,6 +374,18 @@ def build_post(meta: dict, body_html: str, cat: dict, group: dict) -> str:
 # ---------------------------------------------------------------------------
 
 def main() -> int:
+    if (REPO_ROOT / "_config.yml").exists():
+        print(
+            "ERROR: This site uses Jekyll. The legacy HTML generator is disabled "
+            "to preserve migrated pages and URLs. See README.md; use bundle exec jekyll build.",
+            file=sys.stderr,
+        )
+        return 2
+
+    import markdown
+
+    global MD
+    MD = markdown.Markdown(extensions=["tables", "fenced_code", "nl2br"])
     if not SOURCE_ROOT.exists():
         print(f"ERROR: source root not found: {SOURCE_ROOT}")
         return 1

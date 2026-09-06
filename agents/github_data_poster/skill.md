@@ -1,15 +1,25 @@
 ---
 name: github-data-poster
-description: Publish local `blog_data` into GitHub Pages-ready `blog` by rebuilding category navigation (Home -> Category -> Post), rendering content.txt with inline image markers, and copying mapped images.
+description: Historical blog_data import reference. The current site is authored and built with Jekyll; do not run the legacy static generator.
 ---
 
 # GitHub Data Poster Skill
+
+## Current Jekyll workflow (supersedes the historical instructions below)
+
+- Read the root `README.md` for the current front matter and preview instructions.
+- Add new posts under `_posts/`; build with `bundle exec jekyll build` and preview with `bundle exec jekyll serve`.
+- Preserve the migrated `blog/**/index.html` Jekyll source, existing permalinks, article bodies, and image paths.
+- Do not delete/reset `blog/` or regenerate it from `blog_data/`. The legacy `scripts/build_site.py` exits 2 when `_config.yml` exists, including with `--clean`.
+- The source metadata and image parsing rules below are retained for reference only. A future import must create or update Jekyll sources without overwriting existing pages; do not restart extraction or publishing unless requested.
+
+## Historical reference — not an executable workflow
 
 ## When To Use
 
 - `blog_data/`를 기준으로 GitHub Pages 게시용 `blog/`를 다시 만들 때
 - 카테고리 클릭 -> 포스트 리스트 -> 포스트 상세 구조를 보장해야 할 때
-- 기존 `blog/` 데이터를 비우고 새 데이터로 재배포할 때
+- 과거 변환 규칙을 참고할 때 (기존 `blog/` 삭제 금지)
 
 ## Inputs
 
@@ -34,10 +44,9 @@ description: Publish local `blog_data` into GitHub Pages-ready `blog` by rebuild
 - Enumerate categories and posts.
 - Validate each post has `content.txt`.
 
-2. Reset target
-- Remove existing contents under `blog/`.
-- Recreate target skeleton directories.
-- Keep operation scoped to `blog/` only.
+2. Preserve target
+- Keep existing Jekyll sources, article URLs, and images under `blog/`.
+- Do not reset or recreate the published source tree.
 
 3. Build site map
 - Create category metadata from directory names.
@@ -86,6 +95,6 @@ description: Publish local `blog_data` into GitHub Pages-ready `blog` by rebuild
 
 ## Resume Strategy
 
-- Default mode: full rebuild (clean `blog/` then republish all).
+- Current mode: Jekyll build into `_site/`; preserve all source files under `blog/`.
 - Optional mode: resume publish by skipping posts whose output and assets already exist.
 - Only use resume mode when user explicitly asks.

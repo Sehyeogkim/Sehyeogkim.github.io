@@ -1,0 +1,10 @@
+---
+layout: single
+---
+{% assign note_section = page.section | default: 'Study' %}
+<nav class="note-breadcrumbs" aria-label="Article section">
+  <a href="{{ '/' | relative_url }}">Home</a><span aria-hidden="true"> / </span><a href="{{ note_section | downcase | prepend: '/' | append: '/' | relative_url }}">{{ note_section }}</a>{% if page.study_area %}<span aria-hidden="true"> / </span><span>{{ page.study_area }}</span>{% endif %}
+</nav>
+{% if page.date and page.show_date != true %}<p class="note-date"><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y.%m.%d' }}</time></p>{% endif %}
+<div class="note-content">{{ content }}</div>
+{% if page.source_url %}<p class="note-source"><a href="{{ page.source_url | escape }}">Original source</a></p>{% endif %}

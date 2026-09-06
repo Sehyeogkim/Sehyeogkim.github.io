@@ -1,72 +1,22 @@
-<!DOCTYPE html>
-<html lang="ko" data-theme="light">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>🎐 Agentic AI - tools | Sehyeog Kim</title>
-  <link rel="stylesheet" href="../../../../assets/css/style.css">
-  <script>!function(){var t=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",t)}();</script>
-</head>
-<body>
-  <button class="theme-toggle" aria-label="Toggle theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
-
-  <header class="mobile-header">
-    <span class="site-title">Sehyeog Kim</span>
-    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
-  </header>
-  <div class="sidebar-overlay"></div>
-
-  <div class="site-wrapper">
-    <aside class="sidebar">
-      <div class="sidebar-bg">
-        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
-      </div>
-      <div class="sidebar-profile">
-        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
-             onerror="this.style.background='#eaeef2'">
-        <h1 class="profile-name">Sehyeog Kim</h1>
-        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
-        <div class="profile-links">
-          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
-            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
-          </a>
-        </div>
-      </div>
-      <nav class="sidebar-nav">
-        <a href="/" class="nav-item nav-home">Home</a>
-        <span class="nav-group-label">AI</span>
-        <a href="/blog/ai/agentic-ai-theory/" class="nav-item active">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
-        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
-        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
-        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
-        <span class="nav-group-label">AI_Application</span>
-        <a href="/blog/ai_application/claude/" class="nav-item">Claude<span class="nav-post-count">2</span></a>
-        <span class="nav-group-label">BioMechanics</span>
-        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
-        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
-        <span class="nav-group-label">Mechanical_Engineering</span>
-        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
-        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
-        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
-        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
-        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
-        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
-        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
-        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
-        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
-        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
-        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
-        <span class="nav-group-label">Thoughts</span>
-        <a href="/blog/thoughts/" class="nav-item">Diary<span class="nav-post-count">1</span></a>
-      </nav>
-    </aside>
-
-    <main class="main-content">
-      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/ai/">AI</a><span class="sep">/</span><a href="/blog/ai/agentic-ai-theory/">Agentic_AI_Theory</a><span class="sep">/</span><span>🎐 Agentic AI - tools</span></div>
-<a href="/blog/ai/agentic-ai-theory/" class="back-link">&larr; Back to Agentic_AI_Theory</a>
-<div class="page-header"><h1>🎐 Agentic AI - tools</h1></div>
-<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2026-02-24</span><span class="meta-item"><span class="meta-label">Category:</span> Agentic_AI_Theory</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://www.notion.so/3112a46dc68c8039bf21ed03f0b6f62d" target="_blank" rel="noopener">link</a></span></div>
-<article class="post-content"><p>목차<br />
+---
+{
+  "layout": "note",
+  "title": "🎐 Agentic AI - tools",
+  "journal": true,
+  "section": "Study",
+  "topic": "Agentic AI Theory",
+  "excerpt": "목차 - Frontend framework: 사용자가 대화/작업을 요청하는 UI (part1) - Agent development framework: 에이전트 로직(루프, 상태, 도구 연결)을 만드는 프레임워크 (part1) - Ag",
+  "classes": "wide",
+  "permalink": "/blog/ai/agentic-ai-theory/agentic-ai-tools/",
+  "study_area": "AI",
+  "date": "2026-02-24",
+  "source_url": "https://www.notion.so/3112a46dc68c8039bf21ed03f0b6f62d",
+  "header": {
+    "teaser": "/blog/ai/agentic-ai-theory/agentic-ai-tools/images/img-001.png"
+  }
+}
+---
+{% raw %}<p>목차<br />
 - Frontend framework: 사용자가 대화/작업을 요청하는 UI (part1)<br />
 - Agent development framework: 에이전트 로직(루프, 상태, 도구 연결)을 만드는 프레임워크  (part1)<br />
 - Agent memory: 대화/세션 상태와 장기 기억 저장 (part1)<br />
@@ -243,12 +193,4 @@ JSON-RPC : RPC중에서 주고 받는 파일이 json형식 파일.
 <p>개인적인 생각으로는 핵심은 두가지다. 인간이 만들어 놓은 도구들을 agent가 쓸수 있도록 만든 protocol인 MCP가 계속해서 확장되어 다양한 tool들에 agent가 접근 가능 할 것.<br />
 <img alt="🎐 Agentic AI - tools" src="./images/img-017.png" /><br />
 (사용가능한 applications)<br />
-그리고 이렇게 많은 tool들 중에서 무엇을 어느 타이밍에 쓸지를 agent가 판단을 할 수 는 있지만, tool이 많아 질수록 LLM context window증가로 더 어려워질 수 도 있다. 따라서 이용자가 그것을 대신 잘 판단한다면, 더 productive한 사용을 할 수 있다는 생각이 든다.</p></article>
-      <footer class="site-footer">
-        <p>&copy; 2026 Sehyeog Kim</p>
-      </footer>
-    </main>
-  </div>
-  <script src="../../../../assets/js/main.js"></script>
-</body>
-</html>
+그리고 이렇게 많은 tool들 중에서 무엇을 어느 타이밍에 쓸지를 agent가 판단을 할 수 는 있지만, tool이 많아 질수록 LLM context window증가로 더 어려워질 수 도 있다. 따라서 이용자가 그것을 대신 잘 판단한다면, 더 productive한 사용을 할 수 있다는 생각이 든다.</p>{% endraw %}
