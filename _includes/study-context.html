@@ -1,3 +1,8 @@
 {% assign study_context = false %}
 {% if page.section == 'Study' or page.section_filter == 'Study' %}{% assign study_context = true %}{% endif %}
 {% if page.path_filter %}{% unless page.path_filter contains '/thoughts/' %}{% assign study_context = true %}{% endunless %}{% endif %}
+{% assign explorer_section = nil %}
+{% if study_context %}{% assign explorer_section = 'Study' %}{% endif %}
+{% if page.section == 'Essay' or page.section_filter == 'Essay' %}{% assign explorer_section = 'Essay' %}{% endif %}
+{% if page.section == 'Leisure' or page.section_filter == 'Leisure' %}{% assign explorer_section = 'Leisure' %}{% endif %}
+{% if page.path_filter contains '/thoughts/' %}{% assign explorer_section = 'Essay' %}{% endif %}

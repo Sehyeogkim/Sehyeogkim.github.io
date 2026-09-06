@@ -71,7 +71,7 @@
   :root:not([data-bs-theme]) { --sidebar-bg: #edf0f4; }
 }
 
-/* Study uses a file-explorer panel; the home page keeps Chirpy's original panel. */
+/* Section explorers share a responsive right panel. */
 .study-workspace .study-columns { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; }
 .study-workspace .study-columns > main { width: 100%; min-width: 0; }
 .study-workspace #panel-wrapper { display: block; width: 100%; min-width: 0; padding: 0 1rem !important; grid-row: 1; }
@@ -110,8 +110,6 @@
   .study-workspace .study-columns > main { grid-column: 1; }
   .study-workspace #panel-wrapper { grid-column: 2; grid-row: 1; padding: 0 !important; position: sticky; top: 1rem; align-self: start; max-height: calc(100vh - 2rem); overflow: auto; scrollbar-width: thin; }
   .study-explorer { margin-top: 2.5rem; }
-  .study-explorer-heading { cursor: default; }
-  .study-explorer-heading::after { display: none; }
   .study-explorer-body { max-height: none; }
 }
 @media (min-width: 1400px) {
@@ -121,3 +119,6 @@
 @media (max-width: 1199px) {
   .study-workspace #panel-wrapper #toc-wrapper { display: none !important; }
 }
+
+/* Pages without a right panel use the available reading area. */
+.wide-workspace main, .wide-workspace #tail-wrapper { width: 100%; }

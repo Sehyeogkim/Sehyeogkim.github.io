@@ -1,6 +1,6 @@
 {% assign explorer_posts = site.posts | where: 'section', 'Study' %}
 {% assign explorer_areas = 'AI,Mechanical,CS' | split: ',' %}
-<details class="study-explorer" data-study-explorer open>
+<details class="study-explorer" data-study-explorer data-explorer-section="Study" open>
   <summary class="study-explorer-heading"><i class="fas fa-folder-tree" aria-hidden="true"></i><span>Study explorer</span><span class="explorer-count">{{ explorer_posts.size }}</span></summary>
   <div class="study-explorer-body">
     <div class="explorer-toolbar">
@@ -33,7 +33,7 @@
                 </div>
               </details>
             {% endfor %}
-            {% if area_posts.size == 0 %}<p class="explorer-empty">아직 글이 없습니다.</p>{% endif %}
+            {% if area_posts.size == 0 %}<p class="explorer-empty">No posts yet.</p>{% endif %}
           </div>
         </details>
       {% endfor %}

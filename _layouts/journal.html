@@ -8,8 +8,8 @@ layout: page
 {% if page.show_sections %}
 <nav class="journal-sections" aria-label="Browse sections">
   <a href="{{ '/study/' | relative_url }}"><strong>Study</strong><span>AI · Mechanical · CS</span></a>
-  <a href="{{ '/essay/' | relative_url }}"><strong>Essay</strong><span>생각과 방향성</span></a>
-  <a href="{{ '/leisure/' | relative_url }}"><strong>Leisure</strong><span>운동 · 하이킹 · 여행</span></a>
+  <a href="{{ '/essay/' | relative_url }}"><strong>Essay</strong><span>Thoughts and direction</span></a>
+  <a href="{{ '/leisure/' | relative_url }}"><strong>Leisure</strong><span>Fitness · Hiking · Travel</span></a>
 </nav>
 {% endif %}
 {% assign journal_pages = site.pages | where: 'journal', true %}
@@ -27,7 +27,7 @@ layout: page
 <section class="journal-browser" data-journal aria-label="Article collection">
   <div class="journal-tools" hidden>
     <label for="journal-search">Search these notes</label>
-    <input id="journal-search" type="search" placeholder="제목, 주제, 키워드 검색" autocomplete="off" data-journal-search>
+    <input id="journal-search" type="search" placeholder="Search titles, topics, or keywords" autocomplete="off" data-journal-search>
     <p class="journal-status" data-journal-status role="status" aria-live="polite"></p>
   </div>
   <div id="post-list" class="journal-grid" data-journal-grid>
@@ -45,7 +45,7 @@ layout: page
       {% endif %}
     {% endfor %}
   </div>
-  {% if shown == 0 %}<p class="journal-empty">아직 이 주제의 글이 없습니다.</p>{% endif %}
-  <p class="journal-empty" data-journal-empty hidden>검색어에 맞는 글이 없습니다.</p>
-  <button class="btn btn-outline-secondary journal-more" data-journal-more type="button" hidden>더 보기</button>
+  {% if shown == 0 %}<p class="journal-empty">No posts in this section yet.</p>{% endif %}
+  <p class="journal-empty" data-journal-empty hidden>No posts match your search.</p>
+  <button class="btn btn-outline-secondary journal-more" data-journal-more type="button" hidden>Show more</button>
 </section>

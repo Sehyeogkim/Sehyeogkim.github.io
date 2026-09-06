@@ -1,0 +1,26 @@
+{% assign explorer_posts = site.posts | where: 'section', explorer_section %}
+{% assign section_url = explorer_section | downcase | prepend: '/' | append: '/' %}
+{% assign year_groups = explorer_posts | group_by_exp: 'entry', "entry.date | date: '%Y'" %}
+<details class="study-explorer" data-study-explorer data-explorer-section="{{ explorer_section }}" open>
+  <summary class="study-explorer-heading"><i class="fas fa-folder-tree" aria-hidden="true"></i><span>{{ explorer_section }} explorer</span><span class="explorer-count">{{ explorer_posts.size }}</span></summary>
+  <div class="study-explorer-body">
+    <div class="explorer-toolbar">
+      <a href="{{ section_url | relative_url }}"{% if page.url == section_url %} aria-current="page"{% endif %}>All {{ explorer_section | downcase }} posts</a>
+      {% if explorer_posts.size > 0 %}<button type="button" data-tree-collapse title="Collapse all folders" aria-label="Collapse all folders"><i class="far fa-square-minus" aria-hidden="true"></i></button>{% endif %}
+    </div>
+    <nav class="explorer-tree" aria-label="{{ explorer_section }} articles by year">
+      {% for year in year_groups %}
+        {% assign current_year = page.date | date: '%Y' %}
+        <details class="explorer-area" data-tree-key="{{ section_url }}{{ year.name }}"{% if page.section == explorer_section and current_year == year.name %} data-current-branch="true"{% endif %} open>
+          <summary><i class="fas fa-chevron-right explorer-chevron" aria-hidden="true"></i><i class="far fa-folder explorer-folder" aria-hidden="true"></i><span class="explorer-name">{{ year.name }}</span><span class="explorer-count">{{ year.items.size }}</span></summary>
+          <div class="explorer-children">
+            {% for entry in year.items %}
+              <a class="explorer-file" href="{{ entry.url | relative_url }}" title="{{ entry.title | escape }}"{% if page.url == entry.url %} aria-current="page"{% endif %}><i class="far fa-file-lines" aria-hidden="true"></i><span>{{ entry.title }}</span></a>
+            {% endfor %}
+          </div>
+        </details>
+      {% endfor %}
+      {% if explorer_posts.size == 0 %}<p class="explorer-empty">No posts yet.</p>{% endif %}
+    </nav>
+  </div>
+</details>

@@ -3,7 +3,7 @@ lang: en
 timezone: Asia/Seoul
 title: Personal Blog
 tagline: ''
-description: 공부하며 이해한 것들, 살아가며 생각한 것들, 그리고 길 위의 기록.
+description: Notes on learning, reflections on life, and stories from the trail.
 url: https://sehyeogkim.github.io
 github:
   username: Sehyeogkim
@@ -157,7 +157,7 @@ jekyll-archives:
   permalinks:
     tag: /tags/:name/
     category: /categories/:name/
-alt_lang: ko
+alt_lang: en
 plugins:
 - jekyll-paginate
 - jekyll-sitemap
