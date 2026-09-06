@@ -64,3 +64,9 @@
 @media (prefers-reduced-motion: reduce) {
   #sidebar, #main-wrapper, #sidebar-collapse-toggle { transition: none; }
 }
+
+/* Slightly deepen the light sidebar while preserving dark mode. */
+:root[data-bs-theme='light'] { --sidebar-bg: #edf0f4; }
+@media (prefers-color-scheme: light) {
+  :root:not([data-bs-theme]) { --sidebar-bg: #edf0f4; }
+}
