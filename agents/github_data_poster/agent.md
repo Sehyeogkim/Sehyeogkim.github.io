@@ -1,4 +1,14 @@
-# GitHub Data Poster Agent
+# GitHub Data Poster Agent (legacy reference)
+
+## Current Jekyll workflow (supersedes the historical instructions below)
+
+- Read the root `README.md` for the current front matter and preview instructions.
+- Add new posts under `_posts/`; build with `bundle exec jekyll build` and preview with `bundle exec jekyll serve`.
+- Preserve the migrated `blog/**/index.html` Jekyll source, existing permalinks, article bodies, and image paths.
+- Do not delete/reset `blog/` or regenerate it from `blog_data/`. The legacy `scripts/build_site.py` exits 2 when `_config.yml` exists, including with `--clean`.
+- The source metadata and image parsing rules below are retained for reference only. A future import must create or update Jekyll sources without overwriting existing pages; do not restart extraction or publishing unless requested.
+
+## Historical reference — not an executable workflow
 
 ## Mission
 
@@ -35,14 +45,14 @@
 ## Safety Rules
 
 1. 사용자 명시 지시 없이 bulk 게시 시작 금지
-2. 게시 시작 시 기존 `blog/` 내용 제거 후 재생성
+2. 기존 `blog/` 내용과 URL 유지; Jekyll 소스만 명시된 범위에서 갱신
 3. 삭제 범위는 `blog/` 내부로 제한
 4. 자격증명/토큰/쿠키를 파일이나 커밋에 저장 금지
 
 ## Execution Steps
 
 1. 소스 카테고리/포스트 스캔
-2. 대상 `blog/` 초기화
+2. 기존 Jekyll 소스와 URL 확인 (초기화 금지)
 3. 카테고리 인덱스 페이지 생성
 4. 포스트 본문 렌더 및 이미지 복사
 5. `_data/knowledge_map.yml` 생성
@@ -51,4 +61,4 @@
 ## Entry Point
 
 - Script: `agents/github_data_poster/scripts/build_site.py`
-- Run: `python3 agents/github_data_poster/scripts/build_site.py`
+- Retired entry point: do not run this script for the Jekyll site. Follow the root `README.md`.

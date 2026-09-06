@@ -1,0 +1,110 @@
+[
+  {
+    "title": "Agentic AI Theory",
+    "url": "/blog/ai/agentic-ai-theory/",
+    "area": "AI",
+    "count": 8
+  },
+  {
+    "title": "Deep learning",
+    "url": "/blog/ai/deep-learning/",
+    "area": "AI",
+    "count": 14
+  },
+  {
+    "title": "Machine Learning",
+    "url": "/blog/ai/machine-learning/",
+    "area": "AI",
+    "count": 11
+  },
+  {
+    "title": "Sensitivity Analysis",
+    "url": "/blog/ai/sensitivity-analysis/",
+    "area": "AI",
+    "count": 3
+  },
+  {
+    "title": "Claude",
+    "url": "/blog/ai_application/claude/",
+    "area": "AI",
+    "count": 3
+  },
+  {
+    "title": "Blood Flow and Metabolism",
+    "url": "/blog/biomechanics/blood-flow-and-metabolism/",
+    "area": "Mechanical",
+    "count": 12
+  },
+  {
+    "title": "CardioVascular Diseases",
+    "url": "/blog/biomechanics/cardiovascular-diseases/",
+    "area": "Mechanical",
+    "count": 8
+  },
+  {
+    "title": "Computational Fluid Dynamics",
+    "url": "/blog/mechanical-engineering/computational-fluid-dynamics/",
+    "area": "Mechanical",
+    "count": 14
+  },
+  {
+    "title": "Computational Linear Algebra",
+    "url": "/blog/mechanical-engineering/computational-linear-algebra/",
+    "area": "Mechanical",
+    "count": 15
+  },
+  {
+    "title": "Continuum Mechanics",
+    "url": "/blog/mechanical-engineering/continuum-mechanics/",
+    "area": "Mechanical",
+    "count": 9
+  },
+  {
+    "title": "Engineering Mathematics",
+    "url": "/blog/mechanical-engineering/engineering-mathematics/",
+    "area": "Mechanical",
+    "count": 14
+  },
+  {
+    "title": "Finite Element Method",
+    "url": "/blog/mechanical-engineering/finite-element-method/",
+    "area": "Mechanical",
+    "count": 1
+  },
+  {
+    "title": "Fluid Mechanics",
+    "url": "/blog/mechanical-engineering/fluid-mechanics/",
+    "area": "Mechanical",
+    "count": 18
+  },
+  {
+    "title": "Gas Dynamics",
+    "url": "/blog/mechanical-engineering/gas-dynamics/",
+    "area": "Mechanical",
+    "count": 24
+  },
+  {
+    "title": "Heat transfer",
+    "url": "/blog/mechanical-engineering/heat-transfer/",
+    "area": "Mechanical",
+    "count": 8
+  },
+  {
+    "title": "Solid Mechanics",
+    "url": "/blog/mechanical-engineering/solid-mechanics/",
+    "area": "Mechanical",
+    "count": 25
+  },
+  {
+    "title": "Thermodynamics",
+    "url": "/blog/mechanical-engineering/thermodynamics/",
+    "area": "Mechanical",
+    "count": 14
+  },
+  {
+    "title": "Viscous Flow",
+    "url": "/blog/mechanical-engineering/viscous-flow/",
+    "area": "Mechanical",
+    "count": 28
+  }
+]

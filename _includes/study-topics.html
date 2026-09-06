@@ -1,0 +1,8 @@
+{% assign study_topics = site.data.study_topics %}
+{% if page.area_filter %}{% assign study_topics = study_topics | where: 'area', page.area_filter %}{% endif %}
+{% if study_topics.size > 0 %}
+<details class="journal-topic-index">
+  <summary>주제별로 보기</summary>
+  <ul>{% for topic in study_topics %}<li><a href="{{ topic.url | relative_url }}">{{ topic.title }}</a> <span>({{ topic.count }})</span></li>{% endfor %}</ul>
+</details>
+{% endif %}

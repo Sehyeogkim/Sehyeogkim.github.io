@@ -12,7 +12,7 @@ Task-specific requirements must be read from each pipeline directory's `AGENTS.m
 - Tistory pipeline:
   - `agents/tistory_data_reader/AGENTS.md`
 - Github data poster:
-  - `agents/github_data_poster/agents.md`
+  - `agents/github_data_poster/agent.md`
 ## Global Rules (All Pipelines)
 
 - Do not start bulk extraction until the user explicitly says to start.
@@ -40,3 +40,10 @@ Task-specific requirements must be read from each pipeline directory's `AGENTS.m
   - pilot batch
   - validation
   - full run with resume mode
+## Jekyll Site (2026-09 migration)
+
+- Jekyll with Minimal Mistakes now owns page rendering. Read the root `README.md` for authoring and preview commands.
+- Add new writing under `_posts/` following the README front matter conventions.
+- Existing `blog/**/index.html` files are migrated Jekyll source pages. Preserve their bodies, permalinks, and image paths.
+- Do not reset `blog/` or run the legacy `build_site.py` generator, including `--clean`; it exits with code 2 when `_config.yml` exists.
+- Keep extracted `blog_data/` and publishing source files separate from generated `_site/` output.

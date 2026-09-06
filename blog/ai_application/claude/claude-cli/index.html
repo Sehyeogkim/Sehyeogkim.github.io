@@ -1,72 +1,22 @@
-<!DOCTYPE html>
-<html lang="ko" data-theme="light">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Claude - Code (CLI) | Sehyeog Kim</title>
-  <link rel="stylesheet" href="../../../../assets/css/style.css">
-  <script>!function(){var t=localStorage.getItem("theme")||"light";document.documentElement.setAttribute("data-theme",t)}();</script>
-</head>
-<body>
-  <button class="theme-toggle" aria-label="Toggle theme"><svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
-
-  <header class="mobile-header">
-    <span class="site-title">Sehyeog Kim</span>
-    <button class="menu-toggle" aria-label="Menu">&#9776;</button>
-  </header>
-  <div class="sidebar-overlay"></div>
-
-  <div class="site-wrapper">
-    <aside class="sidebar">
-      <div class="sidebar-bg">
-        <img src="../../../../assets/images/bg.jpg" alt="Background" onerror="this.style.display='none'">
-      </div>
-      <div class="sidebar-profile">
-        <img class="profile-photo" src="../../../../assets/images/profile.jpg" alt="Sehyeog Kim"
-             onerror="this.style.background='#eaeef2'">
-        <h1 class="profile-name">Sehyeog Kim</h1>
-        <p class="profile-bio">AI &amp; Computational Engineering<br>Personal Blog</p>
-        <div class="profile-links">
-          <a href="https://github.com/Sehyeogkim" target="_blank" rel="noopener">
-            <svg viewBox="0 0 16 16" width="15" height="15" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub
-          </a>
-        </div>
-      </div>
-      <nav class="sidebar-nav">
-        <a href="/" class="nav-item nav-home">Home</a>
-        <span class="nav-group-label">AI</span>
-        <a href="/blog/ai/agentic-ai-theory/" class="nav-item">Agentic_AI_Theory<span class="nav-post-count">8</span></a>
-        <a href="/blog/ai/deep-learning/" class="nav-item">Deep-learning<span class="nav-post-count">14</span></a>
-        <a href="/blog/ai/machine-learning/" class="nav-item">Machine_Learning<span class="nav-post-count">11</span></a>
-        <a href="/blog/ai/sensitivity-analysis/" class="nav-item">Sensitivity_Analysis<span class="nav-post-count">3</span></a>
-        <span class="nav-group-label">AI_Application</span>
-        <a href="/blog/ai_application/claude/" class="nav-item active">Claude<span class="nav-post-count">3</span></a>
-        <span class="nav-group-label">BioMechanics</span>
-        <a href="/blog/biomechanics/blood-flow-and-metabolism/" class="nav-item">Blood-Flow-and-Metabolism<span class="nav-post-count">12</span></a>
-        <a href="/blog/biomechanics/cardiovascular-diseases/" class="nav-item">CardioVascular_Diseases<span class="nav-post-count">8</span></a>
-        <span class="nav-group-label">Mechanical_Engineering</span>
-        <a href="/blog/mechanical-engineering/computational-linear-algebra/" class="nav-item">Computational-Linear-Algebra<span class="nav-post-count">15</span></a>
-        <a href="/blog/mechanical-engineering/computational-fluid-dynamics/" class="nav-item">Computational_Fluid_Dynamics<span class="nav-post-count">14</span></a>
-        <a href="/blog/mechanical-engineering/continuum-mechanics/" class="nav-item">Continuum-Mechanics<span class="nav-post-count">9</span></a>
-        <a href="/blog/mechanical-engineering/engineering-mathematics/" class="nav-item">Engineering_Mathematics<span class="nav-post-count">14</span></a>
-        <a href="/blog/mechanical-engineering/finite-element-method/" class="nav-item">Finite-Element-Method<span class="nav-post-count">1</span></a>
-        <a href="/blog/mechanical-engineering/fluid-mechanics/" class="nav-item">Fluid_Mechanics<span class="nav-post-count">18</span></a>
-        <a href="/blog/mechanical-engineering/gas-dynamics/" class="nav-item">Gas_Dynamics<span class="nav-post-count">24</span></a>
-        <a href="/blog/mechanical-engineering/heat-transfer/" class="nav-item">Heat-transfer<span class="nav-post-count">8</span></a>
-        <a href="/blog/mechanical-engineering/solid-mechanics/" class="nav-item">Solid_Mechanics<span class="nav-post-count">25</span></a>
-        <a href="/blog/mechanical-engineering/thermodynamics/" class="nav-item">Thermodynamics<span class="nav-post-count">14</span></a>
-        <a href="/blog/mechanical-engineering/viscous-flow/" class="nav-item">Viscous_Flow<span class="nav-post-count">28</span></a>
-        <span class="nav-group-label">Thoughts</span>
-        <a href="/blog/thoughts/" class="nav-item">Diary<span class="nav-post-count">1</span></a>
-      </nav>
-    </aside>
-
-    <main class="main-content">
-      <div class="breadcrumb"><a href="/">Home</a><span class="sep">/</span><a href="/blog/ai_application/">AI_Application</a><span class="sep">/</span><a href="/blog/ai_application/claude/">Claude</a><span class="sep">/</span><span>Claude - Code (CLI)</span></div>
-<a href="/blog/ai_application/claude/" class="back-link">&larr; Back to Claude</a>
-<div class="page-header"><h1>Claude - Code (CLI)</h1></div>
-<div class="post-meta"><span class="meta-item"><span class="meta-label">Date:</span> 2026-03-03</span><span class="meta-item"><span class="meta-label">Category:</span> Claude</span><span class="meta-item"><span class="meta-label">Source:</span> <a href="https://www.notion.so/3132a46dc68c80f5b0cdd052f00c2b09" target="_blank" rel="noopener">link</a></span></div>
-<article class="post-content"><p><code>Anthropic</code>은 초기부터 <strong>코드 작성(코딩) 성능 향상</strong>에 모델 발전 투자를 집중해 왔다. 이러한 기반 위에서 모델이 스스로 스킬과 도구를 만들고 활용하는 에이전트형 AI(<code>Claude</code>)로 확장되었고, 그 결과가 지금의 Claude 생태계로 이어졌다.<br />
+---
+{
+  "layout": "note",
+  "title": "Claude - Code (CLI)",
+  "journal": true,
+  "section": "Study",
+  "topic": "Claude",
+  "excerpt": "Anthropic 은 초기부터 코드 작성(코딩) 성능 향상 에 모델 발전 투자를 집중해 왔다. 이러한 기반 위에서 모델이 스스로 스킬과 도구를 만들고 활용하는 에이전트형 AI( Claude )로 확장되었고, 그 결과가 지금의 Clau",
+  "classes": "wide",
+  "permalink": "/blog/ai_application/claude/claude-cli/",
+  "study_area": "AI",
+  "date": "2026-03-03",
+  "source_url": "https://www.notion.so/3132a46dc68c80f5b0cdd052f00c2b09",
+  "header": {
+    "teaser": "/blog/ai_application/claude/claude-cli/images/img-001.png"
+  }
+}
+---
+{% raw %}<p><code>Anthropic</code>은 초기부터 <strong>코드 작성(코딩) 성능 향상</strong>에 모델 발전 투자를 집중해 왔다. 이러한 기반 위에서 모델이 스스로 스킬과 도구를 만들고 활용하는 에이전트형 AI(<code>Claude</code>)로 확장되었고, 그 결과가 지금의 Claude 생태계로 이어졌다.<br />
 한편, 코드를 작성하고 개발하는 사람들은 <code>CLI(Command Line Interface)</code>를 자주 사용한다. 그 이유는 \<em>\</em>터미널(작업창)\<em>\</em>을 여러 개 띄워 프로젝트별로 병렬 작업을 하거나, 동일한 환경에서 다양한 명령을 빠르게 실행하는 등 <strong>작업 효율을 극대화</strong>할 수 있기 때문이다.</p>
 <blockquote>
 <p>CLI: Terminal 창에서, Claude와 대화, 지시, 작업 모든게 가능하다.<br />
@@ -294,12 +244,4 @@ which tmux
 <strong>강점:</strong> Desktop 모드 대비 세밀한 제어 기능 제공. 특히 실시간 토큰 사용량 및 Context Window 구성 확인 기능은 비용 가시성 측면에서 중요한 경쟁력이다.<br />
 <strong>한계:</strong> 모델 선택의 유연성 부재. 현재 구조는 최고성능 모델 중심으로 설계되어 있어, 간단한 작업(요약·교정·가벼운 코딩)에도 고비용 모델이 적용되는 비효율이 존재한다.<br />
 <strong>미래 전망:</strong> 두 가지 생태계로 분화될 것으로 예측한다. (1) 최신 고성능 모델 기반의 프리미엄 Agent 플랫폼과, (2) 작업 난이도에 따라 모델을 선택적으로 배분하는 오픈소스/맞춤형 Agent 생태계(예: OpenClaw). 단순 작업 → 저사양 모델, 고난도 추론 → 최신 모델의 <strong>하이브리드 전략</strong>이 비용 최적화의 핵심이 될 것이다.<br />
-<strong>최종 시사점:</strong> Claude CLI는 현재 가장 강력한 Agent 플랫폼 중 하나이지만, 장기적 경쟁력은 \"기능 풍부함\"과 \"비용 효율성\"의 균형에 달려 있다. 이를 확장하면, <strong>개인(Patient/Person) 특화 Agent 모델 설계</strong>의 필요성으로 이어진다.</p></article>
-      <footer class="site-footer">
-        <p>&copy; 2026 Sehyeog Kim</p>
-      </footer>
-    </main>
-  </div>
-  <script src="../../../../assets/js/main.js"></script>
-</body>
-</html>
+<strong>최종 시사점:</strong> Claude CLI는 현재 가장 강력한 Agent 플랫폼 중 하나이지만, 장기적 경쟁력은 \"기능 풍부함\"과 \"비용 효율성\"의 균형에 달려 있다. 이를 확장하면, <strong>개인(Patient/Person) 특화 Agent 모델 설계</strong>의 필요성으로 이어진다.</p>{% endraw %}

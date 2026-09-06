@@ -1,0 +1,16 @@
+{% assign entry = include.entry %}
+{% assign section = entry.section | default: 'Study' %}
+<div class="grid__item journal-card" data-journal-card data-search="{{ entry.title | append: ' ' | append: entry.topic | append: ' ' | append: entry.study_area | append: ' ' | append: section | append: ' ' | append: entry.excerpt | strip_html | escape }}">
+  <article class="archive__item" itemscope itemtype="https://schema.org/BlogPosting">
+    <a class="journal-image-link" href="{{ entry.url | relative_url }}" tabindex="-1" aria-hidden="true">
+      {% if entry.header.teaser %}
+        <div class="archive__item-teaser"><img src="{{ entry.header.teaser | relative_url }}" alt="" loading="lazy" decoding="async"></div>
+      {% else %}
+        <div class="archive__item-teaser journal-placeholder journal-placeholder--{{ section | downcase }}"><span>{{ section }}</span></div>
+      {% endif %}
+    </a>
+    <p class="journal-card-meta">{{ section }}{% if entry.study_area %} <span aria-hidden="true">/</span> {{ entry.study_area }}{% endif %}{% if entry.date %}<time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: '%Y.%m.%d' }}</time>{% endif %}</p>
+    <h2 class="archive__item-title no_toc" itemprop="headline"><a href="{{ entry.url | relative_url }}" itemprop="url">{{ entry.title }}</a></h2>
+    {% if entry.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ entry.excerpt | strip_html | truncate: 110 }}</p>{% endif %}
+  </article>
+</div>
