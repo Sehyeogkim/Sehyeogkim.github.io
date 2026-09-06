@@ -34,7 +34,7 @@ The Study explorer groups notes by `study_area` and `topic`. Match `topic` to an
 
 ## Existing articles
 
-The 230 archived HTML articles live under `_posts/`, named `YYYY-MM-DD-slug-hash.html`. Their explicit `permalink` values preserve the original `/blog/.../` URLs. Their original HTML bodies and image paths remain unchanged. Topic archive URLs also remain available.
+The 229 archived HTML articles live under `_posts/`, named `YYYY-MM-DD-slug-hash.html`. Their explicit `permalink` values preserve the original `/blog/.../` URLs. Their original HTML bodies and image paths remain unchanged. Topic archive URLs also remain available.
 
 Find an archived article by its title or `permalink` in `_posts/`; edit that source file, not generated HTML in `_site/`. Imported front matter may contain compatibility metadata in addition to the native Chirpy fields. Retain it unless a migration explicitly replaces it. Do not interpret a filename date assigned during migration as verified evidence of the original publication date.
 
