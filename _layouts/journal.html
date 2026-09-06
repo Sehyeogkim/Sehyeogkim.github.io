@@ -2,7 +2,8 @@
 layout: page
 ---
 {% unless page.collection == 'tabs' %}<h1 class="dynamic-title">{{ page.title }}</h1>{% endunless %}
-{% if page.intro %}<p class="journal-intro">{{ page.intro }}</p>{% endif %}
+{% include study-context.html %}
+{% if page.intro and study_context == false %}<p class="journal-intro">{{ page.intro }}</p>{% endif %}
 {{ content }}
 {% if page.show_sections %}
 <nav class="journal-sections" aria-label="Browse sections">
@@ -11,15 +12,6 @@ layout: page
   <a href="{{ '/leisure/' | relative_url }}"><strong>Leisure</strong><span>운동 · 하이킹 · 여행</span></a>
 </nav>
 {% endif %}
-{% if page.show_study %}
-<nav class="journal-topics" aria-label="Study topics">
-  <a href="{{ '/study/' | relative_url }}">All study</a>
-  <a href="{{ '/study/ai/' | relative_url }}">AI</a>
-  <a href="{{ '/study/mechanical/' | relative_url }}">Mechanical</a>
-  <a href="{{ '/study/cs/' | relative_url }}">CS</a>
-</nav>
-{% endif %}
-{% if page.show_study %}{% include study-topics.html %}{% endif %}
 {% assign journal_pages = site.pages | where: 'journal', true %}
 {% assign journal_posts = site.posts | where: 'journal', true %}
 {% assign entries = journal_pages | concat: journal_posts %}

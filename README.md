@@ -14,7 +14,10 @@ layout: post
 title: "Your title"
 date: 2026-09-06 12:00:00 +0900
 categories: [Study, AI]
-tags: [your-topic]
+section: Study
+study_area: AI
+topic: "Machine Learning"
+tags: [machine-learning]
 description: "A short introduction."
 image:
   path: /assets/images/your-cover.jpg
@@ -26,6 +29,8 @@ Your article here.
 ```
 
 Use `categories: [Study, AI]`, `[Study, Mechanical]`, or `[Study, CS]` for study notes. Use `[Essay]` or `[Leisure]` for other writing. Categories are ordered from the broad section to the study area. A cover image is optional. Set `math: true` when the article needs mathematical notation.
+
+The Study explorer groups notes by `study_area` and `topic`. Match `topic` to an entry in `_data/study_topics.yml`; add a topic entry and its archive page when introducing a new topic. Set `section: Essay` or `section: Leisure` for non-study posts and omit `study_area` and `topic` there. The explorer appears on Study lists, topic pages, and Study articles; folder state is saved in the browser.
 
 ## Existing articles
 

@@ -1,0 +1,3 @@
+{% assign study_context = false %}
+{% if page.section == 'Study' or page.section_filter == 'Study' %}{% assign study_context = true %}{% endif %}
+{% if page.path_filter %}{% unless page.path_filter contains '/thoughts/' %}{% assign study_context = true %}{% endunless %}{% endif %}

@@ -1,0 +1,42 @@
+{% assign explorer_posts = site.posts | where: 'section', 'Study' %}
+{% assign explorer_areas = 'AI,Mechanical,CS' | split: ',' %}
+<details class="study-explorer" data-study-explorer open>
+  <summary class="study-explorer-heading"><i class="fas fa-folder-tree" aria-hidden="true"></i><span>Study explorer</span><span class="explorer-count">{{ explorer_posts.size }}</span></summary>
+  <div class="study-explorer-body">
+    <div class="explorer-toolbar">
+      <a href="{{ '/study/' | relative_url }}"{% if page.url == '/study/' %} aria-current="page"{% endif %}>All study notes</a>
+      <button type="button" data-tree-collapse title="Collapse all folders" aria-label="Collapse all folders"><i class="far fa-square-minus" aria-hidden="true"></i></button>
+    </div>
+    <nav class="explorer-tree" aria-label="Study topics and articles">
+      {% for area in explorer_areas %}
+        {% assign area_posts = explorer_posts | where: 'study_area', area %}
+        {% assign area_url = area | downcase | prepend: '/study/' | append: '/' %}
+        {% assign area_current = false %}
+        {% if page.study_area == area or page.area_filter == area or page.url == area_url %}{% assign area_current = true %}{% endif %}
+        {% assign area_topics = site.data.study_topics | where: 'area', area %}
+        {% for topic in area_topics %}{% if page.url == topic.url %}{% assign area_current = true %}{% endif %}{% endfor %}
+        <details class="explorer-area" data-tree-key="{{ area_url }}"{% if area_current %} data-current-branch="true"{% endif %}{% if area_current or page.url == '/study/' %} open{% endif %}>
+          <summary><i class="fas fa-chevron-right explorer-chevron" aria-hidden="true"></i><i class="far fa-folder explorer-folder" aria-hidden="true"></i><span class="explorer-name">{{ area }}</span><span class="explorer-count">{{ area_posts.size }}</span></summary>
+          <div class="explorer-children">
+            <a class="explorer-overview" href="{{ area_url | relative_url }}"{% if page.url == area_url %} aria-current="page"{% endif %}>All {{ area }} notes</a>
+            {% for topic in area_topics %}
+              {% assign topic_posts = area_posts | where: 'topic', topic.title | sort_natural: 'title' %}
+              {% assign topic_current = false %}
+              {% if page.topic == topic.title or page.url == topic.url %}{% assign topic_current = true %}{% endif %}
+              <details class="explorer-topic" data-tree-key="{{ topic.url }}"{% if topic_current %} data-current-branch="true" open{% endif %}>
+                <summary title="{{ topic.title | escape }}"><i class="fas fa-chevron-right explorer-chevron" aria-hidden="true"></i><i class="far fa-folder explorer-folder" aria-hidden="true"></i><span class="explorer-name">{{ topic.title }}</span><span class="explorer-count">{{ topic_posts.size }}</span></summary>
+                <div class="explorer-children">
+                  <a class="explorer-overview" href="{{ topic.url | relative_url }}"{% if page.url == topic.url %} aria-current="page"{% endif %}>Open topic</a>
+                  {% for entry in topic_posts %}
+                    <a class="explorer-file" href="{{ entry.url | relative_url }}" title="{{ entry.title | escape }}"{% if page.url == entry.url %} aria-current="page"{% endif %}><i class="far fa-file-lines" aria-hidden="true"></i><span>{{ entry.title }}</span></a>
+                  {% endfor %}
+                </div>
+              </details>
+            {% endfor %}
+            {% if area_posts.size == 0 %}<p class="explorer-empty">아직 글이 없습니다.</p>{% endif %}
+          </div>
+        </details>
+      {% endfor %}
+    </nav>
+  </div>
+</details>
