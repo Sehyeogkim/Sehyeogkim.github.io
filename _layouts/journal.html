@@ -1,6 +1,7 @@
 ---
-layout: archive
+layout: page
 ---
+{% unless page.collection == 'tabs' %}<h1 class="dynamic-title">{{ page.title }}</h1>{% endunless %}
 {% if page.intro %}<p class="journal-intro">{{ page.intro }}</p>{% endif %}
 {{ content }}
 {% if page.show_sections %}
@@ -37,7 +38,7 @@ layout: archive
     <input id="journal-search" type="search" placeholder="제목, 주제, 키워드 검색" autocomplete="off" data-journal-search>
     <p class="journal-status" data-journal-status role="status" aria-live="polite"></p>
   </div>
-  <div class="entries-grid journal-grid" data-journal-grid>
+  <div id="post-list" class="journal-grid" data-journal-grid>
     {% assign shown = 0 %}
     {% for entry in entries %}
       {% assign include_entry = true %}
@@ -54,5 +55,5 @@ layout: archive
   </div>
   {% if shown == 0 %}<p class="journal-empty">아직 이 주제의 글이 없습니다.</p>{% endif %}
   <p class="journal-empty" data-journal-empty hidden>검색어에 맞는 글이 없습니다.</p>
-  <button class="btn btn--inverse journal-more" data-journal-more type="button" hidden>더 보기</button>
+  <button class="btn btn-outline-secondary journal-more" data-journal-more type="button" hidden>더 보기</button>
 </section>

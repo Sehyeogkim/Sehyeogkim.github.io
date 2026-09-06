@@ -1,8 +1,8 @@
-# Sehyeog Kim — personal blog
+# Personal Blog — Sehyeog Kim
 
 Technical notes, essays, and leisure stories at https://sehyeogkim.github.io.
 
-Uses the actual [Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes) Jekyll theme pinned to **4.28.1**. The homepage and section pages use the portfolio-style image grid, with the native author sidebar and article typography.
+Uses [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy), pinned to **7.6.0**, with its sidebar, article cards, search, and reading layout. The sidebar includes GitHub, LinkedIn, X, and Instagram.
 
 ## Write a new post
 
@@ -10,36 +10,51 @@ Create `_posts/YYYY-MM-DD-your-title.md`:
 
 ```yaml
 ---
+layout: post
 title: "Your title"
-date: YYYY-MM-DD
-section: Study
-study_area: AI
-topic: "Your topic"
-excerpt: "A short introduction."
-header:
-  teaser: /assets/images/your-cover.jpg
+date: 2026-09-06 12:00:00 +0900
+categories: [Study, AI]
+tags: [your-topic]
+description: "A short introduction."
+image:
+  path: /assets/images/your-cover.jpg
+  alt: "A description of the cover image"
+math: true
 ---
 
 Your article here.
 ```
 
-Use `section: Study`, `Essay`, or `Leisure`. Study areas are `AI`, `Mechanical`, or `CS`; omit `study_area` for other sections. The default post layout is `note`. A cover is optional; posts without one use a simple category graphic. `math: true` enables MathJax for other custom page layouts; note pages support mathematics by default.
+Use `categories: [Study, AI]`, `[Study, Mechanical]`, or `[Study, CS]` for study notes. Use `[Essay]` or `[Leisure]` for other writing. Categories are ordered from the broad section to the study area. A cover image is optional. Set `math: true` when the article needs mathematical notation.
 
 ## Existing articles
 
-Existing articles remain at their original `/blog/.../` URLs, with their original body content. Their YAML front matter adds titles, section metadata, and optional existing teaser images. Directory indexes now show the same image grid. Missing publication dates are left unspecified; dated articles appear newest first, followed by undated articles alphabetically.
+The 230 archived HTML articles live under `_posts/`, named `YYYY-MM-DD-slug-hash.html`. Their explicit `permalink` values preserve the original `/blog/.../` URLs. Their original HTML bodies and image paths remain unchanged. Topic archive URLs also remain available.
 
-## Development
+Find an archived article by its title or `permalink` in `_posts/`; edit that source file, not generated HTML in `_site/`. Imported front matter may contain compatibility metadata in addition to the native Chirpy fields. Retain it unless a migration explicitly replaces it. Do not interpret a filename date assigned during migration as verified evidence of the original publication date.
+
+## Development and deployment
+
+Use Ruby **3.4** with Bundler:
 
 ```sh
 bundle install
 bundle exec jekyll serve
 ```
 
-GitHub Pages builds the remote theme with `jekyll-include-cache`. Navigation is in `_data/navigation.yml`; profile and site settings are in `_config.yml`. The custom grid and reading layouts live in `_layouts`, and the small CSS and search enhancement are in `assets`. Without JavaScript, all article cards remain visible.
+For a production build and preservation check:
 
-The existing data extraction pipelines are separate from this presentation layer; see their own instructions before running them.
+```sh
+JEKYLL_ENV=production bundle exec jekyll build
+python3 scripts/verify_site.py _site
+```
+
+GitHub Actions builds and deploys the site to GitHub Pages. Keep the Pages source set to **GitHub Actions**. The theme is installed through the Gemfile; the old GitHub Pages remote-theme build is no longer the deployment path.
+
+Site identity and theme settings are in `_config.yml`. Sidebar social links are configured in `_data/contact.yml`; section pages live under `_tabs/`. Theme overrides in `_layouts`, `_includes`, and `assets` should remain as small as possible.
+
+The existing data extraction pipelines are separate from this presentation layer; see their own instructions before running them. Never run the legacy static site generator over the Jekyll source tree.
 
 ## Migration checks
 
-Run `python3 scripts/verify_site.py _site` after building to check the 230 archived bodies and URLs against their migration manifest. New articles use `_posts`; existing articles can be edited in their original `blog/.../index.html` files. When intentionally rewriting an archived article, update its manifest hash to match the approved content change.
+`python3 scripts/verify_site.py _site` checks the archived article bodies and preserved URLs against `_data/migration.json`, plus the generated navigation and topic archive pages. Run it after a build whenever moving archived sources or changing layouts. New writing does not need to be added to the migration manifest. When intentionally rewriting an archived article, update its manifest hash only for the approved content change.
