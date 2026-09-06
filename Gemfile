@@ -1,3 +1,5 @@
 source "https://rubygems.org"
-gem "github-pages", group: :jekyll_plugins
-gem "jekyll-include-cache", "~> 0.2"
+
+gem "jekyll-theme-chirpy", "7.6.0"
+gem "nokogiri", "~> 1.18"
+gem "webrick", "~> 1.9"

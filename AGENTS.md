@@ -42,8 +42,11 @@ Task-specific requirements must be read from each pipeline directory's `AGENTS.m
   - full run with resume mode
 ## Jekyll Site (2026-09 migration)
 
-- Jekyll with Minimal Mistakes now owns page rendering. Read the root `README.md` for authoring and preview commands.
+- Jekyll with Chirpy 7.6.0 now owns page rendering. Read the root `README.md` for authoring and preview commands.
 - Add new writing under `_posts/` following the README front matter conventions.
-- Existing `blog/**/index.html` files are migrated Jekyll source pages. Preserve their bodies, permalinks, and image paths.
+- The 230 archived articles are native Jekyll posts under `_posts/YYYY-MM-DD-slug-hash.html`. Preserve their raw HTML bodies, explicit `/blog/.../` permalinks, and image paths. Preserve the original topic archive URLs as well.
 - Do not reset `blog/` or run the legacy `build_site.py` generator, including `--clean`; it exits with code 2 when `_config.yml` exists.
 - Keep extracted `blog_data/` and publishing source files separate from generated `_site/` output.
+- Use native Chirpy post front matter: `layout: post`, ordered `categories` such as `[Study, AI]`, and an optional `image` object. The main sections are Study, Essay, and Leisure; study areas are AI, Mechanical, and CS.
+- Build with Ruby 3.4 and Bundler; deploy through the repository GitHub Actions workflow. Do not restore the old Minimal Mistakes remote-theme configuration.
+- After migrations or layout changes, run `python3 scripts/verify_site.py _site` against a completed build. Never change preservation hashes merely to make a failing check pass.

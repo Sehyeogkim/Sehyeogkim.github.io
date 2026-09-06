@@ -1,75 +1,166 @@
-remote_theme: "mmistakes/minimal-mistakes@4.28.1"
-minimal_mistakes_skin: default
-title: "Personal Blog"
-name: "Sehyeog Kim"
-description: "공부하며 이해한 것들, 살아가며 생각한 것들, 그리고 길 위의 기록."
-url: "https://sehyeogkim.github.io"
-baseurl: ""
-repository: "Sehyeogkim/Sehyeogkim.github.io"
-locale: "ko-KR"
-timezone: "Asia/Seoul"
-author:
-  name: "Sehyeog Kim"
-  avatar: "/assets/images/profile.jpg"
-  bio: "Engineering, AI, and life beyond the desk."
+theme: jekyll-theme-chirpy
+lang: en
+timezone: Asia/Seoul
+title: Personal Blog
+tagline: ''
+description: 공부하며 이해한 것들, 살아가며 생각한 것들, 그리고 길 위의 기록.
+url: https://sehyeogkim.github.io
+github:
+  username: Sehyeogkim
+twitter:
+  username: say_hugk99
+social:
+  name: Sehyeog Kim
   links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/Sehyeogkim"
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/sehyeog-kim-5a1131265"
-    - label: "X"
-      icon: "fab fa-fw fa-twitter"
-      url: "https://x.com/say_hugk99"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://www.instagram.com/say_hugk/"
-footer:
-  links:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/Sehyeogkim"
-plugins:
-  - jekyll-remote-theme
-  - jekyll-include-cache
-  - jekyll-feed
-  - jekyll-sitemap
-markdown: kramdown
+  - https://github.com/Sehyeogkim
+  - https://www.linkedin.com/in/sehyeog-kim-5a1131265
+  - https://x.com/say_hugk99
+  - https://www.instagram.com/say_hugk/
+webmaster_verifications:
+  google: null
+  bing: null
+  alexa: null
+  yandex: null
+  baidu: null
+  facebook: null
+analytics:
+  google:
+    id: null
+  goatcounter:
+    id: null
+  umami:
+    id: null
+    domain: null
+  matomo:
+    id: null
+    domain: null
+  cloudflare:
+    id: null
+  fathom:
+    id: null
+pageviews:
+  provider: null
+theme_mode: null
+cdn: ''
+avatar: /assets/images/profile.jpg
+social_preview_image: null
+toc: true
+actions:
+  edit_post:
+    enabled: false
+    url: ''
+    static_url: false
+comments:
+  provider: null
+  disqus:
+    shortname: null
+  utterances:
+    repo: null
+    issue_term: null
+  giscus:
+    repo: null
+    repo_id: null
+    category: null
+    category_id: null
+    mapping: null
+    strict: null
+    input_position: null
+    lang: null
+    reactions_enabled: null
+assets:
+  self_host:
+    enabled: null
+    env: null
+pwa:
+  enabled: false
+  cache:
+    enabled: false
+paginate: 12
+baseurl: ''
 kramdown:
-  input: GFM
+  footnote_backlink: '&#8617;&#xfe0e;'
   syntax_highlighter: rouge
-highlighter: rouge
-permalink: /:categories/:title/
+  syntax_highlighter_opts:
+    css_class: highlight
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+collections:
+  tabs:
+    output: true
+    sort_by: order
 defaults:
-  - scope:
-      path: ""
-    values:
-      author_profile: true
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: note
-      journal: true
-      section: Study
-      read_time: true
-      show_date: true
+- scope:
+    path: ''
+    type: posts
+  values:
+    layout: post
+    comments: false
+    toc: true
+    permalink: /posts/:title/
+    math: true
+    section: Study
+    journal: true
+- scope:
+    path: _drafts
+  values:
+    comments: false
+- scope:
+    path: ''
+    type: tabs
+  values:
+    layout: page
+    permalink: /:title/
+sass:
+  style: compressed
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs:
+    - development
 exclude:
-  - AGENTS.md
-  - agents
-  - bin
-  - tools
-  - validation
-  - vendor
-  - node_modules
-  - Gemfile
-  - Gemfile.lock
-  - README.md
-  - scripts
-  - content.txt
-  - blog_data
-  - plan_github.txt
-  - package.json
-  - package-lock.json
-  - .github
+- '*.gem'
+- '*.gemspec'
+- docs
+- tools
+- README.md
+- LICENSE
+- purgecss.js
+- '*.config.js'
+- package*.json
+- AGENTS.md
+- agents
+- bin
+- validation
+- vendor
+- node_modules
+- Gemfile
+- Gemfile.lock
+- scripts
+- content.txt
+- blog_data
+- plan_github.txt
+- .github
+jekyll-archives:
+  enabled:
+  - categories
+  - tags
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    tag: /tags/:name/
+    category: /categories/:name/
+alt_lang: ko
+plugins:
+- jekyll-paginate
+- jekyll-sitemap
+- jekyll-seo-tag
+- jekyll-archives
+- jekyll-include-cache

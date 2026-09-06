@@ -1,0 +1,24 @@
+{%- comment -%}Chirpy media URLs, preserving archived HTML's page-relative paths.{%- endcomment -%}
+{%- assign url = include.src -%}
+{%- if url -%}
+  {%- unless url contains ':' -%}
+    {%- assign first_character = url | slice: 0 -%}
+    {%- if page.legacy_html and first_character != '/' and include.subpath == nil -%}
+      {%- assign url = page.url | append: url -%}
+    {%- else -%}
+      {%- assign url = include.subpath | default: '' | append: '/' | append: url -%}
+    {%- endif -%}
+    {%- if site.cdn and site.cdn != '' -%}
+      {%- assign url = site.cdn | append: '/' | append: url -%}
+    {%- endif -%}
+    {%- assign url = url | replace: '///', '/' | replace: '//', '/' | replace: ':/', '://' -%}
+    {%- unless url contains '://' -%}
+      {%- if include.absolute -%}
+        {%- assign url = site.url | append: site.baseurl | append: url -%}
+      {%- else -%}
+        {%- assign url = site.baseurl | append: url -%}
+      {%- endif -%}
+    {%- endunless -%}
+  {%- endunless -%}
+{%- endif -%}
+{{- url -}}

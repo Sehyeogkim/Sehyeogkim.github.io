@@ -1,0 +1,31 @@
+---
+---
+
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}'
+);
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+
+.journal-tools { display:flex; flex-wrap:wrap; gap:.7rem; align-items:center; margin:1.5rem 0; }
+.journal-tools input { flex:1; min-width:10rem; padding:.5rem .75rem; border:1px solid var(--main-border-color); border-radius:.5rem; background:var(--main-bg); color:var(--text-color); }
+.journal-tools label { font-size:.85rem; }
+.journal-status { font-size:.8rem; margin:0; color:var(--text-muted-color); }
+.journal-topics { display:flex; gap:1.25rem; flex-wrap:wrap; margin:1rem 0; }
+.journal-topic-index { margin-bottom:1.5rem; font-size:.9rem; }
+.journal-topic-index summary { cursor:pointer; }
+.journal-topic-index ul { padding-left:1.25rem; }
+.journal-topic-index span { color:var(--text-muted-color); }
+.journal-intro { color:var(--text-muted-color); }
+.journal-more { display:block; margin:2rem auto; }
+.journal-card[hidden], [data-journal-empty][hidden], [data-journal-more][hidden] { display:none !important; }
+.journal-card .post-preview img { object-fit:cover; width:100%; height:100%; }
+.content { overflow-wrap:anywhere; }
+.content iframe { max-width:100%; }

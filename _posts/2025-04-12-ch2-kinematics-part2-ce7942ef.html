@@ -1,0 +1,120 @@
+---
+{
+  "layout": "post",
+  "title": "Ch2 Kinematics - part2",
+  "journal": true,
+  "section": "Study",
+  "topic": "Solid Mechanics",
+  "excerpt": "2.5 Strain tensor. 변형 전과 후의 body configuration Y -> y, X -> x로 같은 점이 시간 t초후 이동함. 여기서, t =.0 일때의 두 위치벡터를 정의하고, t = 0 일때 두 점의 위치 X,Y",
+  "permalink": "/blog/mechanical-engineering/solid-mechanics/ch2-kinematics-part2/",
+  "study_area": "Mechanical",
+  "date": "2025-04-12",
+  "source_url": "https://jeffdissel.tistory.com/173",
+  "categories": [
+    "Study",
+    "Mechanical"
+  ],
+  "tags": [
+    "solid-mechanics"
+  ],
+  "description": "2.5 Strain tensor. 변형 전과 후의 body configuration Y -> y, X -> x로 같은 점이 시간 t초후 이동함. 여기서, t =.0 일때의 두 위치벡터를 정의하고, t = 0 일때 두 점의 위치 X,Y",
+  "toc": true,
+  "math": true,
+  "image": {
+    "path": "/blog/mechanical-engineering/solid-mechanics/ch2-kinematics-part2/images/img-001.png",
+    "alt": "Ch2 Kinematics - part2"
+  },
+  "legacy_html": true
+}
+---
+{% raw %}<p>2.5 Strain tensor.<br />
+변형 전과 후의 body configuration<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-001.png" /><br />
+Y -&gt; y, X -&gt; x로 같은 점이 시간 t초후 이동함.<br />
+여기서, t =.0 일때의 두 위치벡터를 정의하고,<br />
+t = 0 일때 두 점의 위치 X,Y 에 대해<br />
+그 두 점을 잇는 단위벡터를 a0라고 정의하자.<br />
+두 점의 길이는 de.<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-002.png" /><br />
+두점 사이의 거리가 굉장히 가까운 경우를 살펴보자.<br />
+그리고 그 간격벡터를 dX라고 정의.<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-003.png" /><br />
+dX벡터는 위에서 정의한 a0, de를 가지고 표현 가능하다.<br />
+이제, 시간이 흐른후 위치 y,x를 기준으로 살펴보자.<br />
+mapping function<br />
+λ를 기준으로 y,x,를 표현하면 다음과 같다.<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-004.png" /><br />
+de a0항이 존재하기 때문에, Taylor Expansion을 적용해준다.<br />
+여기서 궁극적으로 우리가 하고 싶은 것은<br />
+변형후 두 점의 사이의 거리와, 방향을 알고 싶은것.<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-005.png" /><br />
+즉 초기 X,Y를 잇는 방향벡터 a0가 변형후 λa0로 변형되었다. 핵심은 a0는 단위벡터이었지만, λao는 단위벡터는 아니다.<br />
+지금 우리가 초기에 정의한 점 X,Y를 잇는 단위벡터는 a0이고,<br />
+이 단위벡터가 변형을 통해서 새로운 벡터로 변환되었다.<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-006.png" /><br />
+λao - 변형후 백터임.<br />
+위에서 y-x벡터를 정의하였으니<br />
+우리는 그 크기를 알수 있고, 기존에 비해 얼마나 늘어났는지를 알수 있다.<br />
+그리고 그 비율을 stretch ratio라고 정의한다.<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-007.png" /><br />
+stretch ratio : λ = 나중길이/ 초기길이<br />
+우리는 y-x , Y-X벡터를 모두 알고 있기 때문에<br />
+lambda를알고 있는 기호로 유도할 수 있다.<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-008.png" /><br />
+유도 결과 λa0(초기 단위백터의 변형후 벡터)로 나타낼수 있다.<br />
+여기서 lambda를 제곱해주면,<br />
+변형전 단위벡터를 기저로 하는 tensor가 등장하게 되고,<br />
+이 tensor는 Right cauchy green tensor라고 부른다.<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-009.png" /><br />
+그리고 여기서, 변형후길이와 전의 길이의 제곱차이로 strain을 정의한 후,<br />
+식을 전개해하게 되면, 새로운 strain tensor, E를 정의할 수 있다.<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-010.png" /><br />
+E: Green Lagrangian strain tensor라고 불리며,<br />
+small deformation인 경우 symm(gradu)로 표현가능하다.<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-011.png" /><br />
+결국 우리는 strain tenesor를<br />
+초기값들을 기준으로 정의하였다.<br />
+계속해서 말하지만 x &lt;-&gt; X는 서로 일대일 대응<br />
+즉, 상호 표현이 가능하므로,<br />
+이번에는 변형후값들을 기준으로 strain tensor를 정의해보자.<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-012.png" /><br />
+점 x,y에서의 값을 우리가 기준으로 X,Y 변형전의 벡터 크기와 방향을 분석해보자.<br />
+위와 같은 방식으로, 변형후를 기준으로 하기 때문에<br />
+변형후의 y-x 벡터의 단위벡터를 a, 크기를 de~ 라고 정의한다.<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-013.png" /><br />
+변형후의 단위벡터, 크기를 기준으로 변형전의 벡터들을 표현한다.<br />
+여기서, 변형후의 단위벡터도 변형전에서 변형이 된 것이기 때문에<br />
+변형전의 벡터를<br />
+λa^(-1)으로 정의하자.<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-014.png" /><br />
+이후 4번식을 위에 새롭게 정의한 vector로 정리해주면,<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-015.png" /><br />
+우리가 stretch ratio와<br />
+λa^(-1)의 관계를 알수 있게 된다.<br />
+여기서 새로운 tensor를 정의할수 있고,<br />
+Left cauchy green tensor(b = F FT)<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-016.png" /><br />
+이제 맨처음의 방식과 동일하게,<br />
+변형후 벡터의 크기, 후의 크기를 가지고 strain을 새롭게 정의할수 가있다.<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-017.png" /><br />
+2.6 Rate of Deformation Gradient Tensor.<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-018.png" /><br />
+spatial velocity gradient tensor<br />
+즉 velocity를 x로 미분한 tensor를 l(x,t)라고 새롭게 정의하자.<br />
+이와 반대로 Material Velocity Gradient tensor, 즉 속도 V를 X로 미분한 텐서도 정의가능하고,<br />
+그 값은 DF(X,t)/Dt와 동일하다는 것을 알 수 있다.<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-019.png" /><br />
+이후 chain rule을 통해서,<br />
+Material Velocity gradient tensor(l(x,t))<br />
+Spatial Velocity Gradient tenesor(DF/Dt))<br />
+의 관계를 구할수 있다.<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-020.png" /><br />
+(추후에 자주 쓰임)<br />
+1.241즉 1단원에서 배웠던,<br />
+tensor의 tensor 미분항을 작성해보고 A -&gt; F를 대입해보면<br />
+1번식을 도출 할 수 있다(det F = J)<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-021.png" /><br />
+2번식은 바로 위에서 유도한 식,<br />
+1,2번 식을 이용하여 우리는 DJ/Dt를 유도할 수 있다.<br />
+<img alt="Ch2 Kinematics - part2" src="./images/img-022.png" /><br />
+추후에 쓰일 예정 3번식 기억하자.</p>{% endraw %}

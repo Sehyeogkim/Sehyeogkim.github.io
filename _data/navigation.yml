@@ -1,9 +1,0 @@
-main:
-  - title: "Study"
-    url: /study/
-  - title: "Essay"
-    url: /essay/
-  - title: "Leisure"
-    url: /leisure/
-  - title: "About"
-    url: /about/
