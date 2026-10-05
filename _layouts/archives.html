@@ -22,11 +22,7 @@ layout: page
     {% endif %}
 
     <li>
-      {% assign ts = post.date | date: '%s' %}
-      <span class="date day"  data-df="DD">{{ post.date | date: '%d' }}</span>
-      <span class="date month small text-muted ms-1"  data-df="{{ df_dayjs_m }}">
-        {{ post.date | date: df_strftime_m }}
-      </span>
+      <time class="vc-archive-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %d' }}</time>
       <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
     </li>
 

@@ -22,14 +22,14 @@ layout: compress
   {% assign versioned_css = theme_css | append: '?v=' | append: style_version %}
   {{ rendered_head | replace: theme_css, versioned_css }}
 
-  <body{% if explorer_section %} class="study-workspace"{% elsif layout.panel_includes == nil %} class="wide-workspace"{% endif %}>
+  <body{% if layout.panel_includes == nil %} class="wide-workspace"{% endif %}>
     {% include sidebar.html lang=lang %}
+    {% include topbar.html lang=lang %}
 
     <div id="main-wrapper" class="d-flex justify-content-center">
       <div class="container d-flex flex-column px-xxl-5">
-        {% include topbar.html lang=lang %}
 
-        <div class="row flex-grow-1{% if explorer_section %} study-columns{% endif %}">
+        <div class="row flex-grow-1">
           <main aria-label="Main Content" class="col-12 col-lg-11 col-xl-9 px-md-4">
             {% if page.url == '/' %}{% include home-intro.html %}{% endif %}
             {% if layout.layout == 'default' %}
@@ -40,14 +40,9 @@ layout: compress
           </main>
 
           <!-- panel -->
-          {% if explorer_section or layout.panel_includes %}
+          {% if layout.panel_includes %}
           <aside aria-label="Panel" id="panel-wrapper" class="col-xl-3 ps-2 text-muted">
-            {% if explorer_section == 'Study' %}
-              {% include study-explorer.html %}
-            {% elsif explorer_section %}
-              {% include section-explorer.html %}
-            {% endif %}
-
+            
             {% for _include in layout.panel_includes %}
               {% assign _include_path = _include | append: '.html' %}
               {% include {{ _include_path }} lang=lang %}

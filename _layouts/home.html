@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+{% include lang.html %}
+
+{% assign pinned_posts = site.posts | where: 'pin', true %}
+{% assign normal_posts = site.posts | where_exp: 'item', 'item.pin != true and item.hidden != true' %}
+{% assign feed_posts = pinned_posts | concat: normal_posts %}
+
+<section class="vc-feed" data-feed aria-label="Articles">
+  <div id="post-list" class="vc-grid">
+    {% for post in feed_posts %}
+      {% include blog-category.html entry=post %}
+      {% capture summary %}{% include post-summary.html %}{% endcapture %}
+      {% capture attrs %}data-feed-card data-category="{{ blog_category | slugify }}"{% endcapture %}
+      {% include vc-card.html entry=post summary=summary attrs=attrs %}
+    {% endfor %}
+  </div>
+  <p class="journal-empty" data-feed-empty hidden>No posts in this category yet.</p>
+  <button class="vc-button" type="button" data-feed-more hidden>Show more</button>
+</section>
+
+<script defer src="{{ '/assets/js/feed.js' | relative_url }}"></script>

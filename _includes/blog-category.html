@@ -1,0 +1,6 @@
+{%- comment -%} Sets `blog_category` for include.entry from _data/blog_categories.yml. {%- endcomment -%}
+{%- assign blog_category = nil -%}
+{%- for group in site.data.blog_categories -%}
+  {%- if group.topics contains include.entry.topic -%}{%- assign blog_category = group.name -%}{%- break -%}{%- endif -%}
+{%- endfor -%}
+{%- unless blog_category -%}{%- assign blog_category = include.entry.study_area | default: include.entry.section | default: include.entry.categories.last -%}{%- endunless -%}

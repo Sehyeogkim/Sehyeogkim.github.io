@@ -1,0 +1,21 @@
+<!-- Mobile navigation drawer; hidden on wide screens, where the header carries navigation. -->
+
+<aside aria-label="Sidebar" id="sidebar" class="d-flex flex-column">
+  <header class="vc-drawer-profile">
+    <a href="{{ '/' | relative_url }}" class="vc-brand">
+      {%- if site.avatar != empty and site.avatar -%}
+        {%- capture avatar_url -%}{% include media-url.html src=site.avatar %}{%- endcapture -%}
+        <img src="{{- avatar_url -}}" width="40" height="40" alt="" onerror="this.style.display='none'">
+      {%- endif -%}
+      <span>{{ site.social.name | default: site.title }}</span>
+    </a>
+  </header>
+
+  <nav class="vc-drawer-nav flex-grow-1" aria-label="Sections">
+    {% include primary-nav.html %}
+  </nav>
+
+  <div class="vc-social vc-drawer-social">
+    {% include social-links.html %}
+  </div>
+</aside>

@@ -75,7 +75,7 @@ pwa:
   enabled: false
   cache:
     enabled: false
-paginate: 12
+# Home shows every post with client-side category filters, so it is not paginated.
 baseurl: ''
 kramdown:
   footnote_backlink: '&#8617;&#xfe0e;'

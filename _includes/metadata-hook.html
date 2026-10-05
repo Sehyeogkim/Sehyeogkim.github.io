@@ -1,4 +1,6 @@
 {% if page.layout == 'journal' %}<script defer src="{{ '/assets/js/journal.js' | relative_url }}"></script>{% endif %}
-<script defer src="{{ '/assets/js/sidebar-toggle.js' | relative_url }}"></script>
-{% include study-context.html %}
-{% if explorer_section %}<script defer src="{{ '/assets/js/study-explorer.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>{% endif %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<script defer src="{{ '/assets/js/search-shortcut.js' | relative_url }}"></script>

@@ -30,7 +30,7 @@ layout: page
     <input id="journal-search" type="search" placeholder="Search titles, topics, or keywords" autocomplete="off" data-journal-search>
     <p class="journal-status" data-journal-status role="status" aria-live="polite"></p>
   </div>
-  <div id="post-list" class="journal-grid" data-journal-grid>
+  <div id="post-list" class="journal-grid vc-grid" data-journal-grid>
     {% assign shown = 0 %}
     {% for entry in entries %}
       {% assign include_entry = true %}
@@ -47,5 +47,5 @@ layout: page
   </div>
   {% if shown == 0 %}<p class="journal-empty">No posts in this section yet.</p>{% endif %}
   <p class="journal-empty" data-journal-empty hidden>No posts match your search.</p>
-  <button class="btn btn-outline-secondary journal-more" data-journal-more type="button" hidden>Show more</button>
+  <button class="vc-button journal-more" data-journal-more type="button" hidden>Show more</button>
 </section>

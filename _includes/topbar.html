@@ -1,0 +1,86 @@
+<!-- Site header: brand, primary navigation, search, theme switch and social links. -->
+
+<header id="topbar-wrapper" class="vc-header" aria-label="Top Bar">
+  <div id="topbar" class="vc-header-inner">
+    <button type="button" id="sidebar-trigger" class="btn btn-link vc-icon-btn" aria-label="Menu">
+      <i class="fas fa-bars fa-fw"></i>
+    </button>
+
+    <a class="vc-brand" href="{{ '/' | relative_url }}" aria-label="{{ site.social.name | default: site.title }}">
+      {%- if site.avatar != empty and site.avatar -%}
+        {%- capture avatar_url -%}{% include media-url.html src=site.avatar %}{%- endcapture -%}
+        <img src="{{- avatar_url -}}" width="28" height="28" alt="" onerror="this.style.display='none'">
+      {%- endif -%}
+    </a>
+
+    <nav class="vc-nav" aria-label="Primary">
+      {% include primary-nav.html %}
+    </nav>
+
+    <div id="topbar-title" class="vc-visually-hidden">
+      {%- if page.layout == 'home' -%}{{ site.title }}{%- else -%}{{ page.title | default: site.title }}{%- endif -%}
+    </div>
+
+    <div class="vc-actions">
+      <button type="button" id="search-trigger" class="btn btn-link vc-icon-btn" aria-label="Search">
+        <i class="fas fa-search fa-fw"></i>
+      </button>
+
+      <search id="search" class="align-items-center">
+        <i class="fas fa-search fa-fw"></i>
+        <input
+          class="form-control"
+          id="search-input"
+          type="search"
+          aria-label="search"
+          autocomplete="off"
+          placeholder="{{ site.data.locales[include.lang].search.hint | capitalize }}..."
+        >
+        <kbd class="vc-kbd" aria-hidden="true">/</kbd>
+      </search>
+      <button type="button" class="btn btn-link text-decoration-none" id="search-cancel">
+        {{- site.data.locales[include.lang].search.cancel -}}
+      </button>
+
+      {% unless site.theme_mode == 'light' or site.theme_mode == 'dark' %}
+        <div class="btn-group dropdown vc-theme">
+          <button
+            type="button"
+            class="btn btn-link vc-icon-btn"
+            aria-label="Switch Mode"
+            id="mode-toggle"
+            data-bs-toggle="dropdown"
+          >
+            <i class="fa-regular fa-sun" data-theme-mode="light"></i>
+            <i class="fa-regular fa-moon" data-theme-mode="dark"></i>
+            <i class="fa-solid fa-display" data-theme-mode="system"></i>
+          </button>
+          <ul class="dropdown-menu dropdown-menu-end p-1">
+            <li>
+              <button class="dropdown-item d-flex align-items-center" type="button" data-theme-mode="light">
+                <i class="fa-regular fa-sun" data-theme-mode="light"></i>
+                {{- site.data.locales[include.lang].theme.light -}}
+              </button>
+            </li>
+            <li>
+              <button class="dropdown-item d-flex align-items-center" type="button" data-theme-mode="dark">
+                <i class="fa-regular fa-moon" data-theme-mode="dark"></i>
+                {{- site.data.locales[include.lang].theme.dark -}}
+              </button>
+            </li>
+            <li>
+              <button class="dropdown-item d-flex align-items-center" type="button" data-theme-mode="system">
+                <i class="fa-solid fa-display" data-theme-mode="system"></i>
+                {{- site.data.locales[include.lang].theme.system -}}
+              </button>
+            </li>
+          </ul>
+        </div>
+      {% endunless %}
+
+      <div class="vc-social">
+        {% include social-links.html %}
+      </div>
+    </div>
+  </div>
+</header>

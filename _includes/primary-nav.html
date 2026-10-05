@@ -1,0 +1,6 @@
+{%- comment -%} Blog covers the home feed, section pages and articles. {%- endcomment -%}
+{% assign nav_blog = true %}
+{% if page.url == '/archives/' or page.url == '/about/' %}{% assign nav_blog = false %}{% endif %}
+<a href="{{ '/' | relative_url }}"{% if nav_blog %} aria-current="page"{% endif %}>Blog</a>
+<a href="{{ '/archives/' | relative_url }}"{% if page.url == '/archives/' %} aria-current="page"{% endif %}>Archives</a>
+<a href="{{ '/about/' | relative_url }}"{% if page.url == '/about/' %} aria-current="page"{% endif %}>About</a>

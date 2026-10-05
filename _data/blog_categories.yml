@@ -1,0 +1,15 @@
+# Home page category pills. Each post is grouped by its `topic`; the
+# first category whose topics list contains it wins. Posts whose topic
+# is not listed fall back to their `study_area` or `section`.
+- name: AI
+  topics: [Deep learning, Machine Learning, Agentic AI Theory, Claude, Sensitivity Analysis]
+- name: Fluid Dynamics
+  topics: [Viscous Flow, Fluid Mechanics, Gas Dynamics, Computational Fluid Dynamics]
+- name: Solid Mechanics
+  topics: [Solid Mechanics, Continuum Mechanics, Finite Element Method]
+- name: Thermodynamics
+  topics: [Thermodynamics, Heat transfer]
+- name: Numerical Methods
+  topics: [Computational Linear Algebra, Engineering Mathematics]
+- name: Biomechanics
+  topics: [Blood Flow and Metabolism, CardioVascular Diseases]
