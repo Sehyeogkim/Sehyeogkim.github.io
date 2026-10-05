@@ -112,5 +112,11 @@
     "url": "/blog/mechanical-engineering/viscous-flow/",
     "area": "Mechanical",
     "count": 28
+  },
+  {
+    "title": "VLA",
+    "url": "/blog/robotics/vla/",
+    "area": "Robotics",
+    "count": 2
   }
 ]

@@ -13,3 +13,5 @@
   topics: [Computational Linear Algebra, Engineering Mathematics]
 - name: Biomechanics
   topics: [Blood Flow and Metabolism, CardioVascular Diseases]
+- name: Robotics
+  topics: [VLA]
