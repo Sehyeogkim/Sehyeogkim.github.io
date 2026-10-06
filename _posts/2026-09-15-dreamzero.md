@@ -85,9 +85,8 @@ _논문 Figure 4 왼쪽: Training — Joint Video-Action Flow Matching_
 
 ---
 
-$$
-\mathcal{L}(\theta)=\mathbb{E}\left[\frac{1}{K}\sum_{k=1}^{K} w(t_k)\left\| u_\theta\left([z_{t_k}^{k}, a_{t_k}^{k}];\ \mathcal{C}_k, c, q_k, t_k\right) - v^k \right\|^2\right]
-$$
+![](images/img-004.png)
+_Joint Flow Matching 정리 그림_
 
 <div class="notion-gap" style="--gap: 1"></div>
 
@@ -112,7 +111,12 @@ _논문 Figure 4 오른쪽: Inference — closed-loop 실행과 KV cache 교체_
 
 <br>14B나 되는 큰 모델인데도 실시간이 되는 이유: DreamZero-Flash(적은 denoising step으로도 action을 뽑도록 학습), 병렬화·캐싱, 양자화·CUDA kernel 최적화로 **38배 빨라져서 약 7Hz**로 action chunk를 만든다. 
 
-<div class="notion-gap" style="--gap: 4"></div>
+<div class="notion-gap" style="--gap: 3"></div>
+
+![](images/img-004.png)
+_Joint Flow Matching 정리 그림_
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ### 왜 **Joint Video-Action DiT**인가?
 
