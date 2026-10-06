@@ -118,5 +118,11 @@
     "url": "/blog/robotics/vla/",
     "area": "Robotics",
     "count": 2
+  },
+  {
+    "title": "Pi series",
+    "url": "/blog/robotics/pi-series/",
+    "area": "Robotics",
+    "count": 6
   }
 ]
