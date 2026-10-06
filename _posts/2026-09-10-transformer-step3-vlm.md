@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Transformer Step3 Vision language Model (VLM)"
-date: 2026-09-07 11:00:00 +0900
+date: 2026-09-10 11:00:00 +0900
 categories: [Study, AI]
 section: Study
 study_area: AI
