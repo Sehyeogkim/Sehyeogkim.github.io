@@ -19,6 +19,8 @@ math: true
 >
 > π₀.₅ + Knowledge Insulation은 FAST action-token loss로 VLM backbone을 robot control에 적응시키면서, Flow Matching Action Expert의 gradient가 backbone으로 흐르지 않도록 차단해 기존 VLM의 semantic knowledge를 보호한다. 이를 통해 **빠른 학습, 빠른 continuous-action inference, 높은 generalization**을 한 모델에서 함께 얻는 것이 핵심이다.
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 핵심 질문 :
 
 "*How can we augment VLMs to get VLAs with continuous action outputs in a way that they maximally inherit all of the capabilities that come with web-scale pretraining?*"
@@ -31,11 +33,15 @@ math: true
 
 따라서 학습을할때 기존의 VLM backbone 가중치는 그대로 두기 위해서 stop gradient를 설정하는게 핵심아이디어이다.
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 지금까지 Mask attention으로 서로 참고할것들을 우리가 설정했었다. 그거랑 별개로, 학습할 때 가중치가 어떻게 변하는지가 여기서 진짜 헷갈렸다.
 
 **Q. pretraining에서는 그냥 학습하고, post training에서는 가중치를 그대로 둔다(freeze)는 건가??**
 
 ![](images/img-003.png)
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 **Q. 근데 가중치를 VLM 기존 / expert로 구분할 수 있나? action expert MLP 저 부분만을 의미하는건가?? joint self-attention의 Q,K,V는 어차피 학습하면서 바뀌는게 맞지??? VLM expert weights 저것만 업데이트 안하겠다 이말인건가??**
 
@@ -50,6 +56,8 @@ A. 둘 다 아니다.
 
 ![](images/img-004.png)
 
+<div class="notion-gap" style="--gap: 2"></div>
+
 ## Transformer layer 내부 구조
 
 ---
@@ -57,6 +65,8 @@ A. 둘 다 아니다.
 > **핵심:** Action Expert는 forward에서 VLM 정보를 참고하지만, Flow Matching gradient는 VLM backbone으로 넘어가지 않는다. VLM backbone은 Text·FAST loss로, Action Expert는 Flow Matching loss로 각각 학습된다.
 
 ![](images/img-005.png)
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ## Co-training
 

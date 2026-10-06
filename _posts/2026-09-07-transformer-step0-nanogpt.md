@@ -22,6 +22,8 @@ math: true
 > **시리즈:** [Neural Networks: Zero to Hero](https://karpathy.ai/zero-to-hero.html) · [nn-zero-to-hero](https://github.com/karpathy/nn-zero-to-hero)
 {: .prompt-info }
 
+<div class="notion-gap" style="--gap: 3"></div>
+
 ## Introduction
 
 ---
@@ -30,13 +32,19 @@ math: true
 
 출처: [Google for Developers Blog - News about Web, Mobile, AI and Cloud](https://developers.googleblog.com/gemma-explained-overview-gemma-model-family-architectures/?utm_source=chatgpt.com)
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 (사실 VLA부터 공부해보려고했는데 어텐션 트랜스포머 개념부터 애매애매하게 머리속에 있는 관계로 이것부터 다시 시작하기로 했다….)
 
 일단 Decoder-only Transformer의 구조는 위와 같다. 원래 Transformer 논문은 하단처럼, encoder - decoder 구조의 transformer이지만, 기본적으로 어텐션의 개념을 이해하기 위해서, decoder only transformer로 안드레는 실습을 진행하였다. 이후에 encoder vs decoder / self-attention vs cross-attention 개념을 마지막에 다룰 예정이다.
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ![Attention Is All You Need의 Transformer 구조](images/img-002.png)
 
 Reference: [Attention Is All You Need](https://arxiv.org/html/1706.03762v7)
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ## Content
 
@@ -57,6 +65,8 @@ Reference: [Attention Is All You Need](https://arxiv.org/html/1706.03762v7)
 13. 최종 모델 학습·검증·생성
 
 ---
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ## 1. 실행 환경 확인
 
@@ -101,6 +111,8 @@ data = torch.tensor(encode(text), dtype=torch.long)
 `encode()`는 문자를 정수 ID로 바꾸고, `decode()`는 다시 문자열로 복원한다.
 !!!!여기서 encode/decode라는 이름은 아까 나중에 설명한다던, Transformer Encoder/Decoder와 관계없는 단순 변환 함수다!!!
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 e.g)
 
 ```python
@@ -110,6 +122,8 @@ print(encode("hello"))
 print(decode(encode("hello")))
 -> hello
 ```
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ---
 
@@ -240,6 +254,8 @@ ARBu ar wholers e
 
 → 당연히 구린다. 왜냐하면, 이전 문맥을 학습하지않고, 그냥 이전 단어 하나만 가지고 다음꺼를 예측했으니 이상한게 당연하다.
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ---
 
 ## 5. Query·Key·Value를 이용한 Single-Head Self-Attention 구현
@@ -279,6 +295,8 @@ wei = F.softmax(wei, dim=-1)
 
 out = wei @ v                       # (B,T,head_size)
 ```
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 위 로직을 이후에 재사용할 수 있도록 하나의 Head 클래스로 묶는다. + dropout을 추가한다.
 딥러닝 시간에 배웠을 것이다. 과적합을 피하기위해서 임의로 특정 퍼센트의 weight를 학습할때 꺼버리는 장치이다.
@@ -330,9 +348,15 @@ $$
 
 ---
 
+<div class="notion-gap" style="--gap: 2"></div>
+
 ### “자 여기까지가 지금 single head with self-attention을 다루었다. 여기까지 아주 잘 했고, 이제 정말 NanoGPT를 만들어볼 것이다. 다시 토큰 embedding부터 시작해서 들어가보자.”
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ![Decoder-only Transformer 구조](images/img-001.png)
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ## 6. Token Embedding과 Position Embedding
 
@@ -341,6 +365,8 @@ $$
 - 문자 → 토큰 → 벡터 이렇게 3단계로 이루어진다.
   - 문자 → 토큰 by tokenizer
   - 토큰 → 벡터 by embedding
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 여기서 그렇게 문자를 n_embd 차원수의 벡터로 변환하고, 그리고 position 즉 문자의 위치정보 또한 해당 차원수의 벡터로 변환한다.
 
@@ -363,6 +389,8 @@ x = token_emb + position_emb                    # (B,T,C)
 
 `vocab_size`는 데이터가 결정하지만, `n_embd`는 모델 설계자가 정한다. 각 차원의 의미를 사람이 미리 지정하지는 않는다. 다음 토큰 예측 과정에서 유용한 표현이 학습된다.
 
+<div class="notion-gap" style="--gap: 3"></div>
+
 ---
 
 ## 7. Multi-Head Attention
@@ -382,6 +410,8 @@ The animal didn't cross the street because it was tired.
 - 현재 동작은 무엇인가? → `cross`
 - 원인을 나타내는 부분은 어디인가? → `because`
 - 가까운 토큰과 먼 토큰 중 무엇이 중요한가?
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ```python
 class MultiHeadAttention(nn.Module):
@@ -412,6 +442,8 @@ Attention은 “누구의 정보를 가져올지”를 정하고, Feed-Forward�
 
 “즉, 이걸 빼면 정보는 섞지만 그걸 가지고 새 특징을 만드는 힘이 확 줄어들어서, 표현력이 약해져 같은 성능을 내려면 더 많은 층이 필요해질 수 있음”
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ```python
 class FeedForward(nn.Module):
     def __init__(self, n_embd):
@@ -426,6 +458,8 @@ class FeedForward(nn.Module):
     def forward(self, x):
         return self.net(x)
 ```
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ---
 
@@ -468,6 +502,8 @@ class Block(nn.Module):
         return x
 ```
 
+<div class="notion-gap" style="--gap: 2"></div>
+
 ## 11. Transformer Block 여러 층 쌓기
 
 ---
@@ -489,6 +525,8 @@ blocks = nn.Sequential(
 ```plaintext
 x → Block 1 → Block 2 → Block 3 → Block 4
 ```
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ## 12. Final LayerNorm과 LM Head 연결
 
@@ -561,6 +599,8 @@ class GPTLanguageModel(nn.Module):
 ```
 
 다시말하지만, 이번에 다룬 nanoGPT는 Decoder only Transformer 모델로, 별도의 Encoder와 Cross-Attention이 없다. 이전 토큰들에 대한 **Causal Self-Attention**만 사용.
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ## 13. 최종 학습·검증·생성
 

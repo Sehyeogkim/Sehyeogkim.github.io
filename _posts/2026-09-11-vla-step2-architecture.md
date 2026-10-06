@@ -21,6 +21,8 @@ math: true
 | 3. 작은 실습 | “trajectory data와 behavior cloning은 어떤 모양이지?” | 거대 모델 훈련 대신 작은 image/instruction/action trajectory toy 실습 |
 | 4. π₀ | “왜 discrete token action 대신 flow matching인가?” | Action Expert, continuous action chunk, pre/post-training을 깊게 보기 |
 
+<div class="notion-gap" style="--gap: 2"></div>
+
 ## 0. VLA 공통 골격
 
 ---
@@ -60,6 +62,8 @@ Language instruction ─→ Tokenizer ─→ text tokens ───────�
 - [OpenVLA 논문 — HTML 원문](https://arxiv.org/html/2406.09246v3) — Figure 2와 §3.1에서 Vision Encoder → Projector → LLM의 연결을 기존 VLM 구조와 비교하기.
 - [Hugging Face LeRobot — Imitation Learning on Real-World Robots](https://huggingface.co/docs/lerobot/il_robots) — 보충 문서. demonstration 기록 → dataset 확인 → policy 학습 → 평가의 흐름을 살펴보기.
 
+<div class="notion-gap" style="--gap: 2"></div>
+
 ## 1. RT-2
 
 ---
@@ -73,6 +77,8 @@ Language instruction ─→ Tokenizer ─→ text tokens ───────�
 - [RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control — 논문](https://arxiv.org/abs/2307.15818) · [HTML 원문](https://arxiv.org/html/2307.15818)
 - [RT-2 공식 프로젝트 페이지](https://robotics-transformer2.github.io/) — Approach Overview의 구조 그림과 실제 동작 영상을 함께 보기.
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ### 다 읽은다음에 질문 답해야하는 것들
 
 ---
@@ -80,6 +86,8 @@ Language instruction ─→ Tokenizer ─→ text tokens ───────�
 - [RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control](https://arxiv.org/html/2307.15818v1)
 
 ![RT-2 구조](images/img-001.png)
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 - generalizable and semantically aware robotic polices라는 말이 자꾸 나오네.
 - 55B parameters trained on Internet data and robotic trajectories from previous work.
@@ -124,17 +132,27 @@ Cartesian end-effector command → low-level controller
 > RT-2 = pretrained VLM + robot trajectory data **co-fine-tuning** + **action tokenization (8 values × 256 bins)**. 별도 action head 없음.
 {: .prompt-tip }
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ![RT-2 model 구조](images/img-002.png)
+
+<div class="notion-gap" style="--gap: 6"></div>
 
 ## 2. OpenVLA
 
 ---
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ### 핵심 질문
 
 공개 VLA 모델에서 RT2와 어떤게 다른가? 데이터, 알고리즘, ..
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ![OpenVLA architecture](images/img-003.png)
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ### 핵심정보
 
@@ -156,6 +174,8 @@ Cartesian end-effector command → low-level controller
 - 그리고 fine tunning할때 W = W + AB 에서 A,B 만 학습함. 뭔말알? → **LoRA**다.
   - 원래 weight W (d × d)는 얼리고, 작은 행렬 A (d × r), B (r × d)만 학습한다. r은 아주 작다 (예: 32).
   - 7B 전체를 다시 학습하는 대신 극히 일부 파라미터만 학습해서, **새 로봇/새 작업에 싸게 적응**시키는 방법이다.
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ### Data
 
@@ -215,6 +235,8 @@ VLM 실습 때처럼 텐서 shape을 따라가 보자. (224×224 이미지, patc
 | 공개 여부 | 비공개 | 코드·weight 공개 |
 | Fine-tuning | - | LoRA, 4bit quantization 지원 |
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ### 참고 문헌과 문서
 
 - [OpenVLA: An Open-Source Vision-Language-Action Model — 논문](https://arxiv.org/abs/2406.09246) · [HTML 원문 — v3](https://arxiv.org/html/2406.09246v3)
@@ -231,6 +253,8 @@ VLM 실습 때처럼 텐서 shape을 따라가 보자. (224×224 이미지, patc
 5. 공식 GitHub 추론 예제 — 이미지·지시 입력부터 action 반환까지 코드와 논문 연결.
 
 이번 리뷰의 기준은 2024년 원본 OpenVLA 논문이다. 공식 저장소에서 소개하는 후속 OpenVLA-OFT와는 버전을 구분해서 읽는다. Fine-tuning과 시뮬레이터 실행 문서는 이후 실습 단계에서 이어서 본다.
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ## 3. 작은 실습 — trajectory data와 Behavior Cloning
 
@@ -285,6 +309,8 @@ for batch in loader:                      # (image, instruction, action)
 
 학습 데이터는 사람이 잘한 경로뿐이다. 그래서 로봇이 조금이라도 경로를 벗어나면 **한 번도 본 적 없는 상황**에 들어가고, 거기서 또 실수하고… 오차가 눈덩이처럼 쌓인다.
 → 그래서 action을 한 개씩이 아니라 **여러 step을 한 번에(action chunk)** 예측하는 방법이 나왔고, 이게 바로 아래 π₀로 이어진다.
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ## 4. π₀
 
@@ -361,6 +387,8 @@ LLM이랑 똑같은 2단계다.
 | Post-training | 특정 작업의 고품질 데이터 (빨래 개기, 박스 조립 등) | 그 작업을 빠르고 깔끔하게 잘하도록 다듬기 |
 
 재미있는 점은, 고품질 데이터로만 학습하면 실수했을 때 어떻게 할지를 모른다는 거다. 그래서 pre-training에서는 **지저분한 데이터도 일부러 많이** 넣는다. (LLM에서 pre-training은 넓게, fine-tuning은 깔끔하게 하는 것과 같은 논리)
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ## 정리 — RT-2 vs OpenVLA vs π₀
 

@@ -21,6 +21,8 @@ math: true
 
 위 사진은 `“attention is all u need”`라는 유명한 논문의 Figure1 이고, cross - attention 그리고 encoder - decoder transform 이다. 즉 지난시간에 nano-GPT에 대해서 코드를 직접 실습을 진행하였던, decoder only transformer이와 다른 구조이다. 그렇다면 딱 봐도 다른 트랜스포머가 있다는 말인데, 다른 트랜스포머는 무엇일까? 그리고 decoder의 반대인 encoder부는 무엇일까?? 하나하나 질문들을 가지고 살펴보자.
 
+<div class="notion-gap" style="--gap: 3"></div>
+
 ## Contents
 
 ---
@@ -32,6 +34,8 @@ math: true
 5. 논문리뷰1 - “Attention is all you need”
 6. 논문리뷰2 - BERT
 
+<div class="notion-gap" style="--gap: 2"></div>
+
 ## 1. Encoder와 Decoder는 무엇인가?
 
 ---
@@ -40,6 +44,8 @@ Encoder와 Decoder라는 이름은 역할을 기준으로 이해하면 쉽다.
 
 ![CNN에서의 Encoder → Decoder](images/img-002.png)
 _CNN에서의 Encoder → Decoder_
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 **Encoder는 입력을 모델이 사용하기 좋은 내부 표현으로 바꾸는 부분이다.** 문장, 이미지, 음성과 같은 입력을 받아 중요한 관계와 문맥이 반영된 벡터들로 변환한다.
 예를 들어 문장 `I love you`가 들어오면 Encoder는 각 토큰을 단순히 개별 단어로 두지 않는다. 문장 전체를 참고하여 각 토큰의 의미를 문맥이 담긴 벡터로 바꾼다.
@@ -52,6 +58,8 @@ _CNN에서의 Encoder → Decoder_
 
 `여기서 주의할 점은 `**`Encoder가 항상 정보를 더 작은 하나의 벡터로 압축하는 것은 아니라는 것`**이다.
 e.g) 오토인코더에서는 입력을 작은 latent vector로 압축하기도 하지만, Transformer Encoder는 일반적으로 입력 토큰 수를 유지하면서 각 토큰의 표현을 풍부하게 만든다.
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 **Decoder는 주어진 정보와 + 지금까지 생성한 토큰을 이용하여 `다음 출력 토큰을 예측`하는 부분이다.**
 
@@ -67,6 +75,8 @@ Encoder의 문맥 표현 + 지금까지 생성한 출력 토큰
 
 > Encoder는 입력을 **문맥 표현으로 변환**하고, Decoder는 그 표현을 이용해 **출력 sequence를 생성**한다.
 {: .prompt-info }
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ## 2. Transformer의 정의
 
@@ -92,6 +102,8 @@ Transformer Block 하나에는 일반적으로 다음 부품이 들어간다.
 4. Layer Normalization
 5. Dropout
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 > 💡 즉 Attention은 Transformer를 구성하는 핵심 부품이지만, Attention 하나가 곧 Transformer 전체는 아니다.
 
 또한 Transformer 자체의 출력은 확률일 필요가 없다. Transformer는 기본적으로 다음과 같은 벡터 변환기다.
@@ -105,6 +117,8 @@ $$
 - LM Head를 붙이면 다음 토큰의 logits를 출력한다.
 - Classification Head를 붙이면 문장의 class를 예측한다.
 - Action Head를 붙이면 로봇의 action을 예측할 수 있다.
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ## 3. Self-Attention과 Cross-Attention의 차이
 
@@ -146,6 +160,8 @@ token₁ ← token₂ ← token₃ ← token₄
 각 토큰은 자신과 이전 토큰만 볼 수 있음
 ```
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ### Cross-Attention
 
 Cross-Attention에서는 Q와 K, V의 출처가 다르다.
@@ -157,6 +173,8 @@ Decoder hidden state ──→ Q.   e.g) from the previous output token.
 Encoder outputs      ──→ K, V e.g) from image
 ```
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 Decoder는 자신의 현재 상태를 Query로 사용해 Encoder 출력 중 어떤 정보가 필요한지 찾는다.
 번역 과정에서 Decoder가 다음 한국어 단어를 생성할 때, 현재 Query와 관련 있는 영어 입력 토큰에 높은 Attention weight를 줄 수 있다.
 
@@ -164,6 +182,8 @@ Decoder는 자신의 현재 상태를 Query로 사용해 Encoder 출력 중 어�
 |---|---|---|---|---|
 | Self-Attention | 현재 sequence | 같은 sequence | sequence 내부의 관계 파악 | 정답을 자기자신에게서 찾는다. |
 | Cross-Attention | Decoder | Encoder 출력 | 다른 입력 표현에서 필요한 정보 검색 | 정답을 다른 곳에서찾는다. |
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ## 4. 원래 Transformer와 GPT의 구조
 
@@ -208,6 +228,8 @@ Assistant: 중력은 질량을 가진
 > 원래 Transformer는 **Encoder + Decoder + Cross-Attention** 구조이고, GPT는 **Causal Self-Attention을 사용하는 Decoder-only Transformer**다.
 {: .prompt-tip }
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ### 구조를 한 번에 비교하기
 
 | 구조 | 주요 Attention | 대표적인 용도 |
@@ -222,11 +244,17 @@ Assistant: 중력은 질량을 가진
 2. Decoder가 Encoder 출력에 Cross-Attention을 수행하는가?
 3. 모든 정보를 하나의 sequence로 연결하여 Causal Self-Attention만 사용하는가?
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ### 전체 햇갈리는 포인트들 overview
 
 ![Transformer 전체 overview](images/img-005.png)
 
+<div class="notion-gap" style="--gap: 3"></div>
+
 (자 그러면 지금 위에서 배운 기본 개념들을 머리에 넣은채로, 논문리뷰를 2개만 진행해보자)
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ## 5. 논문리뷰1 - Attention is all you need
 
@@ -235,6 +263,8 @@ Assistant: 중력은 질량을 가진
 > - **구조:** Encoder–Decoder Transformer
 > - **볼 부분:** Figure 1, Encoder/Decoder Stack, 세 종류의 Attention
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ### 5.1 Architecture
 
 - **구조:** Encoder–Decoder Transformer
@@ -242,6 +272,8 @@ Assistant: 중력은 질량을 가진
 - 입력 문장을 Encoder가 읽고, Decoder가 출력 토큰을 한 개씩 생성한다.
 
 ![Transformer Architecture](images/img-006.png)
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ### 5.2 Encoder and Decoder
 
@@ -256,6 +288,8 @@ Decoder는 `Masked Multi-Head Self-Attention → Add & Norm → Cross-Attention 
 ![Encoder Block과 Decoder Block](images/img-007.png)
 
 정확히 짚고 넘어가야하는게 Encoder Block, Decoder Block 6개라고 한다. 여기서, Encoder Block 6개는 직렬로 통과하고 나온 결과가 이제 Decoder block 각각에 있는 Cross Attention (MHA) 내부에 K, V 에 들어가게 된다. 이 부분은 Cross Attention 의 개념을 지난시간에 이해했다면, 바로 잡을 수 있다.
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ### 5.3 Attention Structure
 
@@ -291,6 +325,8 @@ out = wei @ v
 
 Decoder의 Masked Self-Attention에서는 Softmax 전에 미래 토큰 위치를 `-inf`로 가려, 현재 위치가 미래 토큰을 볼 수 없게 한다. Cross-Attention에서는 `Q`가 Decoder에서 오고, `K,V`가 Encoder 최종 출력에서 온다.
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ### 5.4 Multi-Head Attention
 
 Multi-Head Attention은 Single-Head Attention을 여러 개 병렬로 수행한 뒤 결과를 붙이고 다시 선형변환하는 구조다. 논문의 base model은 `h = 8`, `d_model = 512`, `d_k = d_v = 64`를 쓴다.
@@ -318,6 +354,8 @@ $$
 Sinusoidal encoding은 차원마다 서로 다른 파장의 sin/cos 패턴을 사용해 각 위치를 구별하고, 두 위치의 상대적 거리 관계도 표현할 수 있다. 또 별도 학습 파라미터 없이 더 긴 위치에도 식을 적용할 수 있다.
 원 논문은 학습형 위치 임베딩과 성능이 비슷했지만, 학습 때보다 긴 문장에도 일반화할 가능성 때문에 sinusoidal 방식을 선택했다. 현대 Transformer는 학습형 positional embedding, RoPE처럼 다른 위치 표현도 자주 사용한다.
 
+<div class="notion-gap" style="--gap: 3"></div>
+
 “최종적으로 process를 이해해보자”
 
 > 🚧
@@ -327,6 +365,8 @@ Sinusoidal encoding은 차원마다 서로 다른 파장의 sin/cos 패턴을 �
 
 ![Encoder-Decoder 전체 process](images/img-010.png)
 
+<div class="notion-gap" style="--gap: 3"></div>
+
 ## 6. 논문리뷰2 - BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding
 
 ---
@@ -334,12 +374,16 @@ Sinusoidal encoding은 차원마다 서로 다른 파장의 sin/cos 패턴을 �
 > - **구조:** Encoder-only Transformer
 > - **원문:** [BERT](https://arxiv.org/abs/1810.04805)
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ### 읽을때 가질 질문.
 
 1. 기존이랑 뭐가 다른가.
 2. 양방향 Self-Attention은 어떤 토큰을 볼 수 있는가?
 3. 입력 표현은 Token, Segment, Position embedding을 어떻게 결합하는가?
 4. Masked Language Modeling은 무엇을 예측하는가?
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ### 6.1 Motivation
 
@@ -352,9 +396,13 @@ BERT의 ‘학습 방법’ 핵심 아이디어는 다음과 같다.
 
 이를 통해 모든 Encoder Layer에서 양쪽 문맥이 함께 섞이는 **Deep Bidirectional Representation**을 학습한다.
 
+<div class="notion-gap" style="--gap: 2"></div>
+
 ### 6.2 Architecture
 
 ---
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ![BERT Architecture](images/img-011.png)
 
@@ -364,6 +412,8 @@ BERT의 ‘학습 방법’ 핵심 아이디어는 다음과 같다.
 위 그림에서 `Trm` 하나가 **Transformer Encoder layer 하나**라고 보면 된다. 실제 layer 전체를 그린 것은 아니고 중간은 `...`으로 생략했다. `BERT-Base = Encoder 12개`, `BERT-Large = Encoder 24개`를 직렬로 쌓은 구조이다.
 여기서 GPT와 가장 큰 차이는 **Attention을 보는 방향**이다. GPT는 causal mask 때문에 현재 token이 이전 token만 볼 수 있지만, BERT는 각 token이 **왼쪽 + 오른쪽 token을 모두 볼 수 있다.** 그리고 이 양방향 Self-Attention이 모든 Encoder layer에서 반복된다.
 즉 쉽게 보면 **BERT = Transformer Encoder를 여러 층 쌓고, 모든 layer에서 양방향으로 문맥을 보는 모델**이다.
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ### 6.3 Input Representation
 
@@ -380,6 +430,8 @@ Input Embedding = Token Embedding + Segment Embedding + Position Embedding
 
 입력 형태: \[CLS\] Sentence A \[SEP\] Sentence B \[SEP\]
 BERT를 통과한 후 C는 \[CLS\] 위치의 출력이고, T_i는 각 입력 토큰 위치의 contextual representation이다.
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ### 6.4 Masked Language Model
 

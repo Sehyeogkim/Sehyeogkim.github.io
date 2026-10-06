@@ -191,6 +191,8 @@ gate branch가 token마다 어떤 feature를 얼마나 통과시킬지를 조절
 
 ---
 
+<div class="notion-gap" style="--gap: 3"></div>
+
 ## 2. Long Context & Attention Efficiency
 
 ---
@@ -251,6 +253,8 @@ QKᵀ → softmax → V
 
 ---
 
+<div class="notion-gap" style="--gap: 3"></div>
+
 ## 3. KV Cache — Autoregressive Inference의 핵심
 
 ---
@@ -284,6 +288,8 @@ token 3 생성
 이전 K,V를 저장해 두는 것이 **KV Cache**다.
 KV Cache가 없다면 매 token 생성마다 과거 sequence 전체의 K,V를 다시 계산해야 한다.
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ### 3.2 왜 Q는 Cache하지 않는가?
 
 현재 step에서 필요한 Query는 **지금 생성 중인 token의 Q**다.
@@ -302,6 +308,8 @@ attention weights
 반면 K,V는 미래 token들이 계속 참조한다.
 
 > 그래서 이름이 **KV Cache**이고 Q Cache가 아니다.
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ### 3.3 Prefill vs Decode
 
@@ -364,6 +372,8 @@ KV memory
 
 ---
 
+<div class="notion-gap" style="--gap: 2"></div>
+
 ## 4. MHA → MQA → GQA → MLA
 
 ---
@@ -414,6 +424,8 @@ V:  v1      v2      v3      v4
 
 Reference: [GQA: Training Generalized Multi-Query Transformer Models from Multi-Head Checkpoints](https://arxiv.org/abs/2305.13245)
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ### 4.4 MLA — Multi-head Latent Attention
 
 > 💡 DeepSeek 계열에서 중요한 아이디어는 **KV 자체를 더 작은 latent representation으로 압축해 저장**하는 것이다.
@@ -450,6 +462,8 @@ hidden state
 | MLA | 많음 | latent representation으로 압축 | KV memory를 구조적으로 감소 |
 
 ---
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ## 5. Mixtral — Mixture of Experts (MoE)
 
@@ -488,6 +502,8 @@ Router Linear → Top-k routing
 ```
 
 ![Dense block과 MoE block 비교](images/img-005.png)
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ### 5.1 Expert 하나는 무엇인가?
 
@@ -554,6 +570,8 @@ DeepSeek-V3처럼 MoE를 사용하는 모델도 있고, dense architecture도 �
 | Vocabulary softmax | 마지막 LM Head 이후 | 다음 token 후보 확률 |
 
 ---
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ## 6. Modern Inference Techniques
 
@@ -646,6 +664,8 @@ target model의 분포를 유지하면서 decode latency를 줄이는 것이 목
 
 ---
 
+<div class="notion-gap" style="--gap: 2"></div>
+
 ## 7. 2026 관점에서 보는 Architecture Branch
 
 ---
@@ -702,6 +722,8 @@ Mixtral, DeepSeek MoE 계열 등을 이해하는 기본 축이다.
 SWA는 중요한 전략이지만 **모든 modern LLM이 채택하는 consensus block은 아니다.**
 
 ---
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ## 8. 모든 개념을 병목 기준으로 다시 정리
 

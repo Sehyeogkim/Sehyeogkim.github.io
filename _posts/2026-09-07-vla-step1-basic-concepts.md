@@ -29,6 +29,8 @@ math: true
 
 ---
 
+<div class="notion-gap" style="--gap: 4"></div>
+
 ## 1. Policy / Dynamic model / planner
 
 Q 로봇이 까페 카운터에서 커피를 집은 다음에 어떤 테이블로 옮기는 작업의 workflow는 어떻게 될까?
@@ -67,19 +69,29 @@ _Figure3._
 
 시나리오2 에서, “동역학 모델, 플래너” 이렇게 2가지 가 필요하다.
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 즉 플래너는 어떤 행동들을 하면 좋을지 경우의수들을 생각하고, 동역학 모델은 실제로 행동 → 결과를 생각하는 sub model 인 것이다. 그리고 최종적으로 최적의 행동을 고르는 것도 바로 planner.
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 이 두가지 시나리오에 대해서 꼭 기억하자.
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ## 2. Goal / reward / value
 
 ![목표, 보상, 가치 개념도](images/img-004.png)
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 이 로봇의 목표는 다음과 같을 것이다.
 
 > 커피를 흘리지 않고 3번 테이블에 놓는다
 
 즉 목표는 커피를 어디에, 어떤 조건으로 전달할지 정한다.
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 그렇다면, 실제로 학습을 진행할때는 로봇이 목표를 잘 달성하는지 안하는지를 수치적으로 채점을 해야한다. 그 채점 항목이 바로 ‘보상’인 것이다.
 
@@ -92,17 +104,25 @@ _Figure3._
 
 Table 1. 보상 표 예시. (채점표라고 생각하자)
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 즉 로봇은 다양한 항목에 대해서 채점을 인간으로부터 당할 것이고, 그 채점 총 점수가 바로 가치인 것이다.
 
 마지막으로 가치는 “현재 상태나 행동에서 출발했을때 (inital state → final state) 까지의 보상의 합 = 가치
 
 즉 가치가 높은 쪽으로 로봇은 학습 될 것이다.
 
+<div class="notion-gap" style="--gap: 2"></div>
+
 Q. 로봇이 3번 테이블에 가까워지려고 움직이는 대신, 잠깐 멈춰서 지나가는 사람을 기다렸어. 이 행동은 시간이 걸려 벌점을 받는데도 가치가 높은 행동일 수 있을까?
 
 → 로봇이 사람을 먼저 보내려고 1초 기다리면 시간에 대한 보상 −1을 받는다. 하지만 기다리는 행동은 충돌 위험 (-100점) 을 줄이고 커피를 성공적으로 전달할 가능성을 높인다. 따라서 당장의 보상은 음수여도, 앞으로 기대되는 보상의 합인 행동 가치는 더 높을 수 있다.
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ## 3. Feedback loop
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 1번에서 이야기한 하나의 flow , observation → action을 우리가 살펴보았다면, 이거를 이제 반복적으로 실제로는 시간에 따라서 진행할 것이다.
 
@@ -116,7 +136,11 @@ Q. 로봇이 3번 테이블에 가까워지려고 움직이는 대신, 잠깐 �
 
 ![관측-행동 피드백 루프](images/img-005.png)
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ## 4. Observation / State / memory
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 1. Observation  - information from the sensor
    - 카메라 영상
@@ -135,9 +159,15 @@ Q. 로봇이 3번 테이블에 가까워지려고 움직이는 대신, 잠깐 �
    3. Global memory
    4. …
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 여기서 중요한 점은, 현재 상태를 추정하는 것, 미래를 예측하는 일을 구분해야한다는 것이다. 그러니까 “사람이 오른쪽으로 움직이고 있다. → 현재 상태 추정, 이 속도로 움직이면 잠시후 로봇 앞을 지나갈것이다 → 미래 예측
 
+<div class="notion-gap" style="--gap: 3"></div>
+
 ## 5. Input / Output
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 그렇다면, 여기서 정확하게 로봇의 입력과 출력을 생각해보자. 우리가 지금까지는 단순하게 “커피를 옮긴다” 라고 행동을 예측한다고 말을 했지만, 실제로는 로봇의 엑츄에이터와 모터가 얼마나 움직여야 하는지 정확한 값을 로봇에게 주어야하겠지?
 
@@ -164,7 +194,11 @@ Q. 로봇이 3번 테이블에 가까워지려고 움직이는 대신, 잠깐 �
 | 집게 명령 | “집게를 닫아라.” |
 | 이동 베이스 명령 | “앞으로 이동하면서 왼쪽으로 회전해라.” |
 
+<div class="notion-gap" style="--gap: 2"></div>
+
 ## 6. Training Data
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 #### 강화학습 vs 모방학습
 
@@ -257,7 +291,11 @@ _모방학습(행동 복제)과 강화학습의 비교. 아래 시간축은 시�
 
 > 학습 데이터는 단순한 관절 상태의 시간 기록이 아니다. 관측·로봇 상태·행동을 시간에 맞춰 묶고, 학습 방법에 따라 시연 행동이나 보상, 다음 상태를 학습의 기준으로 사용한다.
 
+<div class="notion-gap" style="--gap: 5"></div>
+
 ## 7. 신경망의 기본 부품 — 토큰, 임베딩
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 #### 알고리즘에 대해서 분석하기전에 필요한 부품 개념들부터 짚고 넘어가자. 자세하게 짚고 넘어가자 이후에 사용되는 기본적인 개념이기 때문에.
 
@@ -283,16 +321,24 @@ _모방학습(행동 복제)과 강화학습의 비교. 아래 시간축은 시�
     → 각 배치들을 embedding에서 벡터로 변환 (이 부분은 학습함)
     ```
 
+<div class="notion-gap" style="--gap: 2"></div>
+
 ## 8. Vision Language Action (VLA) model
 
 ![π₀ 모델 전체 구조](images/img-008.png)
 _출처: [𝜋\_0: A Vision-Language-Action Flow Model for General Robot Control](https://arxiv.org/html/2410.24164v1#S2-F3)_
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 가장 대표적인 VLA 모델 중 하나인 **Physical Intelligence의 π₀**를 통해 큰 구조를 이해해보자.
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 π₀를 아주 단순화하면 다음과 같이 볼 수 있다.
 
 **“VLM backbone + Action Expert”**
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 #### Step1
 
@@ -310,10 +356,14 @@ Visual Tokens ─────┐
 Language Prompt ───┘
 ```
 
+<div class="notion-gap" style="--gap: 2"></div>
+
 ![PaliGemma 구조](images/img-009.png)
 _[PaliGemma: A versatile 3B VLM for transfer](https://arxiv.org/html/2407.07726v2)_
 
 (여기서 VLM은 구글의 PaliGemma를 사용했다고 말하고 있다)
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 Gemma - Transformer Decoder Architecture
 
@@ -326,6 +376,8 @@ Gemma - Transformer Decoder Architecture
 (Transformer Decoder는 이후 실습시간에 따로 다루어 보자.)
 
 즉, 이미지와 명령 프롬트를 가지고, 문맥의 의미를 뽑아내는 역할을 한다고 이해하면 된다.
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 #### Step2
 
@@ -350,17 +402,27 @@ Scene / Task Representation + Robot State(q_t) + noise
 
 등과 같은 **continuous robot control signal**이다.
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 π₀에서는 이러한 continuous action을 생성하기 위해 “**Flow Matching 기반 Action Expert”**를 사용한다.
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 실제 내부 구조는 이후에 실습시간에 자세하게 알아보자.
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ## 9. World Action Model (WAM)
 
 출처: [Pretrained to Imagine, Fine-Tuned to Act: The Rise of World-Action Models — NVIDIA](https://developer.nvidia.com/blog/pretrained-to-imagine-fine-tuned-to-act-the-rise-of-world-action-models/)
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 VLA가 **현재 observation을 보고 바로 action을 예측하는 모델**이라면,
 
 WAM(World Action Model)은 **세상이 앞으로 어떻게 변할지를 함께 학습 + action까지 연결하는 모델**이라고 이해하면 된다.
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 아주 단순화하면,
 
@@ -394,9 +456,13 @@ WAM은 여기에
 
 라는 질문까지 같이 학습하는 방향이다.
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 #### 대표적인 예시: Hydra-0
 
 출처: [Hydra-0: Action Flow for Generalist World Modeling and Control](https://arxiv.org/abs/2608.18077)
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ![Hydra-0 Action Flow 개요](images/img-011.png)
 
@@ -414,6 +480,8 @@ Future visual state
 
 따라서 모델은 단순히 action을 출력하는 것을 넘어서, **특정 행동을 했을 때 로봇과 주변 물체가 어떻게 움직일지(action flow)**를 학습한다.
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 Hydra-0의 재미있는 점은 반대 방향도 가능하다는 것이다.
 
 ```plaintext
@@ -428,6 +496,8 @@ Compatible Robot Motion
 
 즉 **원하는 미래의 물체 움직임 → 그 결과를 만들 수 있는 로봇 움직임 → 실제 action**으로 연결할 수 있다.
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 따라서 WAM을 큰 그림으로 보면,
 
 > **세상의 변화(World Dynamics)를 학습한 뒤, 그 이해를 robot action 생성과 연결하는 모델**
@@ -438,7 +508,11 @@ Compatible Robot Motion
 
 출처: [NVIDIA Cosmos World Foundation Models](https://blogs.nvidia.com/blog/cosmos-world-foundation-models/)
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 WFM(World Foundation Model)은 특정 로봇 하나의 policy를 바로 만드는 것이 목적이라기보다, **현실 세계의 공간적 관계와 물리적 변화 자체를 대규모 데이터로 학습한 범용 World Model**이다.
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 LLM을 비유로 생각하면 이해하기 쉽다.
 
@@ -463,9 +537,13 @@ space + motion + physical dynamics
 
 즉 **“세상은 어떻게 생겼고, 물체는 어떻게 움직이며, 시간이 지나면 무엇이 일어나는가?”**를 학습하는 foundation model이라고 볼 수 있다.
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 #### 대표적인 예시: NVIDIA Cosmos
 
 출처: [Cosmos World Foundation Model Platform for Physical AI](https://research.nvidia.com/labs/dir/cosmos-predict1/)
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 NVIDIA는 Cosmos의 WFM을 **대규모의 다양한 실제 영상 데이터로 학습한 general-purpose world model**로 정의한다.
 
@@ -483,15 +561,21 @@ Future World / Video
 
 WFM은 먼저 **세상의 dynamics를 학습하는 범용 backbone** 역할을 하고, 이후 특정 robot과 task 데이터로 post-training하여 WAM이나 policy model로 발전시킬 수 있다.
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 NVIDIA의 최신 **Cosmos 3**는 이 경계를 더 넓혔다. Cosmos 3는 Mixture-of-Transformers 구조에서 **vision reasoning + world generation + action generation**을 하나의 physical-AI foundation model 안에 통합한다.
 
 출처: [NVIDIA Cosmos 3](https://nvidianews.nvidia.com/news/nvidia-launches-cosmos-3-the-open-frontier-foundation-model-for-physical-ai)
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 따라서 WFM의 핵심 아이디어를 아주 크게 보면,
 
 > **현실 세계의 공간, 움직임, 물리적 상호작용을 대규모 데이터에서 학습하여 다양한 Physical AI 모델의 기반이 되는 foundation model**
 
 이라고 이해하면 된다.
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 #### VLA vs WAM vs WFM
 
@@ -500,6 +584,8 @@ NVIDIA의 최신 **Cosmos 3**는 이 경계를 더 넓혔다. Cosmos 3는 Mixtur
 | VLA | 현재 상황에서 어떤 행동을 해야 하는가? | π₀ |
 | WAM | 행동하면 세상이 어떻게 변하며, 어떤 action이 필요한가? | DreamZero, Hydra-0 |
 | WFM | 현실 세계 자체의 공간·시간·물리적 dynamics는 어떻게 작동하는가? | NVIDIA Cosmos / Cosmos 3 |
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 정리하면,
 

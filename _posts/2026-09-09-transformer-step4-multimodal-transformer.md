@@ -61,11 +61,15 @@ math: true
 5. **Transformer Encoder × L** — MHA + MLP
 6. **Output** — 마지막 레이어의 **\[CLS\] 자리 벡터 하나만** 뽑아 → **MLP Head** → 클래스 로짓
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ### Q 마지막에 Classification으로 사용하네? 즉, output이 하나이네?
 
 ---
 
 핵심은 **197개 중 CLS 하나만 분류에 쓴다**는 것. 나머지 196개는 버린다. CLS가 self-attention을 통해 모든 패치 정보를 빨아들이는 구조라서 가능한 것.
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ### Q 아니 nanoGPT에서 Decoder Transformer에는 FFN이었는데??
 
@@ -85,11 +89,15 @@ MLP(Multi Layer Perceptron) = FFN (같은 것)
 | 인코더 블록 안 **MLP** | = FFN | 블록 내부, L번 반복 |
 | 왼쪽 위 **MLP Head** | 분류기 | 맨 끝 한 번. CLS → 클래스 로짓 |
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ### Q 정규화를 MHA 이후에 했었는데, nanoGPT는 근데 여기는 미리하네?? → Pre-LN
 
 ---
 
 그림을 보면 `Norm → MHA → +` 순서다. 원 Transformer는 `MHA → + → Norm`(**Post-LN**)인데 ViT는 **Pre-LN**. 깊게 쌓을 때 학습이 안정되어 요즘은 대부분 이 방식이다. 기존의 CNN처럼 우리가 patching하는 작업을 진행하지 않아도, Transformer기반으로 해도 분류가 가능하다 라는 점을 시사함.
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ### Q 최종 결과물은?
 
@@ -98,6 +106,8 @@ MLP(Multi Layer Perceptron) = FFN (같은 것)
 ![ViT 최종 출력](images/img-002.png)
 
 학습할때 \[CLS\] 라는 Extra Learning token에 대해서 봤을 것이다. 여기서, 이 토큰은 196개의 이미지 토큰과 함께 학습에 들어가 총 197개의 백터로 임베딩이 된다. 학습이 끝나고 트렌스포머를 나와도 197개의 토큰이며, 여기서 CLS는 이미지의 의미들에 의해 채워지게 된다. 따라서 최종 결과의 맨앞 CLS는 “이미지가 어떤 이미지인지 분류문제에 사용되며” 나머지 196개 는 “다음 토큰의 값으로 사용되는 것이다” 꽤 재미있다. 그러니까 학습이 되면서 비어있던 CLS가 채워지는 거다. 어떻게 이런 구조를 생각햇을까. 분류와 토큰예측을 둘다 할 수 있는.
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ### 참고 — ViT의 디멘션 (같은 눈으로 다시 보기)
 
@@ -117,6 +127,8 @@ CLS          [1, 768]
 
 여기서도 **`[197, 768]`이 12층 내내 그대로**다. 마지막에 `[1, 768]`로 줄어드는 건 층이 바꾼 게 아니라 **우리가 한 줄만 골라낸 것**이다.
 
+<div class="notion-gap" style="--gap: 2"></div>
+
 ## 2. Flamingo
 
 ---
@@ -131,7 +143,11 @@ CLS          [1, 768]
 
 이다.
 
+<div class="notion-gap" style="--gap: 2"></div>
+
 하나하나 부품을 살펴보자.
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ### Step1 Image → Token
 
@@ -139,14 +155,18 @@ CLS          [1, 768]
 
 ![Vision Encoder와 Perceiver Resampler](images/img-004.png)
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 여기서, 우리는 image를 각각 Vision Encoder를 활용하여, 우리가 원하는 차원수의 벡터 형태로 embedding과정 까지 진행한다.
 
 | | 결정하는 것 | 결과 |
 |---|---|---|
-| **Vision Encoder** | 각 벡터의 **차원 d** | d는 고정. 근데 **개수 N은 가변 (이미지 크기따라서)** |
+| **Vision Encoder** | 각 벡터의 **차원 d** | d는 고정. 근데 **개수 N은 가변<br>(이미지 크기따라서)** |
 | **Perceiver Resampler** | 벡터의 **개수** | 64개로 고정. vector : x라고 정의하자 |
 
 즉, 우리가 이후에 cross-attention을 위해서 64개의 벡터로 뽑아주어야하고, 그 작업을 Perceiver resampler가 진행한다. 간단하게 트렌스포머에 넣을러면 특정 크기의 벡터로 바꿔야하고, 그 작업을 한다고 이해하면 된다.
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ### Step2 Cross Attention
 
@@ -154,7 +174,11 @@ CLS          [1, 768]
 
 ![Gated cross-attention block](images/img-005.png)
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 여기서, 재미있는 사실은 이제 사진의 인코더 결과: x가 이제 K,V 로 들어가게 되고, 그리고 텍스트가 Query로 들어가게 되는 구조이다. 이후에 Self attention, FFW 층을 거치는게 하나의 MHA Block 이다. 여기서 햇갈리기 쉽기 때문에 마지막 토큰이 나올때까지, 들어오고 나가는 텐서의 디멘션을 점검해보자.
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ### 텐서 디멘션 점검 — 입력부터 마지막 토큰까지
 
@@ -174,6 +198,8 @@ CLS          [1, 768]
 | `d_head` | `d / h` | 128 | 고정 |
 | `V` | vocabulary 크기 | 32000 (예시) | 고정 |
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 #### step1. 이미지 → Vision Encoder → Perceiver Resampler
 
 ```plaintext
@@ -184,6 +210,8 @@ CLS          [1, 768]
 [64, d_v]       ← 이제 고정 트랜스포머에서 text token를 위해서 64개로 맞춰줌
 ```
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 #### step2. 텍스트 → LM Embedding
 
 ```plaintext
@@ -193,6 +221,8 @@ Y           [T, d]     = [20, 2048]
 
 #d는 텍스트 임배딩의 차원수이다. 이미지랑 다른게 이 FLamingo의 핵심임.
 ```
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 #### step3. Cross attention
 
@@ -212,6 +242,8 @@ scores = Q @ Kᵀ / √d_head        [20, 64]
    ↓ @ W_O                       [20, d] @ [d,d] = [20,d]
 ```
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ### step4. Multiple blocks and logits
 
 ---
@@ -229,12 +261,16 @@ logits  [20, 32000]
 
 "hello"를 넣었으면 행 0이 'e'를 예측하는데, 우리는 이미 'e'가 뭔지 알고 있잖아. 쓸모없음.” → 따라서, 마지막 행만
 
+<div class="notion-gap" style="--gap: 2"></div>
+
 **그리고 이 지점이 LLaVA와 정확히 갈린다.**
 
 | | 이미지가 sequence 길이에 미치는 영향 |
 |---|---|
 | **Flamingo** (cross-attn) | **없음.** `y`는 계속 `[T, d]`. 이미지는 옆에서 참조될 뿐 |
 | **LLaVA** (unified token) | **직접 늘림.** `[T + 576, d]`가 됨. 이미지가 아예 sequence의 일부 |
+
+<div class="notion-gap" style="--gap: 3"></div>
 
 ## 3. LLaVA — Visual Instruction Tuning
 

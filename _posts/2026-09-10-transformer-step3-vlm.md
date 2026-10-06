@@ -25,6 +25,8 @@ math: true
 - Vision encoder (ViT): [google/siglip2-base-patch16-512](https://huggingface.co/google/siglip2-base-patch16-512)
 - Language model (LLM): [HuggingFaceTB/SmolLM2-360M-Instruct](https://huggingface.co/HuggingFaceTB/SmolLM2-360M-Instruct)
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 ![nanoVLM 전체 구조](images/img-001.png)
 
 전체 스트럭쳐는 위와 같다.
@@ -68,6 +70,8 @@ class VisionEncoder(nn.Module):
 ![이미지를 patch token으로 바꾸는 과정](images/img-002.svg)
 
 정리하면, 사진 팩셀이 512 x 512개를 → 32 x 32개로 바꾸고, 그거를 일렬로 만드는 것이다.
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ## 2. Projector
 
@@ -125,6 +129,8 @@ class ModalityProjector(nn.Module):
 여기서 총 두가지 작업이 순차적으로 이루어진다. pixel을 섞는 과정과 그리고 projection하는 과정이다.
 Pixel shuffle은 픽셀들을 다시 8x8 grid로 섞는 과정이고, 이후에 이제 text embeddign과 디멘션을 맞추는 작업이 진행된다. (960 = lm_dim)
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 근데 굳이 왜 pixel shuffle을 하는가? 이게 의문이긴 해.
 
 ![Pixel shuffle grid factor](images/img-003.png)
@@ -146,6 +152,8 @@ Pixel shuffle은 픽셀들을 다시 8x8 grid로 섞는 과정이고, 이후에 
 {: .prompt-info }
 
 물론 공짜는 아니다. factor를 너무 키우면 아주 작은 글씨나 세밀한 위치 정보가 뭉개질 수 있다. 그래서 nanoVLM, SmolVLM처럼 작은 모델에서 LLM 문맥을 아끼려고 특히 많이 쓰는 방식이다.
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ## 3. Text Decoder
 
@@ -219,7 +227,11 @@ class TextDecoder(nn.Module):
     return out.logits
 ```
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 여기서 핵심은 text 를 이제 임배딩해줘서 960 디멘션으로 맞춰주는 작업 인것이다.
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ## 4. Combine embedding + Decoder
 
@@ -285,9 +297,13 @@ class VLM(nn.Module):
     ...
 ```
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 하나하나 어떤 함수인지를 한번 살펴보자.
 
 ---
+
+<div class="notion-gap" style="--gap: 3"></div>
 
 ### 1) Replace image token
 
@@ -332,9 +348,13 @@ def _replace_img_tokens(self, input_ids, token_embd, image_embd):
 
 여기서, 재미있는 일은, 일단 `<|image|>`라는 토큰을 정의하고, text token과 결합을 한다. 그리고, 그 토큰을 실제 image encoder vectors로 대체하는 작업을 진행하는 것이다. 따라서, 결합이라는 단어를 쓰지 않고, replace method를 제작한 것이다.
 
+<div class="notion-gap" style="--gap: 4"></div>
+
 ### 2. Forward
 
 ---
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ```python
 def forward(self, input_ids, images, attention_mask=None, targets=None):
@@ -360,8 +380,12 @@ def forward(self, input_ids, images, attention_mask=None, targets=None):
   return logits, loss
 ```
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 이제 먼저, text → token을 임배딩하고, 그리고 image가 만약 prompt에 있다면, 그거를 replace image token으로 대체하는 작업을 진행한다. 그리고 이제 합쳐진 token_embd를 decoder에 넣어서 logits 을 도출한다.
 model : “HuggingFaceTB/SmolLM2-360M-Instruct”
+
+<div class="notion-gap" style="--gap: 1"></div>
 
 ### 3. Generate
 
@@ -412,6 +436,8 @@ def generate(self, input_ids, images, attention_mask=None, max_new_tokens=30):
   return torch.cat(generated, dim=1)
 ```
 
+<div class="notion-gap" style="--gap: 1"></div>
+
 greedy 디코딩이다. 매 스텝 확률이 가장 높은 토큰 하나만 고른다. 샘플링이 없어서 같은 입력이면 항상 같은 출력이 나온다.
 
 - **이미지 치환은 루프 밖에서 딱 한 번.** 이후 생성되는 토큰은 전부 텍스트라 `<|image|>` 자리가 더 생기지 않는다. 이미지는 프롬프트 안에서 이미 끝났다.
@@ -420,6 +446,8 @@ greedy 디코딩이다. 매 스텝 확률이 가장 높은 토큰 하나만 고�
 - **반환값은 생성된 토큰만.** `[B, n_generated]`이고 프롬프트는 빠져 있어서, 디코드하면 답변 부분만 나온다.
 
 학습 전에는 projector가 랜덤 초기화 상태라 이미지와 무관한 말이 나온다. 이 단계의 확인 목표는 "말이 되는가"가 아니라 "끝까지 돌아가는가"이다.
+
+<div class="notion-gap" style="--gap: 2"></div>
 
 ### 4. Training
 
