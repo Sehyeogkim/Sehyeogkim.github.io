@@ -133,8 +133,6 @@ Pixel shuffle은 픽셀들을 다시 8x8 grid로 섞는 과정이고, 이후에 
 
 근데 굳이 왜 pixel shuffle을 하는가? 이게 의문이긴 해.
 
-![Pixel shuffle grid factor](images/img-003.png)
-
 → 이유는 크게 두 가지다.
 
 1. **토큰 개수를 줄이려고.** ViT 출력 1024개를 그대로 LLM에 넣으면 이미지 한 장이 토큰 1024개를 먹는다. 문맥 길이도 잡아먹고, attention 계산량은 토큰 수의 제곱(N²)으로 늘어난다. factor 4로 pixel shuffle을 하면 1024 → 64, 무려 16배 줄어든다.
@@ -152,6 +150,8 @@ Pixel shuffle은 픽셀들을 다시 8x8 grid로 섞는 과정이고, 이후에 
 {: .prompt-info }
 
 물론 공짜는 아니다. factor를 너무 키우면 아주 작은 글씨나 세밀한 위치 정보가 뭉개질 수 있다. 그래서 nanoVLM, SmolVLM처럼 작은 모델에서 LLM 문맥을 아끼려고 특히 많이 쓰는 방식이다.
+
+![Pixel shuffle grid factor](images/img-003.png)
 
 <div class="notion-gap" style="--gap: 2"></div>
 
