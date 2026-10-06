@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Transformer Step2 Modern LLM"
-date: 2026-09-10 10:00:00 +0900
+date: 2026-09-09 10:00:00 +0900
 categories: [Study, AI]
 section: Study
 study_area: AI

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Transformer - Step1 Basic concepts"
-date: 2026-09-09 00:00:00 +0900
+date: 2026-09-09 09:00:00 +0900
 categories: [Study, AI]
 section: Study
 study_area: AI

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Step2 Vision language Action (VLA) model - architecture"
-date: 2026-09-11 12:00:00 +0900
+date: 2026-09-07 12:00:00 +0900
 categories: [Study, Robotics]
 section: Study
 study_area: Robotics

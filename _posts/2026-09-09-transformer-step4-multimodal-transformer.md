@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Transformer Step4 Multimodal Transformer"
-date: 2026-09-09 12:00:00 +0900
+date: 2026-09-09 11:00:00 +0900
 categories: [Study, AI]
 section: Study
 study_area: AI

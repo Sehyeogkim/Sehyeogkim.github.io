@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Step1 Vision Language Action (VLA) Model - basic concepts"
-date: 2026-09-07 12:00:00 +0900
+date: 2026-09-07 10:00:00 +0900
 categories: [Study, Robotics]
 section: Study
 study_area: Robotics

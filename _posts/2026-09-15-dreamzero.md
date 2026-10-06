@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "DreamZero: World Action Models are Zero-shot Policies"
-date: 2026-10-07 08:00:00 +0900
+date: 2026-09-15 11:00:00 +0900
 categories: [Study, Robotics]
 section: Study
 study_area: Robotics
