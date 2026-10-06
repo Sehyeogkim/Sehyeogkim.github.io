@@ -124,5 +124,11 @@
     "url": "/blog/robotics/pi-series/",
     "area": "Robotics",
     "count": 6
+  },
+  {
+    "title": "Industry",
+    "url": "/blog/robotics/industry/",
+    "area": "Robotics",
+    "count": 1
   }
 ]
