@@ -370,8 +370,8 @@ Human: X_instruct² <STOP>  Assistant: X_a² <STOP>  ...
 
 | | 학습 대상 | 데이터 | 목적 |
 |---|---|---|---|
-| **Stage 1** Feature Alignment | **`W`만** 🔥 (vision ❄️, LLM ❄️) | CC3M에서 필터링한 **595K** 쌍 | `H_v`를 LLM의 word embedding 공간에 정렬 |
-| **Stage 2** Fine-tuning End-to-End | **`W` + LLM(`φ`)** 🔥 (vision ❄️) | GPT-4로 생성한 **158K** instruction 데이터 | 대화·추론 능력 |
+| **Stage 1**<br>Feature Alignment | **`W`만** 🔥<br>(vision ❄️, LLM ❄️) | CC3M에서 필터링한 **595K** 쌍 | `H_v`를 LLM의 word embedding 공간에 정렬 |
+| **Stage 2**<br>Fine-tuning End-to-End | **`W` + LLM(`φ`)** 🔥<br>(vision ❄️) | GPT-4로 생성한 **158K** instruction 데이터 | 대화·추론 능력 |
 
 논문은 Stage 1을 **"frozen LLM을 위한 호환 가능한 visual tokenizer를 학습하는 것"**이라고 설명한다. 이 표현이 LLaVA의 관점을 그대로 보여준다 — 이미지를 **LLM이 이미 아는 언어로 번역**하는 것.
 
