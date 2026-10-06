@@ -130,5 +130,11 @@
     "url": "/blog/robotics/industry/",
     "area": "Robotics",
     "count": 1
+  },
+  {
+    "title": "WAM",
+    "url": "/blog/robotics/wam/",
+    "area": "Robotics",
+    "count": 1
   }
 ]
