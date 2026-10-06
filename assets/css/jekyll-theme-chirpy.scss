@@ -328,18 +328,16 @@ main h1.dynamic-title { margin: 3.5rem 0 1rem; }
 
 .vc-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 1rem;
   margin: 0 0 2rem;
 }
-@media (max-width: 767px) { .vc-grid { grid-template-columns: minmax(0, 1fr); } }
 .vc-card { min-width: 0; }
 .vc-card[hidden] { display: none !important; }
 .vc-card-link {
   display: flex;
   flex-direction: column;
   height: 100%;
-  min-height: 15rem;
   padding: 1.5rem 1.5rem 1.4rem;
   background: var(--vc-surface);
   border: 1px solid var(--vc-border) !important;
@@ -353,7 +351,7 @@ main h1.dynamic-title { margin: 3.5rem 0 1rem; }
 .vc-card-meta span { color: var(--vc-fg-subtle); }
 .vc-card-meta .vc-pin { margin-left: auto; padding: 0 .5rem; border: 1px solid var(--vc-border); border-radius: 9999px; font-size: .7rem; line-height: 1.5rem; }
 .vc-card-title {
-  margin: 0 0 1.5rem;
+  margin: 0 0 .75rem;
   font-size: 1.5rem;
   font-weight: 500;
   letter-spacing: -0.04em;
