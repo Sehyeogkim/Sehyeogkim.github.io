@@ -324,6 +324,10 @@ main h1.dynamic-title { margin: 3.5rem 0 1rem; }
 .vc-pills { display: flex; flex-wrap: wrap; gap: .25rem; margin-top: 2.25rem; }
 .home-intro + #post-list { margin-top: 0; }
 
+/* --- Notion blank lines kept in posts (one empty Notion block = one line of space) --- */
+
+.notion-gap { height: calc(var(--gap, 1) * 1.6em); }
+
 /* --- Card grid --- */
 
 .vc-grid {
