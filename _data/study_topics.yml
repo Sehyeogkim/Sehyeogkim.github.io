@@ -142,5 +142,11 @@
     "url": "/blog/robotics/wam/",
     "area": "Robotics",
     "count": 4
+  },
+  {
+    "title": "Cosmos",
+    "url": "/blog/robotics/cosmos/",
+    "area": "Robotics",
+    "count": 1
   }
 ]
