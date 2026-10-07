@@ -13,7 +13,7 @@ media_subpath: /blog/robotics/cosmos/part1-what-is-nvidia-cosmos/
 mermaid: true
 ---
 
-> **한 줄 요약:** NVIDIA Cosmos는 하나의 모델이 아니라, 로봇·자율주행처럼 현실 세계에서 움직이는 **Physical AI를 위한 World Foundation Model(WFM) 패밀리**다. 2.x까지는 **Predict / Transfer / Reason** 계열이 각기 역할을 맡았고, Cosmos 3에서는 추론·생성·행동을 공통 omnimodal 아키텍처로 연결한다.
+> **한 줄 요약:** NVIDIA Cosmos는 모델 하나의 이름이 아니다. 로봇·자율주행처럼 현실 세계에서 움직이는 **Physical AI를 위한 World Foundation Model(WFM) 패밀리**다. 2.x까지는 **Predict / Transfer / Reason**이 각자 역할을 나눠 맡았고, Cosmos 3에서는 이걸 추론·생성·행동까지 하나의 omnimodal 아키텍처로 묶었다.
 
 <div class="notion-gap" style="--gap: 1"></div>
 
@@ -21,7 +21,7 @@ mermaid: true
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-NVIDIA의 Cosmos라는 이름은 자주 들었지만, 막상 살펴보면 단일 모델보다 범위가 넓다. 이번 글에서는 개별 아키텍처에 들어가기 전에 Cosmos가 왜 등장했고, 어떤 모델들로 구성되며, Physical AI에서 어떻게 활용되는지 전체 지도를 그려보자.
+NVIDIA Cosmos.. 이름은 정말 많이 들었는데, 막상 찾아보면 모델 하나가 아니라 생각보다 범위가 훨씬 넓다. 그래서 이번 글에서는 개별 아키텍처로 들어가기 전에, **Cosmos가 왜 나왔고, 어떤 모델들로 구성되어 있고, Physical AI에서 어떻게 쓰이는지** 전체 지도부터 한번 그려보자.
 
 ## Contents
 
@@ -41,23 +41,23 @@ NVIDIA의 Cosmos라는 이름은 자주 들었지만, 막상 살펴보면 단일
 
 ---
 
-LLM은 인터넷에 존재하는 방대한 text를 학습하면서 빠르게 발전했다. 하지만 로봇은 text만 잘 이해한다고 움직일 수 없다.
+LLM은 인터넷에 있는 엄청난 양의 text를 학습하면서 빠르게 발전했다. 근데 로봇은 text만 잘 이해한다고 움직일 수 있는 게 아니다.
 
 로봇이 실제 세계에서 행동하려면,
 
 - 지금 눈앞에서 **무슨 일이 일어나고 있는지 이해**해야 하고,
-- 내가 어떤 행동을 하면 **다음 순간 세상이 어떻게 변할지 예측**해야 하며,
-- 실제로 수집하기 힘든 상황까지 포함해 **충분한 학습 데이터를 확보**해야 한다.
+- 내가 이렇게 움직이면 **다음 순간 세상이 어떻게 변할지 예측**할 수 있어야 하고,
+- 실제로는 모으기 힘든 상황까지 포함해서 **충분한 학습 데이터를 확보**해야 한다.
 
-문제는 현실의 robot data가 매우 비싸다는 것이다. 사람이 직접 teleoperation을 하거나 실제 환경에서 로봇을 반복 동작시키며 데이터를 모아야 하고, 사고·실패·희귀 상황 같은 long-tail scenario는 원하는 만큼 수집하기도 어렵다.
+문제는 현실의 robot data가 너무 비싸다는 것이다. 사람이 직접 teleoperation을 하거나, 실제 환경에서 로봇을 계속 반복해서 움직이면서 데이터를 모아야 한다. 게다가 사고·실패·희귀 상황 같은 long-tail scenario는 모으고 싶어도 원하는 만큼 모을 수가 없다.
 
 <div class="notion-gap" style="--gap: 1"></div>
 
 ### 핵심 동기: 부족한 데이터를 보완하고 다양한 상황을 학습하기
 
-> **Physical world를 이해하고, 생성하고, 예측할 수 있는 foundation model을 먼저 학습해 두고 이를 다양한 Physical AI에 재사용하자.**
+> **Physical world를 이해하고, 생성하고, 예측할 수 있는 foundation model을 먼저 크게 학습해두고, 이걸 여러 Physical AI에 재사용하자.**
 
-NVIDIA는 Cosmos를 Physical AI 개발을 위한 **World Foundation Models + data processing / training / evaluation framework**로 정의한다.[\[1\]](https://www.nvidia.com/en-us/ai/cosmos/)
+그래서 NVIDIA는 Cosmos를 Physical AI 개발을 위한 **World Foundation Models + data processing / training / evaluation framework**라고 정의한다.
 
 ---
 
@@ -67,18 +67,18 @@ NVIDIA는 Cosmos를 Physical AI 개발을 위한 **World Foundation Models + dat
 
 ---
 
-**사실 Cosmos = 하나의 거대한 모델 이름**이 아니라, 여러 World Foundation Model을 포함하는 **model family / platform**에 가깝다.
+**사실 Cosmos = 하나의 거대한 모델 이름**이 아니다. 여러 World Foundation Model을 묶어놓은 **model family / platform**이라고 보는 게 맞다.
 
 ![](images/img-002.png)
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-2.x까지의 주요 모델 계열은 Predict, Transfer, Reason이다. 각 계열의 주된 역할은 다음과 같다.
+2.x까지의 주요 모델 계열은 Predict, Transfer, Reason 이렇게 세 가지다. 각각 하는 일은 아래와 같다.
 
 | Model Line | 역할 | 쉽게 말하면 | 대표 출력 |
 |---|---|---|---|
 | **Cosmos Predict** | World generation / future prediction | **미래를 상상한다** | 생성 영상 |
-| **Cosmos Transfer** | Controllable synthetic data generation | **시뮬레이션을 현실적으로 바꾼다** | 제어 입력을 반영한 영상 |
+| **Cosmos Transfer** | Controllable synthetic data generation | **시뮬레이션을 현실처럼 바꾼다** | 제어 입력을 반영한 영상 |
 | **Cosmos Reason** | Physical-world understanding / reasoning | **장면을 보고 이해하고 추론한다** | 텍스트 기반 분석·답변 |
 
 <div class="notion-gap" style="--gap: 1"></div>
@@ -87,51 +87,51 @@ NVIDIA는 Cosmos를 Physical AI 개발을 위한 **World Foundation Models + dat
 
 ---
 
-예를 들어 로봇이 테이블 위의 컵을 잡으려는 장면이 있다고 하자.
+예를 들어 로봇이 테이블 위의 컵을 잡으려는 장면이 있다고 해보자.
 
-Predict는 현재 image/video 또는 text condition을 기반으로,
+Predict는 지금의 image/video나 text condition을 보고,
 
 > “이 상태에서 앞으로 어떤 장면이 이어질까?”
 
-를 video 형태로 생성한다.
+를 video로 만들어낸다.
 
 <div class="notion-gap" style="--gap: 2"></div>
 
 ![](images/img-003.png)
 
-Cosmos Predict 2.5에서는 **Text2World, Image2World, Video2World**가 하나의 모델 안에 통합됐다. [NVIDIA 연구 소개](https://research.nvidia.com/labs/dir/cosmos-predict2.5/)
+Cosmos Predict 2.5에서는 **Text2World, Image2World, Video2World**가 하나의 모델 안으로 합쳐졌다.
 
-참고로 **Cosmos Policy**는 Predict 2.5가 아니라 **Predict2-2B-Video2World**를 로봇 시연 데이터로 파인튜닝해 행동·미래 관측·값을 예측한 별도 연구 사례다. [논문](https://arxiv.org/html/2601.16163v1)
+(참고로 **Cosmos Policy**는 Predict 2.5가 아니다. **Predict2-2B-Video2World**를 로봇 시연 데이터로 fine-tuning해서 행동·미래 관측·값을 같이 예측하게 만든 별도 연구다. 헷갈리지 말자.)
 
-즉 단순한 영상 생성기를 넘어, 주어진 조건에서 **가능한 미래 장면을 영상으로 생성하는 world model**로 볼 수 있다. 생성 결과가 실제 미래나 물리 법칙을 항상 정확히 재현한다는 뜻은 아니다.
+즉, 단순한 영상 생성기라기보다는 주어진 조건에서 **일어날 수 있는 미래 장면을 영상으로 그려주는 world model**이라고 보면 된다. 물론 생성된 영상이 실제 미래나 물리 법칙을 항상 정확하게 재현한다는 뜻은 아니다.
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-### B. Cosmos Transfer — 시뮬레이션을 현실적으로 바꾼다
+### B. Cosmos Transfer — 시뮬레이션을 현실처럼 바꾼다
 
 ---
 
-Isaac Sim이나 Omniverse에서 robot simulation을 돌리면 정확한 depth, segmentation, pose 등의 정보를 얻을 수 있다.
+Isaac Sim이나 Omniverse에서 robot simulation을 돌리면 depth, segmentation, pose 같은 정보는 정확하게 얻을 수 있다.
 
-하지만 simulation image는 실제 camera image와 appearance가 다르다.
+근데 문제는, simulation image는 실제 camera로 찍은 image랑 생김새(appearance)가 다르다는 것이다.
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-Transfer는 이런 structured input을 조건으로 받아,
+Transfer는 이런 structured input을 조건으로 받아서,
 
 **Simulation / Depth / Segmentation / Edge → Photorealistic Video**
 
-처럼 변환한다.
+로 바꿔준다.
 
 ![](images/img-004.png)
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-즉 시뮬레이션에서 얻은 구조적 신호를 조건으로 사용하면서 외형과 환경을 다양화할 수 있다. 다만 출력이 입력 구조를 정확히 보존하는지는 별도로 확인해야 한다.
+즉, 시뮬레이션에서 얻은 구조 정보는 그대로 조건으로 쓰면서, 외형과 환경만 다양하게 바꿀 수 있는 것이다. (다만 출력 영상이 입력 구조를 정확하게 지키는지는 따로 확인해야 한다.)
 
-Cosmos Transfer 2.5는 blurred RGB, depth, segmentation, edge 등 여러 spatial control을 이용해 controllable video generation을 수행한다.
+Cosmos Transfer 2.5는 blurred RGB, depth, segmentation, edge 같은 여러 spatial control을 써서 controllable video generation을 한다.
 
-→ 실제 다양한 Physical AI 데이터들을 제작하는 곳에 사용되는 것이다.
+→ 결국 실제로 쓸 수 있는 다양한 Physical AI 데이터를 만들어내는 데 쓰이는 것이다.
 
 <div class="notion-gap" style="--gap: 1"></div>
 
@@ -139,21 +139,21 @@ Cosmos Transfer 2.5는 blurred RGB, depth, segmentation, edge 등 여러 spatial
 
 ---
 
-Reason은 앞의 두 모델과 성격이 다르다.
+Reason은 앞의 두 모델이랑 성격이 완전히 다르다.
 
 Image나 video를 보고,
 
-> “로봇이 왜 실패했는가?”
+> “로봇이 왜 실패했지?”
 
-> “이 물체는 어디에 있는가?”
+> “이 물체는 어디에 있지?”
 
-> “다음에 어떤 행동을 하는 것이 자연스러운가?”
+> “다음에 어떤 행동을 하는 게 자연스럽지?”
 
 같은 질문에 답하는 **Physical AI용 VLM(Vision-Language Model)**이다.
 
 ![](images/img-005.png)
 
-Reason은 영상을 생성하는 Predict·Transfer와 달리, 장면에 대한 질문에 언어로 답하고 근거를 설명하는 계열이다.
+그러니까 Predict·Transfer는 영상을 **만드는** 쪽이고, Reason은 장면을 보고 **말로 답하고 근거를 설명하는** 쪽이다.
 
 <div class="notion-gap" style="--gap: 1"></div>
 
@@ -161,9 +161,9 @@ Reason은 영상을 생성하는 Predict·Transfer와 달리, 장면에 대한 �
 
 ## 3. 세 모델은 따로 노는 것이 아니라 연결된다
 
-Predict / Transfer / Reason을 따로 보면 왜 굳이 세 모델을 만들었는지 애매할 수 있다.
+Predict / Transfer / Reason을 하나씩 따로 보면, 왜 굳이 모델을 세 개나 만들었는지 좀 애매하게 느껴진다.
 
-아래는 세 계열을 조합하는 **가능한 synthetic data workflow의 예시**다. 실제 프로젝트에서 세 모델을 모두 쓰거나 이 순서를 따를 필요는 없다.
+그래서 세 개를 엮어서 쓰는 **synthetic data workflow 예시**를 하나 그려봤다. (실제 프로젝트에서 세 개를 다 써야 하거나 꼭 이 순서를 따라야 하는 건 아니다.)
 
 <div class="notion-gap" style="--gap: 1"></div>
 
@@ -180,12 +180,12 @@ flowchart LR
 
 <div class="notion-gap" style="--gap: 2"></div>
 
-예를 들어 실제 포도 수확 로봇 데이터가 부족하다면, 다음과 같이 활용을 구상할 수 있다.
+예를 들어 포도 수확 로봇 데이터가 부족하다고 해보자. 그럼 이런 식으로 써볼 수 있다.
 
-> 1. **Predict**로 다양한 포도 위치, robot motion, failure scenario를 생성한다.
-> 2. **Transfer**로 조명, 날씨, 배경, appearance를 실제 농장처럼 다양화한다.
-> 3. **Reason**으로 생성된 video를 분석해 검토 대상을 선별한다. 성공·실패 판정에는 작업별 기준과 추가 검증이 필요하다.
-> 4. 최종 데이터를 VLA나 robot policy training에 사용한다.
+> 1. **Predict**로 다양한 포도 위치, robot motion, failure scenario를 만든다.
+> 2. **Transfer**로 조명, 날씨, 배경, appearance를 실제 농장처럼 다양하게 바꾼다.
+> 3. **Reason**으로 만들어진 video를 분석해서 검토할 것들을 골라낸다. (성공·실패 판정은 작업별 기준이랑 추가 검증이 따로 필요하다.)
+> 4. 최종 데이터를 VLA나 robot policy training에 쓴다.
 {: .prompt-info }
 
 <div class="notion-gap" style="--gap: 1"></div>
@@ -196,7 +196,7 @@ flowchart LR
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-초기에는 각 기능이 독립적인 model line으로 발전했다.
+처음에는 각 기능이 독립적인 model line으로 따로따로 발전했다.
 
 ```text
 NVIDIA Cosmos
@@ -215,7 +215,9 @@ NVIDIA Cosmos
     └── Reason 2
 ```
 
-> **Reasoning / Generation / Transfer가 각각 specialized model로 존재했다**
+여기서 기억할 것은,
+
+> **Reasoning / Generation / Transfer가 각각 따로 specialized model로 존재했다**
 
 는 점이다.
 
@@ -225,55 +227,55 @@ NVIDIA Cosmos
 
 ---
 
-2026년 공개된 **Cosmos 3**에서 방향이 크게 바뀐다.
+근데 2026년에 나온 **Cosmos 3**에서 방향이 크게 바뀐다.
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-> Cosmos 3는 text, image, video, ambient sound, action을 함께 처리하고 생성할 수 있는 **omnimodal World Foundation Model**이며, NVIDIA는 이를 Mixture-of-Transformers(MoT) architecture로 구현
+> Cosmos 3는 text, image, video, ambient sound, action을 한꺼번에 처리하고 생성할 수 있는 **omnimodal World Foundation Model**이고, NVIDIA는 이걸 Mixture-of-Transformers(MoT) architecture로 구현했다.
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-핵심은 추론·생성·행동을 공통 아키텍처 안에서 연결한다는 점이다. 다만 실제 배포 모델과 체크포인트는 작업에 따라 구분된다. [Cosmos 3 공식 소개](https://research.nvidia.com/labs/cosmos-lab/cosmos3/)
+핵심은 추론·생성·행동을 하나의 공통 아키텍처 안에서 연결했다는 점이다. (다만 실제로 배포되는 모델과 체크포인트는 작업별로 나뉘어 있다.)
 
 **Physical Reasoning + World Generation + Action Generation**
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-흥미로운 점은 하나의 모델 계열이 입력·출력 설정과 후속 학습에 따라 여러 작업에 적용된다는 것이다.
+재미있는 건, 같은 모델 계열이 입력·출력을 어떻게 잡고 어떻게 후속 학습을 하느냐에 따라 여러 작업에 쓰인다는 것이다. 하나씩 보자.
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-아래는 시각·언어 추론에 활용한 예시다.
+먼저 시각·언어 추론에 쓴 예시다.
 
 ![](images/img-006.png)
 
 <div class="notion-gap" style="--gap: 2"></div>
 
-아래는 행동 조건을 바탕으로 미래 영상을 생성하는 forward dynamics 예시다.
+다음은 행동(action)을 조건으로 미래 영상을 만드는 forward dynamics 예시다.
 
 ![](images/img-007.png)
 
 <div class="notion-gap" style="--gap: 2"></div>
 
-Inverse Dynamics에서는 관측 영상과 선택적 작업 설명을 조건으로, 그 장면 변화를 설명할 수 있는 행동 궤적을 추정한다. 출력은 해당 도메인의 action 표현이며, 실제 수행된 행동의 정답이라고 보장되지는 않는다.
+반대로 Inverse Dynamics는 관측 영상(+ 원하면 작업 설명)을 조건으로 줬을 때, 그 장면 변화를 만들어낼 수 있는 행동 궤적을 추정하는 것이다. 출력은 그 도메인의 action 표현인데, 이게 실제로 수행된 행동의 정답이라는 보장은 없다.
 
 ![](images/img-008.png)
 
 > 관측된 장면의 변화(비디오)를 보고,
 >
-> **"어떤 행동 궤적이 이 변화를 설명할 수 있는가?"를 추정하는 것.**
+> **"어떤 행동 궤적이 이 변화를 설명할 수 있을까?"를 거꾸로 추정하는 것.**
 {: .prompt-info }
 
 ![](images/img-009.png)
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-> 인간의 1인칭 영상이나 손 동작 데이터가 로봇 행동 학습에 유용한 사전학습 신호가 될 수 있다. 하지만 인간 영상만으로 로봇 행동의 ground truth를 자동 생성했다고 해석하면 안 된다. [Cosmos 3 기술 보고서](https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf)
+> 사람의 1인칭 영상이나 손 동작 데이터는 로봇 행동 학습에 좋은 사전학습 신호가 될 수 있다. 근데 그렇다고 사람 영상만으로 로봇 행동의 ground truth를 자동으로 만들어냈다고 받아들이면 안 된다!!
 {: .prompt-info }
 
 <div class="notion-gap" style="--gap: 2"></div>
 
-다시 Cosmos를 흐름대로 정리해보면,
+자 다시 Cosmos 흐름대로 정리해보면,
 
 | Cosmos 1 ~ 2.x | Cosmos 3 |
 |---|---|
@@ -284,9 +286,9 @@ Inverse Dynamics에서는 관측 영상과 선택적 작업 설명을 조건으�
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-이 변화가 흥미로운 이유는 결국 **World Model과 Robot Policy의 경계가 점점 흐려지고 있기 때문**이다.
+이 변화가 재미있는 이유는, 결국 **World Model과 Robot Policy의 경계가 점점 흐려지고 있다**는 것이다.
 
-Cosmos 3 계열은 시각·언어 추론, 세계 생성, 행동 관련 작업을 지원한다. 특정 로봇 정책으로 사용하려면 해당 행동 공간과 데이터에 맞춘 모델·학습 설정을 확인해야 한다.
+물론 Cosmos 3가 시각·언어 추론, 세계 생성, 행동 관련 작업을 다 지원한다고 해서 바로 로봇 정책으로 쓸 수 있는 건 아니다. 특정 로봇에 쓰려면 그 로봇의 행동 공간과 데이터에 맞는 모델·학습 설정을 따로 확인해야 한다.
 
 <div class="notion-gap" style="--gap: 2"></div>
 
@@ -294,19 +296,19 @@ Cosmos 3 계열은 시각·언어 추론, 세계 생성, 행동 관련 작업을
 
 ## 5. Cosmos vs Omniverse
 
-처음 보면 둘 다 NVIDIA의 simulation/robotics 제품이라 헷갈린다.
+처음 보면 둘 다 NVIDIA의 simulation/robotics 제품이라 엄청 헷갈린다. (나도 그랬다..)
 
-둘의 역할은 다르다.
+근데 둘이 하는 일은 다르다.
 
 > **Omniverse / Isaac Sim = World를 물리적으로 simulation하는 환경**
 
-> **Cosmos = World를 학습하고 이해·생성하는 AI model**
+> **Cosmos = World를 학습해서 이해·생성하는 AI model**
 
 예를 들어 Isaac Sim에서 로봇 동작을 시뮬레이션하고,
 
-그 결과를 Cosmos Transfer에 넣어 다양한 photorealistic video로 만들 수 있다.
+그 결과를 Cosmos Transfer에 넣어서 다양한 photorealistic video로 바꿀 수 있다.
 
-즉 둘은 경쟁 관계가 아니라 **서로 연결되는 stack**이다. NVIDIA도 Omniverse를 realistic 3D simulation environment, Cosmos를 Physical AI용 foundation model로 구분하고 있다.[\[1\]](https://www.nvidia.com/en-us/ai/cosmos/)
+즉, 둘은 경쟁 관계가 아니라 **서로 이어지는 stack**이다. NVIDIA도 Omniverse는 realistic 3D simulation environment, Cosmos는 Physical AI용 foundation model로 나눠서 설명한다.
 
 ---
 
@@ -316,7 +318,7 @@ Cosmos 3 계열은 시각·언어 추론, 세계 생성, 행동 관련 작업을
 
 내가 이해한 Cosmos의 핵심은 단순히 **"AI로 robot training video를 만든다"**가 아니다.
 
-Physical AI가 현실에서 잘 동작하려면 결국 다음 loop 전체가 필요하다.
+Physical AI가 현실에서 제대로 동작하려면 결국 아래 loop 전체가 필요하다.
 
 ```text
 Observe the World
@@ -334,15 +336,15 @@ Observe Again
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-즉 Cosmos의 진화를 한 문장으로 정리하면,
+그러니까 Cosmos가 발전해온 방향을 한 문장으로 정리하면,
 
-> **World를 생성하는 모델에서, World를 이해하고 미래를 상상하며 Action까지 연결하는 Physical AI foundation model로 발전하고 있다.**
+> **World를 생성하는 모델에서 → World를 이해하고, 미래를 상상하고, Action까지 연결하는 Physical AI foundation model로 가고 있다.**
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-또한 데이터 부족을 보완하는 생성·증강 용도도 중요하다. 
+그리고 데이터 부족을 메워주는 생성·증강 용도도 정말 중요하다.
 
-개인적으로는 이 활용이 특히 흥미롭다.
+개인적으로는 이 활용이 제일 흥미롭다.
 
 <div class="notion-gap" style="--gap: 1"></div>
 
@@ -354,9 +356,9 @@ Observe Again
 
 ## 다음 글
 
-이번 글에서는 Cosmos의 전체 지도만 정리했다.
+이번 글에서는 Cosmos의 전체 지도만 그려봤다.
 
-각 모델의 architecture와 training을 보기 시작하면 내용이 훨씬 많아지기 때문에 다음 글부터 따로 뜯어볼 예정이다.
+각 모델의 architecture랑 training까지 들어가면 내용이 훨씬 많아지기 때문에, 다음 글부터 하나씩 따로 뜯어볼 예정이다.
 
 ### References
 
