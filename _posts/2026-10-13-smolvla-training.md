@@ -31,7 +31,8 @@ media_subpath: /blog/robotics/vla/smolvla-training/
 2. Data Processing
 3. 학습 파라메터 vs Freeze 파라메터
 4. Training loop (batch 2, 20 step 연습)
-5. Fine-tuning (진짜 학습)
+5. Fine-tuning preprocessing
+6. Fine-tuning result
 
 <div class="notion-gap" style="--gap: 3"></div>
 
@@ -439,11 +440,121 @@ def forward(
 
 <div class="notion-gap" style="--gap: 2"></div>
 
-## 5. Fine-tuning (진짜 학습)
+## 5. Fine-tuning preprocessing
 
 ---
 
-4번은 구조 확인용이었고, 이제 진짜로 학습시켜보자. 바뀐건 이거다.
+4번은 batch 하나만 뽑아서 돌렸지만, 진짜 학습은 매 step 마다 새 batch 가 필요하다. 그리고 학습이 잘 됐는지 확인할 시험용 데이터도 따로 필요하다.
+
+<div class="notion-gap" style="--gap: 1"></div>
+
+**train / val 분리**
+
+영상(에피소드) 50개를 45개는 학습, 5개는 시험용으로 나눴다. 포인트는 frame 단위가 아니라 **에피소드 단위**로 나눈거다. frame 단위로 랜덤하게 나누면 같은 영상의 바로 옆 frame(1/30초 차이)이 train / val 에 섞여서, 기출문제 숫자만 바꿔서 시험 내는거랑 같아진다.
+
+```python
+# total 50 Episodes or videos.
+delta = {"action": [i / FPS for i in range(CHUNK)]}          # 미래 50 step 정답 chunk
+TRAIN_EPS = list(range(0, 45))
+VAL_EPS = list(range(45, 50))
+```
+
+<div class="notion-gap" style="--gap: 2"></div>
+
+**DataLoader → 책갈피 꽂기 - iter()**
+
+Dataset 은 정돈된 창고라서 `ds[230]` 처럼 frame 1개씩만 꺼내준다. DataLoader 는 창고에서 **랜덤으로 64개를 골라서 쟁반에 담아오는 직원**. (`[50, 6]` x 64 → `[64, 50, 6]`)
+
+- `num_workers=8` : 직원 8명이 GPU 가 학습하는 동안 다음 batch 들을 미리 디코딩해서 줄 세워둔다. GPU 는 한번에 batch 하나씩만 학습하지만 기다릴 필요가 없음
+- `iter()` : 책갈피 꽂기. 이 순간 순서를 섞고 worker 들이 뜨기 시작한다
+
+```python
+# Train Data Loader.
+train_loader = DataLoader(train_ds, batch_size=args.batch_size, shuffle=True, drop_last=True,
+                          num_workers=args.num_workers, pin_memory=DEVICE == "cuda",
+                          persistent_workers=args.num_workers > 0)
+train_iter = iter(train_loader)
+```
+
+<div class="notion-gap" style="--gap: 2"></div>
+
+next(train_iter): 책갈피 위치에서 다음 것 하나를 꺼내고 책갈피를 한 칸 옮기는 메서드
+
+```python
+def next_batch():
+    # 에폭 경계 없이 계속 batch 를 뽑기 (lerobot_train 도 이렇게 cycle 함)
+    global train_iter
+    try:
+        return next(train_iter)
+    except StopIteration:
+        train_iter = iter(train_loader)                   # persistent worker 재사용
+        return next(train_iter)
+
+```
+
+한 바퀴(약 165 batch) 다 돌면 `StopIteration` 이 뜨는데, 그때 다시 섞고 책갈피를 처음으로 옮긴다. 우리는 epoch 이 아니라 step 20,000 번 단위로 돌리니까 (약 120 바퀴) 끝나면 알아서 다시 시작하게 만든것.
+
+실제 학습 루프에서는 이렇게 쓴다. 꺼낸 raw batch 를 바로 preprocessor 에 넣는다.
+
+```python
+def prepare(raw):
+    return pre(rename_batch_keys(dict(raw), RENAME))   # 카메라 이름 변경 → 정규화 / 토크나이즈 / GPU
+
+for step in range(1, args.steps + 1):
+    batch = prepare(next_batch())        # 창고에서 64개 꺼내기 → 손질
+    ...
+```
+
+<div class="notion-gap" style="--gap: 1"></div>
+
+**Evaluation (val)**
+
+학습 중에 처음 보는 에피소드(45~49)로 시험을 본다. 2가지다.
+
+(1) **val loss** : 500 step 마다. **중요한건 val batch 와 noise / t 를 고정**한거다. 
+
+(매번 랜덤이면 val loss 가 바뀐게 모델 때문인지 문제 때문인지 모름. 매번 같은 시험지로 보는것)
+
+```python
+val_raw_batches = list(itertools.islice(val_loader, 4))   # 고정된 64 x 4 = 256 frame
+val_batches = [prepare(b) for b in val_raw_batches]
+# val 용 고정 noise / t
+g = torch.Generator(device="cpu").manual_seed(123)
+val_noise = [torch.randn(b[ACTION].shape[0], CHUNK, 32, generator=g).to(DEVICE) for b in val_batches]
+val_time  = [(torch.rand(b[ACTION].shape[0], generator=g) * 0.999 + 0.001).to(DEVICE) for b in val_batches]
+
+@torch.no_grad()
+def val_loss():
+    vals = [policy.forward(b, noise=n, time=t)[0].item() for b, n, t in zip(val_batches, val_noise, val_time)]
+    return sum(vals) / len(vals)
+```
+
+<div class="notion-gap" style="--gap: 1"></div>
+
+(2) **실제 action 오차 (MAE)** : loss 가 낮다고 로봇이 잘 움직이는건 아니다. 그래서 추론때랑 똑같이 10 step denoising 으로 action chunk 를 뽑고, 역정규화해서 정답이랑 **도(°) 단위로** 비교한다.
+
+```python
+@torch.no_grad()
+def predict_val(tag):
+    policy.reset()                                      # action queue 비우기
+    b = val_batches[0]
+    pred = post(policy.predict_action_chunk(b))         # [B, 50, 6] 역정규화 (도 단위)
+    gt = val_raw_batches[0][ACTION].to(pred.device)     # [B, 50, 6] 정답
+    valid = ~b["action_is_pad"].to(pred.device)
+    mae = ((pred - gt).abs() * valid[..., None]).sum(dim=(0, 1)) / valid.sum()   # 관절별 평균 오차
+    policy.train()
+    return pred[0].cpu(), gt[0].cpu(), mae.mean().item()
+```
+
+학습 전(base) 모델은 관절 평균 **17.7도** 틀렸다.
+
+<div class="notion-gap" style="--gap: 1"></div>
+
+## 6. Fine-tuning result
+
+---
+
+이전에는 구조 확인용이었고, 이제 진짜로 GPU 빌려서 학습시켜보자. 바뀐건 다음과 같다:
 
 - batch 2 → **64**, step 20 → **20,000** (공식 세팅)
 - 같은 batch 반복 → 매 step **새로운 랜덤 64개**, noise / t 도 매번 랜덤
@@ -501,3 +612,37 @@ train loss 는 0.38 → 0.08 로 계속 떨어지는데, val loss 는 **1500 ste
 
 > 공식 20,000 step 은 그냥 기본값이다. 이 데이터(에피소드 50개) 는 **1500~2000 step 이면 충분**했다. step 수는 감으로 정하는게 아니라 val loss 보고 정해야 한다.
 {: .prompt-info }
+
+<div class="notion-gap" style="--gap: 4"></div>
+
+## Summary
+
+---
+
+<div class="notion-gap" style="--gap: 1"></div>
+
+일단 실제 데이터, 모델 , and gpu를 활용해서 실험을 진행한 것 자체에서 의미가 있다. 
+
+#### Train data 준비하기
+
+---
+
+- train 데이터 10,584 frame (에피소드 45개) → 모든 데이터 섞은 다음에 (64 = B)개씩 그룹화하고, B1, B2, …, B165 로 나열해준다. (10,584 = 64 x 165 + 24, 남는 24개는 버림 `drop_last=True`)
+- 그리고 이제 그 1번부터 순서대로 학습에 사용하는 것이다. B165 까지 다 쓰면 다시 섞어서 새로운 B1 ~ B165 를 만든다. (매 바퀴 조합이 다름)
+- 여기서 모든 학습한 배치의 갯수가 # of iteration (= step) 이고, epoch 는 모든 데이터를 한바퀴 돌면 1 epoch를 학습했다라고 부른다.
+  - 1 epoch = 165 iteration
+  - 공식 20,000 step = 약 121 epoch
+  - 우리가 멈춘 3,600 step = 약 22 epoch, val loss 최저점 1,500 step = 약 9 epoch
+- learning rate 를 dynamic하게 바꿀 수가 있다. (warmup → cosine scheduler, 처음엔 아주 작게 시작해서 올렸다가 천천히 내린다)
+
+#### 새로 배운 핵심들
+
+---
+
+- **Freeze는 3단계다**: config 스위치 → `requires_grad = False` → `train()` 에서 `.eval()` 고정. 그래서 전체 4.5억개 중 **22.2%(약 1억개, 거의 action expert)** 만 학습된다.
+- **얼려도 gradient는 흐른다**: `requires_grad = False` 는 그 가중치 업데이트만 막지, 그 층을 통과하는 역전파는 안 막는다. 그래서 얼어있는 VLM 뒤에 있는 `state_proj` 에도 grad 가 생긴다.
+- **학습 forward는 추론이랑 다르다**: 추론은 prefix를 KV cache로 만들고 denoise 10번을 돌지만, 학습은 `[prefix, suffix]` 를 한번에 넣고 **랜덤 t 하나에서 velocity MSE 한번**만 구한다. (10 step 안 돈다)
+- **같은 batch로 loss가 떨어지는 건 외운것**: 학습 루프가 고장 없이 도는지 확인하는 sanity check 용도일 뿐이다.
+- **train / val은 에피소드 단위로, val은 고정된 시험지로**: frame 단위로 나누면 커닝이고, val batch / noise / t 를 고정해야 step 끼리 비교가 된다.
+- **loss만 보면 안된다**: 실제로 denoising해서 뽑은 action을 도(°) 단위 MAE로도 봐야 로봇이 얼마나 틀리는지 알 수 있다. (base 모델 17.7도)
+- **step 수는 val loss가 정한다**: 공식 20,000 step이 아니라, 이 데이터는 1,500 step(약 9 epoch)에서 val loss 최저 → 그 뒤로는 과적합이다.
