@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "SmolVLA (Inference) - part2 (Action Expert)"
-date: 2026-10-13 11:00:00 +0900
+date: 2026-10-13 10:00:00 +0900
 categories: [Study, Robotics]
 section: Study
 study_area: Robotics
@@ -425,7 +425,7 @@ suffix_embs, suffix_pad_masks, suffix_att_masks = self.embed_suffix(x_t, timeste
 
 내부 코드 `embed_suffix` 메서드를 살펴보면, 우리는 `Noisy_action , time 두가지를 다 임베딩`해야하고, 
 
-time step 같은 경우 sin/cos embedding을 진행하는 것이 특징이다 +  [torch.cat](http://torch.cat)(dim = 2) 로 두 임베딩을 합쳐준다.
+time step 같은 경우 sin/cos embedding을 진행하는 것이 특징이다 +  `torch.cat(dim = 2)` 로 두 임베딩을 합쳐준다.
 
 최종적으로 prefix (이전) 과 동일하게 pad_masks, att_masks 그리고 embedding(720 Dimension)을 이렇게 3가지를 얻게된다. 여기서 attention masks는 전부 1인 것이 핵심이다. 지난번에 살펴봤듯이 1은 "여기서 한 층 올라간다"는 표시라서, cumsum을 하면 액션 토큰마다 한 층씩 올라간다. → 액션끼리는 **자기 앞 액션까지만** 보는 Causal 구조가 된다. (아래 B에서 다시 확인)
 
@@ -1042,3 +1042,13 @@ actions_real = post(actions_norm)   # 역정규화
 최종적으로 디멘션을 중심으로 어떻게 우리가 관절값을 얻는지 한눈에 봐보자.
 
 ![](images/img-017.png)
+
+<div class="notion-gap" style="--gap: 2"></div>
+
+#### Attention Weight
+
+---
+
+어텐션의 가중치(W_q)가 결국에 suffix(720) and prefix(960) Embedding → 960차원(15 head × 64)으로 맞춰주는 역할을 진행한다. (K, V는 320차원 = 5 head × 64, GQA) → 그래서 입력 차원이 달라도 같은 attention 연산을 할 수 있는 것.
+
+![](images/img-018.png)
