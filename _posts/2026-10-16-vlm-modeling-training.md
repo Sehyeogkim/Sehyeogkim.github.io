@@ -424,15 +424,7 @@ torch.nn.utils.clip_grad_norm_(params, 1.0)
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-## 5. Training on RunPod
-
----
-
-이후에 이제 Runpod 를 통해서 A40으로 학습을 실제로 진행하였다.
-
-<div class="notion-gap" style="--gap: 3"></div>
-
-## 6. Result
+## 5. Result
 
 ---
 
@@ -441,11 +433,11 @@ torch.nn.utils.clip_grad_norm_(params, 1.0)
 | **Stage 1** | connector만 | 이미지 → LLM 언어로 **정렬** |
 | Stage 2 | connector + **LLM** (전체 또는 LoRA) | 이미지를 보고 **대화하고 추론하는 능력** |
 
-(총 2가지 학습을 진행할 예정이고, 아래는 먼저 진행한 Stage 1 결과이다.)
+(총 2가지 학습을 진행하였다. Stage 1 → Stage 2 순서로, Stage 2는 Stage 1 에서 이어서 학습.)
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-### 6-1. Stage 1 결과 (connector 만 학습)
+### 5-1. Stage 1 결과 (connector 만 학습)
 
 학습 환경과 설정은 아래와 같다.
 
@@ -474,7 +466,40 @@ torch.nn.utils.clip_grad_norm_(params, 1.0)
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-## 7. Eval (token generation)
+### 5-2. Stage 2 결과 (connector + LLM 학습)
+
+Stage 1 에서 달라진 건 딱 4가지다.
+
+- LLM `requires_grad = True` (SigLIP 은 계속 얼림)
+- Stage 1 에서 학습한 connector (`best.pt`) 를 불러와서 이어서 시작
+- lr 두 그룹: connector 1e-4, LLM 2e-5 (LLM 은 이미 잘 학습돼 있어서 아주 작게)
+- 저장: connector + LLM 같이 → `stage2_best.pt` (약 540MB)
+
+| 항목 | 값 |
+|---|---|
+| GPU | RunPod **A40 (48GB)** 1장, Secure cloud (\$0.59/hr) |
+| 학습 시간 | **약 20.7분** (3000 step ÷ 2.41 it/s), pod 전체 약 30분 (약 \$0.30) |
+| Steps / batch | 3000 step, batch 16 (Stage 1 과 동일) |
+| 학습 파라미터 | **134,957,952개** (connector + LLM 전체) ← Stage 1 의 약 300배 |
+
+<div class="notion-gap" style="--gap: 1"></div>
+
+![](images/img-005.png)
+
+<div class="notion-gap" style="--gap: 1"></div>
+
+|  | 시작 val | 최종 val (best) | 마지막 train loss |
+|---|---|---|---|
+| Stage 1 (connector 만) | 1.046 | 0.447 | 0.46 |
+| Stage 2 (connector + LLM) | 0.424 | **0.289** | 0.10 |
+
+- Stage 2 는 첫 val 이 0.424 로 Stage 1 마지막 값(0.447) 근처에서 시작했다 → connector 가 제대로 불러와졌다는 증거.
+- val 이 0.447 → **0.289** 까지 더 내려갔다. connector 하나로는 막혔던 한계를 LLM 을 풀어서 뚫은 것.
+- 대신 train 0.10 vs val 0.29 로 차이가 생겼다. LLM 을 풀면서 외우는 능력도 커진 것 (아직 val 이 다시 올라가지는 않아서 overfit 까지는 아님).
+
+<div class="notion-gap" style="--gap: 1"></div>
+
+## 6. Eval (token generation)
 
 ---
 
@@ -515,15 +540,59 @@ def generate(self, pixel_values, gen_ids, eos_id, max_new_tokens=20):
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-![](images/img-005.png)
+![](images/img-006.png)
 
 <div class="notion-gap" style="--gap: 3"></div>
 
-### 7-1. Stage 1 eval 결과
+### 6-1. Stage 1 eval 결과 (정답률 60.7%)
 
 학습 때 한번도 안 본 val 이미지 300장 (이미지마다 첫 번째 질문)으로 답변을 생성하고, 정답이랑 그대로 비교했다 (exact match).
 
 > **정답률 60.7% (182 / 300)**
+
+<div class="notion-gap" style="--gap: 1"></div>
+
+실제로 넣었던 이미지랑 prompt → 결과를 맞은 것 / 틀린 것 하나씩 보자.
+
+<div class="notion-gap" style="--gap: 1"></div>
+
+**✅ 맞은 예시**
+
+---
+
+![](images/img-007.jpg)
+
+```text
+[user]      What is laying in the grass next to a shoe
+            Give a very brief answer.
+[assistant] Cat.        ← 모델 생성
+[정답]      Cat.
+```
+
+신발 옆에 누워있는 고양이를 정확히 맞춘다.
+
+<div class="notion-gap" style="--gap: 1"></div>
+
+**❌ 틀린 예시**
+
+---
+
+![](images/img-008.jpg)
+
+```text
+[user]      What is the color of the grass
+            Write a very short answer.
+[assistant] Green.      ← 모델 생성
+[정답]      Brown.
+```
+
+<div class="notion-gap" style="--gap: 1"></div>
+
+사진을 보면 풀이 메말라서 갈색인데, 모델은 Green 이라고 답했다. 이미지를 보기보다는 "풀 = 초록" 이라는 LLM의 상식을 따라간 것.
+
+<div class="notion-gap" style="--gap: 1"></div>
+
+나머지 예시들을 표로 정리하면 아래와 같다.
 
 |  | 질문 | 예측 | 정답 |
 |---|---|---|---|
@@ -547,7 +616,29 @@ def generate(self, pixel_values, gen_ids, eos_id, max_new_tokens=20):
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-## 8. Model architecture
+### 6-2. Stage 2 eval 결과 (정답률 71.3%)
+
+Stage 1 과 똑같은 val 이미지 300장, 똑같은 질문으로 비교했다.
+
+> **정답률 71.3% (214 / 300)** ← Stage 1 60.7% 에서 **+10.6%p**
+
+| 질문 | 정답 | Stage 1 | Stage 2 |
+|---|---|---|---|
+| How many birds standing near the edge of a body of water | Two. | One. ❌ | **Two. ✅** |
+| Where are some black animals eating pumpkins | Pen. | Tower. ❌ | **Pen. ✅** |
+| What is laying in the grass next to a shoe | Cat. | Cat. ✅ | Kitten. ❌ (의미는 맞음) |
+| What is the color of the grass | Brown. | Green. ❌ | Green. ❌ |
+| What walks through the snow | Skis. | Cars. ❌ | Car. ❌ |
+
+보면
+
+- **개수 세기가 좋아졌다**: Stage 1 에서 틀렸던 새 두 마리(Two)를 맞췄다. LLM 이 이미지 토큰을 더 잘 읽게 된 것.
+- **Kitten vs Cat**: 사진은 실제로 아기 고양이라 의미는 맞는데 exact match 라서 틀린 걸로 채점됐다. 채점 방식의 한계도 같이 보인다.
+- **풀 색깔 (Green) 은 여전히 틀린다**: "풀 = 초록" 이라는 상식이 아직 이미지보다 강하다.
+
+<div class="notion-gap" style="--gap: 1"></div>
+
+## 7. Model architecture
 
 ---
 

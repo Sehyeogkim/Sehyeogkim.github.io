@@ -16,6 +16,24 @@ lines = open(src_path).read().replace('<content>', '').replace('</content>', '')
 img_no = 0
 
 
+def flatten_columns(src):
+    # Notion side-by-side columns -> blocks one after another (blog is single-column)
+    out, depth = [], 0
+    for ln in src:
+        s = ln.strip()
+        if s == '<columns>' or s.startswith('<column ') or s == '<column>':
+            depth += 1
+            continue
+        if s in ('</column>', '</columns>'):
+            depth -= 1
+            continue
+        out.append(ln[2:] if depth and ln.startswith('\t\t') else ln)
+    return out
+
+
+lines = flatten_columns(lines)
+
+
 def inline(s):
     # kramdown does not parse ** inside inline HTML, so bold inside an underline becomes <strong>
     s = re.sub(r'<span underline="true">(.*?)</span>', lambda m: '<u>' + re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', m.group(1)) + '</u>', s)
