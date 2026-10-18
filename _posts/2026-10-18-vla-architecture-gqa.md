@@ -318,15 +318,15 @@ return self.W_o(out)                                       # [B, 16, 384]
 
 ---
 
-`Cross attention` 은 홀수 layer 에서 쓰인다. self 와 다른 점은 **suffix 는 q 만 만들고, K, V 는 prefix cache 만** 쓴다는 것. 즉 action 토큰이 이 layer 에서는 관측 (prefix 413) 만 보고, 다른 action 은 보지 않는다. self 와 똑같이 5 단계로 끊어서 보자.
+`Cross attention` 은 홀수 layer 에서 쓰인다. self 와 다른 점은 **suffix 는 q 만 만들고, K, V 는 prefix cache 만** 쓴다는 것. 즉 action 토큰이 이 layer 에서는 관측 (prefix 413) 만 보고, 다른 action 은 보지 않는다. 
 
-<div class="notion-gap" style="--gap: 1"></div>
+![](images/img-010.png)
 
 ### 4-1. Linear 크기 정하기 (`__init__`)
 
 ---
 
-![](images/img-010.svg)
+![](images/img-011.svg)
 
 ```python
 self.W_q = torch.nn.Linear(self.suffix_dim, self.d_q_head)     # 384 -> 576
@@ -345,7 +345,7 @@ self.W_o = torch.nn.Linear(self.d_q_head, self.suffix_dim)     # 576 -> 384
 
 ---
 
-![](images/img-011.svg)
+![](images/img-012.svg)
 
 ```python
 k, v = KV_cache # [B, 3, 413, 64]
@@ -362,7 +362,7 @@ v = merge(v)    # [B, 413, 192]
 
 ---
 
-![](images/img-012.svg)
+![](images/img-013.svg)
 
 ```python
 q = self.split(self.W_q(x))    # [B, 16, 576]  -> [B, 9, 16, 64]
@@ -385,7 +385,7 @@ if rope is not None:
 
 ---
 
-![](images/img-013.svg)
+![](images/img-014.svg)
 
 ```python
 k = k.repeat_interleave(self.config.Group_size, dim = 1)   # [B, 9, 413, 64]
@@ -410,7 +410,7 @@ return self.W_o(out)                                   # [B, 16, 384]
 
 ---
 
-![](images/img-014.svg)
+![](images/img-015.svg)
 
 |  | Self (짝수 layer) | Cross (홀수 layer) |
 |---|---|---|

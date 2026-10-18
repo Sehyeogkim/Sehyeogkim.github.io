@@ -1,23 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="680" height="300" viewBox="0 0 680 300" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif"><style>.th{font-size:14px;font-weight:500;fill:#2C2C2A}.ts{font-size:12px;fill:#5F5E5A}.c-purple{fill:#EEEDFE;stroke:#534AB7}.c-coral{fill:#FAECE7;stroke:#993C1D}.c-teal{fill:#E1F5EE;stroke:#0F6E56}</style><rect width="680" height="300" fill="#ffffff"/>
-<text class="th" x="180" y="36" text-anchor="middle">Self (짝수 layer)</text>
-<text class="th" x="500" y="36" text-anchor="middle">Cross (홀수 layer)</text>
-<line x1="340" y1="20" x2="340" y2="280" stroke="#73726c" stroke-width="0.5" opacity="0.3"/>
-<rect class="c-purple" x="60" y="60" width="40" height="110" stroke-width="0.5"/>
-<rect class="c-coral" x="60" y="170" width="40" height="20" stroke-width="0.5"/>
-<text class="ts" x="110" y="115" dominant-baseline="central">cache 413</text>
-<text class="ts" x="110" y="180" dominant-baseline="central">suffix 16</text>
-<rect class="c-purple" x="190" y="100" width="90" height="40" stroke-width="0.5"/>
-<rect x="284" y="100" width="36" height="40" fill="none" stroke="#73726c" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.6"/>
-<path class="c-coral" d="M284 100 L284 140 L320 140 Z" stroke-width="0.5"/>
-<text class="ts" x="255" y="160" text-anchor="middle">key 429, causal 있음</text>
-<text class="ts" x="180" y="216" text-anchor="middle">K, V = cache ⊕ suffix</text>
-<text class="ts" x="180" y="240" text-anchor="middle">RoPE: q, k_suffix (406~421)</text>
-<text class="ts" x="180" y="264" text-anchor="middle">action끼리 서로 봄</text>
-<rect class="c-teal" x="380" y="60" width="40" height="110" stroke-width="0.5"/>
-<text class="ts" x="430" y="115" dominant-baseline="central">W_k(cache)</text>
-<rect class="c-purple" x="520" y="100" width="90" height="40" stroke-width="0.5"/>
-<text class="ts" x="565" y="160" text-anchor="middle">key 413, causal 없음</text>
-<text class="ts" x="500" y="216" text-anchor="middle">K, V = cache만 재투영</text>
-<text class="ts" x="500" y="240" text-anchor="middle">RoPE: q만 (0~15)</text>
-<text class="ts" x="500" y="264" text-anchor="middle">action끼리 안 봄</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="300" viewBox="0 0 680 300" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif"><style>.th{font-size:14px;font-weight:500;fill:#2C2C2A}.ts{font-size:12px;fill:#5F5E5A}.c-purple{fill:#EEEDFE;stroke:#534AB7}</style><rect width="680" height="300" fill="#ffffff"/>
+<text class="th" x="40" y="30">score → mask → softmax  (head 하나, [16 × 413])</text>
+<text class="ts" x="195" y="62" text-anchor="middle">prefix 실제 406</text>
+<text class="ts" x="340" y="62" text-anchor="middle">pad</text>
+<rect class="c-purple" x="60" y="70" width="270" height="128" stroke-width="0.5"/>
+<rect x="330" y="70" width="20" height="128" fill="none" stroke="#73726c" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.6"/>
+<rect class="c-purple" x="350" y="70" width="8" height="128" stroke-width="0.5"/>
+<rect x="370" y="70" width="128" height="128" fill="none" stroke="#73726c" stroke-width="0.5" stroke-dasharray="2 4" opacity="0.3"/>
+<text class="ts" x="434" y="126" text-anchor="middle" opacity="0.6">self엔 있던</text>
+<text class="ts" x="434" y="144" text-anchor="middle" opacity="0.6">suffix 16칸 없음</text>
+<text class="ts" x="46" y="134" text-anchor="middle" transform="rotate(-90 46 134)">action query 16</text>
+<rect class="c-purple" x="516" y="96" width="12" height="12" rx="2" stroke-width="0.5"/>
+<text class="ts" x="536" y="102" dominant-baseline="central">보임</text>
+<rect x="516" y="120" width="12" height="12" rx="2" fill="none" stroke="#73726c" stroke-width="0.5" stroke-dasharray="2 2"/>
+<text class="ts" x="536" y="126" dominant-baseline="central">가림 → 0</text>
+<text class="ts" x="210" y="222" text-anchor="middle">key 413 = prefix만  →  attn_mask[:, None, -16:, :413]</text>
+<line x1="40" y1="244" x2="640" y2="244" stroke="#73726c" stroke-width="0.5" opacity="0.3"/>
+<text class="ts" x="40" y="268">GQA 복제 (kv 3 → 9), attn @ v → merge → W_o 는 3-5와 동일</text>
+<text class="ts" x="40" y="288">출력 [B, 16, 384] → block 안에서 residual로 더해짐</text>
 </svg>
