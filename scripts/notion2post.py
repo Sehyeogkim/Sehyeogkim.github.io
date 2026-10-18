@@ -67,7 +67,8 @@ def img_md(item):
     img_no += 1
     nm = re.search(r'name=([^)&]+)', item)
     ext = nm.group(1).rsplit('.', 1)[-1].lower() if nm else 'png'
-    return f'![](images/img-{img_no:03d}.' + ('jpg' if ext in ('jpg', 'jpeg') else 'png') + ')'
+    ext = 'jpg' if ext in ('jpg', 'jpeg') else ('svg' if ext == 'svg' else 'png')
+    return f'![](images/img-{img_no:03d}.{ext})'
 
 
 blocks = []          # list of (kind, text)

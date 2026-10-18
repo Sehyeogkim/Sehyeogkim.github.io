@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="300" viewBox="0 0 680 300" font-family="-apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif"><style>.th{font-size:14px;font-weight:500;fill:#2C2C2A}.ts{font-size:12px;fill:#5F5E5A}.c-purple{fill:#EEEDFE;stroke:#534AB7}</style><rect width="680" height="300" fill="#ffffff"/>
+<text class="th" x="40" y="30">score → mask → softmax  (head 하나, [16 × 413])</text>
+<text class="ts" x="195" y="62" text-anchor="middle">prefix 실제 406</text>
+<text class="ts" x="340" y="62" text-anchor="middle">pad</text>
+<rect class="c-purple" x="60" y="70" width="270" height="128" stroke-width="0.5"/>
+<rect x="330" y="70" width="20" height="128" fill="none" stroke="#73726c" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.6"/>
+<rect class="c-purple" x="350" y="70" width="8" height="128" stroke-width="0.5"/>
+<rect x="370" y="70" width="128" height="128" fill="none" stroke="#73726c" stroke-width="0.5" stroke-dasharray="2 4" opacity="0.3"/>
+<text class="ts" x="434" y="126" text-anchor="middle" opacity="0.6">self엔 있던</text>
+<text class="ts" x="434" y="144" text-anchor="middle" opacity="0.6">suffix 16칸 없음</text>
+<text class="ts" x="46" y="134" text-anchor="middle" transform="rotate(-90 46 134)">action query 16</text>
+<rect class="c-purple" x="516" y="96" width="12" height="12" rx="2" stroke-width="0.5"/>
+<text class="ts" x="536" y="102" dominant-baseline="central">보임</text>
+<rect x="516" y="120" width="12" height="12" rx="2" fill="none" stroke="#73726c" stroke-width="0.5" stroke-dasharray="2 2"/>
+<text class="ts" x="536" y="126" dominant-baseline="central">가림 → 0</text>
+<text class="ts" x="210" y="222" text-anchor="middle">key 413 = prefix만  →  attn_mask[:, None, -16:, :413]</text>
+<line x1="40" y1="244" x2="640" y2="244" stroke="#73726c" stroke-width="0.5" opacity="0.3"/>
+<text class="ts" x="40" y="268">GQA 복제 (kv 3 → 9), attn @ v → merge → W_o 는 3-5와 동일</text>
+<text class="ts" x="40" y="288">출력 [B, 16, 384] → block 안에서 residual로 더해짐</text>
+</svg>
