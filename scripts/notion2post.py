@@ -32,6 +32,8 @@ def flatten_columns(src):
 
 
 lines = flatten_columns(lines)
+# blocks the Notion API can't export (video / embed placeholders) have nothing to show on the blog
+lines = [ln for ln in lines if not ln.lstrip().startswith('<unknown ')]
 
 
 def inline(s):
