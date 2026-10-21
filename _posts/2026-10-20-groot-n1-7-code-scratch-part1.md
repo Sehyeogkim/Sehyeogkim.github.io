@@ -20,13 +20,14 @@ media_subpath: /blog/robotics/vla/groot-n1-7-code-scratch-part1/
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-**`Groot blog`**를 총 3가지 파트로 구성할 예정이다.
+**`Groot blog`**를 총 2가지 파트로 구성할 예정이다.
 
 ---
 
 - part1 - 기본 모델 코드 구조
-- part2 - 학습 결과 및 eval
-- part3 - Attention Mask
+- [part2](/blog/robotics/vla/groot-n1-7-code-scratch-part2/) - Eval and Attention Mask
+
+(`nn.MultiheadAttention` 안의 attention mask 는 [별도 글](/blog/robotics/vla/groot-attention-mask-multiheadattention/) 로 따로 뜯어봤다)
 
 <div class="notion-gap" style="--gap: 1"></div>
 
@@ -113,7 +114,7 @@ media_subpath: /blog/robotics/vla/groot-n1-7-code-scratch-part1/
 2. Data for training (LIBERO)
 3. Model architecture (3-1 VLM backbone / 3-2 Diffusion transformer / 3-3 Groot Policy)
 
-(학습 / eval 은 part2, attention mask 는 part3 에서)
+(eval 과 attention mask 는 part2 에서)
 
 <div class="notion-gap" style="--gap: 2"></div>
 
@@ -851,7 +852,7 @@ class _DiTBlock(torch.nn.Module):
 
 <div class="notion-gap" style="--gap: 1"></div>
 
-이제 이번시간에 attention은 torch 의 `nn.MultiheadAttention` 을 그대로 사용했기 때문에 그안에서 정확하게 어떻게 제작하는지는 이제 part3에서 따로 다루도록 하겠다. (Self-attention의 경우에 어떻게 마스크가 생기고, Cross-attention에는 어떻게 마스크가 생기는지)
+이제 이번시간에 attention은 torch 의 `nn.MultiheadAttention` 을 그대로 사용했기 때문에 그안에서 정확하게 어떻게 제작하는지는 이제 [별도 글 (GR00T N1.7 Attention Mask)](/blog/robotics/vla/groot-attention-mask-multiheadattention/) 에서 따로 다루도록 하겠다. (Self-attention의 경우에 어떻게 마스크가 생기고, Cross-attention에는 어떻게 마스크가 생기는지)
 
 ```py
 self.self_attn = torch.nn.MultiheadAttention(dim, heads, batch_first=True)
@@ -882,4 +883,4 @@ self.cross_attn = torch.nn.MultiheadAttention(
 - flow matching 자체 (Beta 로 t 뽑기, x\_t, u\_t, masked MSE) 는 내 코드랑 똑같다. GR00T 도 N1 → N1.7 동안 action head 는 거의 그대로고, 바뀐 건 **VLM 과 데이터**.
 - 데이터는 LIBERO. task 40 개라 언어가 진짜 의미를 가진다. `[B, 2, ...]` 의 2 는 시간이 아니라 **카메라 두 대**, chunk 는 **40 칸 (4 초)**, action 은 절대좌표가 아니라 **변화량**.
 - 처음부터 학습하면 H100 천 장 단위 규모라 개인은 불가능 → **VLM 은 얼리고 action head 만 맞추는 fine-tuning** 이 현실적인 길이다.
-- 다음: part2 학습 + LIBERO eval, part3 `nn.MultiheadAttention` 안의 attention mask 직접 뜯어보기.
+- 다음: [part2](/blog/robotics/vla/groot-n1-7-code-scratch-part2/) LIBERO eval + attention mask, 그리고 [별도 글](/blog/robotics/vla/groot-attention-mask-multiheadattention/) 에서 `nn.MultiheadAttention` 안의 attention mask 직접 뜯어보기.
