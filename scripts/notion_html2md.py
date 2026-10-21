@@ -81,6 +81,17 @@ while i < len(lines):
                 j += 1
         i = j + 1
         continue
+    if s.startswith('|') and s.endswith('|'):
+        # Markdown pipe table (rows come blank-line separated) -> <table> block notion2post understands
+        rows, j = [], i
+        while j < len(lines) and (not lines[j].strip() or (lines[j].strip().startswith('|') and lines[j].strip().endswith('|'))):
+            r = lines[j].strip()
+            if r and not re.fullmatch(r'\|(\s*:?-+:?\s*\|)+', r):
+                rows.append('<tr>' + ''.join('<td>' + inline(c.strip()) + '</td>' for c in r[1:-1].split('|')) + '</tr>')
+            j += 1
+        out.extend([pre + '<table>'] + [pre + r for r in rows] + [pre + '</table>'])
+        i = j
+        continue
     m = re.match(r'<image source="([^"]+)"\s*/>', s)
     if m:
         out.append(pre + f'![]({m.group(1)})')
