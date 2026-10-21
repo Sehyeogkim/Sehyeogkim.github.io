@@ -112,7 +112,6 @@ media_subpath: /blog/robotics/vla/groot-n1-7-code-scratch-part1/
 1. GR00T 전체 구조
 2. Data for training (LIBERO)
 3. Model architecture (3-1 VLM backbone / 3-2 Diffusion transformer / 3-3 Groot Policy)
-4. 사전학습 가중치 로드 + 검증
 
 (학습 / eval 은 part2, attention mask 는 part3 에서)
 
