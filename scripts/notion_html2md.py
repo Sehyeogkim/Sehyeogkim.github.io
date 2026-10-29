@@ -92,6 +92,15 @@ while i < len(lines):
         out.extend([pre + '<table>'] + [pre + r for r in rows] + [pre + '</table>'])
         i = j
         continue
+    if s == '<table-of-contents />':
+        out.append('<table_of_contents/>')
+        i += 1
+        continue
+    m = re.match(r'<video source="(https?://[^"]+)"\s*/>', s)
+    if m:   # external video -> inline HTML5 player
+        out.append(pre + f'<video src="{m.group(1)}" controls muted loop playsinline style="width:100%"></video>')
+        i += 1
+        continue
     m = re.match(r'<image source="([^"]+)"\s*/>', s)
     if m:
         out.append(pre + f'![]({m.group(1)})')
